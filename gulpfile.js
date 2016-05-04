@@ -135,7 +135,7 @@ function buildScript(opts, watch, dest, outputName) {
       .pipe(source(outputName))
       .pipe(buffer())
       .pipe(gulpif(global.devMode, sourcemaps.init({ loadMaps: true })))
-      .pipe(gulpif(!global.devMod, ngAnnotate()))
+      .pipe(ngAnnotate())
       .pipe(gulpif(!global.devMode, streamify(uglify())))
       .pipe(gulpif(global.devMode, sourcemaps.write('./')))
       .pipe(gulp.dest(dest))

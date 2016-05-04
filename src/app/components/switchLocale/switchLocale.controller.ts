@@ -2,8 +2,8 @@ import {Locale} from './locale';
 
 export class SwitchLocaleController {
     public locales: Locale[];
-
-    static $inject = ['$translate'];
+    
+    /*@ngInject*/
     constructor(protected $translate: ng.translate.ITranslateService) {
         this.locales = [
             new Locale('English', 'en'),
