@@ -14,7 +14,7 @@ import 'angular-sanitize';
 import 'angular-translate';
 import 'angular-translate-loader-static-files';
 
-import './components/angular-translate-storage-cookies/angular-translate-storage-cookies';
+import './components/angular-translate/cookiesStorage.module';
 import './components/hello/hello.module';
 import './components/switchLocale/switchLocale.module';
 import './home/home.module';
@@ -37,7 +37,7 @@ angular.module('app', [
       $urlRouterProvider.otherwise('/home');
   ($translateProvider as any).uniformLanguageTag('bcp47') //since 2.7
   $translateProvider
-    .useStorage('$translateCookieStringStorage')
+    .useStorage('$translateCookiesStorage')
     .storageKey('locale');
   $translateProvider.useStaticFilesLoader({
     prefix: 'locales/',
