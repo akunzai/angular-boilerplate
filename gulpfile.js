@@ -8,6 +8,9 @@ var runSequence = require('run-sequence');
 var shell = require('gulp-shell');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
+var gutil = require('gulp-util');
+var browserify = require('browserify');
+var tsify = require('tsify');
 
 const sourceRoot = 'src';
 const outDir = 'wwwroot';
@@ -29,7 +32,9 @@ var config = {
     outputName: 'bundle.css'
   },
   scripts: {
-    src: [`${sourceRoot}/app/main.ts`,'typings/browser.d.ts'],
+    src: [
+      `${sourceRoot}/app/main.ts`,
+      'typings/browser.d.ts'],
     dest: `${outDir}/js`,
     outputName: 'bundle.js',
     watch: `${sourceRoot}/app/**/*.ts`
@@ -47,9 +52,9 @@ gulp.task('release', function (callback) {
 
 gulp.task('build', function (callback) {
   if (global.devMode) {
-    return runSequence(['fonts', 'styles', 'scripts'], callback);
+    return runSequence(['assets', 'browserify'], callback);
   }
-  return runSequence('clean', ['fonts', 'styles', 'scripts'], callback);
+  return runSequence('clean', ['assets', 'browserify'], callback);
 });
 
 gulp.task('clean', function (callback) {
@@ -60,6 +65,8 @@ gulp.task('clean', function (callback) {
     `${outDir}/js/**`,
   ], callback);
 });
+
+gulp.task('assets', ['fonts', 'styles', 'config']);
 
 gulp.task('fonts', function () {
   return gulp.src(config.fonts.src)
@@ -98,57 +105,60 @@ gulp.task('styles', function () {
     .pipe(connect.reload());
 });
 
-gulp.task('scripts', ['browserify', 'config']);
-
-gulp.task('browserify', ['tslint'], function () {
-  // browserify -p [ tsify ] -t [ stringify ] src/app/main.ts
-  var bundler;
+function bundleScript(bundler) {
   var gutil = require('gulp-util');
   var buffer = require('vinyl-buffer');
-  var browserify = require('browserify');
   var source = require('vinyl-source-stream');
   var streamify = require('gulp-streamify');
-  var tsify = require('tsify');
   var ngAnnotate = require('gulp-ng-annotate');
-  var opts = {
-      entries: config.scripts.src,
-      debug: global.devMode
-  };
-  if (global.watch) {
-    var watchify = require('watchify');
-    bundler = watchify(browserify(Object.assign({}, watchify.args, opts)));
-    bundler.on('update', bundle);
-    bundler.on('log', gutil.log);
-  } else {
-    bundler = browserify(opts);
-  }
+  return bundler.bundle()
+    .on('error', function (err) {
+      gutil.log(err.message);
+      this.emit('end');
+    })
+    .pipe(source(config.scripts.outputName))
+    .pipe(buffer())
+    .pipe(gulpif(global.devMode, sourcemaps.init({ loadMaps: true })))
+    .pipe(ngAnnotate())
+    .pipe(gulpif(!global.devMode, streamify(uglify())))
+    .pipe(gulpif(global.devMode, sourcemaps.write('./')))
+    .pipe(gulp.dest(config.scripts.dest))
+    .pipe(connect.reload());
+}
+
+// https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md
+gulp.task('browserify', ['tslint'], function () {
+  var bundler = browserify({
+    entries: config.scripts.src,
+    debug: global.devMode
+  });
+  bundler.plugin(tsify);
+  return bundleScript(bundler);
+});
+
+// https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
+gulp.task('watchify', ['tslint'], function () {
+  var watchify = require('watchify');
+  var bundler = watchify(browserify(Object.assign({}, watchify.args, {
+    entries: config.scripts.src,
+    debug: global.devMode
+  })));
+  bundler.on('update', bundle);
+  bundler.on('log', gutil.log);
   bundler.plugin(tsify);
   function bundle() {
-    return bundler.bundle()
-      .on('error', function (err) {
-        gutil.log(err.message);
-        this.emit('end');
-      })
-      .pipe(source(config.scripts.outputName))
-      .pipe(buffer())
-      .pipe(gulpif(global.devMode, sourcemaps.init({ loadMaps: true })))
-      .pipe(ngAnnotate())
-      .pipe(gulpif(!global.devMode, streamify(uglify())))
-      .pipe(gulpif(global.devMode, sourcemaps.write('./')))
-      .pipe(gulp.dest(config.scripts.dest))
-      .pipe(connect.reload());
+    return bundleScript(bundler);
   }
   return bundle();
 });
 
-gulp.task('watch', function (callback) {
+gulp.task('watch', ['assets', 'watchify'], function () {
   // styles
   gulp.watch([config.styles.src], ['styles']);
   // tslint
   gulp.watch([config.scripts.watch], ['tslint']);
-  // watchify
-  global.watch = true;
-  return runSequence('build', callback);
+  // config
+  gulp.watch(['./config.json'], ['config']);
 });
 
 gulp.task('serve', ['watch'], function () {
@@ -195,7 +205,7 @@ gulp.task("test", ['tslint'], function (done) {
   return server.start();
 });
 
-gulp.task("test:chrome", ['tslint'], function (done) {
+gulp.task("test:debug", ['tslint'], function (done) {
   var karma = require('karma');
   var server = new karma.Server({
     configFile: __dirname + '/karma.conf.js',
