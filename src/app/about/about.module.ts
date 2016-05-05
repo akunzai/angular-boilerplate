@@ -1,5 +1,6 @@
 angular.module('app.about',[
-    'ui.router'
+    'ui.router',
+    'app.components.initialValue'
 ])
 .config(($stateProvider: ng.ui.IStateProvider)=>{
    $stateProvider.state('about', {

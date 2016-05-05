@@ -16,6 +16,7 @@ import 'angular-translate-loader-static-files';
 
 import './components/angular-translate/cookiesStorage.module';
 import './components/hello/hello.module';
+import './components/initialValue/initialValue.module';
 import './components/switchLocale/switchLocale.module';
 import './home/home.module';
 import './about/about.module';
