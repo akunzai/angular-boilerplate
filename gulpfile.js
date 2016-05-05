@@ -31,7 +31,8 @@ var config = {
   scripts: {
     src: `${sourceRoot}/app/main.ts`,
     dest: `${outDir}/js`,
-    outputName: 'bundle.js'
+    outputName: 'bundle.js',
+    watch: `${sourceRoot}/app/**/*.ts`
   },
   assets: {
     src: [
@@ -144,7 +145,8 @@ function buildScript(opts, watch, dest, outputName) {
   return bundle();
 }
 
-gulp.task('browserify', function () {
+gulp.task('browserify', ['tslint'], function () {
+  // browserify -p [ tsify ] -t [ stringify ] src/app/main.ts
   return buildScript(
     {
       entries: config.scripts.src,
@@ -169,6 +171,8 @@ gulp.task('watch', function (callback) {
   gulp.watch(config.assets.src, ['assets']);
   // styles
   gulp.watch([config.styles.src], ['styles']);
+  // tslint
+  gulp.watch([config.scripts.watch], ['tslint']);
   return runSequence('install', 'build', callback);
 });
 
@@ -183,17 +187,27 @@ gulp.task('serve', ['watch'], function () {
   open('http://localhost:7000');
 });
 
-gulp.task('config',function(){
+gulp.task('config', function () {
   var gulpNgConfig = require('gulp-ng-config');
   var fs = require('fs');
   var packageJson = JSON.parse(fs.readFileSync('./package.json'));
   gulp.src('./config.json')
-  .pipe(gulpNgConfig('app.config',{
-    constants: {
-      VERSION: packageJson.version || '1.0.0'
-    },
-    createModule: false,
-    pretty: global.devMode
-  }))
-  .pipe(gulp.dest(config.scripts.dest));
+    .pipe(gulpNgConfig('app.config', {
+      constants: {
+        VERSION: packageJson.version || '1.0.0'
+      },
+      createModule: false,
+      pretty: global.devMode
+    }))
+    .pipe(gulp.dest(config.scripts.dest));
+});
+
+gulp.task("tslint", function () {
+  var tslint = require("gulp-tslint");
+  gulp.src(config.scripts.watch)
+    .pipe(tslint())
+    .pipe(tslint.report("verbose", {
+      emitError: false,
+      reportLimit: 10
+    }));
 });
