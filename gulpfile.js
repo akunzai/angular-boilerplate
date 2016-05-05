@@ -182,3 +182,18 @@ gulp.task('serve', ['watch'], function () {
   });
   open('http://localhost:7000');
 });
+
+gulp.task('config',function(){
+  var gulpNgConfig = require('gulp-ng-config');
+  var fs = require('fs');
+  var packageJson = JSON.parse(fs.readFileSync('./package.json'));
+  gulp.src('./config.json')
+  .pipe(gulpNgConfig('app.config',{
+    constants: {
+      VERSION: packageJson.version || '1.0.0'
+    },
+    createModule: false,
+    pretty: global.devMode
+  }))
+  .pipe(gulp.dest(config.scripts.dest));
+});

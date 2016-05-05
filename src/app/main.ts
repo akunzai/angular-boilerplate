@@ -20,6 +20,8 @@ import './components/switchLocale/switchLocale.module';
 import './home/home.module';
 import './about/about.module';
 
+// declare app.config module for lazy load
+angular.module('app.config',[]);
 /*
  app entry point
  */
@@ -29,6 +31,7 @@ angular.module('app', [
   'ngCookies',
   'ngSanitize',
   'pascalprecht.translate',
+  'app.config',
   'app.home',
   'app.about'])
   .config((
