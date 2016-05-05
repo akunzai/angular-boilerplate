@@ -105,7 +105,7 @@ gulp.task('styles', function () {
     .pipe(connect.reload());
 });
 
-gulp.task('scripts', ['browserify','config']);
+gulp.task('scripts', ['browserify', 'config']);
 
 // https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md
 // https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
@@ -210,4 +210,22 @@ gulp.task("tslint", function () {
       emitError: false,
       reportLimit: 10
     }));
+});
+
+gulp.task("test", ['tslint'], function (done) {
+  var karma = require('karma');
+  var server = new karma.Server({
+    configFile: __dirname + '/karma.conf.js',
+  }, done);
+  return server.start();
+});
+
+gulp.task("test:chrome", ['tslint'], function (done) {
+  var karma = require('karma');
+  var server = new karma.Server({
+    configFile: __dirname + '/karma.conf.js',
+    browsers: ['Chrome'],
+    singleRun: false
+  }, done);
+  return server.start();
 });
