@@ -1,7 +1,4 @@
-/// <reference path="../../typings/tsd.d.ts" />
-/// <reference path="../../node_modules/retyped-angularjs-tsd-ambient/angular-cookies.d.ts" />
-
-import jQuery = require('jquery');
+import * as jQuery from 'jquery';
 global['$'] = global['jQuery'] = jQuery;
 import 'lodash';
 import 'bootstrap-sass';
@@ -24,6 +21,7 @@ import './about/about.module';
 
 // declare app.config module for lazy load
 angular.module('app.config', []);
+
 /*
  app entry point
  */
@@ -36,10 +34,14 @@ angular.module('app', [
   'app.config',
   'app.home',
   'app.about'])
-  .config((
+  .config(
+  (
     $urlRouterProvider: ng.ui.IUrlRouterProvider,
-    $translateProvider: ng.translate.ITranslateProvider) => {
+    $translateProvider: ng.translate.ITranslateProvider
+  ) => {
+
     $urlRouterProvider.otherwise('/home');
+
     ($translateProvider as any).uniformLanguageTag('bcp47'); // since 2.7
     $translateProvider
       .useStorage('$translateCookiesStorage')

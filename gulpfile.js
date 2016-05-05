@@ -29,43 +29,36 @@ var config = {
     outputName: 'bundle.css'
   },
   scripts: {
-    src: `${sourceRoot}/app/main.ts`,
+    src: [`${sourceRoot}/app/main.ts`,'typings/browser.d.ts'],
     dest: `${outDir}/js`,
     outputName: 'bundle.js',
     watch: `${sourceRoot}/app/**/*.ts`
-  },
-  assets: {
-    src: [
-      `${sourceRoot}/index.html`,
-      `${sourceRoot}/locales/*.json`],
-    base: sourceRoot,
-    dest: `${outDir}`
   }
 };
 
 gulp.task('default', function (callback) {
-  return runSequence('install', 'build', callback);
+  return runSequence('build', callback);
 });
 
 gulp.task('release', function (callback) {
   global.devMode = false;
-  return runSequence('install', 'build', callback);
+  return runSequence('build', callback);
 });
-
-gulp.task('install', shell.task([
-  'tsdm rewire'
-]));
 
 gulp.task('build', function (callback) {
   if (global.devMode) {
-    return runSequence(['fonts', 'assets', 'styles', 'scripts'], callback);
+    return runSequence(['fonts', 'styles', 'scripts'], callback);
   }
-  return runSequence('clean', ['fonts', 'assets', 'styles', 'scripts'], callback);
+  return runSequence('clean', ['fonts', 'styles', 'scripts'], callback);
 });
 
 gulp.task('clean', function (callback) {
   var del = require('del');
-  return del([`${outDir}/**`], callback);
+  return del([
+    `${outDir}/css/**`,
+    `${outDir}/fonts/**`,
+    `${outDir}/js/**`,
+  ], callback);
 });
 
 gulp.task('fonts', function () {
@@ -107,9 +100,8 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', ['browserify', 'config']);
 
-// https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md
-// https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
-function buildScript(opts, watch, dest, outputName) {
+gulp.task('browserify', ['tslint'], function () {
+  // browserify -p [ tsify ] -t [ stringify ] src/app/main.ts
   var bundler;
   var gutil = require('gulp-util');
   var buffer = require('vinyl-buffer');
@@ -118,7 +110,11 @@ function buildScript(opts, watch, dest, outputName) {
   var streamify = require('gulp-streamify');
   var tsify = require('tsify');
   var ngAnnotate = require('gulp-ng-annotate');
-  if (watch) {
+  var opts = {
+      entries: config.scripts.src,
+      debug: global.devMode
+  };
+  if (global.watch) {
     var watchify = require('watchify');
     bundler = watchify(browserify(Object.assign({}, watchify.args, opts)));
     bundler.on('update', bundle);
@@ -133,47 +129,26 @@ function buildScript(opts, watch, dest, outputName) {
         gutil.log(err.message);
         this.emit('end');
       })
-      .pipe(source(outputName))
+      .pipe(source(config.scripts.outputName))
       .pipe(buffer())
       .pipe(gulpif(global.devMode, sourcemaps.init({ loadMaps: true })))
       .pipe(ngAnnotate())
       .pipe(gulpif(!global.devMode, streamify(uglify())))
       .pipe(gulpif(global.devMode, sourcemaps.write('./')))
-      .pipe(gulp.dest(dest))
+      .pipe(gulp.dest(config.scripts.dest))
       .pipe(connect.reload());
   }
   return bundle();
-}
-
-gulp.task('browserify', ['tslint'], function () {
-  // browserify -p [ tsify ] -t [ stringify ] src/app/main.ts
-  return buildScript(
-    {
-      entries: config.scripts.src,
-      debug: global.devMode
-    },
-    global.watch,
-    config.scripts.dest,
-    config.scripts.outputName
-  );
-});
-
-gulp.task('assets', function () {
-  return gulp.src(config.assets.src, { base: config.assets.base })
-    .pipe(changed(config.assets.dest))
-    .pipe(gulp.dest(config.assets.dest))
-    .pipe(connect.reload());
 });
 
 gulp.task('watch', function (callback) {
-  global.watch = true;
-  // assets
-  gulp.watch(config.assets.src, ['assets']);
   // styles
   gulp.watch([config.styles.src], ['styles']);
   // tslint
   gulp.watch([config.scripts.watch], ['tslint']);
-  return runSequence('install', 'build', callback);
+  // watchify
+  global.watch = true;
+  return runSequence('build', callback);
 });
 
 gulp.task('serve', ['watch'], function () {

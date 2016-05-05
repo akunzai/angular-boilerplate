@@ -19,21 +19,21 @@ Angular boilerplate to kick start new project with SASS, TypeScript, Browserify 
 - `src/app/*/*.html` : html template for angular
 - `src/sass/*.scss` : SASS stylesheets
 - `src/locales/{bcp47}.json` : i18n translations
-- `typings` : typescript type definition
+- `typings` : downloaded typings definition
 - `wwwroot` : output directory
 
 ## Before Building
 
-install gulp global
+install global packages
 
 ```
-npm install -g gulp
+$ npm install -g gulp typings
 ```
 
 run npm install at project root
 
 ```sh
-npm install
+$ npm install
 ```
 
 ## Start Developing
@@ -41,8 +41,14 @@ npm install
 watch and serve at http://localhost:7000
 
 ```sh
-$ gulp serve
-``` 
+$ npm start
+```
+
+## Run Testing
+
+```sh
+$ npm test
+```
 
 ## Publish
 

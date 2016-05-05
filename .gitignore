@@ -110,4 +110,6 @@ bower_components
 .bower-tmp
 
 ### Customize ###
-wwwroot
+wwwroot/css/
+wwwroot/fonts/
+wwwroot/js/

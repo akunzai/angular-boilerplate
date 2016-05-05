@@ -6,6 +6,8 @@
   },
   "exclude": [
     "node_modules",
-    "wwwroot"
+    "wwwroot",
+    "typings/main",
+    "typings/main.d.ts"
   ]
 }

@@ -5,6 +5,11 @@
   "engines": {
     "node": ">=4.0.0"
   },
+  "scripts": {
+    "start": "gulp serve",
+    "test": "gulp test",
+    "postinstall": "typings install"
+  },
   "devDependencies": {
     "angular": "^1.5.5",
     "angular-animate": "^1.5.5",
@@ -49,14 +54,6 @@
     "node-sass": "^3.7.0",
     "open": "^0.0.5",
     "phantomjs-prebuilt": "^2.1.7",
-    "retyped-angular-translate-tsd-ambient": "^2.4.0-0",
-    "retyped-angular-ui-bootstrap-tsd-ambient": "^0.13.3-0",
-    "retyped-angular-ui-router-tsd-ambient": "^1.1.5-0",
-    "retyped-angularjs-tsd-ambient": "^1.4.0-0",
-    "retyped-jasmine-tsd-ambient": "^2.2.0-0",
-    "retyped-jquery-tsd-ambient": "^1.10.0-0",
-    "retyped-lodash-tsd-ambient": "^0.0.0-0",
-    "retyped-node-tsd-ambient": "^1.5.3-0",
     "run-sequence": "^1.1.5",
     "stringify": "^5.1.0",
     "tsdm": "^0.1.0-3",

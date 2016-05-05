@@ -1,5 +1,3 @@
-/// <reference path="../../../../node_modules/retyped-angularjs-tsd-ambient/angular-cookies.d.ts" />
-/// <reference path="../../../../node_modules/retyped-angularjs-tsd-ambient/angular-mocks.d.ts" />
 import 'angular';
 import 'angular-mocks';
 import 'angular-cookies';
