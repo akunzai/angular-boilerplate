@@ -105,7 +105,7 @@ gulp.task('styles', function () {
     .pipe(connect.reload());
 });
 
-gulp.task('scripts', ['browserify']);
+gulp.task('scripts', ['browserify','config']);
 
 // https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md
 // https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
