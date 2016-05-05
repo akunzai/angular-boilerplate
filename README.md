@@ -18,9 +18,9 @@ Angular boilerplate to kick start new project with SASS, TypeScript, Browserify 
 - `src/app/*/*.spec.ts` : testing specs
 - `src/app/*/*.html` : html template for angular
 - `src/sass/*.scss` : SASS stylesheets
-- `src/locales/{bcp47}.json` : i18n translations
 - `typings` : downloaded typings definition
-- `wwwroot` : output directory
+- `wwwroot` : website root directory
+- `wwwroot/locales/{bcp47}.json` : i18n translations
 
 ## Before Building
 
@@ -52,7 +52,7 @@ $ npm test
 
 ## Publish
 
-publish optimized css & js to output directory
+publish optimized css & js to website root directory
 
 ```sh
 $ gulp release
