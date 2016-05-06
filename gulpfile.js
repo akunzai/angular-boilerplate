@@ -1,21 +1,24 @@
 'use strict';
 
+var browserify = require('browserify');
+var buffer = require('vinyl-buffer');
 var changed = require('gulp-changed');
 var connect = require('gulp-connect');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
+var gutil = require('gulp-util');
+var ngAnnotate = require('gulp-ng-annotate');
 var runSequence = require('run-sequence');
 var shell = require('gulp-shell');
+var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
-var gutil = require('gulp-util');
-var browserify = require('browserify');
+var streamify = require('gulp-streamify');
 var tsify = require('tsify');
+var uglify = require('gulp-uglify');
 
 const sourceRoot = 'src';
 const outDir = 'wwwroot';
 
-global.watch = false;
 global.devMode = /dev/.test(process.env.NODE_ENV);
 
 var config = {
@@ -106,11 +109,6 @@ gulp.task('styles', function () {
 });
 
 function bundleScript(bundler) {
-  var gutil = require('gulp-util');
-  var buffer = require('vinyl-buffer');
-  var source = require('vinyl-source-stream');
-  var streamify = require('gulp-streamify');
-  var ngAnnotate = require('gulp-ng-annotate');
   return bundler.bundle()
     .on('error', function (err) {
       gutil.log(err.message);
@@ -184,7 +182,8 @@ gulp.task('config', function () {
       createModule: false,
       pretty: global.devMode
     }))
-    .pipe(gulp.dest(config.scripts.dest));
+    .pipe(gulp.dest(config.scripts.dest))
+    .pipe(connect.reload());
 });
 
 gulp.task("tslint", function () {
