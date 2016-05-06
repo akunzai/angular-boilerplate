@@ -72,7 +72,7 @@
       "check-function-in-method"
       ],
     "no-null-keyword": true,
-    "no-reference": false,
+    "no-reference": true,
     "no-require-imports": false,
     "no-shadowed-variable": true,
     "no-string-literal": false,
