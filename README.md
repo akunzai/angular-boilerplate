@@ -6,18 +6,24 @@ Angular boilerplate to kick start new project with SASS, TypeScript, Browserify 
 
 - node.js >= 4.0
 
-## Structure Convention
-- `src/app/main.ts` : main entry point
-- `src/app/components` : shared component
-- `src/app/{view}` : view componet
+## [Style Guide](https://github.com/johnpapa/angular-styleguide)
+
+## Structure Convention(https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#folders-by-feature-structure)
+
+- `src/app/components/` : standalone components folder
+- `src/app/layout/`: shared components folder
+- `src/app/services/`: shared service folder
+- `src/app/{feature}/` : feature folder
 - `src/app/*/*.module.ts` : angular module definition
+- `src/app/*/*.config.ts` : angular module configuration
+- `src/app/*/*.route.ts` : angular routing configuration
 - `src/app/*/*.controller.ts` : angular controller definition
 - `src/app/*/*.component.ts` : angular component definition
-- `src/app/*/*.service.ts` : angular service definition
+- `src/app/*/*.service.ts` : angular service/factory definition
 - `src/app/*/*.directive.ts` : angular directive definition
 - `src/app/*/*.spec.ts` : testing specs
 - `src/app/*/*.html` : html template for angular
-- `src/sass/*.scss` : SASS stylesheets
+- `src/app/*/*.scss` : application stylesheets
 - `typings` : downloaded typings definition
 - `wwwroot` : website root directory
 - `wwwroot/locales/{bcp47}.json` : i18n translations

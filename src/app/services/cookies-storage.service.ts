@@ -1,6 +1,6 @@
 // use $cookies instead of $cookieStore
 // https://github.com/angular-translate/angular-translate/blob/master/src/service/storage-cookie.js
-export class TranslateCookiesStorageFactory implements ng.translate.IStorage {
+export class TranslateCookiesStorage implements ng.translate.IStorage {
   /*@ngInject*/
   constructor(protected $cookies: ng.cookies.ICookiesService) {
   }
@@ -12,4 +12,4 @@ export class TranslateCookiesStorageFactory implements ng.translate.IStorage {
   }
 }
 
-angular.module('pascalprecht.translate').service('$translateCookiesStorage', TranslateCookiesStorageFactory);
+angular.module('pascalprecht.translate').service('$translateCookiesStorage', TranslateCookiesStorage);

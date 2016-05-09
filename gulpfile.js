@@ -30,13 +30,13 @@ var config = {
     dest: `${outDir}/fonts`
   },
   styles: {
-    src: `${sourceRoot}/sass/*.scss`,
+    src: `${sourceRoot}/app/*.scss`,
     dest: `${outDir}/css`,
     outputName: 'bundle.css'
   },
   scripts: {
     src: [
-      `${sourceRoot}/app/main.ts`,
+      `${sourceRoot}/app/app.module.ts`,
       'typings/browser.d.ts'],
     dest: `${outDir}/js`,
     outputName: 'bundle.js',
@@ -69,7 +69,7 @@ gulp.task('clean', function (callback) {
   ], callback);
 });
 
-gulp.task('assets', ['fonts', 'styles', 'config']);
+gulp.task('assets', ['fonts', 'styles', 'constants']);
 
 gulp.task('fonts', function () {
   return gulp.src(config.fonts.src)
@@ -155,8 +155,8 @@ gulp.task('watch', ['assets', 'watchify'], function () {
   gulp.watch([config.styles.src], ['styles']);
   // tslint
   gulp.watch([config.scripts.watch], ['tslint']);
-  // config
-  gulp.watch(['./config.json'], ['config']);
+  // constants
+  gulp.watch(['./constants.json'], ['constants']);
 });
 
 gulp.task('serve', ['watch'], function () {
@@ -170,12 +170,12 @@ gulp.task('serve', ['watch'], function () {
   open('http://localhost:7000');
 });
 
-gulp.task('config', function () {
+gulp.task('constants', function () {
   var gulpNgConfig = require('gulp-ng-config');
   var fs = require('fs');
   var packageJson = JSON.parse(fs.readFileSync('./package.json'));
-  gulp.src('./config.json')
-    .pipe(gulpNgConfig('app.config', {
+  gulp.src('./constants.json')
+    .pipe(gulpNgConfig('app.constants', {
       constants: {
         VERSION: packageJson.version || '1.0.0'
       },

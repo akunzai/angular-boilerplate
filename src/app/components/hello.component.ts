@@ -15,4 +15,4 @@ export class HelloComponent implements ng.IComponentOptions {
   }
 }
 
-angular.module('app.components.hello').component('hello', new HelloComponent());
+angular.module('app.hello').component('hello', new HelloComponent());

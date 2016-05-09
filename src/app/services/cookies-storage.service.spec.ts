@@ -2,9 +2,9 @@ import 'angular';
 import 'angular-mocks';
 import 'angular-cookies';
 import 'angular-translate';
-import {TranslateCookiesStorageFactory} from './cookiesStorage.service';
+import {TranslateCookiesStorageFactory} from './cookies-storage.service';
 
-describe('angular-translate.cookiesStorage', () => {
+describe('cookies-storage', () => {
   const KEY: string = 'locale';
   let cookies: ng.cookies.ICookiesService;
   let storage: ng.translate.IStorage;

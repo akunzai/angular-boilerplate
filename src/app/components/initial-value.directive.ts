@@ -23,4 +23,4 @@ export class InitialValueDirective implements ng.IDirective {
   }
 }
 
-angular.module('app.components.initialValue').directive('ngInitial', InitialValueDirective.factory());
+angular.module('app.initialValue').directive('ngInitial', InitialValueDirective.factory());
