@@ -6,9 +6,11 @@ Angular boilerplate to kick start new project with SASS, TypeScript, Browserify 
 
 - node.js >= 4.0
 
-## [Style Guide](https://github.com/johnpapa/angular-styleguide)
+## Style Guide
 
-## Structure Convention(https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#folders-by-feature-structure)
+- [Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
+
+## [Structure Convention](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#folders-by-feature-structure)
 
 - `src/app/components/` : standalone components folder
 - `src/app/layout/`: shared components folder
