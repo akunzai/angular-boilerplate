@@ -1,21 +1,24 @@
 # My Angular Boilerplate
 
-Angular boilerplate to kick start new project with SASS, TypeScript, Browserify and Gulp
+Angular boilerplate to kick-start new project with SASS, TypeScript, Browserify and Gulp
 
 ## Requirement
 
 - node.js >= 4.0
+- [gulpJS](http://gulpjs.com/)
+- [typings](https://github.com/typings/typings)
 
 ## Style Guide
 
 - [Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
+- [Angular 2 Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html)
 
-## [Structure Convention](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#folders-by-feature-structure)
+## Structure Convention
 
-- `src/app/components/` : standalone components folder
-- `src/app/layout/`: shared components folder
-- `src/app/services/`: shared service folder
-- `src/app/{feature}/` : feature folder
+- `src/app/{feature}/` : create folders named for the feature they represent
+- `src/app/*/shared/`: cross feature's shared folder
+- `src/app/*/index.ts` : imports, aggregates, and re-exports items. (We call this technique a barrel)
+- `src/app/*/*.model.ts` : domain model class definition
 - `src/app/*/*.module.ts` : angular module definition
 - `src/app/*/*.config.ts` : angular module configuration
 - `src/app/*/*.route.ts` : angular routing configuration
@@ -24,7 +27,7 @@ Angular boilerplate to kick start new project with SASS, TypeScript, Browserify 
 - `src/app/*/*.service.ts` : angular service/factory definition
 - `src/app/*/*.directive.ts` : angular directive definition
 - `src/app/*/*.spec.ts` : testing specs
-- `src/app/*/*.html` : html template for angular
+- `src/app/*/*.html` : view template
 - `src/app/*/*.scss` : application stylesheets
 - `typings` : downloaded typings definition
 - `wwwroot` : website root directory
