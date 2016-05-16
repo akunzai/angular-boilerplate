@@ -1,14 +1,11 @@
-// declare app.constants module for lazy load
-angular.module('app.constants', []);
-
 /*
  app entry point
  */
 angular.module('app', [
-  'ui.bootstrap',
-  'ui.router',
   'ngCookies',
   'ngSanitize',
+  'ui.bootstrap',
+  'ui.router',
   'pascalprecht.translate',
   'app.constants',
   'app.home',

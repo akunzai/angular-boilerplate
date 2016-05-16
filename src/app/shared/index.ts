@@ -1,4 +1,5 @@
+import './constants.module';
 import './cookies-storage';
-import './hello';
-import './initial-value';
 import './switch-locale';
+import './initial-value';
+import './hello';
