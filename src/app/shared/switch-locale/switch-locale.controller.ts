@@ -1,4 +1,4 @@
-import {Locale} from './locale.model';
+import { Locale } from './locale.model';
 
 export class SwitchLocaleController {
   public locales: Locale[];

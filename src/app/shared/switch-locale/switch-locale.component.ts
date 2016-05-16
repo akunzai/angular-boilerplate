@@ -1,4 +1,4 @@
-import {SwitchLocaleController} from './switch-locale.controller';
+import { SwitchLocaleController } from './switch-locale.controller';
 
 export class SwitchLocaleComponent implements ng.IComponentOptions {
   public controller: any;

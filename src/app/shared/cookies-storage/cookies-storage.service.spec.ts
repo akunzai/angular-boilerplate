@@ -2,7 +2,7 @@ import 'angular';
 import 'angular-mocks';
 import 'angular-cookies';
 import 'angular-translate';
-import {TranslateCookiesStorage} from './cookies-storage.service';
+import { TranslateCookiesStorage } from './cookies-storage.service';
 
 describe('cookies-storage', () => {
   const KEY: string = 'locale';
