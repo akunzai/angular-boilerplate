@@ -36,7 +36,7 @@ var config = {
   },
   scripts: {
     src: [
-      `${sourceRoot}/app/app.module.ts`,
+      `${sourceRoot}/app/main.ts`,
       'typings/browser.d.ts'],
     dest: `${outDir}/js`,
     outputName: 'bundle.js',

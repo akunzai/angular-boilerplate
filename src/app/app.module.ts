@@ -1,24 +1,3 @@
-import * as jQuery from 'jquery';
-global['$'] = global['jQuery'] = jQuery;
-import 'lodash';
-import 'bootstrap-sass';
-import 'angular';
-import 'angular-cookies';
-import 'angular-ui-router';
-import 'angular-ui-bootstrap';
-import 'angular-animate';
-import 'angular-messages';
-import 'angular-sanitize';
-import 'angular-translate';
-import 'angular-translate-loader-static-files';
-
-import './services/cookies-storage.service';
-import './components/hello.module';
-import './components/initial-value.module';
-import './layout/switch-locale.module';
-import './home/home.module';
-import './about/about.module';
-
 // declare app.constants module for lazy load
 angular.module('app.constants', []);
 
@@ -34,5 +13,3 @@ angular.module('app', [
   'app.constants',
   'app.home',
   'app.about']);
-
-import './app.config';

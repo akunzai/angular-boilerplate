@@ -2,7 +2,7 @@ import 'angular';
 import 'angular-mocks';
 import 'angular-cookies';
 import 'angular-translate';
-import {TranslateCookiesStorageFactory} from './cookies-storage.service';
+import {TranslateCookiesStorage} from './cookies-storage.service';
 
 describe('cookies-storage', () => {
   const KEY: string = 'locale';
@@ -12,7 +12,7 @@ describe('cookies-storage', () => {
   beforeEach(angular.mock.module('pascalprecht.translate', 'ngCookies'));
   beforeEach(inject(($cookies: ng.cookies.ICookiesService) => {
     cookies = $cookies;
-    storage = new TranslateCookiesStorageFactory(cookies);
+    storage = new TranslateCookiesStorage(cookies);
   }));
 
   it('should get undefined from $cookies', () => {

@@ -3,5 +3,3 @@ angular.module('app.home', [
   'app.hello',
   'app.switchLocale',
 ]);
-
-import './home.route';
