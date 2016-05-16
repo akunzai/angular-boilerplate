@@ -15,7 +15,7 @@ angular.module('app').config(
     suffix: '.json',
   })
     .useLoaderCache(true)
-    .useSanitizeValueStrategy('sanitizeParameters')
+    .useSanitizeValueStrategy('escape')
     .usePostCompiling(true)
     .determinePreferredLanguage()
     .fallbackLanguage('en');
