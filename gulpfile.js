@@ -90,7 +90,7 @@ gulp.task('styles', function () {
       .pipe(sass({
         outputStyle: global.devMode ? 'nested' : 'compressed',
         includePaths: [
-          'node_modules/compass-sass-mixins/lib',
+          'node_modules/compass-mixins/lib',
           'node_modules/bootstrap-sass/assets/stylesheets',
           'node_modules/font-awesome/scss']
       }).on('error', sass.logError)),
