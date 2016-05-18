@@ -84,7 +84,7 @@
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "no-var-requires": true,
-    "object-literal-sort-keys": true,
+    "object-literal-sort-keys": false,
     "one-line": [
       true,
       "check-open-brace",
@@ -118,7 +118,6 @@
       true,
       "call-signature",
       "parameter",
-      "arrow-parameter",
       "property-declaration",
       "variable-declaration",
       "member-variable-declaration"
