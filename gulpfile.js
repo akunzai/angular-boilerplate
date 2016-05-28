@@ -30,9 +30,10 @@ var config = {
     dest: `${outDir}/fonts`
   },
   styles: {
-    src: `${sourceRoot}/app/*.scss`,
+    src: `${sourceRoot}/app/main.scss`,
     dest: `${outDir}/css`,
-    outputName: 'bundle.css'
+    outputName: 'bundle.css',
+    watch: `${sourceRoot}/app/**/*.scss`
   },
   scripts: {
     src: [
@@ -80,23 +81,14 @@ gulp.task('fonts', function () {
 
 gulp.task('styles', function () {
   var sass = require('gulp-sass');
-  var merge = require('gulp-merge');
   var concat = require('gulp-concat');
   var cleanCSS = require('gulp-clean-css');
   var autoprefixer = require('gulp-autoprefixer');
-  return merge(
-    gulp.src(config.styles.src)
+  return gulp.src(config.styles.src)
       .pipe(gulpif(global.devMode, sourcemaps.init()))
       .pipe(sass({
-        outputStyle: global.devMode ? 'nested' : 'compressed',
-        includePaths: [
-          'node_modules/compass-mixins/lib',
-          'node_modules/bootstrap-sass/assets/stylesheets',
-          'node_modules/font-awesome/scss']
-      }).on('error', sass.logError)),
-    gulp.src([
-      'node_modules/angular/*.css',
-      'node_modules/angular-ui-bootstrap/dist/*.css']))
+        outputStyle: global.devMode ? 'nested' : 'compressed'
+      }).on('error', sass.logError))
     .pipe(concat(config.styles.outputName))
     .pipe(gulpif(!global.devMode, autoprefixer()))
     .pipe(gulpif(!global.devMode, cleanCSS({
@@ -152,7 +144,7 @@ gulp.task('watchify', ['tslint'], function () {
 
 gulp.task('watch', ['assets', 'watchify'], function () {
   // styles
-  gulp.watch([config.styles.src], ['styles']);
+  gulp.watch([config.styles.watch], ['styles']);
   // tslint
   gulp.watch([config.scripts.watch], ['tslint']);
   // constants

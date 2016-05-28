@@ -1,0 +1,9 @@
+$icon-font-path: "../fonts/";
+$fa-font-path: "../fonts";
+
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/compass-mixins/lib/compass";
+@import "../../node_modules/compass-mixins/lib/compass/reset";
+@import "../../node_modules/angular/angular-csp";
+@import "../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp";
