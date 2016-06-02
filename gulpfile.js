@@ -29,6 +29,11 @@ var config = {
       'node_modules/font-awesome/fonts/fontawesome-webfont.*'],
     dest: `${outDir}/fonts`
   },
+  i18n: {
+    src: `${sourceRoot}/app/shared/i18n/*.json`,
+    dest: `${outDir}/js`,
+    outputName: 'i18n.js',
+  },
   styles: {
     src: `${sourceRoot}/app/main.scss`,
     dest: `${outDir}/css`,
@@ -70,7 +75,7 @@ gulp.task('clean', function (callback) {
   ], callback);
 });
 
-gulp.task('assets', ['fonts', 'styles', 'constants']);
+gulp.task('assets', ['fonts', 'styles', 'constants', 'i18n']);
 
 gulp.task('fonts', function () {
   return gulp.src(config.fonts.src)
@@ -144,11 +149,13 @@ gulp.task('watchify', ['tslint'], function () {
 
 gulp.task('watch', ['assets', 'watchify'], function () {
   // styles
-  gulp.watch([config.styles.watch], ['styles']);
+  gulp.watch(config.styles.watch, ['styles']);
   // tslint
-  gulp.watch([config.scripts.watch], ['tslint']);
+  gulp.watch(config.scripts.watch, ['tslint']);
   // constants
-  gulp.watch(['./constants.json'], ['constants']);
+  gulp.watch('./constants.json', ['constants']);
+  // i18n
+  gulp.watch(config.i18n.src, ['i18n']);
 });
 
 gulp.task('serve', ['watch'], function () {
@@ -175,6 +182,23 @@ gulp.task('constants', function () {
       pretty: global.devMode
     }))
     .pipe(gulp.dest(config.scripts.dest))
+    .pipe(connect.reload());
+});
+
+gulp.task("i18n", function() {
+  var concat = require('gulp-concat');
+  var jsonMinify = require('gulp-jsonminify');
+  var ngLang2Js = require('gulp-ng-lang2js');
+  return gulp.src(config.i18n.src)
+    .pipe(jsonMinify())
+    .pipe(ngLang2Js({
+      moduleName: 'app.i18n',
+      declareModule: false,
+      prefix: 'i18n/'
+    }))
+    .pipe(gulpif(!global.devMode, streamify(uglify())))
+    .pipe(concat(config.i18n.outputName))
+    .pipe(gulp.dest(config.i18n.dest))
     .pipe(connect.reload());
 });
 

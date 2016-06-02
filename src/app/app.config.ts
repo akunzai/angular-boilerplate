@@ -11,12 +11,11 @@ angular.module('app').config(
     .useStorage('$translateCookiesStorage')
     .storageKey('locale');
   $translateProvider.useStaticFilesLoader({
-    prefix: 'locales/',
+    prefix: 'i18n/',
     suffix: '.json',
   })
-    .useLoaderCache(true)
+    .useLoaderCache('$translationCache')
     .useSanitizeValueStrategy('escape')
-    .usePostCompiling(true)
     .determinePreferredLanguage()
     .fallbackLanguage('en');
 });
