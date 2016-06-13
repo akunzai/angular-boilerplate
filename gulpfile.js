@@ -3,10 +3,10 @@
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var changed = require('gulp-changed');
-var connect = require('gulp-connect');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var gutil = require('gulp-util');
+var livereload = require('gulp-livereload');
 var ngAnnotate = require('gulp-ng-annotate');
 var runSequence = require('run-sequence');
 var shell = require('gulp-shell');
@@ -81,7 +81,7 @@ gulp.task('fonts', function () {
   return gulp.src(config.fonts.src)
     .pipe(changed(config.fonts.dest))
     .pipe(gulp.dest(config.fonts.dest))
-    .pipe(connect.reload());
+    .pipe(livereload());
 });
 
 gulp.task('styles', function () {
@@ -102,7 +102,7 @@ gulp.task('styles', function () {
     })))
     .pipe(gulpif(global.devMode, sourcemaps.write('./')))
     .pipe(gulp.dest(config.styles.dest))
-    .pipe(connect.reload());
+    .pipe(livereload());
 });
 
 function bundleScript(bundler) {
@@ -118,7 +118,7 @@ function bundleScript(bundler) {
     .pipe(gulpif(!global.devMode, streamify(uglify())))
     .pipe(gulpif(global.devMode, sourcemaps.write('./')))
     .pipe(gulp.dest(config.scripts.dest))
-    .pipe(connect.reload());
+    .pipe(livereload());
 }
 
 // https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md
@@ -148,6 +148,8 @@ gulp.task('watchify', ['tslint'], function () {
 });
 
 gulp.task('watch', ['assets', 'watchify'], function () {
+  // livereload browser plugin: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+  livereload.listen();
   // styles
   gulp.watch(config.styles.watch, ['styles']);
   // tslint
@@ -159,14 +161,14 @@ gulp.task('watch', ['assets', 'watchify'], function () {
 });
 
 gulp.task('serve', ['watch'], function () {
+  var connect = require('gulp-connect');
   var open = require('open');
+  var port = process.env.NODE_PORT || 8080;
   connect.server({
     root: outDir,
-    port: 7000,
-    // livereload browser plugin: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
-    livereload: true
+    port: port
   });
-  open('http://localhost:7000');
+  open(`http://localhost:${port}`);
 });
 
 gulp.task('constants', function () {
@@ -182,7 +184,7 @@ gulp.task('constants', function () {
       pretty: global.devMode
     }))
     .pipe(gulp.dest(config.scripts.dest))
-    .pipe(connect.reload());
+    .pipe(livereload());
 });
 
 gulp.task("i18n", function() {
@@ -199,7 +201,7 @@ gulp.task("i18n", function() {
     .pipe(gulpif(!global.devMode, streamify(uglify())))
     .pipe(concat(config.i18n.outputName))
     .pipe(gulp.dest(config.i18n.dest))
-    .pipe(connect.reload());
+    .pipe(livereload());
 });
 
 gulp.task("tslint", function () {
