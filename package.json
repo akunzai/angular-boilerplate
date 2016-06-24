@@ -39,7 +39,6 @@
     "gulp-ng-lang2js": "^0.2.0",
     "gulp-refresh": "^1.1.0",
     "gulp-sass": "^2.3.1",
-    "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-streamify": "^1.0.2",
     "gulp-tslint": "^5.0.0",

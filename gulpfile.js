@@ -9,7 +9,6 @@ var gutil = require('gulp-util');
 var refresh = require('gulp-refresh');
 var ngAnnotate = require('gulp-ng-annotate');
 var runSequence = require('run-sequence');
-var shell = require('gulp-shell');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var streamify = require('gulp-streamify');
