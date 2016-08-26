@@ -1,5 +1,6 @@
-// Karma configuration
-var webpackConfig = require('./webpack.config.js');
+'use strict';
+
+const webpackConfig = require('./webpack.config.js');
 
 module.exports = function (config) {
   config.set({
