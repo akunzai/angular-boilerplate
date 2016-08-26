@@ -6,10 +6,11 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "clean": "rimraf wwwroot/css wwwroot/fonts wwwroot/js",
-    "start": "webpack-dev-server --watch --open",
+    "clean": "rimraf wwwroot/assets",
+    "start": "webpack-dev-server --debug --devtool eval --hot --watch --open",
     "test": "karma start",
     "test:debug": "karma start --no-single-run --browsers Chrome",
+    "dist": "NODE_ENV=production webpack -p",
     "postinstall": "typings install"
   },
   "devDependencies": {
@@ -55,7 +56,6 @@
     "tslint-loader": "^2.1.5",
     "typescript": "^1.8.10",
     "webpack": "^1.13.2",
-    "webpack-browser-plugin": "^1.0.12",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.15.0"
   }
 }

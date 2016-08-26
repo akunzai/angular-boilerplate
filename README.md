@@ -49,10 +49,9 @@ $ npm install
 
 ## Start Developing
 
-watch and serve at http://localhost:8080/webpack-dev-server/
+watch and serve at http://localhost:8080/webpack-dev-server/ in memory
 
 ```sh
-$ webpack -d
 $ npm start
 ```
 
@@ -67,5 +66,5 @@ $ npm test
 publish optimized css & js to website root directory
 
 ```sh
-$ webpack -p
+$ npm run dist
 ```

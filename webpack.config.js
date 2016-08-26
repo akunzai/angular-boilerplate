@@ -2,7 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-// const WebpackBrowserPlugin = require('webpack-browser-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
@@ -27,8 +26,9 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, "wwwroot", 'js'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: path.join(__dirname, "wwwroot", 'assets'),
+    publicPath: '/assets/'
   },
   resolve: {
     extensions: ['', '.js', '.ts']
@@ -45,16 +45,27 @@ module.exports = {
       // https://github.com/webpack/webpack/issues/1078
       { test: /\.html$/, loader: 'raw' },
       { test: /\.json$/, loader: 'json' },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract(/* before= */'style', /* loader= */'css!postcss') },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract(/* before= */'style', /* loader= */'css?sourceMap!postcss!sass?sourceMap') },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract(
+          /* before= */'style',
+          /* loader= */'css!postcss')
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract(
+          /* before= */'style',
+          /* loader= */'css?sourceMap!postcss!sass?sourceMap')
+      },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file?name=../fonts/[name].[ext]'
+        loader: 'file?name=[name].[ext]'
       }
     ]
   },
   postcss: function () {
-    return [require('postcss-clean'), require('autoprefixer')];
+    // production ?
+    return /prod/i.test(process.env.NODE_ENV) ? [require('postcss-clean'), require('autoprefixer')] : [];
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.js'),
@@ -64,7 +75,6 @@ module.exports = {
       "window.jQuery": "jquery",
       _: "lodash"
     }),
-    // new WebpackBrowserPlugin(),
-    new ExtractTextPlugin(/* filename= */'../css/bundle.css')
+    new ExtractTextPlugin(/* filename= */'bundle.css')
   ]
 }
