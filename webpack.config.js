@@ -49,23 +49,19 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract(
           /* before= */'style',
-          /* loader= */'css!postcss')
+          /* loader= */'css')
       },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           /* before= */'style',
-          /* loader= */'css?sourceMap!postcss!sass?sourceMap')
+          /* loader= */'css?sourceMap!sass?sourceMap')
       },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file?name=[name].[ext]'
       }
     ]
-  },
-  postcss: function () {
-    // production ?
-    return /prod/i.test(process.env.NODE_ENV) ? [require('postcss-clean'), require('autoprefixer')] : [];
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.js'),
@@ -77,4 +73,4 @@ module.exports = {
     }),
     new ExtractTextPlugin(/* filename= */'bundle.css')
   ]
-}
+};
