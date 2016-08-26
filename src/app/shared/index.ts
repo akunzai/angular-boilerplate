@@ -1,4 +1,4 @@
-import './constants.module';
+import './constants';
 
 import './i18n';
 import './cookies-storage';

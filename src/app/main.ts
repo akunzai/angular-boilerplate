@@ -1,5 +1,4 @@
-import * as jQuery from 'jquery';
-global['$'] = global['jQuery'] = jQuery;
+import 'jquery';
 import 'lodash';
 import 'bootstrap-sass';
 import 'angular';
@@ -11,6 +10,8 @@ import 'angular-messages';
 import 'angular-sanitize';
 import 'angular-translate';
 import 'angular-translate-loader-static-files';
+
+import './main.scss';
 
 import './shared';
 import './home';

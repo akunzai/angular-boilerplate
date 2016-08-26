@@ -11,6 +11,7 @@ export class HelloComponent implements ng.IComponentOptions {
       // callback: '&'
       userName: '@',
     };
+
     this.template = require('./hello.html');
   }
 }

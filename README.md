@@ -1,11 +1,11 @@
 # My Angular Boilerplate
 
-Angular boilerplate to kick-start new project with SASS, TypeScript, Browserify and Gulp
+Angular boilerplate to kick-start new project with SASS, TypeScript and Webpack
 
 ## Requirement
 
 - node.js >= 4.0
-- [gulpJS](http://gulpjs.com/)
+- [webpack](https://webpack.github.io)
 - [typings](https://github.com/typings/typings)
 
 ## Style Guide
@@ -29,16 +29,16 @@ Angular boilerplate to kick-start new project with SASS, TypeScript, Browserify 
 - `src/app/*/*.spec.ts` : testing specs
 - `src/app/*/*.html` : view template
 - `src/app/*/*.scss` : application stylesheets
+- `src/app/shared/i18n/{bcp47}.json` : i18n translations
 - `typings` : downloaded typings definition
 - `wwwroot` : website root directory
-- `wwwroot/locales/{bcp47}.json` : i18n translations
 
 ## Before Building
 
 install global packages
 
 ```
-$ npm install -g gulp typings
+$ npm install -g webpack webpack-dev-server karma-cli typings
 ```
 
 run npm install at project root
@@ -49,9 +49,10 @@ $ npm install
 
 ## Start Developing
 
-watch and serve at http://localhost:7000
+watch and serve at http://localhost:8080/webpack-dev-server/
 
 ```sh
+$ webpack -d
 $ npm start
 ```
 
@@ -66,5 +67,5 @@ $ npm test
 publish optimized css & js to website root directory
 
 ```sh
-$ gulp release
+$ webpack -p
 ```

@@ -16,6 +16,7 @@ describe('cookies-storage', () => {
   }));
 
   it('should get undefined from $cookies', () => {
+    cookies.remove(KEY);
     expect(storage.get(KEY)).toBe(undefined);
   });
 

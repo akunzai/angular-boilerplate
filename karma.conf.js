@@ -1,4 +1,6 @@
 // Karma configuration
+var webpackConfig = require('./webpack.config.js');
+
 module.exports = function (config) {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -6,12 +8,11 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['browserify', 'jasmine'],
+    frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
-      'src/app/**/*.spec.ts',
-      'typings/index.d.ts'
+      'src/app/**/*.spec.ts'
     ],
 
     // list of files to exclude
@@ -21,16 +22,18 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.ts': 'browserify'
+      '**/*.ts': ['webpack']
     },
 
-    // browserify configuration
-    // options: https://github.com/substack/node-browserify#browserifyfiles--opts
-    browserify: {
+    // webpack configuration
+    webpack: {
+      // karma watches the test entry points
+      // (you don't need to specify the entry option)
+      // webpack watches dependencies
+      devtool: 'eval',
       debug: true,
-      plugin: [
-        'tsify'
-      ]
+      module: webpackConfig.module,
+      resolve: webpackConfig.resolve
     },
 
     // test results reporter to use
