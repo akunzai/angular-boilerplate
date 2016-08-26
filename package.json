@@ -10,7 +10,7 @@
     "start": "webpack-dev-server --debug --devtool eval --hot --watch --open",
     "test": "karma start",
     "test:debug": "karma start --no-single-run --browsers Chrome",
-    "dist": "NODE_ENV=production webpack -p",
+    "build": "NODE_ENV=production webpack -p",
     "postinstall": "typings install"
   },
   "devDependencies": {

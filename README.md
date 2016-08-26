@@ -66,5 +66,5 @@ $ npm test
 publish optimized css & js to website root directory
 
 ```sh
-$ npm run dist
+$ npm run build
 ```
