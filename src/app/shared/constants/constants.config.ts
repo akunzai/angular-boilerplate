@@ -5,7 +5,7 @@ angular.module('app.constants')
       value: 'en',
     },
     {
-      'name': '正體中文',
-      'value': 'zh-TW',
+      name: '正體中文',
+      value: 'zh-TW',
     },
   ]);
