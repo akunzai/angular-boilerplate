@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 /**
  * init ngModel from default value
  * example: <input type="email" ng-model="email" ng-initial value="user@example.com">

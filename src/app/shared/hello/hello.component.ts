@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 export class HelloComponent implements ng.IComponentOptions {
   public bindings: any;
   public template: string;

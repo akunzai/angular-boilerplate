@@ -6,7 +6,6 @@ Angular boilerplate to kick-start new project with SASS, TypeScript and Webpack
 
 - node.js >= 4.0
 - [webpack](https://webpack.github.io)
-- [typings](https://github.com/typings/typings)
 
 ## Style Guide
 
@@ -30,7 +29,6 @@ Angular boilerplate to kick-start new project with SASS, TypeScript and Webpack
 - `src/app/*/*.html` : view template
 - `src/app/*/*.scss` : application stylesheets
 - `src/app/shared/i18n/{bcp47}.json` : i18n translations
-- `typings` : downloaded typings definition
 - `wwwroot` : website root directory
 
 ## Before Building
@@ -38,7 +36,7 @@ Angular boilerplate to kick-start new project with SASS, TypeScript and Webpack
 install global packages
 
 ```
-$ npm install -g webpack webpack-dev-server karma-cli typings
+$ npm install -g webpack webpack-dev-server karma-cli
 ```
 
 run npm install at project root

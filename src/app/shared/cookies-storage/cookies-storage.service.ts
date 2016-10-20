@@ -1,5 +1,7 @@
 // use $cookies instead of $cookieStore
 // https://github.com/angular-translate/angular-translate/blob/master/src/service/storage-cookie.js
+import * as angular from 'angular';
+
 export class TranslateCookiesStorage implements ng.translate.IStorage {
   /*@ngInject*/
   constructor(protected $cookies: ng.cookies.ICookiesService) {
