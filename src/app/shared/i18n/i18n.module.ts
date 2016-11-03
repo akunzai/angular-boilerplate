@@ -1,1 +1,1 @@
-angular.module('app.i18n', []);
+angular.module('app.i18n', ['pascalprecht.translate']);

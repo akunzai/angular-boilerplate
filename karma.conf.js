@@ -13,7 +13,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/app/**/*.spec.ts'
+      'src/app/test.ts'
     ],
 
     // list of files to exclude
@@ -32,7 +32,6 @@ module.exports = function (config) {
       // (you don't need to specify the entry option)
       // webpack watches dependencies
       devtool: 'eval',
-      debug: true,
       module: webpackConfig.module,
       resolve: webpackConfig.resolve
     },
