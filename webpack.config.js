@@ -28,7 +28,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, "wwwroot", 'assets'),
-    publicPath: '/assets/'
+    publicPath: ''
   },
   resolve: {
     extensions: ['', '.js', '.ts']
@@ -59,7 +59,7 @@ module.exports = {
       },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file?name=[name].[ext]'
+        loader: 'file'
       }
     ]
   },
