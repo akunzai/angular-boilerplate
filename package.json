@@ -6,7 +6,7 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "build": "webpack -p",
+    "build": "npm run clean && webpack -p",
     "clean": "rimraf wwwroot/assets",
     "start": "webpack-dev-server --debug --devtool eval --hot --watch --open",
     "test:debug": "karma start --no-single-run --browsers Chrome",
