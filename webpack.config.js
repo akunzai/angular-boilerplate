@@ -31,46 +31,61 @@ module.exports = {
     publicPath: ''
   },
   resolve: {
-    extensions: ['', '.js', '.ts']
+    extensions: ['*','.js', '.ts']
   },
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.ts$/,
-        loader: "tslint"
-      }
-    ],
-    loaders: [
-      { test: /\.ts$/, loader: 'ng-annotate!ts' },
+        enforce: 'pre',
+        use: 'tslint-loader'
+      },
+      { test: /\.ts$/, use:
+        [
+          'ng-annotate-loader',
+          'ts-loader'
+        ]
+      },
       // https://github.com/webpack/webpack/issues/1078
-      { test: /\.html$/, loader: 'raw' },
-      { test: /\.json$/, loader: 'json' },
+      { test: /\.html$/, use: 'raw-loader' },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          /* before= */'style',
-          /* loader= */'css')
+        use: ExtractTextPlugin.extract(
+          {
+            fallback: 'style-loader',
+            use: 'css-loader'
+          })
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          /* before= */'style',
-          /* loader= */'css?sourceMap!sass?sourceMap')
+        use: ExtractTextPlugin.extract(
+          {
+            fallback: 'style-loader',
+            use: [
+              {loader: 'css-loader', options:{ sourceMap: true}},
+              {loader: 'sass-loader', options:{ sourceMap: true}}
+            ]
+          })
       },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file'
+        use: 'file-loader'
       }
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.js'),
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      "window.jQuery": "jquery",
-      _: "lodash"
-    }),
-    new ExtractTextPlugin(/* filename= */'bundle.css')
+    new webpack.optimize.CommonsChunkPlugin(
+      {
+        name: 'vendor',
+        filename: 'vendor.js'
+      }),
+    new webpack.ProvidePlugin(
+      {
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        _: "lodash"
+      }),
+    new ExtractTextPlugin({filename:'bundle.css'})
   ]
 };
