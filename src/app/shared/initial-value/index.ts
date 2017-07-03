@@ -1,2 +1,2 @@
-import './initial-value.module';
 import './initial-value.directive';
+import './initial-value.module';

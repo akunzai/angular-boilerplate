@@ -5,7 +5,7 @@ export class SwitchLocaleController {
   /*@ngInject*/
   constructor(
     protected $translate: ng.translate.ITranslateService,
-    LOCALES: Locale[]
+    LOCALES: Locale[],
   ) {
     this.locales = LOCALES;
   }

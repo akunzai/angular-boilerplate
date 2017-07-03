@@ -8,7 +8,7 @@ export class InitialValueDirective implements ng.IDirective {
   public restrict: string = 'A';
   public static factory(): ng.IDirectiveFactory {
     /*@ngInject*/
-    let factory: ng.IDirectiveFactory =
+    const factory: ng.IDirectiveFactory =
       ($parse: ng.IParseService) => new InitialValueDirective($parse);
     return factory;
   }
@@ -17,9 +17,9 @@ export class InitialValueDirective implements ng.IDirective {
   public link: ng.IDirectiveLinkFn = (
     scope: ng.IScope,
     instanceElement: ng.IAugmentedJQuery,
-    instanceAttributes: ng.IAttributes
+    instanceAttributes: ng.IAttributes,
   ) => {
-    let val: any = instanceAttributes['ngInitial'] || instanceElement.val();
+    const val: any = instanceAttributes['ngInitial'] || instanceElement.val();
     this.$parse(instanceAttributes['ngModel']).assign(scope, val);
   }
 }
