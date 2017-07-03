@@ -28,21 +28,21 @@ Angular boilerplate to kick-start new project with SASS, TypeScript and Webpack
 - `src/app/*/*.spec.ts` : testing specs
 - `src/app/*/*.html` : view template
 - `src/app/*/*.scss` : application stylesheets
-- `src/app/shared/i18n/{bcp47}.json` : i18n translations
+- `src/locale/messages.{locale}.json` : i18n locale messages
 - `wwwroot` : website root directory
 
 ## Before Building
 
 install global packages
 
-```
-$ npm install -g webpack webpack-dev-server karma-cli
+```sh
+npm install -g webpack webpack-dev-server karma-cli
 ```
 
 run npm install at project root
 
 ```sh
-$ npm install
+npm install
 ```
 
 ## Start Developing
@@ -50,13 +50,13 @@ $ npm install
 watch and serve at http://localhost:8080/webpack-dev-server/ in memory
 
 ```sh
-$ npm start
+npm start
 ```
 
 ## Run Testing
 
 ```sh
-$ npm test
+npm test
 ```
 
 ## Publish
@@ -64,5 +64,5 @@ $ npm test
 publish optimized css & js to website root directory
 
 ```sh
-$ npm run build
+npm run build
 ```

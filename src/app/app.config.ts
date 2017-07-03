@@ -1,7 +1,7 @@
 angular.module('app').config(
 (
   $urlRouterProvider: ng.ui.IUrlRouterProvider,
-  $translateProvider: ng.translate.ITranslateProvider
+  $translateProvider: ng.translate.ITranslateProvider,
 ) => {
 
   $urlRouterProvider.otherwise('/home');
@@ -11,7 +11,7 @@ angular.module('app').config(
     .useStorage('$translateCookiesStorage')
     .storageKey('locale');
   $translateProvider.useStaticFilesLoader({
-    prefix: 'i18n/',
+    prefix: 'locale/messages',
     suffix: '.json',
   })
     .useLoaderCache('$translationCache')
