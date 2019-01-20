@@ -1,2 +1,2 @@
-import './switch-locale.component';
 import './switch-locale.module';
+import './switch-locale.component';

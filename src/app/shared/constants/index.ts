@@ -1,2 +1,2 @@
-import './constants.config';
 import './constants.module';
+import './constants.config';

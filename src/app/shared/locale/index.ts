@@ -1,2 +1,2 @@
-import './locale.config';
 import './locale.module';
+import './locale.config';

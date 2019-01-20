@@ -1,2 +1,2 @@
-import './hello.component';
 import './hello.module';
+import './hello.component';
