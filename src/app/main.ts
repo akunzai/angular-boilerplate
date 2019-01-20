@@ -4,16 +4,18 @@ import 'angular-cookies';
 import 'angular-messages';
 import 'angular-sanitize';
 import 'angular-translate';
-import 'angular-translate-loader-static-files';
+import 'angular-translate-storage-cookie';
 import 'angular-ui-bootstrap';
 import 'angular-ui-router';
 import 'bootstrap-sass';
 import 'jquery';
 import 'lodash';
 
-import './about';
-import './app.config';
-import './app.module';
-import './home';
 import './main.scss';
+
 import './shared';
+import './home';
+import './about';
+
+import './app.module';
+import './app.config';

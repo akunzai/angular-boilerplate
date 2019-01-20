@@ -6,16 +6,22 @@ angular.module('app').config(
 
   $urlRouterProvider.otherwise('/home');
 
-  ($translateProvider as any).uniformLanguageTag('bcp47'); // since 2.7
   $translateProvider
-    .useStorage('$translateCookiesStorage')
-    .storageKey('locale');
-  $translateProvider.useStaticFilesLoader({
-    prefix: 'locale/messages',
-    suffix: '.json',
-  })
-    .useLoaderCache('$translationCache')
+    // prevent FOUC - Flash of untranslated content
+    .translations('en', {
+      about: 'Angular Demo Site',
+      hello: 'Hello {{ userName }}!',
+    })
+    .translations('zh-TW', {
+      about: 'Angular 示範網站',
+      hello: '你好，{{ userName }}！',
+    })
+    // https://angular-translate.github.io/docs/#/guide/19_security
     .useSanitizeValueStrategy('escape')
+    // enable BCP-47, must be before determinePreferredLanguage!
+    .uniformLanguageTag('bcp47')
     .determinePreferredLanguage()
-    .fallbackLanguage('en');
+    .fallbackLanguage('en')
+    .useCookieStorage()
+    .storageKey('locale');
 });

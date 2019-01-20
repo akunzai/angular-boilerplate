@@ -8,6 +8,5 @@ angular.module('app', [
   'ui.router',
   'pascalprecht.translate',
   'app.constants',
-  'app.locale',
   'app.home',
   'app.about']);

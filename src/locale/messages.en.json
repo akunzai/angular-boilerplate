@@ -1,4 +1,0 @@
-{
-  "about": "Angular Demo Site",
-  "hello": "Hello {{ userName }}!"
-}
