@@ -2,90 +2,79 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  mode: 'development',
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.join(__dirname, "wwwroot")
+    contentBase: path.resolve(__dirname, 'wwwroot'),
+    publicPath: '/assets/',
+    open: true
   },
-  entry: {
-    app: './src/app/main.ts',
-    vendor: [
-      'angular',
-      'angular-animate',
-      'angular-cookies',
-      'angular-messages',
-      'angular-sanitize',
-      'angular-translate',
-      'angular-translate-loader-static-files',
-      'angular-ui-bootstrap',
-      'angular-ui-router',
-      'bootstrap-sass',
-      'jquery',
-      'lodash'
-    ]
-  },
+  entry: { main: './src/app/main.ts' },
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, "wwwroot", 'assets'),
-    publicPath: ''
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'wwwroot','assets')
   },
   resolve: {
-    extensions: ['*','.js', '.ts']
+    extensions: ['.ts', '.tsx', '.js']
   },
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         enforce: 'pre',
-        use: 'tslint-loader'
+        use: [{ loader: 'tslint-loader' }]
       },
-      { test: /\.ts$/, use:
-        [
-          'ng-annotate-loader',
-          'ts-loader'
-        ]
+      {
+        test: /\.tsx?$/,
+        use: [{ loader: 'ng-annotate-loader' }, { loader: 'ts-loader' }]
       },
-      // https://github.com/webpack/webpack/issues/1078
-      { test: /\.html$/, use: 'raw-loader' },
+      { test: /\.html$/, use: [{ loader: 'html-loader' }] },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract(
-          {
-            fallback: 'style-loader',
-            use: 'css-loader'
-          })
+        use: [
+          { loader: 'style-loader' },
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: 'css-loader', options: { sourceMap: true } }
+        ]
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract(
-          {
-            fallback: 'style-loader',
-            use: [
-              {loader: 'css-loader', options:{ sourceMap: true}},
-              {loader: 'sass-loader', options:{ sourceMap: true}}
-            ]
-          })
+        use: [
+          { loader: 'style-loader' },
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader', options: { sourceMap: true } }
+        ]
       },
       {
-        test: /\.(eot|otf|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: 'file-loader'
+        test: /\.json$/,
+        type: 'javascript/auto',
+        exclude: /node_modules/,
+        use: [{ loader: 'file-loader' }]
+      },
+      {
+        test: /\.(eot|otf|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{ loader: 'file-loader' }]
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin(
-      {
-        name: 'vendor',
-        filename: 'vendor.js'
-      }),
-    new webpack.ProvidePlugin(
-      {
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery",
-        _: "lodash"
-      }),
-    new ExtractTextPlugin({filename:'bundle.css'})
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      _: 'lodash'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'main.css'
+    })
   ]
 };

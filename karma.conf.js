@@ -31,7 +31,8 @@ module.exports = function (config) {
       // karma watches the test entry points
       // (you don't need to specify the entry option)
       // webpack watches dependencies
-      devtool: 'eval',
+      devtool: 'eval-cheap-module-source-map',
+      mode: 'development',
       module: webpackConfig.module,
       resolve: webpackConfig.resolve
     },
