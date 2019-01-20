@@ -39,9 +39,7 @@
     "member-access": true,
     "member-ordering": [
       true,
-      "public-before-private",
-      "static-before-instance",
-      "variables-before-functions"
+      { "order": "instance-sandwich" }
     ],
     "no-angle-bracket-type-assertion": true,
     "no-any": false,
@@ -89,6 +87,7 @@
       "check-whitespace"
     ],
     "one-variable-per-declaration": true,
+    "ordered-imports": false,
     "quotemark": [
       true,
       "single",
