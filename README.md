@@ -1,10 +1,10 @@
-# My Angular Boilerplate
+# My AngularJS Boilerplate
 
-Angular boilerplate to kick-start new project with SASS, TypeScript and Webpack
+AngularJS boilerplate to kick-start new project with SASS, TypeScript and Webpack
 
 ## Requirement
 
-- node.js >= 4.0
+- node.js >= 6.0
 - [webpack](https://webpack.github.io)
 
 ## Style Guide
@@ -32,12 +32,6 @@ Angular boilerplate to kick-start new project with SASS, TypeScript and Webpack
 - `wwwroot` : website root directory
 
 ## Before Building
-
-install global packages
-
-```sh
-npm install -g webpack webpack-dev-server karma-cli
-```
 
 run npm install at project root
 
