@@ -6,7 +6,7 @@ import 'angular-sanitize';
 import 'angular-translate';
 import 'angular-translate-storage-cookie';
 import 'angular-ui-bootstrap';
-import 'angular-ui-router';
+import '@uirouter/angularjs';
 import 'bootstrap-sass';
 import 'jquery';
 import 'lodash';

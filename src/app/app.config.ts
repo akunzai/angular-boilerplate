@@ -1,6 +1,9 @@
+import angular = require('angular');
+import { UrlRouterProvider } from '@uirouter/angularjs';
+
 angular.module('app').config(
 (
-  $urlRouterProvider: ng.ui.IUrlRouterProvider,
+  $urlRouterProvider: UrlRouterProvider,
   $translateProvider: ng.translate.ITranslateProvider,
 ) => {
 
