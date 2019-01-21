@@ -50,12 +50,6 @@ module.exports = {
         ]
       },
       {
-        test: /\.json$/,
-        type: 'javascript/auto',
-        exclude: /node_modules/,
-        use: [{ loader: 'file-loader' }]
-      },
-      {
         test: /\.(eot|otf|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?$/,
         use: [{ loader: 'file-loader' }]
       }
