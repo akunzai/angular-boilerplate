@@ -29,7 +29,7 @@ AngularJS boilerplate to kick-start new project with SASS, TypeScript and Webpac
 - `src/app/*/*.html` : view template
 - `src/app/*/*.scss` : application stylesheets
 - `src/locale/messages.{locale}.json` : i18n locale messages
-- `wwwroot` : website root directory
+- `dist` : output directory
 
 ## Before Building
 
