@@ -59,7 +59,6 @@ module.exports = (env, argv) => {
         chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
       }),
       new HtmlWebpackPlugin({
-        filename: 'index.html',
         template: 'src/index.html'
       }),
       new OptimizeCssAssetsPlugin({
