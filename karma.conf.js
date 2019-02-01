@@ -1,6 +1,6 @@
 'use strict';
 
-const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('./webpack.config.js')({},{mode:'development'});
 
 module.exports = function (config) {
   config.set({
@@ -23,15 +23,11 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.ts': ['webpack']
+      'src/app/test.ts': ['webpack']
     },
 
     // webpack configuration
     webpack: {
-      // karma watches the test entry points
-      // (you don't need to specify the entry option)
-      // webpack watches dependencies
-      devtool: 'eval-cheap-module-source-map',
       mode: 'development',
       module: webpackConfig.module,
       resolve: webpackConfig.resolve
