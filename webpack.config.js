@@ -1,6 +1,7 @@
 'use strict';
 
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -47,6 +48,7 @@ module.exports = (env, argv) => {
         chunks: 'all'
       }
     },
+    performance: {hints: false},
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -54,6 +56,9 @@ module.exports = (env, argv) => {
         'window.jQuery': 'jquery',
         _: 'lodash'
       }),
+      new CopyWebpackPlugin([
+        { from: './src/app/locales', to: 'locales/' }
+      ]),
       new MiniCssExtractPlugin({
         filename: devMode ? '[name].css' : '[name].[hash].css',
         chunkFilename: devMode ? '[id].css' : '[id].[hash].css'

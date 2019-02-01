@@ -5,6 +5,14 @@ import * as angular from 'angular';
  * example: <input type="email" ng-model="email" ng-initial value="user@example.com">
  */
 export class InitialValueDirective implements ng.IDirective {
+
+  public static factory(): ng.IDirectiveFactory {
+    /* @ngInject */
+    const factory: ng.IDirectiveFactory =
+      ($parse: ng.IParseService) => new InitialValueDirective($parse);
+    return factory;
+  }
+
   public require: string = 'ngModel';
   public restrict: string = 'A';
 
@@ -18,13 +26,6 @@ export class InitialValueDirective implements ng.IDirective {
   ) => {
     const val: any = instanceAttributes['ngInitial'] || instanceElement.val();
     this.$parse(instanceAttributes['ngModel']).assign(scope, val);
-  }
-
-  public static factory(): ng.IDirectiveFactory {
-    /* @ngInject */
-    const factory: ng.IDirectiveFactory =
-      ($parse: ng.IParseService) => new InitialValueDirective($parse);
-    return factory;
   }
 }
 

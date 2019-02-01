@@ -7,6 +7,5 @@ angular.module('app', [
   'ui.bootstrap',
   'ui.router',
   'pascalprecht.translate',
-  'app.constants',
   'app.home',
   'app.about']);

@@ -1,7 +1,12 @@
-import angular = require('angular');
+import * as angular from 'angular';
 import { UrlRouterProvider } from '@uirouter/angularjs';
 
-angular.module('app').config(
+angular.module('app')
+.constant('LOCALES', {
+  'en': 'English',
+  'zh-TW': '正體中文',
+})
+.config(
 (
   $urlRouterProvider: UrlRouterProvider,
   $translateProvider: ng.translate.ITranslateProvider,
@@ -10,15 +15,12 @@ angular.module('app').config(
   $urlRouterProvider.otherwise('/home');
 
   $translateProvider
+    .useStaticFilesLoader({
+      prefix: 'locales/',
+      suffix: '.json',
+    })
     // prevent FOUC - Flash of untranslated content
-    .translations('en', {
-      about: 'Angular Demo Site',
-      hello: 'Hello {{ userName }}!',
-    })
-    .translations('zh-TW', {
-      about: 'Angular 示範網站',
-      hello: '你好，{{ userName }}！',
-    })
+    .useLoaderCache('$translationCache')
     // https://angular-translate.github.io/docs/#/guide/19_security
     .useSanitizeValueStrategy('escape')
     // enable BCP-47, must be before determinePreferredLanguage!
@@ -27,4 +29,14 @@ angular.module('app').config(
     .fallbackLanguage('en')
     .useCookieStorage()
     .storageKey('locale');
+})
+.run(($translationCache: ng.ICacheObject, LOCALES: {[key: string]: string}) => {
+  for (const locale in LOCALES) {
+    if (LOCALES.hasOwnProperty(locale)) {
+      $translationCache.put(
+        `locales/${locale}.json`,
+        JSON.stringify(require(`./locales/${locale}.json`)),
+      );
+    }
+  }
 });

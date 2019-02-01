@@ -1,0 +1,11 @@
+@import "~compass-mixins/lib/compass";
+@import "~compass-mixins/lib/compass/reset";
+
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+@import "~angular/angular-csp";
+@import "~angular-ui-bootstrap/dist/ui-bootstrap-csp";

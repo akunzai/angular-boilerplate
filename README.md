@@ -27,8 +27,9 @@ AngularJS boilerplate to kick-start new project with SASS, TypeScript and Webpac
 - `src/app/*/*.directive.ts` : angular directive definition
 - `src/app/*/*.spec.ts` : testing specs
 - `src/app/*/*.html` : view template
-- `src/app/*/*.scss` : application stylesheets
-- `src/locale/messages.{locale}.json` : i18n locale messages
+- `src/app/*/*.scss` : component styles
+- `src/app/styles/*.scss`: global styles
+- `src/app/locales/{locale}.json` : i18n locale messages
 - `dist` : output directory
 
 ## Before Building
@@ -58,5 +59,5 @@ npm test
 publish optimized css & js to website root directory
 
 ```sh
-npm run build
+npm run release
 ```

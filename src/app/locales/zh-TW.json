@@ -1,0 +1,4 @@
+{
+  "about": "AngularJS 示範網站",
+  "hello": "你好，{{ userName }}！"
+}

@@ -4,8 +4,8 @@
         <span class="caret"></span>
     </div>
     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="switch-locale-dropdown-toggle">
-        <li role="menuitem" ng-repeat="locale in $ctrl.locales">
-            <a ng-click="$ctrl.switch(locale.value)">{{locale.name}}</a>
+        <li role="menuitem" ng-repeat="(locale,name) in $ctrl.locales">
+            <a ng-click="$ctrl.switch(locale)">{{name}}</a>
         </li>
     </ul>
 </div>
