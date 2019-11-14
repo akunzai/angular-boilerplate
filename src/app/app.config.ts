@@ -5,6 +5,7 @@ angular.module('app')
 .constant('LOCALES', {
   'en': 'English',
   'zh-TW': '正體中文',
+  'ja': '日文',
 })
 .config(
 (
@@ -25,7 +26,19 @@ angular.module('app')
     .useSanitizeValueStrategy('escape')
     // enable BCP-47, must be before determinePreferredLanguage!
     .uniformLanguageTag('bcp47')
-    .determinePreferredLanguage()
+    .registerAvailableLanguageKeys(['en', 'zh-TW', 'ja'], {
+      'zh*': 'zh-TW',
+      'ja*': 'ja',
+    })
+    .determinePreferredLanguage(() => {
+      // queryString has higher priority
+      const matches: RegExpExecArray = /\?locale=([\w\-]+)/.exec(
+        location.search,
+      );
+      return matches
+        ? matches[1]
+        : $translateProvider.resolveClientLocale();
+    })
     .fallbackLanguage('en')
     .useCookieStorage()
     .storageKey('locale');
