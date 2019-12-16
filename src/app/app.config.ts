@@ -1,5 +1,5 @@
 import * as angular from 'angular';
-import { UrlRouterProvider } from '@uirouter/angularjs';
+import { UrlService } from '@uirouter/angularjs';
 
 angular.module('app')
 .constant('LOCALES', {
@@ -9,11 +9,11 @@ angular.module('app')
 })
 .config(
 (
-  $urlRouterProvider: UrlRouterProvider,
+  $urlServiceProvider: UrlService,
   $translateProvider: ng.translate.ITranslateProvider,
 ) => {
 
-  $urlRouterProvider.otherwise('/home');
+  $urlServiceProvider.rules.otherwise('/home');
 
   $translateProvider
     .useStaticFilesLoader({
