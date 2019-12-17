@@ -7,9 +7,11 @@ import * as angular from 'angular';
 export class InitialValueDirective implements ng.IDirective {
 
   public static factory(): ng.IDirectiveFactory {
-    /* @ngInject */
     const factory: ng.IDirectiveFactory =
-      ($parse: ng.IParseService) => new InitialValueDirective($parse);
+      ($parse: ng.IParseService) => {
+        'ngInject';
+        return new InitialValueDirective($parse);
+      };
     return factory;
   }
 

@@ -2,11 +2,11 @@ import { Locale } from './locale.model';
 
 export class SwitchLocaleController {
   public locales: Locale[];
-  /*@ngInject*/
   constructor(
     protected $translate: ng.translate.ITranslateService,
     LOCALES: Locale[],
   ) {
+    'ngInject';
     this.locales = LOCALES;
   }
 

@@ -12,7 +12,7 @@ angular.module('app')
   $urlServiceProvider: UrlService,
   $translateProvider: ng.translate.ITranslateProvider,
 ) => {
-
+  'ngInject';
   $urlServiceProvider.rules.otherwise('/home');
 
   $translateProvider
@@ -43,7 +43,9 @@ angular.module('app')
     .useCookieStorage()
     .storageKey('locale');
 })
-.run(($translationCache: ng.ICacheObject, LOCALES: {[key: string]: string}) => {
+.run(($translationCache: ng.ICacheObject,
+      LOCALES: {[key: string]: string}) => {
+  'ngInject';
   for (const locale in LOCALES) {
     if (LOCALES.hasOwnProperty(locale)) {
       $translationCache.put(
