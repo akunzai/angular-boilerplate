@@ -1,4 +1,4 @@
-import angular = require('angular');
+import * as angular from 'angular';
 import { StateProvider } from '@uirouter/angularjs';
 
 angular.module('app.home').config(($stateProvider: StateProvider) => {
