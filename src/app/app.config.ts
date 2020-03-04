@@ -50,6 +50,7 @@ angular.module('app')
     if (LOCALES.hasOwnProperty(locale)) {
       $translationCache.put(
         `locales/${locale}.json`,
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         JSON.stringify(require(`./locales/${locale}.json`)),
       );
     }

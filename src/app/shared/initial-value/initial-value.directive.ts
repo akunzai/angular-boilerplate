@@ -27,6 +27,7 @@ export class InitialValueDirective implements ng.IDirective {
     instanceAttributes: ng.IAttributes,
   ) => {
     const val: any = instanceAttributes['ngInitial'] || instanceElement.val();
+    // eslint-disable-next-line no-invalid-this
     this.$parse(instanceAttributes['ngModel']).assign(scope, val);
   }
 }

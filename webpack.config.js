@@ -22,10 +22,12 @@ module.exports = (env, argv) => {
         {
           test: /\.tsx?$/,
           enforce: 'pre',
-          use: ['tslint-loader']
+          exclude: /node_modules/,
+          use: ['eslint-loader']
         },
         {
           test: /\.tsx?$/,
+          exclude: /node_modules/,
           use: ['ng-annotate-loader', 'ts-loader']
         },
         { test: /\.html$/, use: ['html-loader'] },
