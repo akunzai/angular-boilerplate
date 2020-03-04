@@ -4,8 +4,8 @@ AngularJS boilerplate to kick-start new project with SASS, TypeScript and Webpac
 
 ## Requirement
 
-- node.js >= 6.0
-- [webpack](https://webpack.github.io)
+- [Node.js](https://nodejs.org)
+- [Webpack](https://webpack.github.io)
 
 ## Style Guide
 
@@ -42,16 +42,10 @@ npm install
 
 ## Start Developing
 
-watch and serve at http://localhost:8080/webpack-dev-server/ in memory
+watch and serve at http://127.0.0.1:8080/webpack-dev-server/ in memory
 
 ```sh
 npm start
-```
-
-## Run Testing
-
-```sh
-npm test
 ```
 
 ## Publish

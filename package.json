@@ -7,8 +7,8 @@
     "build:prod": "webpack -p --mode production",
     "clean": "rimraf dist",
     "release": "npm run clean && npm run build:prod",
-    "start": "webpack-dev-server -d --open",
-    "start:prod": "webpack-dev-server -p --mode production --open",
+    "start": "webpack-dev-server -d --open --host 127.0.0.1",
+    "start:prod": "webpack-dev-server -p --mode production --open --host 127.0.0.1",
     "test": "karma start",
     "test:debug": "karma start --no-single-run --browsers Chrome"
   },
