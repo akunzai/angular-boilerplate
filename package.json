@@ -8,11 +8,15 @@
     "clean": "rimraf dist",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
+    "preinstall": "npx npm-force-resolutions",
     "release": "npm run clean && npm run build:prod",
     "start": "webpack-dev-server -d --open --host 127.0.0.1",
     "start:prod": "webpack-dev-server -p --mode production --open --host 127.0.0.1",
     "test": "karma start",
     "test:debug": "karma start --no-single-run --browsers Chrome"
+  },
+  "resolutions": {
+    "minimist": "1.2.5"
   },
   "devDependencies": {
     "@types/angular-cookies": "^1.4.5",
