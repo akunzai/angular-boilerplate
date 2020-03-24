@@ -1,8 +1,9 @@
 import * as angular from 'angular';
 import { SwitchLocaleController } from './switch-locale.controller';
+import { Injectable, IControllerConstructor } from 'angular';
 
 export class SwitchLocaleComponent implements ng.IComponentOptions {
-  public controller: any;
+  public controller: string | Injectable<IControllerConstructor>;
   public template: string;
   constructor() {
     this.controller = SwitchLocaleController;
@@ -10,4 +11,6 @@ export class SwitchLocaleComponent implements ng.IComponentOptions {
   }
 }
 
-angular.module('app.switchLocale').component('switchLocale', new SwitchLocaleComponent());
+angular
+  .module('app.switchLocale')
+  .component('switchLocale', new SwitchLocaleComponent());

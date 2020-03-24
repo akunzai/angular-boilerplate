@@ -5,31 +5,30 @@ import * as angular from 'angular';
  * example: <input type="email" ng-model="email" ng-initial value="user@example.com">
  */
 export class InitialValueDirective implements ng.IDirective {
-
   public static factory(): ng.IDirectiveFactory {
-    const factory: ng.IDirectiveFactory =
-      ($parse: ng.IParseService) => {
-        'ngInject';
-        return new InitialValueDirective($parse);
-      };
+    const factory: ng.IDirectiveFactory = ($parse: ng.IParseService) => {
+      'ngInject';
+      return new InitialValueDirective($parse);
+    };
     return factory;
   }
 
-  public require: string = 'ngModel';
-  public restrict: string = 'A';
+  public require = 'ngModel';
+  public restrict = 'A';
 
-  constructor(protected $parse: ng.IParseService) {
-  }
+  constructor(protected $parse: ng.IParseService) {}
 
   public link: ng.IDirectiveLinkFn = (
     scope: ng.IScope,
     instanceElement: ng.IAugmentedJQuery,
-    instanceAttributes: ng.IAttributes,
+    instanceAttributes: ng.IAttributes
   ) => {
-    const val: any = instanceAttributes['ngInitial'] || instanceElement.val();
-    // eslint-disable-next-line no-invalid-this
+    const val: unknown =
+      instanceAttributes['ngInitial'] || instanceElement.val();
     this.$parse(instanceAttributes['ngModel']).assign(scope, val);
-  }
+  };
 }
 
-angular.module('app.initialValue').directive('ngInitial', InitialValueDirective.factory());
+angular
+  .module('app.initialValue')
+  .directive('ngInitial', InitialValueDirective.factory());

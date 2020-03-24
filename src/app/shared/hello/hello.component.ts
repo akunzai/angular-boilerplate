@@ -1,7 +1,7 @@
 import * as angular from 'angular';
 
 export class HelloComponent implements ng.IComponentOptions {
-  public bindings: any;
+  public bindings: { [boundProperty: string]: string };
   public template: string;
 
   constructor() {
@@ -11,7 +11,7 @@ export class HelloComponent implements ng.IComponentOptions {
       // one-way binding: '<'
       // two-way binding: '='
       // callback: '&'
-      userName: '@',
+      userName: '@'
     };
 
     this.template = require('./hello.html');
