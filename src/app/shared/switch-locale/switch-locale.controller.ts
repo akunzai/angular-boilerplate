@@ -11,6 +11,6 @@ export class SwitchLocaleController {
   }
 
   public switch(locale: string): void {
-    this.$translate.use(locale);
+    void Promise.resolve(this.$translate.use(locale));
   }
 }

@@ -4,7 +4,7 @@ import { StateProvider } from '@uirouter/angularjs';
 angular.module('app.about').config(($stateProvider: StateProvider) => {
   'ngInject';
   $stateProvider.state('about', {
-    template: require('./about.html'),
+    template: require('./about.html') as string,
     url: '/about',
   });
 });

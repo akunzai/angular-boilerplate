@@ -7,7 +7,7 @@ export class SwitchLocaleComponent implements ng.IComponentOptions {
   public template: string;
   constructor() {
     this.controller = SwitchLocaleController;
-    this.template = require('./switch-locale.html');
+    this.template = require('./switch-locale.html') as string;
   }
 }
 
