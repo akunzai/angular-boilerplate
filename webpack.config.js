@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env, argv) => {
   const devMode = argv.mode !== 'production';
@@ -12,10 +12,10 @@ module.exports = (env, argv) => {
     mode: 'development',
     entry: { main: './src/app/main.ts' },
     output: {
-      filename: devMode ? '[name].js' : '[name].[hash].js'
+      filename: devMode ? '[name].js' : '[name].[hash].js',
     },
     resolve: {
-      extensions: ['.ts', '.tsx', '.js']
+      extensions: ['.ts', '.tsx', '.js'],
     },
     module: {
       rules: [
@@ -23,12 +23,12 @@ module.exports = (env, argv) => {
           test: /\.tsx?$/,
           enforce: 'pre',
           exclude: /node_modules/,
-          use: ['eslint-loader']
+          use: ['eslint-loader'],
         },
         {
           test: /\.tsx?$/,
           exclude: /node_modules/,
-          use: ['ng-annotate-loader', 'ts-loader']
+          use: ['ng-annotate-loader', 'ts-loader'],
         },
         { test: /\.html$/, use: ['html-loader'] },
         {
@@ -36,43 +36,43 @@ module.exports = (env, argv) => {
           use: [
             devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
-            'sass-loader'
-          ]
+            'sass-loader',
+          ],
         },
         {
           test: /\.(eot|otf|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?$/,
-          use: ['file-loader']
-        }
-      ]
+          use: ['file-loader'],
+        },
+      ],
     },
     optimization: {
       splitChunks: {
-        chunks: 'all'
-      }
+        chunks: 'all',
+      },
     },
-    performance: {hints: false},
+    performance: { hints: false },
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
-        _: 'lodash'
+        _: 'lodash',
       }),
-      new CopyWebpackPlugin([
-        { from: './src/app/locales', to: 'locales/' }
-      ]),
+      new CopyWebpackPlugin({
+        patterns: [{ from: './src/app/locales', to: 'locales/' }],
+      }),
       new MiniCssExtractPlugin({
         filename: devMode ? '[name].css' : '[name].[hash].css',
-        chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+        chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
       }),
       new HtmlWebpackPlugin({
-        template: 'src/index.html'
+        template: 'src/index.html',
       }),
       new OptimizeCssAssetsPlugin({
         cssProcessorPluginOptions: {
           preset: ['default', { discardComments: { removeAll: true } }],
-        }
-      })
-    ]
+        },
+      }),
+    ],
   };
 };
