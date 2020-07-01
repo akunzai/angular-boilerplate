@@ -2,15 +2,16 @@
 
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env, argv) => {
   const devMode = argv.mode !== 'production';
   return {
     mode: 'development',
-    entry: { main: './src/app/main.ts' },
+    entry: { main: ['./src/app/main.ts', './src/app/main.scss'] },
     output: {
       filename: devMode ? '[name].js' : '[name].[hash].js',
     },
@@ -33,11 +34,7 @@ module.exports = (env, argv) => {
         { test: /\.html$/, use: ['html-loader'] },
         {
           test: /\.(sa|sc|c)ss$/,
-          use: [
-            devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader',
-          ],
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
         {
           test: /\.(eot|otf|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?$/,
@@ -49,6 +46,14 @@ module.exports = (env, argv) => {
       splitChunks: {
         chunks: 'all',
       },
+      minimizer: [
+        new TerserJSPlugin({}),
+        new OptimizeCssAssetsPlugin({
+          cssProcessorPluginOptions: {
+            preset: ['default', { discardComments: { removeAll: true } }],
+          },
+        }),
+      ],
     },
     performance: { hints: false },
     plugins: [
@@ -67,11 +72,6 @@ module.exports = (env, argv) => {
       }),
       new HtmlWebpackPlugin({
         template: 'src/index.html',
-      }),
-      new OptimizeCssAssetsPlugin({
-        cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }],
-        },
       }),
     ],
   };
