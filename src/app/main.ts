@@ -12,8 +12,6 @@ import 'bootstrap-sass';
 import 'jquery';
 import 'lodash';
 
-import './styles/main.scss';
-
 import './shared';
 import './home';
 import './about';
