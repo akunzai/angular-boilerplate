@@ -2,6 +2,7 @@
 
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -15,12 +16,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.tsx?$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        use: ['eslint-loader'],
-      },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
@@ -52,6 +47,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [{ from: './src/app/locales', to: 'locales/' }],
     }),
+    new ESLintPlugin({ extensions: '.ts' }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
