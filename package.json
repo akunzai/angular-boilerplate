@@ -8,16 +8,11 @@
     "clean": "rimraf dist",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "preinstall": "npx npm-force-resolutions",
     "release": "npm run clean && npm run build:prod",
     "start": "webpack serve --mode development --hot",
     "start:prod": "webpack serve --mode production",
     "test": "karma start",
     "test:debug": "karma start --no-single-run --browsers Chrome"
-  },
-  "resolutions": {
-    "minimist": "1.2.5",
-    "node-forge": "0.10.0"
   },
   "devDependencies": {
     "@types/angular-cookies": "^1.8.0",
