@@ -42,6 +42,7 @@
     "compass-mixins-fixed": "^1.0.1",
     "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^5.0.0",
+    "css-minimizer-webpack-plugin": "^1.1.5",
     "eslint": "^7.12.1",
     "eslint-webpack-plugin": "^2.1.0",
     "file-loader": "^6.2.0",

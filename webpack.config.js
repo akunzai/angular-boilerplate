@@ -2,9 +2,11 @@
 
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: { main: ['./src/app/main.ts', './src/app/main.scss'] },
@@ -36,6 +38,10 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
     },
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin(),
+    ],
   },
   plugins: [
     new webpack.ProvidePlugin({
