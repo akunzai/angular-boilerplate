@@ -3,13 +3,13 @@
   "name": "demo",
   "private": true,
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack --mode development -d eval-cheap-module-source-map",
     "build:prod": "webpack --mode production",
     "clean": "rimraf dist",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "release": "npm run clean && npm run build:prod",
-    "start": "webpack serve --mode development --hot",
+    "start": "webpack serve --mode development --hot -d eval-cheap-module-source-map",
     "start:prod": "webpack serve --mode production",
     "test": "karma start",
     "test:debug": "karma start --no-single-run --browsers Chrome"
