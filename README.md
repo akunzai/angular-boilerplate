@@ -42,7 +42,7 @@ npm install
 
 ## Start Developing
 
-watch and serve at http://127.0.0.1:8080/webpack-dev-server/ in memory
+watch and serve at http://localhost:8080/ in memory
 
 ```sh
 npm start
