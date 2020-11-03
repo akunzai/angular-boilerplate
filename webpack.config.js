@@ -37,11 +37,10 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      // https://webpack.js.org/plugins/split-chunks-plugin/#splitchunkscachegroupscachegroupfilename
+      filename: 'vendors.js',
     },
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin(),
-    ],
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
   plugins: [
     new webpack.ProvidePlugin({
