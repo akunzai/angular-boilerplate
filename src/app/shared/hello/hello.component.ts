@@ -14,6 +14,7 @@ export class HelloComponent implements ng.IComponentOptions {
       userName: '@'
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     this.template = require('./hello.html') as string;
   }
 }
