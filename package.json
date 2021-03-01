@@ -9,8 +9,8 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "release": "npm run clean && npm run build:prod",
-    "start": "webpack serve --mode development --hot -d eval-cheap-module-source-map",
-    "start:prod": "webpack serve --mode production",
+    "start": "webpack serve --mode development --hot -d eval-cheap-module-source-map --open",
+    "start:prod": "webpack serve --mode production --open",
     "test": "jest"
   },
   "devDependencies": {
@@ -42,7 +42,6 @@
     "css-minimizer-webpack-plugin": "^1.2.0",
     "eslint": "^7.21.0",
     "eslint-webpack-plugin": "^2.5.2",
-    "file-loader": "^6.2.0",
     "font-awesome": "^4.7.0",
     "html-loader": "^2.1.1",
     "html-webpack-plugin": "^5.2.0",
