@@ -13,6 +13,9 @@ module.exports = {
   output: {
     publicPath: './',
   },
+  devServer: {
+    contentBase: './dist',
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
@@ -30,7 +33,8 @@ module.exports = {
       },
       {
         test: /\.(eot|otf|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?$/,
-        use: ['file-loader'],
+        // https://webpack.js.org/guides/asset-modules/
+        type: 'asset/resource',
       },
     ],
   },

@@ -9,8 +9,8 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "release": "npm run clean && npm run build:prod",
-    "start": "webpack serve --mode development --hot -d eval-cheap-module-source-map",
-    "start:prod": "webpack serve --mode production",
+    "start": "webpack serve --mode development --hot -d eval-cheap-module-source-map --open",
+    "start:prod": "webpack serve --mode production --open",
     "test": "jest"
   },
   "devDependencies": {
@@ -22,8 +22,6 @@
     "@types/jquery": "^3.5.5",
     "@types/lodash": "^4.14.168",
     "@types/node": "^14.14.31",
-    "@types/webpack": "^4.41.26",
-    "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "@uirouter/angularjs": "^1.0.29",
@@ -44,7 +42,6 @@
     "css-minimizer-webpack-plugin": "^1.2.0",
     "eslint": "^7.21.0",
     "eslint-webpack-plugin": "^2.5.2",
-    "file-loader": "^6.2.0",
     "font-awesome": "^4.7.0",
     "html-loader": "^2.1.1",
     "html-webpack-plugin": "^5.2.0",
