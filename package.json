@@ -37,7 +37,7 @@
     "angular-ui-bootstrap": "^2.5.6",
     "bootstrap-sass": "^3.4.1",
     "compass-mixins-fixed": "^1.0.1",
-    "copy-webpack-plugin": "^7.0.0",
+    "copy-webpack-plugin": "^8.0.0",
     "css-loader": "^5.1.1",
     "css-minimizer-webpack-plugin": "^1.2.0",
     "eslint": "^7.21.0",
