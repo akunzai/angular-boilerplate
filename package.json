@@ -38,7 +38,7 @@
     "bootstrap-sass": "^3.4.1",
     "compass-mixins-fixed": "^1.0.1",
     "copy-webpack-plugin": "^8.1.1",
-    "css-loader": "^5.2.2",
+    "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "eslint": "^7.25.0",
     "eslint-webpack-plugin": "^2.5.4",
