@@ -1,0 +1,24 @@
+<h2 i18n>My Heroes</h2>
+
+<div class="container">
+
+<ul class="heroes list-group">
+  <li *ngFor="let hero of heroes" class="list-group-item d-flex justify-content-between align-items-center">
+    <span class="badge bg-primary rounded-pill">{{hero.id}}</span>
+    <a class="list-group-item-action" routerLink="/detail/{{hero.id}}">
+      {{hero.name}}
+    </a>
+    <button type="button" class="btn-close" aria-label="Close"
+      i18n-title (click)="delete(hero)"></button>
+  </li>
+</ul>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" id="new-hero" #heroName i18n-placeholder placeholder="name">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2" i18n-title title="Add hero"
+    (click)="add(heroName.value); heroName.value=''">
+    <i class="bi bi-plus"></i>
+  </button>
+</div>
+
+</div>

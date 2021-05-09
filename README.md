@@ -1,57 +1,45 @@
-# My AngularJS Boilerplate
+# My Angular Boilerplate
 
-AngularJS boilerplate to kick-start new project with SASS, TypeScript and Webpack
+[Angular](http://angular.io/) boilerplate to kick-start new project with SCSS
 
 ## Requirement
 
 - [Node.js](https://nodejs.org)
-- [Webpack](https://webpack.github.io)
+- [Angular CLI](https://angular.io/cli)
 
-## Style Guide
-
-- [Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
-- [Angular 2 Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html)
-
-## Structure Convention
-
-- `src/app/{feature}/` : create folders named for the feature they represent
-- `src/app/*/shared/`: cross feature's shared folder
-- `src/app/*/index.ts` : imports, aggregates, and re-exports items. (We call this technique a barrel)
-- `src/app/*/*.model.ts` : domain model class definition
-- `src/app/*/*.module.ts` : angular module definition
-- `src/app/*/*.config.ts` : angular module configuration
-- `src/app/*/*.route.ts` : angular routing configuration
-- `src/app/*/*.controller.ts` : angular controller definition
-- `src/app/*/*.component.ts` : angular component definition
-- `src/app/*/*.service.ts` : angular service/factory definition
-- `src/app/*/*.directive.ts` : angular directive definition
-- `src/app/*/*.spec.ts` : testing specs
-- `src/app/*/*.html` : view template
-- `src/app/*/*.scss` : component styles
-- `src/app/styles/*.scss`: global styles
-- `src/app/locales/{locale}.json` : i18n locale messages
-- `dist` : output directory
-
-## Before Building
-
-run npm install at project root
+## Getting Started
 
 ```sh
+# install npm packages
 npm install
+
+# watch and serve a dev server at http://localhost:4200/
+ng serve
+
+# build the project. The build artifacts will be stored in the `dist/` directory
+ng build
+
+# build the project in production mode
+ng build --prod
+
+# Running unit tests
+ng test
+
+# generate a new component
+ng generate component component-name
+
+# generate a new service
+ng generate service service-name
+
+# extracts i18n messages from source code
+ng extract-i18n --output-path src/locale
+
+# get more help on the Angular CLI
+ng help
 ```
 
-## Start Developing
+## Reference
 
-watch and serve at http://localhost:8080/ in memory
-
-```sh
-npm start
-```
-
-## Publish
-
-publish optimized css & js to website root directory
-
-```sh
-npm run release
-```
+- [Angular Coding Style Guide](https://angular.io/guide/styleguide)
+- [Angular i18n](https://angular.io/guide/i18n)
+- [Angular ESLint](https://github.com/angular-eslint/angular-eslint)

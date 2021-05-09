@@ -1,0 +1,12 @@
+<div *ngIf="messageService.messages.length" class="fixed-bottom">
+
+  <h2 i18n>Messages</h2>
+
+  <div class="alert alert-secondary">
+    <button type="button" class="btn-close float-end" aria-label="Close"
+    title="Clear messages"
+    i18n-title (click)="messageService.clear()"></button>
+    <p *ngFor='let message of messageService.messages'> {{message}}</p>
+  </div>
+
+</div>
