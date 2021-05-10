@@ -1,0 +1,18 @@
+<div id="search-component">
+
+  <div class="input-group">
+    <input class="form-control" #searchBox id="search-box" (input)="search(searchBox.value)">
+    <button class="btn btn-outline-secondary" type="button" i18n-title title="Hero Search">
+      <i class="bi bi-search"></i>
+    </button>
+  </div>
+
+  <ul class="search-result list-group">
+    <li class="list-group-item" *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+
+</div>
