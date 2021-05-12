@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -11,7 +12,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   entry: { main: ['./src/app/main.ts', './src/app/main.scss'] },
   output: {
-    publicPath: './',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   devServer: {
     contentBase: './dist',
@@ -26,7 +28,15 @@ module.exports = {
         exclude: /node_modules/,
         use: ['ng-annotate-loader', 'ts-loader'],
       },
-      { test: /\.html$/, use: ['html-loader'] },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: { esModule: false },
+          },
+        ],
+      },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
