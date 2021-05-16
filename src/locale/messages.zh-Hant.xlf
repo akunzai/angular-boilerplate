@@ -2,128 +2,92 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="6570363013146073520" datatype="html">
-        <source>Dashboard</source>
-        <target>儀表板</target>
+      <trans-unit id="3958504940664351773" datatype="html">
+        <source>Counter</source>
+        <target>計數器</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="sourcefile">src/app/counter/counter.component.html</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3308929233010392928" datatype="html">
-        <source>Heroes</source>
-        <target>英雄們</target>
+      <trans-unit id="2192739114063893787" datatype="html">
+        <source>Current count</source>
+        <target>目前計數</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="sourcefile">src/app/counter/counter.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="9169252125508909250" datatype="html">
-        <source>Tour of Heroes</source>
-        <target>英雄之旅</target>
+      <trans-unit id="529510153551286303" datatype="html">
+        <source>Increment</source>
+        <target>增加</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="sourcefile">src/app/counter/counter.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5890833044137447416" datatype="html">
+        <source>Welcome!</source>
+        <target>歡迎!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+        <target>標題</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="7960133721659675171" datatype="html">
-        <source>Top Heroes</source>
-        <target>最佳英雄</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">1</context>
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8713870492138317531" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{hero.name | uppercase}}"/> Details</source>
-        <target><x id="INTERPOLATION" equiv-text="{{hero.name | uppercase}}"/> 個人檔案</target>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
+        <target>描述</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8440312843126781337" datatype="html">
-        <source>id: </source>
-        <target>編號: </target>
+      <trans-unit id="397098723873502323" datatype="html">
+        <source>Done</source>
+        <target>完成</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7052135295634646592" datatype="html">
-        <source>Hero name: </source>
-        <target>英雄名: </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3325180562659478330" datatype="html">
-        <source>name</source>
-        <target>名稱</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2073912896052609613" datatype="html">
-        <source>go back</source>
-        <target>返回</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8640257554156088424" datatype="html">
-        <source>save</source>
+      <trans-unit id="3620188369327429839" datatype="html">
+        <source> Save </source>
         <target>儲存</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">40,41</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3611959609992299129" datatype="html">
-        <source>Hero Search</source>
-        <target>英雄檢索</target>
+      <trans-unit id="8814297195783961848" datatype="html">
+        <source>Todo List</source>
+        <target>待辦事項</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-search/hero-search.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6113578982295417190" datatype="html">
-        <source>My Heroes</source>
-        <target>我的英雄</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2304193589400015249" datatype="html">
-        <source>Add hero</source>
-        <target>登錄英雄</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6452372740127749380" datatype="html">
-        <source>Messages</source>
-        <target>訊息</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/messages/messages.component.html</context>
+          <context context-type="sourcefile">src/app/todo-list/todo-list.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7522297216957110463" datatype="html">
-        <source>Clear messages</source>
-        <target>清空訊息</target>
+      <trans-unit id="3605220990549262159" datatype="html">
+        <source>What need to be done?</source>
+        <target>有什麼需要完成的事嗎?</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/messages/messages.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="sourcefile">src/app/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
     </body>

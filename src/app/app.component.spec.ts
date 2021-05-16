@@ -18,16 +18,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Tour of Heroes'`, () => {
+  it(`should have as title 'Angular Boilerplate'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Tour of Heroes');
+    expect(app.title).toEqual('Angular Boilerplate');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Tour of Heroes');
+    expect(compiled.querySelector('app-nav-menu').title).toEqual('Angular Boilerplate');
   });
 });

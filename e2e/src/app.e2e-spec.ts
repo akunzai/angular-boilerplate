@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display title', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('Tour of Heroes');
+    expect(await page.getTitleText()).toEqual('Angular Boilerplate');
   });
 
   afterEach(async () => {

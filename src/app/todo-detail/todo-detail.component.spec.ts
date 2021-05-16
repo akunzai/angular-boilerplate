@@ -6,55 +6,60 @@ import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
-import { HeroDetailComponent } from './hero-detail.component';
+import { Todo } from '../todo';
+import { TodoService } from '../todo.service';
+import { TodoDetailComponent } from './todo-detail.component';
 
-describe('HeroDetailComponent', () => {
-  let component: HeroDetailComponent;
-  let fixture: ComponentFixture<HeroDetailComponent>;
+describe('TodoDetailComponent', () => {
+  let component: TodoDetailComponent;
+  let fixture: ComponentFixture<TodoDetailComponent>;
+
   beforeEach(() => {
     const activatedRouteStub = () => ({
       snapshot: { paramMap: { get: () => ({}) } },
     });
     const locationStub = () => ({ back: () => ({}) });
-    const heroServiceStub = () => ({
-      getHero: (id: number) => ({
+    const todoServiceStub = () => ({
+      getTodo: (id: number) => ({
         subscribe: (f: Function) => f({}),
       }),
-      updateHero: (hero: Hero) => ({ subscribe: (f: Function) => f({}) }),
+      updateTodo: (todo: Todo) => ({ subscribe: (f: Function) => f({}) }),
     });
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [FormsModule],
-      declarations: [HeroDetailComponent],
+      declarations: [TodoDetailComponent],
       providers: [
         { provide: ActivatedRoute, useFactory: activatedRouteStub },
         { provide: Location, useFactory: locationStub },
-        { provide: HeroService, useFactory: heroServiceStub },
+        { provide: TodoService, useFactory: todoServiceStub },
       ],
     });
-    fixture = TestBed.createComponent(HeroDetailComponent);
+    fixture = TestBed.createComponent(TodoDetailComponent);
     component = fixture.componentInstance;
   });
-  it('can load instance', () => {
+
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   describe('ngOnInit', () => {
     it('makes expected calls', () => {
-      spyOn(component, 'getHero').and.callThrough();
+      spyOn(component, 'getTodo').and.callThrough();
       component.ngOnInit();
-      expect(component.getHero).toHaveBeenCalled();
+      expect(component.getTodo).toHaveBeenCalled();
     });
   });
-  describe('getHero', () => {
+
+  describe('getTodo', () => {
     it('makes expected calls', () => {
-      const heroServiceStub: HeroService = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'getHero').and.callThrough();
-      component.getHero();
-      expect(heroServiceStub.getHero).toHaveBeenCalled();
+      const serviceStub: TodoService = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'getTodo').and.callThrough();
+      component.getTodo();
+      expect(serviceStub.getTodo).toHaveBeenCalled();
     });
   });
+
   describe('goBack', () => {
     it('makes expected calls', () => {
       const locationStub: Location = TestBed.inject(Location);
@@ -63,61 +68,55 @@ describe('HeroDetailComponent', () => {
       expect(locationStub.back).toHaveBeenCalled();
     });
   });
+
   describe('save', () => {
     it('makes expected calls', () => {
-      const heroServiceStub: HeroService = TestBed.inject(HeroService);
+      const serviceStub: TodoService = TestBed.inject(TodoService);
       spyOn(component, 'goBack').and.callThrough();
-      spyOn(heroServiceStub, 'updateHero').and.callThrough();
+      spyOn(serviceStub, 'updateTodo').and.callThrough();
       component.save();
       expect(component.goBack).toHaveBeenCalled();
-      expect(heroServiceStub.updateHero).toHaveBeenCalled();
+      expect(serviceStub.updateTodo).toHaveBeenCalled();
     });
   });
 
-  describe('Without a hero', () => {
+  describe('Without a todo', () => {
     it("Doesn't display anything", () => {
-      const heroServiceStub = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'getHero').and.returnValue(of(undefined!));
+      const serviceStub = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'getTodo').and.returnValue(of(undefined!));
       fixture.detectChanges();
       const anyDiv = fixture.debugElement.query(By.css('div'));
       expect(anyDiv).toBeFalsy();
     });
   });
 
-  describe('With hero', () => {
+  describe('With todo', () => {
     beforeEach(() => {
-      const heroServiceStub = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'getHero').and.returnValue(
+      const serviceStub = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'getTodo').and.returnValue(
         of({
           id: 123,
-          name: 'Alan',
+          title: 'Test',
+          description: '',
+          done: false,
         })
       );
       fixture.detectChanges();
     });
-    it('Displays content when initialized with a hero', () => {
+
+    it('Displays content when initialized with a todo', () => {
       const anyDiv = fixture.debugElement.query(By.css('div'));
       expect(anyDiv).toBeTruthy();
     });
-    it('Has header with hero name in uppercase', () => {
-      const header: HTMLHeadingElement = fixture.debugElement.query(
-        By.css('h2')
-      ).nativeElement;
-      expect(header.textContent).toContain('ALAN Details');
-    });
-    it('Shows hero id', () => {
-      const div: HTMLDivElement = fixture.debugElement.query(
-        By.css('div div') // first inner div
-      ).nativeElement;
-      expect(div.textContent).toContain('id: 123');
-    });
+
     it('Has input box with the name', async () => {
       await fixture.whenStable();
       const input: HTMLInputElement = fixture.debugElement.query(
         By.css('input')
       ).nativeElement;
-      expect(input.value).toBe('Alan');
+      expect(input.value).toBe('Test');
     });
+
     it('Calls location.back() when go back button is clicked', () => {
       const locationStub = TestBed.inject(Location);
       spyOn(locationStub, 'back');
@@ -127,25 +126,27 @@ describe('HeroDetailComponent', () => {
       button.click();
       expect(locationStub.back).toHaveBeenCalled();
     });
-    it('Updates hero property when user types on the input', () => {
+
+    it('Updates todo property when user types on the input', () => {
       const input: HTMLInputElement = fixture.debugElement.query(
         By.css('input')
       ).nativeElement;
       input.value = 'ABC';
       input.dispatchEvent(new Event('input'));
       fixture.detectChanges();
-      expect(component.hero?.name).toBe('ABC');
+      expect(component.todo?.title).toBe('ABC');
     });
-    it('Updates hero then goes back when save button is clicked', () => {
-      const heroServiceStub = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'updateHero').and.returnValue(of(undefined));
+
+    it('Updates todo then goes back when save button is clicked', () => {
+      const serviceStub = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'updateTodo').and.returnValue(of(undefined));
       const locationStub = TestBed.inject(Location);
       spyOn(locationStub, 'back');
       const button: HTMLButtonElement = fixture.debugElement.queryAll(
         By.css('button')
       )[1].nativeElement; // second button
       button.click();
-      expect(heroServiceStub.updateHero).toHaveBeenCalledWith(component.hero!);
+      expect(serviceStub.updateTodo).toHaveBeenCalledWith(component.todo!);
       expect(locationStub.back).toHaveBeenCalled();
     });
   });
