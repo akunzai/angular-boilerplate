@@ -126,7 +126,7 @@ describe('TodoListComponent', () => {
       expect(serviceStub.addTodo).not.toHaveBeenCalled();
     });
 
-    it('Clicking the add button adds the hero to the list and clears the textbox', () => {
+    it('Clicking the add button adds the todo to the list and clears the textbox', () => {
       const serviceStub = TestBed.inject(TodoService);
       spyOn(serviceStub, 'addTodo').and.returnValue(
         of({

@@ -100,8 +100,8 @@ describe('TodoService', () => {
     });
   });
 
-  describe('getHero', () => {
-    it('gets hero with http get', () => {
+  describe('getTodo', () => {
+    it('gets todo with http get', () => {
       const stub: Todo = TestBed.inject(Todo);
       const id = 123;
       service.getTodo(id).subscribe((res) => {
