@@ -1,6 +1,6 @@
 # My Angular Boilerplate
 
-[Angular](http://angular.io/) boilerplate to kick-start new project with SCSS
+[Angular](http://angular.io/) boilerplate to kick-start new project with SCSS + Bootstrap
 
 ## Requirement
 

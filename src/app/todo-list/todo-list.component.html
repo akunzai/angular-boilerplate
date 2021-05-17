@@ -1,0 +1,55 @@
+<div class="row justify-content-md-center">
+  <div class="col-6">
+    <h1 i18n>Todo List</h1>
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        #newTodo
+        i18n-placeholder
+        placeholder="What need to be done?"
+        (keyup.enter)="add(newTodo.value); newTodo.value = ''"
+      />
+      <button
+        class="btn btn-outline-secondary"
+        type="button"
+        id="button-addon2"
+        (click)="add(newTodo.value); newTodo.value = ''"
+      >
+        <i class="bi bi-plus"></i>
+      </button>
+    </div>
+
+    <div class="todo list-group">
+      <div
+        *ngFor="let todo of todos"
+        class="list-group-item list-group-item-action"
+      >
+        <div class="d-flex w-100 justify-content-between">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="todo-done"
+              [(ngModel)]="todo.done"
+              (change)="update(todo)"
+            />
+          </div>
+          <a
+            routerLink="/todo/{{ todo.id }}"
+            [ngClass]="{ 'text-decoration-line-through': todo.done }"
+          >
+            {{ todo.title }}
+          </a>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="delete(todo)"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

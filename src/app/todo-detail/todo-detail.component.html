@@ -1,0 +1,42 @@
+<div *ngIf="todo">
+  <button
+    type="button"
+    class="btn-close float-end"
+    aria-label="Close"
+    (click)="goBack()"
+  ></button>
+  <div class="mb-3">
+    <label class="form-label" for="todo-title" i18n>Title</label>
+    <input
+      class="form-control"
+      id="todo-title"
+      [(ngModel)]="todo.title"
+      placeholder="Title"
+      i18n-placeholder
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="todo-description" i18n>Description</label>
+    <textarea
+      class="form-control"
+      id="todo-description"
+      [(ngModel)]="todo.description"
+      placeholder="Description"
+      i18n-placeholder
+    ></textarea>
+  </div>
+  <div class="mb-3">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="todo-done"
+        [(ngModel)]="todo.done"
+      />
+      <label class="form-check-label" for="todo-done" i18n>Done</label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="save()" i18n>
+    Save
+  </button>
+</div>

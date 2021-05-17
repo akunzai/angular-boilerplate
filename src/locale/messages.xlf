@@ -2,113 +2,82 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="6570363013146073520" datatype="html">
-        <source>Dashboard</source>
+      <trans-unit id="3958504940664351773" datatype="html">
+        <source>Counter</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="sourcefile">src/app/counter/counter.component.html</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3308929233010392928" datatype="html">
-        <source>Heroes</source>
+      <trans-unit id="2192739114063893787" datatype="html">
+        <source>Current count</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="sourcefile">src/app/counter/counter.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="9169252125508909250" datatype="html">
-        <source>Tour of Heroes</source>
+      <trans-unit id="529510153551286303" datatype="html">
+        <source>Increment</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="sourcefile">src/app/counter/counter.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5890833044137447416" datatype="html">
+        <source>Welcome!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="7960133721659675171" datatype="html">
-        <source>Top Heroes</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
-          <context context-type="linenumber">1</context>
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8713870492138317531" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{hero.name | uppercase}}"/> Details</source>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8440312843126781337" datatype="html">
-        <source>id: </source>
+      <trans-unit id="397098723873502323" datatype="html">
+        <source>Done</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3620188369327429839" datatype="html">
+        <source> Save </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-detail/todo-detail.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8814297195783961848" datatype="html">
+        <source>Todo List</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-list/todo-list.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7052135295634646592" datatype="html">
-        <source>Hero name: </source>
+      <trans-unit id="3605220990549262159" datatype="html">
+        <source>What need to be done?</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3325180562659478330" datatype="html">
-        <source>name</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2073912896052609613" datatype="html">
-        <source>go back</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8640257554156088424" datatype="html">
-        <source>save</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-detail/hero-detail.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3611959609992299129" datatype="html">
-        <source>Hero Search</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/hero-search/hero-search.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6113578982295417190" datatype="html">
-        <source>My Heroes</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2304193589400015249" datatype="html">
-        <source>Add hero</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/heroes/heroes.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6452372740127749380" datatype="html">
-        <source>Messages</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/messages/messages.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7522297216957110463" datatype="html">
-        <source>Clear messages</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/messages/messages.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="sourcefile">src/app/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
     </body>

@@ -4,73 +4,77 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
-import { HeroesComponent } from './heroes.component';
+import { Todo } from '../todo';
+import { TodoService } from '../todo.service';
+import { TodoListComponent } from './todo-list.component';
 
-describe('HeroesComponent', () => {
-  let component: HeroesComponent;
-  let fixture: ComponentFixture<HeroesComponent>;
+describe('TodoListComponent', () => {
+  let component: TodoListComponent;
+  let fixture: ComponentFixture<TodoListComponent>;
 
   beforeEach(() => {
-    const heroStub = () => ({});
-    const heroServiceStub = () => ({
-      getHeroes: () => ({ subscribe: (f: Function) => f({}) }),
-      addHero: (hero: Hero) => ({ subscribe: (f: Function) => f({}) }),
-      deleteHero: (hero: Hero) => ({}),
+    const todoStub = () => ({});
+    const todoServiceStub = () => ({
+      getTodos: () => ({ subscribe: (f: Function) => f({}) }),
+      addTodo: (todo: Todo) => ({ subscribe: (f: Function) => f({}) }),
+      deleteTodo: (todo: Todo) => ({}),
     });
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
       schemas: [NO_ERRORS_SCHEMA],
-      declarations: [HeroesComponent],
+      imports: [RouterTestingModule],
+      declarations: [TodoListComponent],
       providers: [
-        { provide: Hero, useFactory: heroStub },
-        { provide: HeroService, useFactory: heroServiceStub },
+        { provide: Todo, useFactory: todoStub },
+        { provide: TodoService, useFactory: todoServiceStub },
       ],
     });
-    fixture = TestBed.createComponent(HeroesComponent);
+    fixture = TestBed.createComponent(TodoListComponent);
     component = fixture.componentInstance;
   });
 
-  it('should be created', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   describe('Use Cases', () => {
     beforeEach(() => {
-      const heroServiceStub = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'getHeroes').and.returnValue(
+      const serviceStub = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'getTodos').and.returnValue(
         of([
           {
             id: 1,
-            name: 'Alan',
+            title: 'Foo',
+            description: '',
+            done: false,
           },
           {
             id: 2,
-            name: 'Brito',
+            title: 'Bar',
+            description: '',
+            done: false,
           },
         ])
       );
       fixture.detectChanges();
     });
 
-    it('Starts with the list of heroes returned by getHeroes, with link ref, id, and name', () => {
+    it('Starts with the list of todo returned by getTodos, with link ref, id, and name', () => {
       const links: Array<HTMLAnchorElement> = fixture.debugElement
         .queryAll(By.css('a'))
         .map((a) => a.nativeElement);
 
       expect(links.length).toBe(2);
 
-      expect(links[0].textContent).toContain('Alan');
-      expect(links[0].getAttribute('href')).toBe('/detail/1');
+      expect(links[0].textContent).toContain('Foo');
+      expect(links[0].getAttribute('href')).toBe('/todo/1');
 
-      expect(links[1].textContent).toContain('Brito');
-      expect(links[1].getAttribute('href')).toBe('/detail/2');
+      expect(links[1].textContent).toContain('Bar');
+      expect(links[1].getAttribute('href')).toBe('/todo/2');
     });
 
-    it('Clicking the delete button removes the hero from the list and calls deleteHero', () => {
-      const heroServiceStub = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'deleteHero').and.returnValue(of());
+    it('Clicking the delete button removes the todo from the list and calls deleteTodo', () => {
+      const serviceStub = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'deleteTodo').and.returnValue(of());
 
       const delButton: HTMLButtonElement = fixture.debugElement.query(
         By.css('button.btn-close')
@@ -83,15 +87,15 @@ describe('HeroesComponent', () => {
         .map((a) => a.nativeElement);
 
       expect(links.length).toBe(1);
-      expect(links[0].textContent).toContain('Brito');
-      expect(links[0].getAttribute('href')).toBe('/detail/2');
+      expect(links[0].textContent).toContain('Bar');
+      expect(links[0].getAttribute('href')).toBe('/todo/2');
 
-      expect(heroServiceStub.deleteHero).toHaveBeenCalled();
+      expect(serviceStub.deleteTodo).toHaveBeenCalled();
     });
 
     it("Clicking the add button on a an empty textbox doesn't add to the list", () => {
-      const heroServiceStub = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'addHero');
+      const serviceStub = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'addTodo');
 
       const addButton: HTMLButtonElement = fixture.debugElement.query(
         By.css('div > button')
@@ -99,12 +103,12 @@ describe('HeroesComponent', () => {
       addButton.click();
       fixture.detectChanges();
 
-      expect(heroServiceStub.addHero).not.toHaveBeenCalled();
+      expect(serviceStub.addTodo).not.toHaveBeenCalled();
     });
 
     it("Clicking the add button on textbox with blank spaces doesn't add to the list", () => {
-      const heroServiceStub = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'addHero');
+      const serviceStub = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'addTodo');
 
       const input: HTMLInputElement = fixture.debugElement.query(
         By.css('input')
@@ -119,15 +123,17 @@ describe('HeroesComponent', () => {
       addButton.click();
       fixture.detectChanges();
 
-      expect(heroServiceStub.addHero).not.toHaveBeenCalled();
+      expect(serviceStub.addTodo).not.toHaveBeenCalled();
     });
 
     it('Clicking the add button adds the hero to the list and clears the textbox', () => {
-      const heroServiceStub = TestBed.inject(HeroService);
-      spyOn(heroServiceStub, 'addHero').and.returnValue(
+      const serviceStub = TestBed.inject(TodoService);
+      spyOn(serviceStub, 'addTodo').and.returnValue(
         of({
           id: 3,
-          name: 'Cesar',
+          title: 'Test',
+          description: '',
+          done: false,
         })
       );
 
@@ -135,7 +141,7 @@ describe('HeroesComponent', () => {
         By.css('input')
       ).nativeElement;
 
-      input.value = 'Cesar';
+      input.value = 'Test';
       input.dispatchEvent(new Event('input'));
 
       const addButton: HTMLButtonElement = fixture.debugElement.query(
@@ -149,8 +155,8 @@ describe('HeroesComponent', () => {
         .map((a) => a.nativeElement);
 
       expect(links.length).toBe(3);
-      expect(links[2].textContent).toContain('Cesar');
-      expect(links[2].getAttribute('href')).toBe('/detail/3');
+      expect(links[2].textContent).toContain('Test');
+      expect(links[2].getAttribute('href')).toBe('/todo/3');
     });
   });
 });
