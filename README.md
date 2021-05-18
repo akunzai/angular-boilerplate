@@ -22,9 +22,6 @@ npm test
 # build the project. The build artifacts will be stored in the `dist/` directory
 npm run build
 
-# build the project in production mode
-npm run build:prod
-
 # generate a new component
 ng generate component component-name
 
