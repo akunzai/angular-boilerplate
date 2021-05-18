@@ -14,16 +14,16 @@
 npm install
 
 # watch and serve a dev server at http://localhost:4200/
-ng serve
-
-# build the project. The build artifacts will be stored in the `dist/` directory
-ng build
-
-# build the project in production mode
-ng build --prod
+npm start
 
 # Running unit tests
-ng test
+npm test
+
+# build the project. The build artifacts will be stored in the `dist/` directory
+npm run build
+
+# build the project in production mode
+npm run build:prod
 
 # generate a new component
 ng generate component component-name
