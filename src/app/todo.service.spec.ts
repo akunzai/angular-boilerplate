@@ -53,10 +53,11 @@ describe('TodoService', () => {
     it('makes expected calls', () => {
       const httpTestingController = TestBed.inject(HttpTestingController);
       const stub: Todo = TestBed.inject(Todo);
+      stub.id = 123;
       service.updateTodo(stub).subscribe((res) => {
         expect(res).toEqual(stub);
       });
-      const req = httpTestingController.expectOne('api/todos');
+      const req = httpTestingController.expectOne('api/todos/' +  stub.id);
       expect(req.request.method).toEqual('PUT');
       req.flush(stub);
       httpTestingController.verify();
@@ -64,11 +65,12 @@ describe('TodoService', () => {
 
     it('handles 404 error', () => {
       const stub: Todo = TestBed.inject(Todo);
+      stub.id = 123;
       service.updateTodo(stub).subscribe((res) => {
         expect(res).toEqual(undefined);
       });
       const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos');
+      const req = httpTestingController.expectOne('api/todos/' +  stub.id);
       spyOn(console, 'error');
       req.flush('Error', { status: 404, statusText: 'Not Found' });
       expect(console.error).toHaveBeenCalled();
@@ -135,20 +137,6 @@ describe('TodoService', () => {
       });
       const httpTestingController = TestBed.inject(HttpTestingController);
       const req = httpTestingController.expectOne('api/todos/' + stub.id);
-      expect(req.request.method).toEqual('DELETE');
-      req.flush(stub);
-
-      httpTestingController.verify();
-    });
-
-    it('deletes todo by id with http del', () => {
-      const stub: Todo = TestBed.inject(Todo);
-      const id = 123;
-      service.deleteTodo(id).subscribe((res) => {
-        expect(res).toEqual(stub);
-      });
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos/' + id);
       expect(req.request.method).toEqual('DELETE');
       req.flush(stub);
 

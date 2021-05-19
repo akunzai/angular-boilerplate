@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Todo } from './todo';
 
+import { Todo } from './todo';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoService {
   private todosUrl = 'api/todos';
@@ -14,7 +14,7 @@ export class TodoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.todosUrl).pipe(
@@ -33,23 +33,27 @@ export class TodoService {
 
   addTodo(todo: Todo): Observable<Todo> {
     return this.http.post<Todo>(this.todosUrl, todo, this.httpOptions).pipe(
-      tap((newTodo: Todo) => this.log(`added todo[${newTodo.id}] with ${JSON.stringify(todo)}`)),
+      tap((newTodo: Todo) =>
+        this.log(`added todo[${newTodo.id}] with ${JSON.stringify(todo)}`)
+      ),
       catchError(this.handleError<Todo>('addTodo'))
     );
   }
 
-  deleteTodo(todo: Todo | number): Observable<Todo> {
-    const id = typeof todo === 'number' ? todo : todo.id;
-    const url = `${this.todosUrl}/${id}`;
+  deleteTodo(todo: Todo): Observable<Todo> {
+    const url = `${this.todosUrl}/${todo.id}`;
     return this.http.delete<Todo>(url, this.httpOptions).pipe(
-      tap((_) => this.log(`deleted todo[${id}]`)),
+      tap((_) => this.log(`deleted todo[${todo.id}]`)),
       catchError(this.handleError<Todo>('deleteTask'))
     );
   }
 
   updateTodo(todo: Todo): Observable<any> {
-    return this.http.put(this.todosUrl, todo, this.httpOptions).pipe(
-      tap((_) => this.log(`updated todo[${todo.id}] with ${JSON.stringify(todo)}`)),
+    const url = `${this.todosUrl}/${todo.id}`;
+    return this.http.put(url, todo, this.httpOptions).pipe(
+      tap((_) =>
+        this.log(`updated todo[${todo.id}] with ${JSON.stringify(todo)}`)
+      ),
       catchError(this.handleError<any>('updateTodo'))
     );
   }
@@ -60,7 +64,7 @@ export class TodoService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-   private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       // Let the app keep running by returning an empty result.
