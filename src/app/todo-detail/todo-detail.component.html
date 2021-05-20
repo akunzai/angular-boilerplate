@@ -6,23 +6,23 @@
     (click)="goBack()"
   ></button>
   <div class="mb-3">
-    <label class="form-label" for="todo-title" i18n>Title</label>
+    <label class="form-label" for="title">{{ "Title" | translate }}</label>
     <input
       class="form-control"
-      id="todo-title"
+      name="title"
       [(ngModel)]="todo.title"
-      placeholder="Title"
-      i18n-placeholder
+      placeholder="{{ 'Title' | translate }}"
     />
   </div>
   <div class="mb-3">
-    <label class="form-label" for="todo-description" i18n>Description</label>
+    <label class="form-label" for="description">{{
+      "Description" | translate
+    }}</label>
     <textarea
       class="form-control"
-      id="todo-description"
+      name="description"
       [(ngModel)]="todo.description"
-      placeholder="Description"
-      i18n-placeholder
+      placeholder="{{ 'Description' | translate }}"
     ></textarea>
   </div>
   <div class="mb-3">
@@ -30,13 +30,15 @@
       <input
         class="form-check-input"
         type="checkbox"
-        id="todo-done"
+        name="done"
         [(ngModel)]="todo.done"
       />
-      <label class="form-check-label" for="todo-done" i18n>Done</label>
+      <label class="form-check-label" for="done">{{
+        "Done" | translate
+      }}</label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="save()" i18n>
-    Save
+  <button type="submit" class="btn btn-primary" (click)="save()">
+    {{ "Save" | translate }}
   </button>
 </div>

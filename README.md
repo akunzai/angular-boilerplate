@@ -29,14 +29,11 @@ ng generate component component-name
 ng generate service service-name
 
 # extracts i18n messages from source code
-ng extract-i18n --output-path src/locale
-
-# get more help on the Angular CLI
-ng help
+npm run i18n:extract
 ```
 
 ## Reference
 
 - [Angular Coding Style Guide](https://angular.io/guide/styleguide)
-- [Angular i18n](https://angular.io/guide/i18n)
 - [Angular ESLint](https://github.com/angular-eslint/angular-eslint)
+- [ngx-translate](https://github.com/ngx-translate/core)

@@ -16,11 +16,6 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "i18n": {
-        "locales": {
-          "zh-Hant": "src/locale/messages.zh-Hant.xlf"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -30,8 +25,6 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "localize": true,
-            "i18nMissingTranslation": "error",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -48,9 +41,7 @@
             "namedChunks": true
           },
           "configurations": {
-            "development": {
-              "localize": ["en-US"]
-            },
+            "development": {},
             "production": {
               "fileReplacements": [
                 {
@@ -77,26 +68,19 @@
                   "maximumError": "4kb"
                 }
               ]
-            },
-            "zh":{
-              "localize": ["zh-Hant"]
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-          },
+          "options": {},
           "configurations": {
             "development": {
               "browserTarget": "angular-boilerplate:build:development"
             },
             "production": {
               "browserTarget": "angular-boilerplate:build:production"
-            },
-            "zh":{
-              "browserTarget": "angular-boilerplate:build:zh"
             }
           },
           "defaultConfiguration": "development"
@@ -144,9 +128,6 @@
             },
             "production": {
               "devServerTarget": "angular-boilerplate:serve:production"
-            },
-            "zh":{
-              "devServerTarget": "angular-boilerplate:serve:zh"
             }
           },
           "defaultConfiguration": "development"

@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
 import { TodoDetailComponent } from './todo-detail.component';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 
 describe('TodoDetailComponent', () => {
   let component: TodoDetailComponent;
@@ -27,7 +28,7 @@ describe('TodoDetailComponent', () => {
     });
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [FormsModule],
+      imports: [FormsModule, TranslateTestingModule.withTranslations({})],
       declarations: [TodoDetailComponent],
       providers: [
         { provide: ActivatedRoute, useFactory: activatedRouteStub },

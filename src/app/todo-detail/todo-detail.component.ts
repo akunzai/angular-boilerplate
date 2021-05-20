@@ -7,14 +7,16 @@ import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-todo-detail',
   templateUrl: './todo-detail.component.html',
-  styleUrls: ['./todo-detail.component.scss']
+  styleUrls: ['./todo-detail.component.scss'],
 })
 export class TodoDetailComponent implements OnInit {
   todo!: Todo;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private todoService: TodoService,
-    private location: Location) { }
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     this.getTodo();
@@ -22,8 +24,7 @@ export class TodoDetailComponent implements OnInit {
 
   getTodo(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.todoService.getTodo(id)
-      .subscribe(todo => this.todo = todo);
+    this.todoService.getTodo(id).subscribe((todo) => (this.todo = todo));
   }
 
   goBack(): void {
@@ -31,7 +32,6 @@ export class TodoDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.todoService.updateTodo(this.todo)
-      .subscribe(() => this.goBack());
+    this.todoService.updateTodo(this.todo).subscribe(() => this.goBack());
   }
 }

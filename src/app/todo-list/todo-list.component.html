@@ -1,13 +1,12 @@
 <div class="row justify-content-md-center">
   <div class="col-6">
-    <h1 i18n>Todo List</h1>
+    <h1>{{ "Todo List" | translate }}</h1>
     <div class="input-group">
       <input
         type="text"
         class="form-control"
         #newTodo
-        i18n-placeholder
-        placeholder="What need to be done?"
+        placeholder="{{ 'What need to be done?' | translate }}"
         (keyup.enter)="add(newTodo.value); newTodo.value = ''"
       />
       <button
