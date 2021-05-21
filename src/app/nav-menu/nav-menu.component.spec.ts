@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 import { NavMenuComponent } from './nav-menu.component';
 
@@ -8,9 +11,13 @@ describe('NavMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavMenuComponent ]
-    })
-    .compileComponents();
+      imports: [
+        ClickOutsideModule,
+        RouterTestingModule,
+        TranslateTestingModule.withTranslations({}),
+      ],
+      declarations: [NavMenuComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

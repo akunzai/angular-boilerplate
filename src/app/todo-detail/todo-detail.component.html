@@ -1,42 +1,43 @@
-<div *ngIf="todo">
+<form
+  *ngIf="id"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit($event)"
+  ngNativeValidate
+>
   <button
     type="button"
     class="btn-close float-end"
     aria-label="Close"
-    (click)="goBack()"
+    (click)="onClose()"
   ></button>
   <div class="mb-3">
-    <label class="form-label" for="todo-title" i18n>Title</label>
+    <label class="form-label" for="title">{{ "Title" | translate }}</label>
     <input
       class="form-control"
-      id="todo-title"
-      [(ngModel)]="todo.title"
-      placeholder="Title"
-      i18n-placeholder
+      formControlName="title"
+      placeholder="{{ 'Title' | translate }}"
+      required
     />
   </div>
   <div class="mb-3">
-    <label class="form-label" for="todo-description" i18n>Description</label>
+    <label class="form-label" for="description">{{
+      "Description" | translate
+    }}</label>
     <textarea
       class="form-control"
-      id="todo-description"
-      [(ngModel)]="todo.description"
-      placeholder="Description"
-      i18n-placeholder
+      formControlName="description"
+      placeholder="{{ 'Description' | translate }}"
     ></textarea>
   </div>
   <div class="mb-3">
     <div class="form-check">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        id="todo-done"
-        [(ngModel)]="todo.done"
-      />
-      <label class="form-check-label" for="todo-done" i18n>Done</label>
+      <input class="form-check-input" type="checkbox" formControlName="done" />
+      <label class="form-check-label" for="done">{{
+        "Done" | translate
+      }}</label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="save()" i18n>
-    Save
+  <button type="submit" class="btn btn-primary">
+    {{ "Save" | translate }}
   </button>
-</div>
+</form>

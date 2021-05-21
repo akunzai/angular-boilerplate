@@ -1,24 +1,25 @@
 <div class="row justify-content-md-center">
   <div class="col-6">
-    <h1 i18n>Todo List</h1>
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        #newTodo
-        i18n-placeholder
-        placeholder="What need to be done?"
-        (keyup.enter)="add(newTodo.value); newTodo.value = ''"
-      />
-      <button
-        class="btn btn-outline-secondary"
-        type="button"
-        id="button-addon2"
-        (click)="add(newTodo.value); newTodo.value = ''"
-      >
-        <i class="bi bi-plus"></i>
-      </button>
-    </div>
+    <h1>{{ "Todo List" | translate }}</h1>
+    <form (ngSubmit)="onSubmit($event)" ngNativeValidate>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          placeholder="{{ 'What need to be done?' | translate }}"
+          [formControl]="title"
+          required
+        />
+        <button
+          class="btn btn-outline-secondary"
+          type="submit"
+          id="button-addon2"
+        >
+          <i class="bi bi-plus"></i>
+        </button>
+      </div>
+    </form>
 
     <div class="todo list-group">
       <div
@@ -33,7 +34,7 @@
               value=""
               id="todo-done"
               [(ngModel)]="todo.done"
-              (change)="update(todo)"
+              (change)="onChange(todo)"
             />
           </div>
           <a
@@ -46,7 +47,7 @@
             type="button"
             class="btn-close"
             aria-label="Close"
-            (click)="delete(todo)"
+            (click)="onRemove(todo)"
           ></button>
         </div>
       </div>

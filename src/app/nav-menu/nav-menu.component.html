@@ -1,23 +1,29 @@
 <header>
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+    class="
+      navbar navbar-expand-sm navbar-toggleable-sm navbar-light
+      bg-white
+      border-bottom
+      box-shadow
+      mb-3
+    "
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">{{title}}</a>
+      <a class="navbar-brand" [routerLink]="['/']">{{ title }}</a>
       <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target=".navbar-collapse"
         aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded"
-        (click)="toggle()"
+        [attr.aria-expanded]="!isCollapsed"
+        (click)="toggleCollapsed()"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        [ngClass]="{ show: isExpanded }"
+        [ngClass]="{ show: !isCollapsed }"
       >
         <ul class="navbar-nav flex-grow">
           <li
@@ -33,9 +39,45 @@
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/todo-list']"
-              >Todo</a
+            <a class="nav-link text-dark" [routerLink]="['/todo-list']">Todo</a>
+          </li>
+          <li class="nav-item dropdown">
+            <button
+              class="btn dropdown-toggle"
+              id="navbarDropdown"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="true"
+              [attr.aria-expanded]="isExpanded"
+              (click)="toggleExpanded()"
             >
+              <i class="bi bi-globe"></i>
+            </button>
+            <ul
+              class="dropdown-menu"
+              [ngClass]="{ show: isExpanded }"
+              aria-labelledby="navbarDropdown"
+              (clickOutside)="clickOutside($event)"
+              [exclude]="'button.dropdown-toggle'"
+            >
+              <li>
+                <button
+                  class="dropdown-item"
+                  [ngClass]="{ active: isCurrentLanguage('en') }"
+                  (click)="switchLanguage('en')"
+                >
+                  English
+                </button>
+              </li>
+              <li>
+                <button
+                  class="dropdown-item"
+                  [ngClass]="{ active: isCurrentLanguage('zh') }"
+                  (click)="switchLanguage('zh-Hant')"
+                >
+                  正體中文
+                </button>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>

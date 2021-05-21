@@ -1,37 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todo-detail',
   templateUrl: './todo-detail.component.html',
-  styleUrls: ['./todo-detail.component.scss']
+  styleUrls: ['./todo-detail.component.scss'],
 })
 export class TodoDetailComponent implements OnInit {
-  todo!: Todo;
+  id = 0;
+  form = new FormGroup({
+    title: new FormControl(''),
+    description: new FormControl(''),
+    done: new FormControl(false)
+  })
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private todoService: TodoService,
-    private location: Location) { }
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
-    this.getTodo();
+    this.todoService.getTodo(Number(this.route.snapshot.paramMap.get('id'))).subscribe((todo) => {
+      if (todo !== undefined){
+        this.id = todo.id;
+        this.form.controls.title.setValue(todo.title);
+        this.form.controls.description.setValue(todo.description);
+        this.form.controls.done.setValue(todo.done);
+      }
+    });
   }
 
-  getTodo(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.todoService.getTodo(id)
-      .subscribe(todo => this.todo = todo);
+  onSubmit($event: Event): void {
+    $event.preventDefault();
+    const updatedTodo = new Todo(this.id,
+      this.form.controls.title.value,
+      this.form.controls.description.value,
+      this.form.controls.done.value,
+      );
+    this.todoService.updateTodo(updatedTodo).subscribe(() => this.onClose());
   }
 
-  goBack(): void {
+  onClose(): void {
     this.location.back();
   }
 
-  save(): void {
-    this.todoService.updateTodo(this.todo)
-      .subscribe(() => this.goBack());
-  }
 }

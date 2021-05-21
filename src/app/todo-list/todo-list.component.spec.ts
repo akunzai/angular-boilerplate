@@ -1,7 +1,9 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 import { of } from 'rxjs';
 
 import { Todo } from '../todo';
@@ -21,7 +23,12 @@ describe('TodoListComponent', () => {
     });
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [RouterTestingModule],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+        TranslateTestingModule.withTranslations({}),
+      ],
       declarations: [TodoListComponent],
       providers: [
         { provide: Todo, useFactory: todoStub },
@@ -98,7 +105,7 @@ describe('TodoListComponent', () => {
       spyOn(serviceStub, 'addTodo');
 
       const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('div > button')
+        By.css('button[type=submit')
       ).nativeElement;
       addButton.click();
       fixture.detectChanges();
@@ -118,7 +125,7 @@ describe('TodoListComponent', () => {
       input.dispatchEvent(new Event('input'));
 
       const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('div > button')
+        By.css('button[type=submit')
       ).nativeElement;
       addButton.click();
       fixture.detectChanges();
@@ -145,7 +152,7 @@ describe('TodoListComponent', () => {
       input.dispatchEvent(new Event('input'));
 
       const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('div > button')
+        By.css('button[type=submit')
       ).nativeElement;
       addButton.click();
       fixture.detectChanges();

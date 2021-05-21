@@ -57,7 +57,7 @@ describe('TodoService', () => {
       service.updateTodo(stub).subscribe((res) => {
         expect(res).toEqual(stub);
       });
-      const req = httpTestingController.expectOne('api/todos/' +  stub.id);
+      const req = httpTestingController.expectOne('api/todos/' + stub.id);
       expect(req.request.method).toEqual('PUT');
       req.flush(stub);
       httpTestingController.verify();
@@ -70,7 +70,7 @@ describe('TodoService', () => {
         expect(res).toEqual(undefined);
       });
       const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos/' +  stub.id);
+      const req = httpTestingController.expectOne('api/todos/' + stub.id);
       spyOn(console, 'error');
       req.flush('Error', { status: 404, statusText: 'Not Found' });
       expect(console.error).toHaveBeenCalled();
