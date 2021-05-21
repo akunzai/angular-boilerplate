@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
 
@@ -9,35 +10,34 @@ import { TodoService } from '../todo.service';
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
+  title = new FormControl('');
 
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.getTodos();
-  }
-
-  getTodos(): void {
     this.todoService.getTodos().subscribe((todos) => {
       this.todos = todos;
     });
   }
 
-  add(title: string): void {
-    title = title.trim();
+  onSubmit($event: Event): void {
+    $event.preventDefault();
+    const title = this.title.value.trim();
     if (!title) {
       return;
     }
     this.todoService.addTodo({ title: title } as Todo).subscribe((todo) => {
       this.todos.push(todo);
     });
+    this.title.setValue('');
   }
 
-  delete(todo: Todo): void {
+  onRemove(todo: Todo): void {
     this.todos = this.todos.filter((x) => x !== todo);
     this.todoService.deleteTodo(todo).subscribe();
   }
 
-  update(todo: Todo): void {
+  onChange(todo: Todo): void {
     this.todoService.updateTodo(todo).subscribe();
   }
 }

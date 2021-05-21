@@ -1,7 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Location } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
@@ -28,7 +28,11 @@ describe('TodoDetailComponent', () => {
     });
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [FormsModule, TranslateTestingModule.withTranslations({})],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        TranslateTestingModule.withTranslations({}),
+      ],
       declarations: [TodoDetailComponent],
       providers: [
         { provide: ActivatedRoute, useFactory: activatedRouteStub },
@@ -46,37 +50,29 @@ describe('TodoDetailComponent', () => {
 
   describe('ngOnInit', () => {
     it('makes expected calls', () => {
-      spyOn(component, 'getTodo').and.callThrough();
-      component.ngOnInit();
-      expect(component.getTodo).toHaveBeenCalled();
-    });
-  });
-
-  describe('getTodo', () => {
-    it('makes expected calls', () => {
       const serviceStub: TodoService = TestBed.inject(TodoService);
       spyOn(serviceStub, 'getTodo').and.callThrough();
-      component.getTodo();
+      component.ngOnInit();
       expect(serviceStub.getTodo).toHaveBeenCalled();
     });
   });
 
-  describe('goBack', () => {
+  describe('onClose', () => {
     it('makes expected calls', () => {
       const locationStub: Location = TestBed.inject(Location);
       spyOn(locationStub, 'back').and.callThrough();
-      component.goBack();
+      component.onClose();
       expect(locationStub.back).toHaveBeenCalled();
     });
   });
 
-  describe('save', () => {
+  describe('onSubmit', () => {
     it('makes expected calls', () => {
       const serviceStub: TodoService = TestBed.inject(TodoService);
-      spyOn(component, 'goBack').and.callThrough();
+      spyOn(component, 'onClose').and.callThrough();
       spyOn(serviceStub, 'updateTodo').and.callThrough();
-      component.save();
-      expect(component.goBack).toHaveBeenCalled();
+      component.onSubmit(new Event('submit'));
+      expect(component.onClose).toHaveBeenCalled();
       expect(serviceStub.updateTodo).toHaveBeenCalled();
     });
   });
@@ -122,7 +118,7 @@ describe('TodoDetailComponent', () => {
       const locationStub = TestBed.inject(Location);
       spyOn(locationStub, 'back');
       const button: HTMLButtonElement = fixture.debugElement.query(
-        By.css('button') // first button
+        By.css('button[aria-label=Close]')
       ).nativeElement;
       button.click();
       expect(locationStub.back).toHaveBeenCalled();
@@ -135,7 +131,7 @@ describe('TodoDetailComponent', () => {
       input.value = 'ABC';
       input.dispatchEvent(new Event('input'));
       fixture.detectChanges();
-      expect(component.todo?.title).toBe('ABC');
+      expect(component.form.controls.title.value).toBe('ABC');
     });
 
     it('Updates todo then goes back when save button is clicked', () => {
@@ -143,11 +139,11 @@ describe('TodoDetailComponent', () => {
       spyOn(serviceStub, 'updateTodo').and.returnValue(of(undefined));
       const locationStub = TestBed.inject(Location);
       spyOn(locationStub, 'back');
-      const button: HTMLButtonElement = fixture.debugElement.queryAll(
-        By.css('button')
-      )[1].nativeElement; // second button
+      const button: HTMLButtonElement = fixture.debugElement.query(
+        By.css('button[type=submit]')
+      ).nativeElement;
       button.click();
-      expect(serviceStub.updateTodo).toHaveBeenCalledWith(component.todo!);
+      expect(serviceStub.updateTodo).toHaveBeenCalled();
       expect(locationStub.back).toHaveBeenCalled();
     });
   });

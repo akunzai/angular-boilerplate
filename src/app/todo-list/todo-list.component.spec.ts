@@ -1,14 +1,14 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 import { of } from 'rxjs';
 
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
 import { TodoListComponent } from './todo-list.component';
-import { TranslateTestingModule } from 'ngx-translate-testing';
-import { FormsModule } from '@angular/forms';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -25,8 +25,9 @@ describe('TodoListComponent', () => {
       schemas: [NO_ERRORS_SCHEMA],
       imports: [
         FormsModule,
+        ReactiveFormsModule,
         RouterTestingModule,
-        TranslateTestingModule.withTranslations({})
+        TranslateTestingModule.withTranslations({}),
       ],
       declarations: [TodoListComponent],
       providers: [
@@ -104,7 +105,7 @@ describe('TodoListComponent', () => {
       spyOn(serviceStub, 'addTodo');
 
       const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('div > button')
+        By.css('button[type=submit')
       ).nativeElement;
       addButton.click();
       fixture.detectChanges();
@@ -124,7 +125,7 @@ describe('TodoListComponent', () => {
       input.dispatchEvent(new Event('input'));
 
       const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('div > button')
+        By.css('button[type=submit')
       ).nativeElement;
       addButton.click();
       fixture.detectChanges();
@@ -151,7 +152,7 @@ describe('TodoListComponent', () => {
       input.dispatchEvent(new Event('input'));
 
       const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('div > button')
+        By.css('button[type=submit')
       ).nativeElement;
       addButton.click();
       fixture.detectChanges();
