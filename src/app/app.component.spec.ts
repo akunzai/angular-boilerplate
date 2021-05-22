@@ -1,6 +1,11 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { TranslateTestingModule } from 'ngx-translate-testing';
+
+import {
+  TranslateFakeLoader,
+  TranslateLoader,
+  TranslateModule
+} from '@ngx-translate/core';
 
 import { AppComponent } from './app.component';
 
@@ -8,7 +13,11 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [TranslateTestingModule.withTranslations({})],
+      imports: [
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        }),
+      ],
       declarations: [AppComponent],
     }).compileComponents();
   });

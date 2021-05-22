@@ -1,15 +1,28 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Location } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import {
+  ComponentFixture,
+  TestBed
+} from '@angular/core/testing';
+import {
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+
 import { of } from 'rxjs';
+
+import {
+  TranslateFakeLoader,
+  TranslateLoader,
+  TranslateModule,
+  TranslateService
+} from '@ngx-translate/core';
 
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
 import { TodoDetailComponent } from './todo-detail.component';
-import { TranslateTestingModule } from 'ngx-translate-testing';
 
 describe('TodoDetailComponent', () => {
   let component: TodoDetailComponent;
@@ -31,10 +44,13 @@ describe('TodoDetailComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        TranslateTestingModule.withTranslations({}),
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        }),
       ],
       declarations: [TodoDetailComponent],
       providers: [
+        TranslateService,
         { provide: ActivatedRoute, useFactory: activatedRouteStub },
         { provide: Location, useFactory: locationStub },
         { provide: TodoService, useFactory: todoServiceStub },

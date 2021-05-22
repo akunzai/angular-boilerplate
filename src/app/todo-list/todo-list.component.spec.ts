@@ -1,10 +1,23 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
+import {
+  ComponentFixture,
+  TestBed
+} from '@angular/core/testing';
+import {
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { TranslateTestingModule } from 'ngx-translate-testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { of } from 'rxjs';
+
+import {
+  TranslateFakeLoader,
+  TranslateLoader,
+  TranslateModule,
+  TranslateService
+} from '@ngx-translate/core';
 
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
@@ -27,10 +40,13 @@ describe('TodoListComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         RouterTestingModule,
-        TranslateTestingModule.withTranslations({}),
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        }),
       ],
       declarations: [TodoListComponent],
       providers: [
+        TranslateService,
         { provide: Todo, useFactory: todoStub },
         { provide: TodoService, useFactory: todoServiceStub },
       ],

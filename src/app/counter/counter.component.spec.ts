@@ -1,5 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateTestingModule } from 'ngx-translate-testing';
+import {
+  ComponentFixture,
+  TestBed
+} from '@angular/core/testing';
+
+import {
+  TranslateFakeLoader,
+  TranslateLoader,
+  TranslateModule
+} from '@ngx-translate/core';
 
 import { CounterComponent } from './counter.component';
 
@@ -10,9 +18,11 @@ describe('CounterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        TranslateTestingModule.withTranslations({})
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        }),
       ],
-      declarations: [ CounterComponent ]
+      declarations: [ CounterComponent ],
     })
     .compileComponents();
   });

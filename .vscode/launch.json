@@ -9,19 +9,30 @@
       "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "Attach Karma Tests",
-      "type": "pwa-chrome",
-      "request": "attach",
-      "port": 9222,
-      "webRoot": "${workspaceRoot}",
-      "sourceMaps": true,
-      "sourceMapPathOverrides": {
-        "webpack:/*": "${webRoot}/*",
-        "/./*": "${webRoot}/*",
-        "/src/*": "${webRoot}/*",
-        "/*": "*",
-        "/./~/*": "${webRoot}/node_modules/*"
-      }
+      "name": "Debug All Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng",
+      "cwd": "${workspaceFolder}",
+      "args": ["test", "--run-in-band"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true
+    },
+    {
+      "name": "Debug Current Test",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "test",
+        "--testPathPattern=${fileBasenameNoExtension}",
+        "--run-in-band"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true
     }
   ]
 }

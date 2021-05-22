@@ -36,6 +36,4 @@ jobs:
         run: npm run build
 
       - name: Test
-        run: |
-          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-          npm run e2e -- --protractor-config=e2e/protractor.conf.js
+        run: npm run test:coverage
