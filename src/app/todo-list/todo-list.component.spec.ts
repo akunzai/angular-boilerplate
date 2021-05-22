@@ -1,185 +1,94 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import {
-  ComponentFixture,
-  TestBed
-} from '@angular/core/testing';
-import {
-  FormsModule,
-  ReactiveFormsModule
-} from '@angular/forms';
-import { By } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-
-import { of } from 'rxjs';
-
 import {
   TranslateFakeLoader,
   TranslateLoader,
   TranslateModule,
-  TranslateService
 } from '@ngx-translate/core';
+import { fireEvent, render, screen } from '@testing-library/angular';
+import userEvent from '@testing-library/user-event';
 
-import { Todo } from '../todo';
-import { TodoService } from '../todo.service';
+import { rest, server } from '../../mocks/server';
 import { TodoListComponent } from './todo-list.component';
 
-describe('TodoListComponent', () => {
-  let component: TodoListComponent;
-  let fixture: ComponentFixture<TodoListComponent>;
-
-  beforeEach(() => {
-    const todoStub = () => ({});
-    const todoServiceStub = () => ({
-      getTodos: () => ({ subscribe: (f: Function) => f({}) }),
-      addTodo: (todo: Todo) => ({ subscribe: (f: Function) => f({}) }),
-      deleteTodo: (todo: Todo) => ({}),
-    });
-    TestBed.configureTestingModule({
-      schemas: [NO_ERRORS_SCHEMA],
-      imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        RouterTestingModule,
-        TranslateModule.forRoot({
-          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
-        }),
-      ],
-      declarations: [TodoListComponent],
-      providers: [
-        TranslateService,
-        { provide: Todo, useFactory: todoStub },
-        { provide: TodoService, useFactory: todoServiceStub },
-      ],
-    });
-    fixture = TestBed.createComponent(TodoListComponent);
-    component = fixture.componentInstance;
+beforeEach(async () => {
+  await render(TodoListComponent, {
+    imports: [
+      FormsModule,
+      HttpClientModule,
+      ReactiveFormsModule,
+      RouterTestingModule,
+      TranslateModule.forRoot({
+        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+      }),
+    ],
   });
+});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+test('should renders as expected', async () => {
+  const links = await screen.findAllByTestId('todo-item-link');
+  expect(links.length).toBe(3);
+  expect(links[0].textContent).toContain('Pay bills');
+  expect(links[0].getAttribute('href')).toBe('/todo/1');
+  expect(links[1].textContent).toContain('Read a book');
+  expect(links[1].getAttribute('href')).toBe('/todo/2');
+  expect(links[2].textContent).toContain('Buy eggs');
+  expect(links[2].getAttribute('href')).toBe('/todo/3');
 
-  describe('Use Cases', () => {
-    beforeEach(() => {
-      const serviceStub = TestBed.inject(TodoService);
-      spyOn(serviceStub, 'getTodos').and.returnValue(
-        of([
-          {
-            id: 1,
-            title: 'Foo',
-            description: '',
-            done: false,
-          },
-          {
-            id: 2,
-            title: 'Bar',
-            description: '',
-            done: false,
-          },
-        ])
-      );
-      fixture.detectChanges();
-    });
+  const inputs = screen
+    .getAllByTestId('todo-item-done')
+    .map((x) => x as HTMLInputElement);
+  expect(inputs.length).toBe(3);
+  expect(inputs[0].checked).toBeTruthy();
+  expect(inputs[1].checked).toBeFalsy();
+  expect(inputs[2].checked).toBeFalsy();
+});
 
-    it('Starts with the list of todo returned by getTodos, with link ref, id, and name', () => {
-      const links: Array<HTMLAnchorElement> = fixture.debugElement
-        .queryAll(By.css('a'))
-        .map((a) => a.nativeElement);
+test('should remove item when delete button clicked', async () => {
+  server.use(
+    rest.delete('/api/todos/3', (req, res, ctx) => {
+      return res(ctx.status(200));
+    })
+  );
+  const buttons = await screen.findAllByTestId('remove-button');
+  fireEvent.click(buttons[2]);
+  const links = screen.getAllByTestId('todo-item-link');
+  expect(links.length).toBe(2);
+});
 
-      expect(links.length).toBe(2);
+test('should update item when checkbox checked', async () => {
+  const inputs = await screen.findAllByTestId('todo-item-done');
+  fireEvent.click(inputs[2]);
+  const links = await screen.findAllByTestId('todo-item-link');
+  expect(links[2].getAttribute('class')).toContain(
+    'text-decoration-line-through'
+  );
+});
 
-      expect(links[0].textContent).toContain('Foo');
-      expect(links[0].getAttribute('href')).toBe('/todo/1');
+test('should not add item without any input', async () => {
+  const button = await screen.findByTestId('add-button');
+  fireEvent.click(button);
+  const links = await screen.findAllByTestId('todo-item-link');
+  expect(links.length).toBe(3);
+});
 
-      expect(links[1].textContent).toContain('Bar');
-      expect(links[1].getAttribute('href')).toBe('/todo/2');
-    });
+test('should not add item with blank input', async () => {
+  const input = await screen.findByTestId('title');
+  userEvent.type(input, '   ');
+  const button = screen.getByTestId('add-button');
+  fireEvent.click(button);
+  const links = await screen.findAllByTestId('todo-item-link');
+  expect(links.length).toBe(3);
+});
 
-    it('Clicking the delete button removes the todo from the list and calls deleteTodo', () => {
-      const serviceStub = TestBed.inject(TodoService);
-      spyOn(serviceStub, 'deleteTodo').and.returnValue(of());
-
-      const delButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('button.btn-close')
-      ).nativeElement;
-      delButton.click();
-      fixture.detectChanges();
-
-      const links: Array<HTMLAnchorElement> = fixture.debugElement
-        .queryAll(By.css('a'))
-        .map((a) => a.nativeElement);
-
-      expect(links.length).toBe(1);
-      expect(links[0].textContent).toContain('Bar');
-      expect(links[0].getAttribute('href')).toBe('/todo/2');
-
-      expect(serviceStub.deleteTodo).toHaveBeenCalled();
-    });
-
-    it("Clicking the add button on a an empty textbox doesn't add to the list", () => {
-      const serviceStub = TestBed.inject(TodoService);
-      spyOn(serviceStub, 'addTodo');
-
-      const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('button[type=submit')
-      ).nativeElement;
-      addButton.click();
-      fixture.detectChanges();
-
-      expect(serviceStub.addTodo).not.toHaveBeenCalled();
-    });
-
-    it("Clicking the add button on textbox with blank spaces doesn't add to the list", () => {
-      const serviceStub = TestBed.inject(TodoService);
-      spyOn(serviceStub, 'addTodo');
-
-      const input: HTMLInputElement = fixture.debugElement.query(
-        By.css('input')
-      ).nativeElement;
-
-      input.value = '   ';
-      input.dispatchEvent(new Event('input'));
-
-      const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('button[type=submit')
-      ).nativeElement;
-      addButton.click();
-      fixture.detectChanges();
-
-      expect(serviceStub.addTodo).not.toHaveBeenCalled();
-    });
-
-    it('Clicking the add button adds the todo to the list and clears the textbox', () => {
-      const serviceStub = TestBed.inject(TodoService);
-      spyOn(serviceStub, 'addTodo').and.returnValue(
-        of({
-          id: 3,
-          title: 'Test',
-          description: '',
-          done: false,
-        })
-      );
-
-      const input: HTMLInputElement = fixture.debugElement.query(
-        By.css('input')
-      ).nativeElement;
-
-      input.value = 'Test';
-      input.dispatchEvent(new Event('input'));
-
-      const addButton: HTMLButtonElement = fixture.debugElement.query(
-        By.css('button[type=submit')
-      ).nativeElement;
-      addButton.click();
-      fixture.detectChanges();
-
-      const links: Array<HTMLAnchorElement> = fixture.debugElement
-        .queryAll(By.css('a'))
-        .map((a) => a.nativeElement);
-
-      expect(links.length).toBe(3);
-      expect(links[2].textContent).toContain('Test');
-      expect(links[2].getAttribute('href')).toBe('/todo/3');
-    });
-  });
+test('should add item and clears the input', async () => {
+  const input = await screen.findByTestId('title');
+  userEvent.type(input, 'Test');
+  const button = screen.getByTestId('add-button');
+  fireEvent.click(button);
+  const links = await screen.findAllByTestId('todo-item-link');
+  expect(links.length).toBe(4);
+  expect(links[3].textContent).toContain('Test');
+  expect(links[3].getAttribute('href')).toBe('/todo/4');
 });

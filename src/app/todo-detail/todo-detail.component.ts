@@ -16,8 +16,8 @@ export class TodoDetailComponent implements OnInit {
   form = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
-    done: new FormControl(false)
-  })
+    done: new FormControl(false),
+  });
 
   constructor(
     private route: ActivatedRoute,
@@ -26,8 +26,10 @@ export class TodoDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.todoService.getTodo(Number(this.route.snapshot.paramMap.get('id'))).subscribe((todo) => {
-      if (todo !== undefined){
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id === undefined) return;
+    this.todoService.getTodo(id).subscribe((todo) => {
+      if (todo !== undefined) {
         this.id = todo.id;
         this.form.controls.title.setValue(todo.title);
         this.form.controls.description.setValue(todo.description);
@@ -38,16 +40,18 @@ export class TodoDetailComponent implements OnInit {
 
   onSubmit($event: Event): void {
     $event.preventDefault();
-    const updatedTodo = new Todo(this.id,
+    const updatedTodo = new Todo(
+      this.id,
       this.form.controls.title.value,
       this.form.controls.description.value,
-      this.form.controls.done.value,
-      );
-    this.todoService.updateTodo(updatedTodo).subscribe(() => this.onClose());
+      this.form.controls.done.value
+    );
+    this.todoService.updateTodo(updatedTodo).subscribe(() => {
+      this.location.back();
+    });
   }
 
   onClose(): void {
     this.location.back();
   }
-
 }

@@ -1,54 +1,30 @@
 import {
-  ComponentFixture,
-  TestBed
-} from '@angular/core/testing';
-
-import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule
+  TranslateModule,
 } from '@ngx-translate/core';
+import { fireEvent, render, screen } from '@testing-library/angular';
 
 import { CounterComponent } from './counter.component';
 
-describe('CounterComponent', () => {
-  let component: CounterComponent;
-  let fixture: ComponentFixture<CounterComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        TranslateModule.forRoot({
-          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
-        }),
-      ],
-      declarations: [ CounterComponent ],
-    })
-    .compileComponents();
+beforeEach(async () => {
+  await render(CounterComponent, {
+    imports: [
+      TranslateModule.forRoot({
+        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+      }),
+    ],
   });
+});
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CounterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+test('should render counter with 0', async () => {
+  const element = screen.getByTestId('counter-display');
+  expect(element.textContent).toContain('Current count: 0');
+});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should display a title', () => {
-    const titleText = fixture.nativeElement.querySelector('h1').textContent;
-    expect(titleText).toEqual('Counter');
-  });
-
-  it('should start with count 0, then increments by 1 when clicked', () => {
-    const countElement = fixture.nativeElement.querySelector('strong');
-    expect(countElement.textContent).toEqual('0');
-
-    const incrementButton = fixture.nativeElement.querySelector('button');
-    incrementButton.click();
-    fixture.detectChanges();
-    expect(countElement.textContent).toEqual('1');
-  });
+test('should increment the counter on click', async () => {
+  const button = screen.getByTestId('increment-button');
+  fireEvent.click(button);
+  const element = screen.getByTestId('counter-display');
+  expect(element.textContent).toContain('Current count: 1');
 });

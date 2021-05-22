@@ -9,10 +9,11 @@
     "
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">{{ title }}</a>
+      <a class="navbar-brand" [routerLink]="['/']" data-testid="title">{{ title }}</a>
       <button
         class="navbar-toggler"
         type="button"
+        data-testid="navbar-toggler"
         data-toggle="collapse"
         data-target=".navbar-collapse"
         aria-label="Toggle navigation"
@@ -23,6 +24,7 @@
       </button>
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        data-testid="navbar-collapse"
         [ngClass]="{ show: !isCollapsed }"
       >
         <ul class="navbar-nav flex-grow">
@@ -44,7 +46,8 @@
           <li class="nav-item dropdown">
             <button
               class="btn dropdown-toggle"
-              id="navbarDropdown"
+              id="i18nDropdown"
+              data-testid="i18n-toggler"
               data-bs-toggle="dropdown"
               data-bs-auto-close="true"
               [attr.aria-expanded]="isExpanded"
@@ -55,7 +58,7 @@
             <ul
               class="dropdown-menu"
               [ngClass]="{ show: isExpanded }"
-              aria-labelledby="navbarDropdown"
+              aria-labelledby="i18nDropdown"
               (clickOutside)="clickOutside($event)"
               [exclude]="'button.dropdown-toggle'"
             >
@@ -64,6 +67,7 @@
                   class="dropdown-item"
                   [ngClass]="{ active: isCurrentLanguage('en') }"
                   (click)="switchLanguage('en')"
+                  data-testid="i18n-switch-en"
                 >
                   English
                 </button>
@@ -73,6 +77,7 @@
                   class="dropdown-item"
                   [ngClass]="{ active: isCurrentLanguage('zh') }"
                   (click)="switchLanguage('zh-Hant')"
+                  data-testid="i18n-switch-zh"
                 >
                   正體中文
                 </button>

@@ -1,9 +1,13 @@
 <h1>{{ "Counter" | translate }}</h1>
 
-<p aria-live="polite">
-  {{'Current count' | translate}}: <strong>{{ currentCount }}</strong>
+<p aria-live="polite" data-testid="counter-display">
+  {{ "Current count" | translate }}: <strong>{{ currentCount }}</strong>
 </p>
 
-<button class="btn btn-primary" (click)="incrementCounter()">
+<button
+  class="btn btn-primary"
+  (click)="incrementCounter()"
+  data-testid="increment-button"
+>
   {{ "Increment" | translate }}
 </button>
