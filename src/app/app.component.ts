@@ -7,11 +7,16 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular Boilerplate';
+  title = document.title;
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'zh-Hant']);
     translate.setDefaultLang('en');
-    const browserLang = translate.getBrowserCultureLang();
-    translate.use(browserLang.match(/zh/) ? 'zh-Hant' : 'en');
+    const locale = localStorage.getItem('locale');
+    if (locale !== null) {
+      translate.use(locale);
+    } else {
+      const browserLang = translate.getBrowserCultureLang();
+      translate.use(browserLang.match(/zh/) ? 'zh-Hant' : 'en');
+    }
   }
 }

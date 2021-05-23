@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,12 +7,16 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./nav-menu.component.scss'],
 })
 export class NavMenuComponent implements OnInit {
-  @Input() title: string | undefined;
+  @Input() title : string | undefined;
 
   isCollapsed = true;
   isExpanded = false;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService) {
+    translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
+      localStorage.setItem('locale', event.lang);
+    });
+  }
 
   ngOnInit(): void {}
 

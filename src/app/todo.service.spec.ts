@@ -1,158 +1,150 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
 
+import { rest, server } from '../mocks/server';
 import { Todo } from './todo';
 import { TodoService } from './todo.service';
 
-describe('TodoService', () => {
-  let service: TodoService;
+let service: TodoService;
 
-  beforeEach(() => {
-    const todoStub = { id: {} };
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [TodoService, { provide: Todo, useValue: todoStub }],
-    });
-    service = TestBed.inject(TodoService);
+beforeAll(() => {
+  jest.spyOn(global.console, 'error').mockImplementation(() => {});
+});
+
+beforeEach(() => {
+  TestBed.configureTestingModule({
+    imports: [HttpClientModule],
   });
+  service = TestBed.inject(TodoService);
+});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
-  describe('addTodo', () => {
-    it('makes expected calls', () => {
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const stub: Todo = TestBed.inject(Todo);
-      service.addTodo(stub).subscribe((res) => {
-        expect(res).toEqual(stub);
-      });
-      const req = httpTestingController.expectOne('api/todos');
-      expect(req.request.method).toEqual('POST');
-      req.flush(stub);
-      httpTestingController.verify();
-    });
-
-    it('handles an error', () => {
-      const todoStub: Todo = TestBed.inject(Todo);
-      service.addTodo(todoStub).subscribe((res) => {
-        expect(res).toEqual(undefined!);
-      });
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos');
-      spyOn(console, 'error');
-      req.flush('Error', { status: 404, statusText: 'Not Found' });
-      expect(console.error).toHaveBeenCalled();
+describe('getTodos', () => {
+  test('should response as expected', (done) => {
+    service.getTodos().subscribe((values) => {
+      done();
+      expect(values.length).toBeGreaterThan(0);
     });
   });
 
-  describe('updateTodo', () => {
-    it('makes expected calls', () => {
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const stub: Todo = TestBed.inject(Todo);
-      stub.id = 123;
-      service.updateTodo(stub).subscribe((res) => {
-        expect(res).toEqual(stub);
-      });
-      const req = httpTestingController.expectOne('api/todos/' + stub.id);
-      expect(req.request.method).toEqual('PUT');
-      req.flush(stub);
-      httpTestingController.verify();
+  test('should return empty result on errors', (done) => {
+    server.use(
+      rest.get('/api/todos', (req, res, ctx) => {
+        return res(ctx.status(404));
+      })
+    );
+    service.getTodos().subscribe((values) => {
+      done();
+      expect(values).toStrictEqual([]);
+      expect(console.error).toBeCalled();
     });
+  });
+});
 
-    it('handles 404 error', () => {
-      const stub: Todo = TestBed.inject(Todo);
-      stub.id = 123;
-      service.updateTodo(stub).subscribe((res) => {
-        expect(res).toEqual(undefined);
-      });
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos/' + stub.id);
-      spyOn(console, 'error');
-      req.flush('Error', { status: 404, statusText: 'Not Found' });
-      expect(console.error).toHaveBeenCalled();
+describe('getTodo', () => {
+  test('should response as expected', (done) => {
+    service.getTodo(1).subscribe((value) => {
+      done();
+      expect(value.id).toBe(1);
+      expect(value.title).toBe('Pay bills');
+      expect(value.done).toBeTruthy();
     });
   });
 
-  describe('getTodos', () => {
-    it('makes expected calls', () => {
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const stub = TestBed.inject(Todo);
-      service.getTodos().subscribe((res) => {
-        expect(res).toEqual([stub]);
-      });
-      const req = httpTestingController.expectOne('api/todos');
-      expect(req.request.method).toEqual('GET');
-      req.flush([stub]);
-      httpTestingController.verify();
+  test('should return undefined on errors', (done) => {
+    service.getTodo(123).subscribe((value) => {
+      done();
+      expect(value).toBeUndefined();
+      expect(console.error).toBeCalled();
     });
+  });
+});
 
-    it('handles an error', () => {
-      service.getTodos().subscribe((res) => {
-        expect(res).toEqual([]);
-      });
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos');
-      spyOn(console, 'error');
-      req.flush('Error', { status: 404, statusText: 'Not Found' });
-      expect(console.error).toHaveBeenCalled();
+describe('addTodo', () => {
+  test('should generated id and response as requested with title', (done) => {
+    const expected = { title: 'Foo' } as Todo;
+    service.addTodo(expected).subscribe((actual) => {
+      done();
+      expect(actual.id).toBeGreaterThan(0);
+      expect(actual.title).toBe(expected.title);
+      expect(actual.description).toBeUndefined();
+      expect(actual.done).toBeFalsy();
     });
   });
 
-  describe('getTodo', () => {
-    it('gets todo with http get', () => {
-      const stub: Todo = TestBed.inject(Todo);
-      const id = 123;
-      service.getTodo(id).subscribe((res) => {
-        expect(res).toEqual(stub);
-      });
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos/123');
-      expect(req.request.method).toEqual('GET');
-      req.flush(stub);
-      httpTestingController.verify();
+  test('should return undefined on errors', (done) => {
+    server.use(
+      rest.post('/api/todos', (req, res, ctx) => {
+        return res(ctx.status(400));
+      })
+    );
+    const todo = { title: '' } as Todo;
+    service.addTodo(todo).subscribe((value) => {
+      done();
+      expect(value).toBeUndefined();
+      expect(console.error).toBeCalled();
     });
+  });
+});
 
-    it('handles 404 error', () => {
-      service.getTodo(123).subscribe((res) => {
-        expect(res).toEqual(undefined!);
+describe('updateTodo', () => {
+  test('should can retrieve it as expected', (done) => {
+    const todo = new Todo(3, 'Modified', 'Test', true);
+    service.updateTodo(todo).subscribe((_) => {
+      service.getTodo(todo.id).subscribe((value) => {
+        done();
+        expect(value.id).toBe(todo.id);
+        expect(value.title).toBe(todo.title);
+        expect(value.description).toBe(todo.description);
+        expect(value.done).toBe(todo.done);
       });
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos/123');
-      spyOn(console, 'error');
-      req.flush('Error', { status: 404, statusText: 'Not Found' });
-      expect(console.error).toHaveBeenCalled();
     });
   });
 
-  describe('deleteTodo', () => {
-    it('deletes todo with http del', () => {
-      const stub: Todo = TestBed.inject(Todo);
-      stub.id = 123;
-      service.deleteTodo(stub).subscribe((res) => {
-        expect(res).toEqual(stub);
-      });
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos/' + stub.id);
-      expect(req.request.method).toEqual('DELETE');
-      req.flush(stub);
-
-      httpTestingController.verify();
+  test('should call console.error on errors', (done) => {
+    server.use(
+      rest.put('/api/todos/:id', (req, res, ctx) => {
+        return res(ctx.status(404));
+      })
+    );
+    const todo = new Todo(999, 'NotFound');
+    service.updateTodo(todo).subscribe((value) => {
+      done();
+      expect(value).toBeUndefined();
+      expect(console.error).toBeCalled();
     });
+  });
+});
 
-    it('handles 404 error', () => {
-      const stub: Todo = TestBed.inject(Todo);
-      service.addTodo(stub).subscribe((res) => {
-        expect(res).toEqual(undefined!);
+describe('deleteTodo', () => {
+  test('should cannot retrieve it as expected', (done) => {
+    server.use(
+      rest.delete('/api/todos/123', (req, res, ctx) => {
+        return res(ctx.status(200));
+      }),
+      rest.get('/api/todos/123', (req, res, ctx) => {
+        return res(ctx.status(404));
+      })
+    );
+    const todo = new Todo(123, '');
+    service.deleteTodo(todo).subscribe((_) => {
+      service.getTodo(todo.id).subscribe((value) => {
+        done();
+        expect(value).toBeUndefined();
       });
-      const httpTestingController = TestBed.inject(HttpTestingController);
-      const req = httpTestingController.expectOne('api/todos');
-      spyOn(console, 'error');
-      req.flush('Error', { status: 404, statusText: 'Not Found' });
-      expect(console.error).toHaveBeenCalled();
+    });
+  });
+
+  test('should return undefined on errors', (done) => {
+    server.use(
+      rest.delete('/api/todos/456', (req, res, ctx) => {
+        return res(ctx.status(500));
+      })
+    );
+    const todo = new Todo(456, '');
+    service.deleteTodo(todo).subscribe((res) => {
+      done();
+      expect(res).toBeUndefined();
+      expect(console.error).toBeCalled();
     });
   });
 });

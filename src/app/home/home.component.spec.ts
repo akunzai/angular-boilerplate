@@ -1,29 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateTestingModule } from 'ngx-translate-testing';
+import {
+  TranslateFakeLoader,
+  TranslateLoader,
+  TranslateModule,
+} from '@ngx-translate/core';
+import { render, screen } from '@testing-library/angular';
 
 import { HomeComponent } from './home.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        TranslateTestingModule.withTranslations({})
-      ],
-      declarations: [ HomeComponent ]
-    })
-    .compileComponents();
+it('should render with title: Welcome!', async () => {
+  await render(HomeComponent, {
+    imports: [
+      TranslateModule.forRoot({
+        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+      }),
+    ],
   });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  const title = screen.getByTestId('title');
+  expect(title.textContent).toBe('Welcome!');
 });

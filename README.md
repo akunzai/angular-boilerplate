@@ -19,14 +19,8 @@ npm start
 # Running unit tests
 npm test
 
-# build the project. The build artifacts will be stored in the `dist/` directory
+# build the project in production mode. The build artifacts will be stored in the `dist/` directory
 npm run build
-
-# generate a new component
-ng generate component component-name
-
-# generate a new service
-ng generate service service-name
 
 # extracts i18n messages from source code
 npm run i18n:extract
@@ -37,3 +31,7 @@ npm run i18n:extract
 - [Angular Coding Style Guide](https://angular.io/guide/styleguide)
 - [Angular ESLint](https://github.com/angular-eslint/angular-eslint)
 - [ngx-translate](https://github.com/ngx-translate/core)
+- [Mock Service Worker](https://mswjs.io/docs/)
+- [Jest builder for Angular build facade](https://www.npmjs.com/package/@angular-builders/jest)
+- [Writing efficient tests with Angular](https://dev.to/matheusmichels/writing-efficient-tests-with-angular-og5)
+- [Using MSW (Mock Service Worker) in an Angular project](https://timdeschryver.dev/blog/using-msw-in-an-angular-project)

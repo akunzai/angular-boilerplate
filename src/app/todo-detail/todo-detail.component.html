@@ -8,6 +8,7 @@
     type="button"
     class="btn-close float-end"
     aria-label="Close"
+    data-testid="close-button"
     (click)="onClose()"
   ></button>
   <div class="mb-3">
@@ -17,6 +18,7 @@
       formControlName="title"
       placeholder="{{ 'Title' | translate }}"
       required
+      data-testid="title"
     />
   </div>
   <div class="mb-3">
@@ -27,17 +29,23 @@
       class="form-control"
       formControlName="description"
       placeholder="{{ 'Description' | translate }}"
+      data-testid="description"
     ></textarea>
   </div>
   <div class="mb-3">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" formControlName="done" />
+      <input
+        class="form-check-input"
+        type="checkbox"
+        formControlName="done"
+        data-testid="done"
+      />
       <label class="form-check-label" for="done">{{
         "Done" | translate
       }}</label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">
+  <button type="submit" class="btn btn-primary" data-testid="submit-button">
     {{ "Save" | translate }}
   </button>
 </form>

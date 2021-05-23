@@ -3,12 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ClickOutsideModule } from 'ng-click-outside';
-
-import { InMemoryDataService } from './in-memory-data.service';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -41,14 +38,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       { path: 'todo-list', component: TodoListComponent },
       { path: 'todo/:id', component: TodoDetailComponent },
     ]),
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-      // https://github.com/ngx-translate/core/issues/853#issuecomment-392087680
-      passThruUnknownUrl: true,
-    }),
   ],
   declarations: [
     AppComponent,
