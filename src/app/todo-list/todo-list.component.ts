@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Todo } from '../todo';
-import { TodoService } from '../todo.service';
+
+import Todo from '../todo';
+import TodoService from '../todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -26,9 +27,11 @@ export class TodoListComponent implements OnInit {
     if (!title) {
       return;
     }
-    this.todoService.addTodo({ title: title } as Todo).subscribe((todo) => {
-      this.todos.push(todo);
-    });
+    this.todoService
+      .addTodo({ title: title, done: false } as Todo)
+      .subscribe((todo) => {
+        this.todos.push(todo);
+      });
     this.title.setValue('');
   }
 

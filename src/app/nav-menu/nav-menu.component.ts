@@ -29,8 +29,6 @@ export class NavMenuComponent implements OnInit {
   }
 
   clickOutside($event: Event) {
-    // $event.preventDefault();
-    console.log('clickOutside:', $event);
     this.isExpanded = false;
   }
 

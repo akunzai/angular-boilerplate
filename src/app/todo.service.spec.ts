@@ -2,8 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { rest, server } from '../mocks/server';
-import { Todo } from './todo';
-import { TodoService } from './todo.service';
+import Todo from './todo';
+import TodoService from './todo.service';
 
 let service: TodoService;
 

@@ -53,13 +53,11 @@ test('should remove item when delete button clicked', async () => {
   );
   const buttons = await screen.findAllByTestId('remove-button');
   fireEvent.click(buttons[2]);
-  const links = screen.getAllByTestId('todo-item-link');
-  expect(links.length).toBe(2);
+  expect(screen.getAllByTestId('todo-item-link').length).toBe(2);
 });
 
 test('should update item when checkbox checked', async () => {
-  const inputs = await screen.findAllByTestId('todo-item-done');
-  fireEvent.click(inputs[2]);
+  fireEvent.click((await screen.findAllByTestId('todo-item-done'))[2]);
   const links = await screen.findAllByTestId('todo-item-link');
   expect(links[2].getAttribute('class')).toContain(
     'text-decoration-line-through'
@@ -67,26 +65,19 @@ test('should update item when checkbox checked', async () => {
 });
 
 test('should not add item without any input', async () => {
-  const button = await screen.findByTestId('add-button');
-  fireEvent.click(button);
-  const links = await screen.findAllByTestId('todo-item-link');
-  expect(links.length).toBe(3);
+  fireEvent.click(await screen.findByTestId('add-button'));
+  expect((await screen.findAllByTestId('todo-item-link')).length).toBe(3);
 });
 
 test('should not add item with blank input', async () => {
-  const input = await screen.findByTestId('title');
-  userEvent.type(input, '   ');
-  const button = screen.getByTestId('add-button');
-  fireEvent.click(button);
-  const links = await screen.findAllByTestId('todo-item-link');
-  expect(links.length).toBe(3);
+  userEvent.type(await screen.findByTestId('title'), '   ');
+  fireEvent.click(screen.getByTestId('add-button'));
+  expect((await screen.findAllByTestId('todo-item-link')).length).toBe(3);
 });
 
 test('should add item and clears the input', async () => {
-  const input = await screen.findByTestId('title');
-  userEvent.type(input, 'Test');
-  const button = screen.getByTestId('add-button');
-  fireEvent.click(button);
+  userEvent.type(await screen.findByTestId('title'), 'Test');
+  fireEvent.click(screen.getByTestId('add-button'));
   const links = await screen.findAllByTestId('todo-item-link');
   expect(links.length).toBe(4);
   expect(links[3].textContent).toContain('Test');

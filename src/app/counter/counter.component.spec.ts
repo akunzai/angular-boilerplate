@@ -18,13 +18,14 @@ beforeEach(async () => {
 });
 
 test('should render counter with 0', async () => {
-  const element = screen.getByTestId('counter-display');
-  expect(element.textContent).toContain('Current count: 0');
+  expect(screen.getByTestId('counter-display').textContent).toContain(
+    'Current count: 0'
+  );
 });
 
 test('should increment the counter on click', async () => {
-  const button = screen.getByTestId('increment-button');
-  fireEvent.click(button);
-  const element = screen.getByTestId('counter-display');
-  expect(element.textContent).toContain('Current count: 1');
+  fireEvent.click(screen.getByTestId('increment-button'));
+  expect(screen.getByTestId('counter-display').textContent).toContain(
+    'Current count: 1'
+  );
 });

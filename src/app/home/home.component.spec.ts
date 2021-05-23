@@ -15,6 +15,5 @@ it('should render with title: Welcome!', async () => {
       }),
     ],
   });
-  const title = screen.getByTestId('title');
-  expect(title.textContent).toBe('Welcome!');
+  expect(screen.getByTestId('title').textContent).toBe('Welcome!');
 });

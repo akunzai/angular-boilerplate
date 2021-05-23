@@ -31,26 +31,21 @@ beforeEach(async () => {
 });
 
 test('should render with title: Test', () => {
-  const title = screen.getByTestId('title');
-  expect(title.textContent).toBe('Test');
+  expect(screen.getByTestId('title').textContent).toBe('Test');
 });
 
 test('support to toggle navigation', () => {
   const navbar = screen.getByTestId('navbar-collapse');
   expect(navbar.getAttribute('class')).not.toContain('show');
-  const toggler = screen.getByTestId('navbar-toggler');
-  fireEvent.click(toggler);
+  fireEvent.click(screen.getByTestId('navbar-toggler'));
   expect(navbar.getAttribute('class')).toContain('show');
 });
 
 test('support to switch languages', () => {
   expect(localStorage.length).toBe(0);
-  const toggler = screen.getByTestId('i18n-toggler');
-  fireEvent.click(toggler);
-  const switchEn = screen.getByTestId('i18n-switch-en');
-  fireEvent.click(switchEn);
+  fireEvent.click(screen.getByTestId('i18n-toggler'));
+  fireEvent.click(screen.getByTestId('i18n-switch-en'));
   expect(localStorage.getItem('locale')).toBe('en');
-  const switchZh = screen.getByTestId('i18n-switch-zh');
-  fireEvent.click(switchZh);
+  fireEvent.click(screen.getByTestId('i18n-switch-zh'));
   expect(localStorage.getItem('locale')).toBe('zh-Hant');
 });

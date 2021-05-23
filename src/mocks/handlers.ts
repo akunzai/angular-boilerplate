@@ -1,5 +1,6 @@
 import { rest } from 'msw';
-import { Todo } from 'src/app/todo';
+
+import Todo from '../app/todo';
 
 let db: Todo[] = [
   new Todo(1, 'Pay bills', '', true),

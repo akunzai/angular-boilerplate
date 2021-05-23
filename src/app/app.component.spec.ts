@@ -23,6 +23,5 @@ it('renders without crashing', async () => {
     ],
     declarations: [NavMenuComponent],
   });
-  const title = screen.findAllByText(/Angular Boilerplate/i);
-  expect(title).toBeTruthy();
+  expect(await screen.findByText('Angular Boilerplate')).toBeTruthy();
 });

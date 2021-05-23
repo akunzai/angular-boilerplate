@@ -36,7 +36,7 @@ beforeAll(() => {
   jest.spyOn(global.console, 'error').mockImplementation(() => {});
 });
 
-describe('without Todo', () => {
+test('without Todo should render not thing', async () => {
   let activatedRouteMock = {
     snapshot: {
       paramMap: {
@@ -44,14 +44,10 @@ describe('without Todo', () => {
       },
     },
   };
-  beforeEach(async () => {
-    await setup(() => activatedRouteMock);
-  });
+  await setup(() => activatedRouteMock);
 
-  test('should render not thing', async () => {
-    await waitFor(() => {
-      expect(screen.queryAllByTestId('title')).toStrictEqual([]);
-    });
+  await waitFor(() => {
+    expect(screen.queryAllByTestId('title')).toStrictEqual([]);
   });
 });
 
@@ -80,8 +76,7 @@ describe('with Todo', () => {
   });
 
   test('should goes back when close button clicked', async () => {
-    const button = await screen.findByTestId('close-button');
-    fireEvent.click(button);
+    fireEvent.click(await screen.findByTestId('close-button'));
     expect(locationMock.back).toBeCalled();
   });
 
@@ -89,8 +84,7 @@ describe('with Todo', () => {
     const input = await screen.findByTestId('title');
     userEvent.clear(input);
     userEvent.type(input, 'Test');
-    const button = screen.getByTestId('submit-button');
-    fireEvent.click(button);
+    fireEvent.click(screen.getByTestId('submit-button'));
     expect(locationMock.back).toBeCalled();
   });
 });

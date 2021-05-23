@@ -3,12 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Todo } from './todo';
+import Todo from './todo';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TodoService {
+export default class TodoService {
   private todosUrl = '/api/todos';
 
   httpOptions = {
