@@ -13,6 +13,8 @@ import TodoService from '../todo.service';
 })
 export class TodoDetailComponent implements OnInit {
   id = 0;
+  loaded = false;
+
   form = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
@@ -30,6 +32,7 @@ export class TodoDetailComponent implements OnInit {
     if (id === undefined) return;
     this.todoService.getTodo(id).subscribe((todo) => {
       if (todo !== undefined) {
+        this.loaded = true;
         this.id = todo.id;
         this.form.controls.title.setValue(todo.title);
         this.form.controls.description.setValue(todo.description);

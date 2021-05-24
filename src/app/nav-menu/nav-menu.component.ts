@@ -7,7 +7,7 @@ import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
   styleUrls: ['./nav-menu.component.scss'],
 })
 export class NavMenuComponent implements OnInit {
-  @Input() title : string | undefined;
+  @Input() title: string | undefined;
 
   isCollapsed = true;
   isExpanded = false;

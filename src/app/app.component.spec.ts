@@ -23,5 +23,5 @@ it('renders without crashing', async () => {
     ],
     declarations: [NavMenuComponent],
   });
-  expect(await screen.findByText('Angular Boilerplate')).toBeTruthy();
+  expect(await screen.findByText('Angular Boilerplate')).toBeInTheDocument();
 });

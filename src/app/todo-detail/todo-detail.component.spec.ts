@@ -12,10 +12,11 @@ import userEvent from '@testing-library/user-event';
 
 import { TodoDetailComponent } from './todo-detail.component';
 
-const locationMock = {
-  back: jest.fn(),
-};
-const setup = async (activatedRouteFactory: Function) => {
+beforeAll(() => {
+  jest.spyOn(global.console, 'error').mockImplementation(() => {});
+});
+
+test('without Todo should render nothing', async () => {
   await render(TodoDetailComponent, {
     imports: [
       FormsModule,
@@ -26,65 +27,77 @@ const setup = async (activatedRouteFactory: Function) => {
       }),
     ],
     providers: [
-      { provide: ActivatedRoute, useFactory: activatedRouteFactory },
-      { provide: Location, useFactory: () => locationMock },
+      {
+        provide: ActivatedRoute,
+        useValue: {
+          snapshot: {
+            paramMap: { get: jest.fn().mockReturnValue(0) },
+          },
+        },
+      },
     ],
   });
-};
-
-beforeAll(() => {
-  jest.spyOn(global.console, 'error').mockImplementation(() => {});
-});
-
-test('without Todo should render not thing', async () => {
-  let activatedRouteMock = {
-    snapshot: {
-      paramMap: {
-        get: jest.fn().mockReturnValue(0),
-      },
-    },
-  };
-  await setup(() => activatedRouteMock);
-
-  await waitFor(() => {
-    expect(screen.queryAllByTestId('title')).toStrictEqual([]);
-  });
+  expect(screen.queryAllByRole('textbox')).toStrictEqual([]);
 });
 
 describe('with Todo', () => {
-  let activatedRouteMock = {
-    snapshot: {
-      paramMap: {
-        get: jest.fn().mockReturnValue(1),
-      },
-    },
+  const location = {
+    back: jest.fn(),
   };
   beforeEach(async () => {
-    await setup(() => activatedRouteMock);
+    await render(TodoDetailComponent, {
+      imports: [
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        }),
+      ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: jest.fn().mockReturnValue(1),
+              },
+            },
+          },
+        },
+        { provide: Location, useFactory: () => location },
+      ],
+    });
   });
 
   test('should renders as expected', async () => {
-    const title = (await screen.findByTestId('title')) as HTMLInputElement;
+    await waitFor(() => {
+      expect(screen.getByDisplayValue('Pay bills')).toBeInTheDocument();
+    });
+    const title = screen.getByRole('textbox', {
+      name: /Title/i,
+    }) as HTMLInputElement;
     expect(title.value).toBe('Pay bills');
-    const description = (await screen.findByTestId(
-      'description'
-    )) as HTMLAreaElement;
+    const description = (await screen.findByRole('textbox', {
+      name: /Description/i,
+    })) as HTMLAreaElement;
     expect(description.textContent).toBe('');
-    const done = (await screen.findByTestId('done')) as HTMLInputElement;
+    const done = screen.getByRole('checkbox') as HTMLInputElement;
     expect(done.checked).toBeTruthy();
-    expect(activatedRouteMock.snapshot.paramMap.get).toBeCalled();
   });
 
   test('should goes back when close button clicked', async () => {
-    fireEvent.click(await screen.findByTestId('close-button'));
-    expect(locationMock.back).toBeCalled();
+    fireEvent.click(await screen.findByRole('button', { name: /Close/i }));
+    expect(location.back).toBeCalled();
   });
 
   test('should update values and goes back when form submitted', async () => {
-    const input = await screen.findByTestId('title');
+    const input = await screen.findByRole('textbox', {
+      name: /Title/i,
+    });
     userEvent.clear(input);
     userEvent.type(input, 'Test');
-    fireEvent.click(screen.getByTestId('submit-button'));
-    expect(locationMock.back).toBeCalled();
+    fireEvent.click(screen.getByRole('button', { name: /Save/i }));
+    expect(location.back).toBeCalled();
   });
 });

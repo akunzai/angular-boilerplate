@@ -11,9 +11,6 @@ import { fireEvent, render, screen } from '@testing-library/angular';
 
 import { NavMenuComponent } from './nav-menu.component';
 
-beforeAll(() => {
-  jest.spyOn(global.console, 'log').mockImplementation(() => {});
-});
 beforeEach(async () => {
   await render(NavMenuComponent, {
     componentProperties: {
@@ -31,21 +28,20 @@ beforeEach(async () => {
 });
 
 test('should render with title: Test', () => {
-  expect(screen.getByTestId('title').textContent).toBe('Test');
+  expect(screen.getByText('Test')).toBeInTheDocument();
 });
 
 test('support to toggle navigation', () => {
   const navbar = screen.getByTestId('navbar-collapse');
   expect(navbar.getAttribute('class')).not.toContain('show');
-  fireEvent.click(screen.getByTestId('navbar-toggler'));
+  fireEvent.click(screen.getByRole('button', { name: /Toggle navigation/i }));
   expect(navbar.getAttribute('class')).toContain('show');
 });
 
 test('support to switch languages', () => {
-  expect(localStorage.length).toBe(0);
-  fireEvent.click(screen.getByTestId('i18n-toggler'));
-  fireEvent.click(screen.getByTestId('i18n-switch-en'));
+  fireEvent.click(screen.getByRole('button', { name: /Toggle Languages/i }));
+  fireEvent.click(screen.getByRole('button', { name: /English/i }));
   expect(localStorage.getItem('locale')).toBe('en');
-  fireEvent.click(screen.getByTestId('i18n-switch-zh'));
+  fireEvent.click(screen.getByRole('button', { name: /正體中文/i }));
   expect(localStorage.getItem('locale')).toBe('zh-Hant');
 });

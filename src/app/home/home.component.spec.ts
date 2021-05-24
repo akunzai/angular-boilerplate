@@ -15,5 +15,5 @@ it('should render with title: Welcome!', async () => {
       }),
     ],
   });
-  expect(screen.getByTestId('title').textContent).toBe('Welcome!');
+  expect(screen.getByText('Welcome!')).toBeInTheDocument();
 });

@@ -102,7 +102,7 @@ describe('updateTodo', () => {
 
   test('should call console.error on errors', (done) => {
     server.use(
-      rest.put('/api/todos/:id', (req, res, ctx) => {
+      rest.put('/api/todos/999', (req, res, ctx) => {
         return res(ctx.status(404));
       })
     );
@@ -119,7 +119,7 @@ describe('deleteTodo', () => {
   test('should cannot retrieve it as expected', (done) => {
     server.use(
       rest.delete('/api/todos/123', (req, res, ctx) => {
-        return res(ctx.status(200));
+        return res(ctx.json(req.body));
       }),
       rest.get('/api/todos/123', (req, res, ctx) => {
         return res(ctx.status(404));
