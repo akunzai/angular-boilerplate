@@ -31,13 +31,14 @@ export class TodoListComponent implements OnInit {
       .addTodo({ title: title, done: false } as Todo)
       .subscribe((todo) => {
         this.todos.push(todo);
+        this.title.setValue('');
       });
-    this.title.setValue('');
   }
 
   onRemove(todo: Todo): void {
-    this.todos = this.todos.filter((x) => x !== todo);
-    this.todoService.deleteTodo(todo).subscribe();
+    this.todoService.deleteTodo(todo).subscribe((_) => {
+      this.todos = this.todos.filter((x) => x !== todo);
+    });
   }
 
   onChange(todo: Todo): void {
