@@ -32,11 +32,12 @@ export class NavMenuComponent implements OnInit {
     this.isExpanded = false;
   }
 
-  isCurrentLanguage(lang: string) {
-    return this.translate.currentLang?.startsWith(lang);
+  isCurrentLanguage(pattern: string) {
+    return this.translate.currentLang?.match(pattern);
   }
 
   switchLanguage = (lang: string) => {
     this.translate.use(lang);
+    this.isExpanded = false;
   };
 }

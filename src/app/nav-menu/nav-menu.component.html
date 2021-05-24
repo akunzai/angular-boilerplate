@@ -65,7 +65,7 @@
               <li>
                 <button
                   class="dropdown-item"
-                  [ngClass]="{ active: isCurrentLanguage('en') }"
+                  [ngClass]="{ active: isCurrentLanguage('^en') }"
                   (click)="switchLanguage('en')"
                   data-testid="i18n-switch-en"
                 >
@@ -75,7 +75,7 @@
               <li>
                 <button
                   class="dropdown-item"
-                  [ngClass]="{ active: isCurrentLanguage('zh') }"
+                  [ngClass]="{ active: isCurrentLanguage('^zh') }"
                   (click)="switchLanguage('zh-Hant')"
                   data-testid="i18n-switch-zh"
                 >
