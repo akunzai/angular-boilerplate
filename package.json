@@ -9,7 +9,7 @@
     "test:watch": "ng test --watch",
     "test:coverage": "ng test --coverage",
     "lint": "ng lint",
-    "i18n:extract": "ngx-translate-extract -i ./src -o ./src/assets/locales/{en,zh-Hant}.json --null-as-default-value --sort --clean",
+    "i18n:extract": "ngx-translate-extract -i ./src -o ./src/locales/{en,zh-Hant}.json --null-as-default-value --sort --clean",
     "postinstall": "ngcc"
   },
   "private": true,
