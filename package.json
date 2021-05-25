@@ -56,6 +56,12 @@
     "ts-node": "^10.0.0",
     "typescript": "~4.2.4"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/app/**/*.ts",
+      "!src/app/app.module.ts"
+    ]
+  },
   "msw": {
     "workerDirectory": "src"
   }
