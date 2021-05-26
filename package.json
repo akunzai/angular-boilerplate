@@ -30,6 +30,7 @@
     "ng-click-outside": "^8.0.0",
     "rxjs": "~6.6.7",
     "tslib": "^2.2.0",
+    "whatwg-fetch": "^3.6.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -59,7 +60,8 @@
   "jest": {
     "collectCoverageFrom": [
       "src/app/**/*.ts",
-      "!src/app/app.module.ts"
+      "!src/app/app.module.ts",
+      "!src/app/todo.service.xhr.ts"
     ]
   },
   "msw": {
