@@ -1,6 +1,7 @@
 {
   "name": "angular-boilerplate",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,7 +13,6 @@
     "i18n:extract": "ngx-translate-extract -i ./src -o ./src/locales/{en,zh-Hant}.json --null-as-default-value --sort --clean",
     "postinstall": "ngcc"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^12.0.1",
     "@angular/common": "^12.0.1",
