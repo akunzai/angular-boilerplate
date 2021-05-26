@@ -1,21 +1,11 @@
-import { HttpClientModule } from '@angular/common/http';
-import { TestBed } from '@angular/core/testing';
-
 import { rest, server } from '../mocks/server';
 import Todo from './todo';
 import TodoService from './todo.service';
 
-let service: TodoService;
+let service = new TodoService();
 
 beforeAll(() => {
   jest.spyOn(global.console, 'error').mockImplementation(() => {});
-});
-
-beforeEach(() => {
-  TestBed.configureTestingModule({
-    imports: [HttpClientModule],
-  });
-  service = TestBed.inject(TodoService);
 });
 
 describe('getTodos', () => {
@@ -44,9 +34,9 @@ describe('getTodo', () => {
   test('should response as expected', (done) => {
     service.getTodo(1).subscribe((value) => {
       done();
-      expect(value.id).toBe(1);
-      expect(value.title).toBe('Pay bills');
-      expect(value.done).toBeTruthy();
+      expect(value!.id).toBe(1);
+      expect(value!.title).toBe('Pay bills');
+      expect(value!.done).toBeTruthy();
     });
   });
 
@@ -92,10 +82,10 @@ describe('updateTodo', () => {
     service.updateTodo(todo).subscribe((_) => {
       service.getTodo(todo.id).subscribe((value) => {
         done();
-        expect(value.id).toBe(todo.id);
-        expect(value.title).toBe(todo.title);
-        expect(value.description).toBe(todo.description);
-        expect(value.done).toBe(todo.done);
+        expect(value!.id).toBe(todo.id);
+        expect(value!.title).toBe(todo.title);
+        expect(value!.description).toBe(todo.description);
+        expect(value!.done).toBe(todo.done);
       });
     });
   });
