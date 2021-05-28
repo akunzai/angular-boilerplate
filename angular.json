@@ -85,12 +85,6 @@
           },
           "defaultConfiguration": "development"
         },
-        "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {
-            "globalMocks": ["doctype", "styleTransform", "matchMedia"]
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
