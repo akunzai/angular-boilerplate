@@ -12,27 +12,26 @@
       "name": "Debug All Tests",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng",
-      "cwd": "${workspaceFolder}",
-      "args": ["test", "--run-in-band"],
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        "--runInBand"
+      ],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true
+      "internalConsoleOptions": "neverOpen"
     },
     {
       "name": "Debug Current Test",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng",
-      "cwd": "${workspaceFolder}",
-      "args": [
-        "test",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
         "--testPathPattern=${fileBasenameNoExtension}",
-        "--run-in-band"
+        "--runInBand"
       ],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
