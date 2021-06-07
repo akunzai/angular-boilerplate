@@ -1583,10 +1583,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@testing-library/angular@^10.8.1":
-  version "10.8.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/angular/-/angular-10.8.1.tgz#96c205e45635b0165bef15298151d3c86d5eb344"
-  integrity sha512-f5nH7jiucyFy0uvPf0fVJOS6FYAgiwQebDXt9x7M4V44CUj0zuxVSOqyL0nUyL96ArYhUQ/H7YKXeA4vHWAn2A==
+"@testing-library/angular@^10.8.2":
+  version "10.8.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/angular/-/angular-10.8.2.tgz#c146a8107fee515596ffbe847e2aa7b837303a17"
+  integrity sha512-htMijre39ynh+aqFML1yO3yo6HvOJcThd6OkyWaQdnID85e4OXEpiH62SSWsX+rYJAWsVbOgodwyBVRudlMo0A==
   dependencies:
     "@testing-library/dom" "7.29.4"
     tslib "^2.0.0"
