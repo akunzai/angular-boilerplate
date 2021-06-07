@@ -1583,10 +1583,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@testing-library/angular@^10.8.1":
-  version "10.8.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/angular/-/angular-10.8.1.tgz#96c205e45635b0165bef15298151d3c86d5eb344"
-  integrity sha512-f5nH7jiucyFy0uvPf0fVJOS6FYAgiwQebDXt9x7M4V44CUj0zuxVSOqyL0nUyL96ArYhUQ/H7YKXeA4vHWAn2A==
+"@testing-library/angular@^10.8.2":
+  version "10.8.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/angular/-/angular-10.8.2.tgz#c146a8107fee515596ffbe847e2aa7b837303a17"
+  integrity sha512-htMijre39ynh+aqFML1yO3yo6HvOJcThd6OkyWaQdnID85e4OXEpiH62SSWsX+rYJAWsVbOgodwyBVRudlMo0A==
   dependencies:
     "@testing-library/dom" "7.29.4"
     tslib "^2.0.0"
@@ -1790,10 +1790,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.4.tgz#f0ec25dbf2f0e4b18647313ac031134ca5b24b21"
   integrity sha512-1z8k4wzFnNjVK/tlxvrWuK5WMt6mydWWP7+zvH5eFep4oj+UkrfiJTRtjCeBXNpwaA/FYqqtb4/QS4ianFpIRA==
 
-"@types/node@*", "@types/node@^15.9.0":
-  version "15.12.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.0.tgz#6a459d261450a300e6865faeddb5af01c3389bb3"
-  integrity sha512-+aHJvoCsVhO2ZCuT4o5JtcPrCPyDE3+1nvbDprYes+pPkEsbjH7AGUCNtjMOXS0fqH14t+B7yLzaqSz92FPWyw==
+"@types/node@*", "@types/node@^15.12.1":
+  version "15.12.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.1.tgz#9b60797dee1895383a725f828a869c86c6caa5c2"
+  integrity sha512-zyxJM8I1c9q5sRMtVF+zdd13Jt6RU4r4qfhTd7lQubyThvLfx6yYekWSQjGCGV2Tkecgxnlpl/DNlb6Hg+dmEw==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -5635,10 +5635,10 @@ jest-pnp-resolver@^1.2.2:
   resolved "https://registry.yarnpkg.com/jest-pnp-resolver/-/jest-pnp-resolver-1.2.2.tgz#b704ac0ae028a89108a4d040b3f919dfddc8e33c"
   integrity sha512-olV41bKSMm8BdnuMsewT4jqlZ8+3TCARAXjZGT9jcoSnrfUnRCqnMoF9XEeoWjbzObpqF9dRhHQj0Xb9QdF6/w==
 
-jest-preset-angular@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/jest-preset-angular/-/jest-preset-angular-9.0.1.tgz#1327c89fdc5ac74a2e3231e8857ab17a32befbd5"
-  integrity sha512-7+IKCQUJrqF+76N6yS1gR0KamxNJiR5iUY+u0M4evJqeNIYprKCdDzXiPucanurnpigbq5jj/K/DHEhJqEpJeQ==
+jest-preset-angular@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/jest-preset-angular/-/jest-preset-angular-9.0.2.tgz#64c6424ab7de9f83b2920b2eab974b143d3b2a64"
+  integrity sha512-cuSSwI/5zWKEm97uOKVWexRfJuADLsxkclHJLeoFNVzt/BjoWvAKoHhtrrNtmAPchvkwuUl7ZwDW23sA6islfQ==
   dependencies:
     jest-environment-jsdom "^27.0.0"
     pretty-format "^27.0.0"
