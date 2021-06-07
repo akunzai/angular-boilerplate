@@ -5635,10 +5635,10 @@ jest-pnp-resolver@^1.2.2:
   resolved "https://registry.yarnpkg.com/jest-pnp-resolver/-/jest-pnp-resolver-1.2.2.tgz#b704ac0ae028a89108a4d040b3f919dfddc8e33c"
   integrity sha512-olV41bKSMm8BdnuMsewT4jqlZ8+3TCARAXjZGT9jcoSnrfUnRCqnMoF9XEeoWjbzObpqF9dRhHQj0Xb9QdF6/w==
 
-jest-preset-angular@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/jest-preset-angular/-/jest-preset-angular-9.0.1.tgz#1327c89fdc5ac74a2e3231e8857ab17a32befbd5"
-  integrity sha512-7+IKCQUJrqF+76N6yS1gR0KamxNJiR5iUY+u0M4evJqeNIYprKCdDzXiPucanurnpigbq5jj/K/DHEhJqEpJeQ==
+jest-preset-angular@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/jest-preset-angular/-/jest-preset-angular-9.0.2.tgz#64c6424ab7de9f83b2920b2eab974b143d3b2a64"
+  integrity sha512-cuSSwI/5zWKEm97uOKVWexRfJuADLsxkclHJLeoFNVzt/BjoWvAKoHhtrrNtmAPchvkwuUl7ZwDW23sA6islfQ==
   dependencies:
     jest-environment-jsdom "^27.0.0"
     pretty-format "^27.0.0"
