@@ -34,9 +34,7 @@ export const handlers = [
     if (index === -1) {
       return res(ctx.status(404));
     }
-    const todo = Object.assign({}, db[index]);
-    delete db[index];
-    return res(ctx.json(todo));
+    return res(ctx.json(db.splice(index, 1)[0]));
   }),
   rest.put('/api/todos/:id', (req, res, ctx) => {
     const { id } = req.params;
