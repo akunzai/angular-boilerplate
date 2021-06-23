@@ -25,7 +25,7 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@popperjs/core": "^2.9.2",
-    "bootstrap": "^5.0.1",
+    "bootstrap": "^5.0.2",
     "bootstrap-icons": "^1.5.0",
     "ng-click-outside": "^8.0.0",
     "rxjs": "~6.6.7",
@@ -52,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
     "eslint": "^7.29.0",
-    "jest": "^27.0.4",
+    "jest": "^27.0.5",
     "jest-preset-angular": "^9.0.4",
     "msw": "^0.29.0",
     "ts-node": "^10.0.0",
@@ -60,8 +60,7 @@
   },
   "resolutions": {
     "css-what": "^5.0.1",
-    "glob-parent": "^5.1.2",
-    "ws": "^7.4.6"
+    "glob-parent": "^5.1.2"
   },
   "msw": {
     "workerDirectory": "src"
