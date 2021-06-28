@@ -44,11 +44,11 @@ export default class TodoService {
       .pipe(catchError(this.handleError<Todo>('deleteTask')));
   }
 
-  updateTodo(todo: Todo): Observable<any> {
+  updateTodo(todo: Todo): Observable<unknown> {
     const url = `${this.todosUrl}/${todo.id}`;
     return this.http
       .put(url, todo, this.httpOptions)
-      .pipe(catchError(this.handleError<any>('updateTodo')));
+      .pipe(catchError(this.handleError<unknown>('updateTodo')));
   }
 
   /**
@@ -58,8 +58,8 @@ export default class TodoService {
    * @param result - optional value to return as the observable result
    */
   private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
+    return (error: unknown): Observable<T> => {
+      console.error(`${operation}: ${error}`);
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };

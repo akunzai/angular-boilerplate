@@ -18,23 +18,23 @@ export class NavMenuComponent {
     });
   }
 
-  toggleCollapsed() {
+  toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;
   }
 
-  toggleExpanded() {
+  toggleExpanded(): void {
     this.isExpanded = !this.isExpanded;
   }
 
-  clickOutside($event: Event) {
+  clickOutside(): void {
     this.isExpanded = false;
   }
 
-  isCurrentLanguage(pattern: string) {
-    return this.translate.currentLang?.match(pattern);
+  isCurrentLanguage(pattern: string): boolean {
+    return new RegExp(pattern).test(this.translate.currentLang);
   }
 
-  switchLanguage = (lang: string) => {
+  switchLanguage = (lang: string): void => {
     this.translate.use(lang);
     this.isExpanded = false;
   };
