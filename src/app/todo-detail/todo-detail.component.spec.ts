@@ -12,7 +12,7 @@ import userEvent from '@testing-library/user-event';
 import { TodoDetailComponent } from './todo-detail.component';
 
 beforeAll(() => {
-  jest.spyOn(global.console, 'error').mockImplementation(() => {});
+  jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
 });
 
 test('without Todo should render nothing', async () => {

@@ -2,7 +2,7 @@ import { rest } from 'msw';
 
 import Todo from '../app/todo';
 
-let db: Todo[] = [
+const db: Todo[] = [
   new Todo(1, 'Pay bills', '', true),
   new Todo(2, 'Read a book'),
   new Todo(3, 'Buy eggs'),
@@ -21,7 +21,7 @@ export const handlers = [
     return res(ctx.json(todo));
   }),
   rest.post('/api/todos', (req, res, ctx) => {
-    let todo = req.body as Todo;
+    const todo = req.body as Todo;
     if (!todo.id) {
       todo.id = db.length > 0 ? Math.max(...db.map((x) => x.id)) + 1 : 1;
     }
@@ -42,7 +42,7 @@ export const handlers = [
     if (index === -1) {
       return res(ctx.status(404));
     }
-    let todo = req.body as Todo;
+    const todo = req.body as Todo;
     db[index] = todo;
     return res(ctx.status(200));
   }),

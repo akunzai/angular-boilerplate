@@ -57,7 +57,7 @@ export default class TodoService {
     );
   }
 
-  updateTodo(todo: Todo): Observable<any> {
+  updateTodo(todo: Todo): Observable<unknown> {
     const url = `${this.todosUrl}/${todo.id}`;
     return fromFetch(url, {
       method: 'PUT',
@@ -65,7 +65,7 @@ export default class TodoService {
       body: JSON.stringify(todo),
     }).pipe(
       switchMap((response) => this.handleResponse(response)),
-      catchError(this.handleError<any>('updateTodo'))
+      catchError(this.handleError<unknown>('updateTodo'))
     );
   }
 
@@ -85,8 +85,8 @@ export default class TodoService {
    * @param result - optional value to return as the observable result
    */
   private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
+    return (error: unknown): Observable<T> => {
+      console.error(`${operation}: ${error}`);
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };

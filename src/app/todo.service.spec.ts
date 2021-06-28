@@ -2,10 +2,10 @@ import { rest, server } from '../mocks/server';
 import Todo from './todo';
 import TodoService from './todo.service';
 
-let service = new TodoService();
+const service = new TodoService();
 
 beforeAll(() => {
-  jest.spyOn(global.console, 'error').mockImplementation(() => {});
+  jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
 });
 
 describe('getTodos', () => {
@@ -34,9 +34,9 @@ describe('getTodo', () => {
   test('should response as expected', (done) => {
     service.getTodo(1).subscribe((value) => {
       done();
-      expect(value!.id).toBe(1);
-      expect(value!.title).toBe('Pay bills');
-      expect(value!.done).toBeTruthy();
+      expect(value?.id).toBe(1);
+      expect(value?.title).toBe('Pay bills');
+      expect(value?.done).toBeTruthy();
     });
   });
 
@@ -79,13 +79,13 @@ describe('addTodo', () => {
 describe('updateTodo', () => {
   test('should can retrieve it as expected', (done) => {
     const todo = new Todo(3, 'Modified', 'Test', true);
-    service.updateTodo(todo).subscribe((_) => {
+    service.updateTodo(todo).subscribe(() => {
       service.getTodo(todo.id).subscribe((value) => {
         done();
-        expect(value!.id).toBe(todo.id);
-        expect(value!.title).toBe(todo.title);
-        expect(value!.description).toBe(todo.description);
-        expect(value!.done).toBe(todo.done);
+        expect(value?.id).toBe(todo.id);
+        expect(value?.title).toBe(todo.title);
+        expect(value?.description).toBe(todo.description);
+        expect(value?.done).toBe(todo.done);
       });
     });
   });
@@ -116,7 +116,7 @@ describe('deleteTodo', () => {
       })
     );
     const todo = new Todo(123, '');
-    service.deleteTodo(todo).subscribe((_) => {
+    service.deleteTodo(todo).subscribe(() => {
       service.getTodo(todo.id).subscribe((value) => {
         done();
         expect(value).toBeUndefined();
