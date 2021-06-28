@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
 
 @Component({
@@ -6,7 +6,7 @@ import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.scss'],
 })
-export class NavMenuComponent implements OnInit {
+export class NavMenuComponent {
   @Input() title: string | undefined;
 
   isCollapsed = true;
@@ -17,8 +17,6 @@ export class NavMenuComponent implements OnInit {
       localStorage.setItem('locale', event.lang);
     });
   }
-
-  ngOnInit(): void {}
 
   toggleCollapsed() {
     this.isCollapsed = !this.isCollapsed;
