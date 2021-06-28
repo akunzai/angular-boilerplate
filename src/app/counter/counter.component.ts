@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss'],
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent {
   public currentCount = 0;
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   public incrementCounter() {
     this.currentCount++;

@@ -46,7 +46,7 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {
-        "@angular-eslint/no-empty-lifecycle-method": false
+        "@angular-eslint/no-empty-lifecycle-method": "off"
       }
     }
   ]
