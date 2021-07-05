@@ -31,7 +31,7 @@
     "rxjs": "~6.6.7",
     "tslib": "^2.3.0",
     "whatwg-fetch": "^3.6.2",
-    "ws": "^7.5.1",
+    "ws": "^7.5.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -48,10 +48,10 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^26.0.23",
-    "@types/node": "^15.14.0",
+    "@types/node": "^16.0.0",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
-    "eslint": "^7.29.0",
+    "eslint": "^7.30.0",
     "jest": "^27.0.6",
     "jest-preset-angular": "^9.0.4",
     "msw": "^0.30.1",
