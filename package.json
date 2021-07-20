@@ -51,7 +51,7 @@
     "@types/node": "^16.4.0",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
-    "eslint": "^7.30.0",
+    "eslint": "^7.31.0",
     "jest": "^27.0.6",
     "jest-preset-angular": "^9.0.4",
     "msw": "^0.32.1",
