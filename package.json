@@ -48,7 +48,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.9",
+    "@types/node": "^16.4.10",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.29.0",
     "eslint": "^7.32.0",
