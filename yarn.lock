@@ -6671,10 +6671,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-click-outside@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/ng-click-outside/-/ng-click-outside-8.0.0.tgz#3d537963737eaefe0a7f2d41b2ddec5f3a6a573f"
-  integrity sha512-CVzddAMjaGS2hTVWu313fS/ksaAqg6O90xqVOJoCVhmZ7E7+i0nFeTWEqNsppi0Fe9GntuAAphN/eWBz6+0Low==
+ng-click-outside@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/ng-click-outside/-/ng-click-outside-9.0.0.tgz#4ed1f3663c1e5cc485d46d89377daf38ad58e2ae"
+  integrity sha512-WaM1Ph42xAf3WA92fitAGvVvi8NUMsc8D/saVh1673cOtcKKVYbX8lIfs2EzvS0OSULthA9CbZc3VpFM8UGBBA==
 
 nice-napi@^1.0.2:
   version "1.0.2"
