@@ -29,7 +29,7 @@
     "bootstrap-icons": "^1.5.0",
     "ng-click-outside": "^9.0.0",
     "rxjs": "~7.3.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "whatwg-fetch": "^3.6.2",
     "ws": "^8.0.0",
     "zone.js": "~0.11.4"
