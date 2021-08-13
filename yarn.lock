@@ -3232,7 +3232,7 @@ __metadata:
     tslib: ^2.3.1
     typescript: ~4.3.5
     whatwg-fetch: ^3.6.2
-    ws: ^8.0.0
+    ws: ^8.1.0
     zone.js: ~0.11.4
   languageName: unknown
   linkType: soft
@@ -13412,9 +13412,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ws@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "ws@npm:8.0.0"
+"ws@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "ws@npm:8.1.0"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ^5.0.2
@@ -13423,7 +13423,7 @@ fsevents@^1.2.7:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 8f1b802f9c0da799aecf26cfdc498f93e903b822dcad83bd75f98c26d67d0f15354841c895ba647a0ba443e10cb6043934f2b9c9ff8139c52efc8745c3965420
+  checksum: ead344f11f2b9f01646e796a7c3bcf8090be91b9b880ed705a589bde842fd1fe951862012e2ecc60538ab29220fb6c8335537f027c089afb839fd1a2584d3040
   languageName: node
   linkType: hard
 
