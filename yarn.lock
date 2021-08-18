@@ -2732,7 +2732,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^4.29.1":
+"@typescript-eslint/parser@npm:^4.29.2":
   version: 4.29.2
   resolution: "@typescript-eslint/parser@npm:4.29.2"
   dependencies:
@@ -3228,7 +3228,7 @@ __metadata:
     "@types/jest": ^27.0.1
     "@types/node": ^16.6.1
     "@typescript-eslint/eslint-plugin": ^4.29.2
-    "@typescript-eslint/parser": ^4.29.1
+    "@typescript-eslint/parser": ^4.29.2
     bootstrap: ^5.1.0
     bootstrap-icons: ^1.5.0
     eslint: ^7.32.0
