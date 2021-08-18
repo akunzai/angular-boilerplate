@@ -3233,7 +3233,7 @@ __metadata:
     bootstrap-icons: ^1.5.0
     eslint: ^7.32.0
     jest: ^27.0.6
-    jest-preset-angular: ^9.0.5
+    jest-preset-angular: ^9.0.6
     msw: ^0.34.0
     ng-click-outside: ^9.0.0
     rxjs: ~7.3.0
@@ -7709,7 +7709,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:^9.0.5":
+"jest-preset-angular@npm:^9.0.6":
   version: 9.0.6
   resolution: "jest-preset-angular@npm:9.0.6"
   dependencies:
