@@ -64,5 +64,6 @@
   },
   "msw": {
     "workerDirectory": "src"
-  }
+  },
+  "packageManager": "yarn@3.0.1"
 }
