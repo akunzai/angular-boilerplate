@@ -1751,7 +1751,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biesbjerg/ngx-translate-extract@npm:^7.0.4":
+"@biesbjerg/ngx-translate-extract@npm:7.0.4":
   version: 7.0.4
   resolution: "@biesbjerg/ngx-translate-extract@npm:7.0.4"
   dependencies:
@@ -2115,7 +2115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngx-translate/core@npm:^13.0.0":
+"@ngx-translate/core@npm:13.0.0":
   version: 13.0.0
   resolution: "@ngx-translate/core@npm:13.0.0"
   dependencies:
@@ -2127,7 +2127,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngx-translate/http-loader@npm:^6.0.0":
+"@ngx-translate/http-loader@npm:6.0.0":
   version: 6.0.0
   resolution: "@ngx-translate/http-loader@npm:6.0.0"
   dependencies:
@@ -2285,7 +2285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.9.3":
+"@popperjs/core@npm:2.9.3":
   version: 2.9.3
   resolution: "@popperjs/core@npm:2.9.3"
   checksum: 4cb94c271eaa13416ab8169c6af778c5b6160614351a79c68e8219d6ee0a40b8f71080ca29e139591c7c0c8e08fc1627d0e18d40a64609713a42b58d683a009d
@@ -2321,7 +2321,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/angular@npm:^10.11.0":
+"@testing-library/angular@npm:10.11.0":
   version: 10.11.0
   resolution: "@testing-library/angular@npm:10.11.0"
   dependencies:
@@ -2353,7 +2353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.14.1":
+"@testing-library/jest-dom@npm:5.14.1":
   version: 5.14.1
   resolution: "@testing-library/jest-dom@npm:5.14.1"
   dependencies:
@@ -2370,7 +2370,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^13.2.1":
+"@testing-library/user-event@npm:13.2.1":
   version: 13.2.1
   resolution: "@testing-library/user-event@npm:13.2.1"
   dependencies:
@@ -2559,7 +2559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:^27.0.1":
+"@types/jest@npm:*, @types/jest@npm:27.0.1":
   version: 27.0.1
   resolution: "@types/jest@npm:27.0.1"
   dependencies:
@@ -2590,7 +2590,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^16.7.1":
+"@types/node@npm:*, @types/node@npm:16.7.1":
   version: 16.7.1
   resolution: "@types/node@npm:16.7.1"
   checksum: fcf1a2c7b1f19c2201574b2110176b49c6efd824a39b2ed8ac3e6688740e2a35bef95a3334dfa345f4bd4873fd8b79d8ac8cfcc9fcd3d2f4f8f993c2c37ce4ab
@@ -3225,30 +3225,30 @@ __metadata:
     "@angular/platform-browser": 12.2.2
     "@angular/platform-browser-dynamic": 12.2.2
     "@angular/router": 12.2.2
-    "@biesbjerg/ngx-translate-extract": ^7.0.4
-    "@ngx-translate/core": ^13.0.0
-    "@ngx-translate/http-loader": ^6.0.0
-    "@popperjs/core": ^2.9.3
-    "@testing-library/angular": ^10.11.0
-    "@testing-library/jest-dom": ^5.14.1
-    "@testing-library/user-event": ^13.2.1
-    "@types/jest": ^27.0.1
-    "@types/node": ^16.7.1
+    "@biesbjerg/ngx-translate-extract": 7.0.4
+    "@ngx-translate/core": 13.0.0
+    "@ngx-translate/http-loader": 6.0.0
+    "@popperjs/core": 2.9.3
+    "@testing-library/angular": 10.11.0
+    "@testing-library/jest-dom": 5.14.1
+    "@testing-library/user-event": 13.2.1
+    "@types/jest": 27.0.1
+    "@types/node": 16.7.1
     "@typescript-eslint/eslint-plugin": ^4.29.2
     "@typescript-eslint/parser": ^4.29.2
-    bootstrap: ^5.1.0
-    bootstrap-icons: ^1.5.0
-    eslint: ^7.32.0
+    bootstrap: 5.1.0
+    bootstrap-icons: 1.5.0
+    eslint: 7.32.0
     jest: ^27.0.6
-    jest-preset-angular: ^9.0.7
-    msw: ^0.35.0
-    ng-click-outside: ^9.0.0
-    rxjs: ~7.3.0
-    ts-node: ^10.2.1
-    tslib: ^2.3.1
-    typescript: ~4.3.5
-    whatwg-fetch: ^3.6.2
-    ws: ^8.2.0
+    jest-preset-angular: 9.0.7
+    msw: 0.35.0
+    ng-click-outside: 9.0.0
+    rxjs: 7.3.0
+    ts-node: 10.2.1
+    tslib: 2.3.1
+    typescript: 4.3.5
+    whatwg-fetch: 3.6.2
+    ws: 8.2.0
     zone.js: ~0.11.4
   languageName: unknown
   linkType: soft
@@ -3858,14 +3858,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap-icons@npm:^1.5.0":
+"bootstrap-icons@npm:1.5.0":
   version: 1.5.0
   resolution: "bootstrap-icons@npm:1.5.0"
   checksum: d36851ad6bf315d20589a7a7f4b513f867a4c55d85ac6881644c0261be56185307cde3f1968f326922a7a925c65897543ca9889ab3054e3a0e4a98005fcb7f4a
   languageName: node
   linkType: hard
 
-"bootstrap@npm:^5.1.0":
+"bootstrap@npm:5.1.0":
   version: 5.1.0
   resolution: "bootstrap@npm:5.1.0"
   peerDependencies:
@@ -5563,7 +5563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.32.0":
+"eslint@npm:7.32.0":
   version: 7.32.0
   resolution: "eslint@npm:7.32.0"
   dependencies:
@@ -7674,7 +7674,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:^9.0.7":
+"jest-preset-angular@npm:9.0.7":
   version: 9.0.7
   resolution: "jest-preset-angular@npm:9.0.7"
   dependencies:
@@ -8858,7 +8858,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"msw@npm:^0.35.0":
+"msw@npm:0.35.0":
   version: 0.35.0
   resolution: "msw@npm:0.35.0"
   dependencies:
@@ -8985,7 +8985,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ng-click-outside@npm:^9.0.0":
+"ng-click-outside@npm:9.0.0":
   version: 9.0.0
   resolution: "ng-click-outside@npm:9.0.0"
   peerDependencies:
@@ -11276,7 +11276,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.2.0, rxjs@npm:~7.3.0":
+"rxjs@npm:7.3.0, rxjs@npm:^7.2.0":
   version: 7.3.0
   resolution: "rxjs@npm:7.3.0"
   dependencies:
@@ -12505,7 +12505,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.2.1":
+"ts-node@npm:10.2.1":
   version: 10.2.1
   resolution: "ts-node@npm:10.2.1"
   dependencies:
@@ -12548,17 +12548,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"tslib@npm:2.3.1, tslib@npm:^2.0.0, tslib@npm:^2.2.0":
+  version: 2.3.1
+  resolution: "tslib@npm:2.3.1"
+  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.0.0, tslib@npm:^2.2.0, tslib@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "tslib@npm:2.3.1"
-  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
   languageName: node
   linkType: hard
 
@@ -12661,7 +12661,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"typescript@4.3.5, typescript@~4.3.5":
+typescript@4.3.5:
   version: 4.3.5
   resolution: "typescript@npm:4.3.5"
   bin:
@@ -12671,7 +12671,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.3.5#~builtin<compat/typescript>, typescript@patch:typescript@~4.3.5#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.3.5#~builtin<compat/typescript>":
   version: 4.3.5
   resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
   bin:
@@ -13194,7 +13194,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"whatwg-fetch@npm:^3.6.2":
+"whatwg-fetch@npm:3.6.2":
   version: 3.6.2
   resolution: "whatwg-fetch@npm:3.6.2"
   checksum: ee976b7249e7791edb0d0a62cd806b29006ad7ec3a3d89145921ad8c00a3a67e4be8f3fb3ec6bc7b58498724fd568d11aeeeea1f7827e7e1e5eae6c8a275afed
@@ -13321,6 +13321,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"ws@npm:8.2.0":
+  version: 8.2.0
+  resolution: "ws@npm:8.2.0"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 7cd544312a48dafcb8158c9b4e5f20986cce980d516e0ef0602665911b0e95c5e0dea2846a4bb3153a1e2c839aa3d92fb7e69dd864fe432e881eee9d4e8cf70b
+  languageName: node
+  linkType: hard
+
 "ws@npm:^6.2.1":
   version: 6.2.2
   resolution: "ws@npm:6.2.2"
@@ -13342,21 +13357,6 @@ fsevents@^1.2.7:
     utf-8-validate:
       optional: true
   checksum: 423dc0d859fa74020f5555140905b862470a60ea1567bb9ad55a087263d7718b9c94f69678be1cee9868925c570f1e6fc79d09f90c39057bc63fa2edbb2c547b
-  languageName: node
-  linkType: hard
-
-"ws@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "ws@npm:8.2.0"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 7cd544312a48dafcb8158c9b4e5f20986cce980d516e0ef0602665911b0e95c5e0dea2846a4bb3153a1e2c839aa3d92fb7e69dd864fe432e881eee9d4e8cf70b
   languageName: node
   linkType: hard
 
