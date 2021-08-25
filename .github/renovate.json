@@ -1,0 +1,17 @@
+{
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@angular/", "@angular-devkit/"],
+      "groupName": "@angular packages"
+    },
+    {
+      "matchPackagePatterns": ["^@angular-eslint/"],
+      "groupName": "@angular-eslint packages"
+    },
+    {
+      "matchPackagePatterns": ["^@typescript-eslint/"],
+      "groupName": "@typescript-eslint packages"
+    }
+  ]
+}
