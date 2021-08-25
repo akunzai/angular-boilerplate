@@ -3239,7 +3239,7 @@ __metadata:
     bootstrap: 5.1.0
     bootstrap-icons: 1.5.0
     eslint: 7.32.0
-    jest: ^27.0.6
+    jest: 27.0.6
     jest-preset-angular: 9.0.7
     msw: 0.35.0
     ng-click-outside: 9.0.0
@@ -7883,7 +7883,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.0.6":
+"jest@npm:27.0.6":
   version: 27.0.6
   resolution: "jest@npm:27.0.6"
   dependencies:
