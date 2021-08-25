@@ -25,7 +25,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:^12.2.2":
+"@angular-devkit/build-angular@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular-devkit/build-angular@npm:12.2.2"
   dependencies:
@@ -252,7 +252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/animations@npm:^12.2.2":
+"@angular/animations@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/animations@npm:12.2.2"
   dependencies:
@@ -263,7 +263,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cli@npm:^12.2.2":
+"@angular/cli@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/cli@npm:12.2.2"
   dependencies:
@@ -292,7 +292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/common@npm:^12.2.2":
+"@angular/common@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/common@npm:12.2.2"
   dependencies:
@@ -304,7 +304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:^12.2.2":
+"@angular/compiler-cli@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/compiler-cli@npm:12.2.2"
   dependencies:
@@ -334,7 +334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler@npm:^12.2.2":
+"@angular/compiler@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/compiler@npm:12.2.2"
   dependencies:
@@ -343,7 +343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:^12.2.2":
+"@angular/core@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/core@npm:12.2.2"
   dependencies:
@@ -355,7 +355,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/forms@npm:^12.2.2":
+"@angular/forms@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/forms@npm:12.2.2"
   dependencies:
@@ -369,7 +369,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser-dynamic@npm:^12.2.2":
+"@angular/platform-browser-dynamic@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/platform-browser-dynamic@npm:12.2.2"
   dependencies:
@@ -383,7 +383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser@npm:^12.2.2":
+"@angular/platform-browser@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/platform-browser@npm:12.2.2"
   dependencies:
@@ -399,7 +399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/router@npm:^12.2.2":
+"@angular/router@npm:12.2.2":
   version: 12.2.2
   resolution: "@angular/router@npm:12.2.2"
   dependencies:
@@ -3209,22 +3209,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "angular-boilerplate@workspace:."
   dependencies:
-    "@angular-devkit/build-angular": ^12.2.2
+    "@angular-devkit/build-angular": 12.2.2
     "@angular-eslint/builder": 12.3.1
     "@angular-eslint/eslint-plugin": 12.3.1
     "@angular-eslint/eslint-plugin-template": 12.3.1
     "@angular-eslint/schematics": 12.3.1
     "@angular-eslint/template-parser": 12.3.1
-    "@angular/animations": ^12.2.2
-    "@angular/cli": ^12.2.2
-    "@angular/common": ^12.2.2
-    "@angular/compiler": ^12.2.2
-    "@angular/compiler-cli": ^12.2.2
-    "@angular/core": ^12.2.2
-    "@angular/forms": ^12.2.2
-    "@angular/platform-browser": ^12.2.2
-    "@angular/platform-browser-dynamic": ^12.2.2
-    "@angular/router": ^12.2.2
+    "@angular/animations": 12.2.2
+    "@angular/cli": 12.2.2
+    "@angular/common": 12.2.2
+    "@angular/compiler": 12.2.2
+    "@angular/compiler-cli": 12.2.2
+    "@angular/core": 12.2.2
+    "@angular/forms": 12.2.2
+    "@angular/platform-browser": 12.2.2
+    "@angular/platform-browser-dynamic": 12.2.2
+    "@angular/router": 12.2.2
     "@biesbjerg/ngx-translate-extract": ^7.0.4
     "@ngx-translate/core": ^13.0.0
     "@ngx-translate/http-loader": ^6.0.0
