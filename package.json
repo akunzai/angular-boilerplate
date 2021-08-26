@@ -14,14 +14,14 @@
     "postinstall": "ngcc"
   },
   "dependencies": {
-    "@angular/animations": "12.2.2",
-    "@angular/common": "12.2.2",
-    "@angular/compiler": "12.2.2",
-    "@angular/core": "12.2.2",
-    "@angular/forms": "12.2.2",
-    "@angular/platform-browser": "12.2.2",
-    "@angular/platform-browser-dynamic": "12.2.2",
-    "@angular/router": "12.2.2",
+    "@angular/animations": "12.2.3",
+    "@angular/common": "12.2.3",
+    "@angular/compiler": "12.2.3",
+    "@angular/core": "12.2.3",
+    "@angular/forms": "12.2.3",
+    "@angular/platform-browser": "12.2.3",
+    "@angular/platform-browser-dynamic": "12.2.3",
+    "@angular/router": "12.2.3",
     "@ngx-translate/core": "13.0.0",
     "@ngx-translate/http-loader": "6.0.0",
     "@popperjs/core": "2.9.3",
@@ -32,7 +32,7 @@
     "tslib": "2.3.1",
     "whatwg-fetch": "3.6.2",
     "ws": "8.2.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "12.2.2",
@@ -42,7 +42,7 @@
     "@angular-eslint/schematics": "12.3.1",
     "@angular-eslint/template-parser": "12.3.1",
     "@angular/cli": "12.2.2",
-    "@angular/compiler-cli": "12.2.2",
+    "@angular/compiler-cli": "12.2.3",
     "@biesbjerg/ngx-translate-extract": "7.0.4",
     "@testing-library/angular": "10.11.0",
     "@testing-library/jest-dom": "5.14.1",
