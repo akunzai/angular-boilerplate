@@ -60,7 +60,7 @@
   },
   "resolutions": {
     "css-what": "^5.0.1",
-    "glob-parent": "^5.1.2"
+    "glob-parent": "^6.0.0"
   },
   "msw": {
     "workerDirectory": "src"
