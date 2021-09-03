@@ -2324,10 +2324,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:2.10.0":
-  version: 2.10.0
-  resolution: "@popperjs/core@npm:2.10.0"
-  checksum: d1f07faa4bd01c38facf97ffa852fdd298a782fe7deace634c79e054a68dedc8f8a4d7e96b342efb6a42cc0042af7a65d5a0d132f760da5420cc7a860986fbcb
+"@popperjs/core@npm:2.10.1":
+  version: 2.10.1
+  resolution: "@popperjs/core@npm:2.10.1"
+  checksum: 55262eb98984a03364a844177a9d4b9ab1c6e3503eaa1ecb086c028b5b6d93985a92b5b5783008962633015fc9f0232fda3ce88f5b17930a909a633387a06505
   languageName: node
   linkType: hard
 
@@ -3267,7 +3267,7 @@ __metadata:
     "@biesbjerg/ngx-translate-extract": 7.0.4
     "@ngx-translate/core": 13.0.0
     "@ngx-translate/http-loader": 6.0.0
-    "@popperjs/core": 2.10.0
+    "@popperjs/core": 2.10.1
     "@testing-library/angular": 10.11.0
     "@testing-library/jest-dom": 5.14.1
     "@testing-library/user-event": 13.2.1
