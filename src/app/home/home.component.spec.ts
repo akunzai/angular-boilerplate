@@ -1,10 +1,9 @@
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule,
+  TranslateModule
 } from '@ngx-translate/core';
 import { render, screen } from '@testing-library/angular';
-
 import { HomeComponent } from './home.component';
 
 it('should render with title: Welcome!', async () => {

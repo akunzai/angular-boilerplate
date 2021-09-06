@@ -1,9 +1,7 @@
+import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { fromFetch } from 'rxjs/fetch';
 import { catchError, map, switchMap } from 'rxjs/operators';
-
-import { Injectable } from '@angular/core';
-
 import Todo from './todo';
 
 const HEADERS = new Headers({

@@ -1,12 +1,10 @@
-import { ClickOutsideModule } from 'ng-click-outside';
-
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { ClickOutsideModule } from 'ng-click-outside';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
