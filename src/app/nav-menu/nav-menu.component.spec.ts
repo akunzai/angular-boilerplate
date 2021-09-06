@@ -1,14 +1,12 @@
-import { ClickOutsideModule } from 'ng-click-outside';
-
 import { RouterTestingModule } from '@angular/router/testing';
 import {
   TranslateFakeLoader,
   TranslateLoader,
   TranslateModule,
-  TranslateService,
+  TranslateService
 } from '@ngx-translate/core';
 import { fireEvent, render, screen } from '@testing-library/angular';
-
+import { ClickOutsideModule } from 'ng-click-outside';
 import { NavMenuComponent } from './nav-menu.component';
 
 beforeEach(async () => {

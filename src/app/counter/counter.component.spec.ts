@@ -1,10 +1,9 @@
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule,
+  TranslateModule
 } from '@ngx-translate/core';
 import { fireEvent, render, screen } from '@testing-library/angular';
-
 import { CounterComponent } from './counter.component';
 
 beforeEach(async () => {

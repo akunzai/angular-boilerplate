@@ -1,9 +1,8 @@
-import 'jest-preset-angular/setup-jest';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
+import 'jest-preset-angular/setup-jest';
 import 'whatwg-fetch';
 import './jest.global-mocks';
-
 import { server } from './src/mocks/server';
 
 beforeAll(() => {

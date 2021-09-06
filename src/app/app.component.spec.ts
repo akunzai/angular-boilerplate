@@ -1,13 +1,11 @@
-import { ClickOutsideModule } from 'ng-click-outside';
-
 import { RouterTestingModule } from '@angular/router/testing';
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule,
+  TranslateModule
 } from '@ngx-translate/core';
 import { render, screen } from '@testing-library/angular';
-
+import { ClickOutsideModule } from 'ng-click-outside';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 

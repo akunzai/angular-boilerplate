@@ -4,11 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule,
+  TranslateModule
 } from '@ngx-translate/core';
 import { fireEvent, render, screen, waitFor } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-
 import { TodoDetailComponent } from './todo-detail.component';
 
 beforeAll(() => {

@@ -1,5 +1,4 @@
 import { rest } from 'msw';
-
 import Todo from '../app/todo';
 
 const db: Todo[] = [
