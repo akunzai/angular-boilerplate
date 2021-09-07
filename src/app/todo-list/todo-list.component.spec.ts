@@ -3,14 +3,14 @@ import { RouterTestingModule } from '@angular/router/testing';
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule
+  TranslateModule,
 } from '@ngx-translate/core';
 import {
   fireEvent,
   render,
   screen,
   waitFor,
-  waitForElementToBeRemoved
+  waitForElementToBeRemoved,
 } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
 import { rest, server } from '../../mocks/server';
@@ -28,10 +28,11 @@ beforeEach(async () => {
       }),
     ],
   });
+  await waitFor(() => expect(screen.getAllByRole('link').length).toBe(3));
 });
 
 test('should renders as expected', async () => {
-  const links = await screen.findAllByRole('link');
+  const links = screen.getAllByRole('link');
   expect(links.length).toBe(3);
   expect(links[0].textContent).toContain('Pay bills');
   expect(links[0].getAttribute('href')).toBe('/todo/1');
@@ -63,7 +64,7 @@ test('should remove item when delete button clicked', async () => {
       );
     })
   );
-  const buttons = await screen.findAllByRole('button', { name: /Close/i });
+  const buttons = screen.getAllByRole('button', { name: /Close/i });
   fireEvent.click(buttons[2]);
   await waitForElementToBeRemoved(
     screen.getByRole('link', { name: /Buy eggs/ })
@@ -72,7 +73,7 @@ test('should remove item when delete button clicked', async () => {
 });
 
 test('should update item when checkbox checked', async () => {
-  const inputs = await screen.findAllByRole('checkbox');
+  const inputs = screen.getAllByRole('checkbox');
   fireEvent.click(inputs[2]);
   await waitFor(() => {
     expect(screen.getAllByRole('link')[2].getAttribute('class')).toContain(
@@ -82,22 +83,21 @@ test('should update item when checkbox checked', async () => {
 });
 
 test('should not add item without any input', async () => {
-  fireEvent.click(await screen.findByRole('button'));
+  fireEvent.click(screen.getByRole('button', { name: /Add/i }));
   expect((await screen.findAllByRole('link')).length).toBe(3);
 });
 
 test('should not add item with blank input', async () => {
-  userEvent.type(await screen.findByRole('textbox'), '   ');
-  fireEvent.click(await screen.findByRole('button'));
+  userEvent.type(screen.getByRole('textbox'), '   ');
+  fireEvent.click(screen.getByRole('button', { name: /Add/i }));
   expect((await screen.findAllByRole('link')).length).toBe(3);
 });
 
 test('should add item and clears the input', async () => {
-  userEvent.type(await screen.findByRole('textbox'), 'Test');
-  fireEvent.click(screen.getByRole('button'));
-  await waitFor(() => {
-    const link = screen.getByRole('link', { name: /Test/i });
-    expect(link.textContent).toContain('Test');
-    expect(link.getAttribute('href')).toBe('/todo/4');
-  });
+  userEvent.type(screen.getByRole('textbox'), 'Test');
+  fireEvent.click(screen.getByRole('button', { name: /Add/i }));
+  await waitFor(() => expect(screen.getByText('Test')).toBeInTheDocument());
+  const link = screen.getByRole('link', { name: /Test/i });
+  expect(link.textContent).toContain('Test');
+  expect(link.getAttribute('href')).toBe('/todo/4');
 });

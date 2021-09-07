@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule
+  TranslateModule,
 } from '@ngx-translate/core';
 import { fireEvent, render, screen, waitFor } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
@@ -64,19 +64,19 @@ describe('with Todo', () => {
         { provide: Location, useFactory: () => location },
       ],
     });
-  });
-
-  test('should renders as expected', async () => {
     await waitFor(() => {
       expect(screen.getByDisplayValue('Pay bills')).toBeInTheDocument();
     });
+  });
+
+  test('should renders as expected', async () => {
     const title = screen.getByRole('textbox', {
       name: /Title/i,
     }) as HTMLInputElement;
     expect(title.value).toBe('Pay bills');
-    const description = (await screen.findByRole('textbox', {
+    const description = await screen.findByRole('textbox', {
       name: /Description/i,
-    })) as HTMLAreaElement;
+    });
     expect(description.textContent).toBe('');
     const done = screen.getByRole('checkbox') as HTMLInputElement;
     expect(done.checked).toBeTruthy();
