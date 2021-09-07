@@ -3282,7 +3282,7 @@ __metadata:
     "@types/node": 16.7.10
     "@typescript-eslint/eslint-plugin": 4.31.0
     "@typescript-eslint/parser": 4.31.0
-    bootstrap: 5.1.0
+    bootstrap: 5.1.1
     bootstrap-icons: 1.5.0
     eslint: 7.32.0
     jest: 27.1.0
@@ -3911,12 +3911,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap@npm:5.1.0":
-  version: 5.1.0
-  resolution: "bootstrap@npm:5.1.0"
+"bootstrap@npm:5.1.1":
+  version: 5.1.1
+  resolution: "bootstrap@npm:5.1.1"
   peerDependencies:
-    "@popperjs/core": ^2.9.3
-  checksum: 1e556b71c47b55f6411f789e6d43986f6a3646875f1bef47ee8b1bc16e5d395e75b275d207d6bda7d9752d0573eb4ee5faecb03ebea17dca6259ac8dd68a6aea
+    "@popperjs/core": ^2.10.1
+  checksum: 6429293514bcaaf0072568ec7851a58179c582a966109a55176afd29c03fc502eade0fdc2c46ea49efb24bf111a161c8735e80f3162f6455b81225720c6b556f
   languageName: node
   linkType: hard
 
