@@ -3294,7 +3294,7 @@ __metadata:
     tslib: 2.3.1
     typescript: 4.3.5
     whatwg-fetch: 3.6.2
-    ws: 8.2.1
+    ws: 8.2.2
     zone.js: 0.11.4
   languageName: unknown
   linkType: soft
@@ -13460,9 +13460,9 @@ typescript@4.3.5:
   languageName: node
   linkType: hard
 
-"ws@npm:8.2.1":
-  version: 8.2.1
-  resolution: "ws@npm:8.2.1"
+"ws@npm:8.2.2":
+  version: 8.2.2
+  resolution: "ws@npm:8.2.2"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ^5.0.2
@@ -13471,7 +13471,7 @@ typescript@4.3.5:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 22906903c7952790a911627f99e3419d8f251a6a540d9ba4f334a7e0865d7ea7026d8ad23829c3c0f2843a9f15bdb91c646e7f8853a5a5ba25a57dea2cf7d416
+  checksum: 25e764c631141bdca45badc86e69437b8791e57e461f9a16c0f7cd779baf70c3fbba07ecdd9e0d34fea1155ddcf62ef165cd7f81b68ed545bc7d455c15a85fb0
   languageName: node
   linkType: hard
 
