@@ -183,16 +183,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/builder@npm:12.3.1":
-  version: 12.3.1
-  resolution: "@angular-eslint/builder@npm:12.3.1"
+"@angular-eslint/builder@npm:12.4.0":
+  version: 12.4.0
+  resolution: "@angular-eslint/builder@npm:12.4.0"
   dependencies:
-    "@nrwl/devkit": ">= 12.0.0 < 13.0.0"
+    "@nrwl/devkit": 12.6.0
   peerDependencies:
     "@angular/cli": ">= 12.0.0 < 13.0.0"
     eslint: "*"
     typescript: "*"
-  checksum: 180a6f0c4fff2c4da1d560e32549bb628b9eec6844f3a89a210884e25eb7c75e157ee0ce34119b3a974b2d7f2b646a4eb5dec20f27712887cd816c254a03f670
+  checksum: 5a5298fe55f5ee148d1adb3c5ff5b41e635b837bc9c6429faee68331f39f785cd50ed8012974f7cb9e81978c3ea6ca96cfe41ccffd7af20653113e3183a5a6c2
   languageName: node
   linkType: hard
 
@@ -211,6 +211,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular-eslint/eslint-plugin-template@npm:12.4.0":
+  version: 12.4.0
+  resolution: "@angular-eslint/eslint-plugin-template@npm:12.4.0"
+  dependencies:
+    "@typescript-eslint/experimental-utils": 4.28.2
+    aria-query: ^4.2.2
+    axobject-query: ^2.2.0
+  peerDependencies:
+    "@angular/compiler": ">= 12.0.0 < 13.0.0"
+    eslint: "*"
+    typescript: "*"
+  checksum: d93b577bfccc9cd9644c83ab4a3133ed44b14be7f3b164eb9dac06dab66134349da39f1d9e88f3efdec516c22b470b07af2c99cc5021ee34a24d27c1b409654d
+  languageName: node
+  linkType: hard
+
 "@angular-eslint/eslint-plugin@npm:12.3.1":
   version: 12.3.1
   resolution: "@angular-eslint/eslint-plugin@npm:12.3.1"
@@ -221,6 +236,19 @@ __metadata:
     eslint: "*"
     typescript: "*"
   checksum: 0f533acda2b06793477d2029878396ec7ab082e099c64542198a532c24f2a22666f3c77a6cb7ee31da8d567c821ee8178120a128286cd769a305d9faf272af23
+  languageName: node
+  linkType: hard
+
+"@angular-eslint/eslint-plugin@npm:12.4.0":
+  version: 12.4.0
+  resolution: "@angular-eslint/eslint-plugin@npm:12.4.0"
+  dependencies:
+    "@typescript-eslint/experimental-utils": 4.28.2
+  peerDependencies:
+    "@angular/compiler": ">= 12.0.0 < 13.0.0"
+    eslint: "*"
+    typescript: "*"
+  checksum: c84965b1c2fdf995ea1b597748a62377fdda36b3602093b7a3b7ed3aa1e41e6826e71c44658e9ec058b91bf490edb8d8124088b2cc79ad4d5428ad3d6f75befa
   languageName: node
   linkType: hard
 
@@ -239,16 +267,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/template-parser@npm:12.3.1":
-  version: 12.3.1
-  resolution: "@angular-eslint/template-parser@npm:12.3.1"
+"@angular-eslint/template-parser@npm:12.4.0":
+  version: 12.4.0
+  resolution: "@angular-eslint/template-parser@npm:12.4.0"
   dependencies:
     eslint-scope: ^5.1.0
   peerDependencies:
     "@angular/compiler": ">= 12.0.0 < 13.0.0"
     eslint: "*"
     typescript: "*"
-  checksum: 2e756cd60290dd207eb1955faf89896317727ede321c81805d83649bef567a731aac6c83143cfded0aa26c731a2a543f176276abe223c91ce18e3dafd934f97d
+  checksum: 1d414bb339111584ac3063538dcb53c6de8bcb755b5a112cfb5e239b43e4e34c80253aab896af968d60267b68dd55a7a5402b924945b639d55245a0d2fe33555
   languageName: node
   linkType: hard
 
@@ -2272,23 +2300,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/devkit@npm:>= 12.0.0 < 13.0.0":
-  version: 12.7.2
-  resolution: "@nrwl/devkit@npm:12.7.2"
+"@nrwl/devkit@npm:12.6.0":
+  version: 12.6.0
+  resolution: "@nrwl/devkit@npm:12.6.0"
   dependencies:
-    "@nrwl/tao": 12.7.2
+    "@nrwl/tao": 12.6.0
     ejs: ^3.1.5
     ignore: ^5.0.4
     rxjs: ^6.5.4
     semver: 7.3.4
     tslib: ^2.0.0
-  checksum: 9a38cac57755a2da2d049bc854451cf92a15276c901e74f6b0a5cd0bf23141e1da2bec755c7b30f469514b15b307318a8f9764ad9fc44353723d1810906ebb3f
+  checksum: 51fce865f25c2085d57aa04420bf2c7cb54a20d92856c57f997ae2ed4e1c649d1956d4e973b3f4863a9aa97e4d455db9b955076bf6cb4b41925b3d819480c3cc
   languageName: node
   linkType: hard
 
-"@nrwl/tao@npm:12.7.2":
-  version: 12.7.2
-  resolution: "@nrwl/tao@npm:12.7.2"
+"@nrwl/tao@npm:12.6.0":
+  version: 12.6.0
+  resolution: "@nrwl/tao@npm:12.6.0"
   dependencies:
     chalk: 4.1.0
     enquirer: ~2.3.6
@@ -2302,7 +2330,7 @@ __metadata:
     yargs-parser: 20.0.0
   bin:
     tao: index.js
-  checksum: 779f8d3ae8498b0b7d66ee552873dce5284bbfd43183568fd2c359b4c736d91ca5dc5e1f3b7a5f7b006f99b65801aea5891ab35d924992c1a016c00c9ad2c18b
+  checksum: ade66abf89db444c73da63dce84bf3e28948c5aea96a7f022d9da3c225e920c9537a0b38359dcf6770345afc976931059b0f796bab05cc15e2750b2ae09a6043
   languageName: node
   linkType: hard
 
@@ -3256,11 +3284,11 @@ __metadata:
   resolution: "angular-boilerplate@workspace:."
   dependencies:
     "@angular-devkit/build-angular": 12.2.5
-    "@angular-eslint/builder": 12.3.1
-    "@angular-eslint/eslint-plugin": 12.3.1
-    "@angular-eslint/eslint-plugin-template": 12.3.1
+    "@angular-eslint/builder": 12.4.0
+    "@angular-eslint/eslint-plugin": 12.4.0
+    "@angular-eslint/eslint-plugin-template": 12.4.0
     "@angular-eslint/schematics": 12.3.1
-    "@angular-eslint/template-parser": 12.3.1
+    "@angular-eslint/template-parser": 12.4.0
     "@angular/animations": 12.2.5
     "@angular/cli": 12.2.5
     "@angular/common": 12.2.5
