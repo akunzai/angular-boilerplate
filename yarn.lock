@@ -2166,19 +2166,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngx-translate/http-loader@npm:6.0.0":
-  version: 6.0.0
-  resolution: "@ngx-translate/http-loader@npm:6.0.0"
-  dependencies:
-    tslib: ^2.0.0
-  peerDependencies:
-    "@angular/common": ">=10.0.0"
-    "@ngx-translate/core": ">=13.0.0"
-    rxjs: ">=6.5.3"
-  checksum: fdf516bce93483663091937ef377d1b54bfbb193b1208084c95959dd415bf677a2434d961ec85ef5e5c91cecaf2d62b10ae093ad871d7296ee972154f661a15a
-  languageName: node
-  linkType: hard
-
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -2321,13 +2308,6 @@ __metadata:
   peerDependencies:
     typescript: ^3 || ^4
   checksum: 64eb6d90aafa889f62fe73d128b7be2b3295dffde4d5dff63bad75d512b6bc1d8419d8fc784a1a60b45aba4cda2eaf6e233bf59797a1d91b26fac27d99dae047
-  languageName: node
-  linkType: hard
-
-"@popperjs/core@npm:2.10.1":
-  version: 2.10.1
-  resolution: "@popperjs/core@npm:2.10.1"
-  checksum: 55262eb98984a03364a844177a9d4b9ab1c6e3503eaa1ecb086c028b5b6d93985a92b5b5783008962633015fc9f0232fda3ce88f5b17930a909a633387a06505
   languageName: node
   linkType: hard
 
@@ -3273,8 +3253,6 @@ __metadata:
     "@angular/router": 12.2.5
     "@biesbjerg/ngx-translate-extract": 7.0.4
     "@ngx-translate/core": 13.0.0
-    "@ngx-translate/http-loader": 6.0.0
-    "@popperjs/core": 2.10.1
     "@testing-library/angular": 10.11.0
     "@testing-library/jest-dom": 5.14.1
     "@testing-library/user-event": 13.2.1
@@ -3294,7 +3272,6 @@ __metadata:
     tslib: 2.3.1
     typescript: 4.3.5
     whatwg-fetch: 3.6.2
-    ws: 8.2.2
     zone.js: 0.11.4
   languageName: unknown
   linkType: soft
@@ -13457,21 +13434,6 @@ typescript@4.3.5:
     signal-exit: ^3.0.2
     typedarray-to-buffer: ^3.1.5
   checksum: c55b24617cc61c3a4379f425fc62a386cc51916a9b9d993f39734d005a09d5a4bb748bc251f1304e7abd71d0a26d339996c275955f527a131b1dcded67878280
-  languageName: node
-  linkType: hard
-
-"ws@npm:8.2.2":
-  version: 8.2.2
-  resolution: "ws@npm:8.2.2"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 25e764c631141bdca45badc86e69437b8791e57e461f9a16c0f7cd779baf70c3fbba07ecdd9e0d34fea1155ddcf62ef165cd7f81b68ed545bc7d455c15a85fb0
   languageName: node
   linkType: hard
 
