@@ -36,10 +36,8 @@ yarn i18n:extract
 
 ## Reference
 
-- [Angular Coding Style Guide](https://angular.io/guide/styleguide)
 - [Angular ESLint](https://github.com/angular-eslint/angular-eslint)
-- [ngx-translate](https://github.com/ngx-translate/core)
+- [Angular i18n Library - ngx-translate](https://github.com/ngx-translate/core)
+- [Angular Jest Preset](https://github.com/thymikee/jest-preset-angular)
+- [Angular Testing Library](https://testing-library.com/docs/angular-testing-library/intro/), [Best practices](https://dev.to/matheusmichels/writing-efficient-tests-with-angular-og5)
 - [Mock Service Worker](https://mswjs.io/docs/)
-- [Jest Preset Angular](https://github.com/thymikee/jest-preset-angular)
-- [Writing efficient tests with Angular](https://dev.to/matheusmichels/writing-efficient-tests-with-angular-og5)
-- [Using MSW (Mock Service Worker) in an Angular project](https://timdeschryver.dev/blog/using-msw-in-an-angular-project)
