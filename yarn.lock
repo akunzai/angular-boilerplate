@@ -252,14 +252,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/animations@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/animations@npm:12.2.5"
+"@angular/animations@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/animations@npm:12.2.6"
   dependencies:
     tslib: ^2.2.0
   peerDependencies:
-    "@angular/core": 12.2.5
-  checksum: 5a7cd59f3599037cb663a25701fb9cee3f1200344aa3d78186dbd6dd8fe4b34d0180e604123e98f571dbe483b0e83f1ea74f72e2af9214a8ea50c23fb87cc8d2
+    "@angular/core": 12.2.6
+  checksum: 87e262b4d6a53f6de5da512e63c842b14d0e3b26b1b26257afac213a3936f37da6b742f94ca08fed0b4d6d32d0cc097b0a29aa21bd0bbaf3f4787072925c76d5
   languageName: node
   linkType: hard
 
@@ -292,21 +292,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/common@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/common@npm:12.2.5"
+"@angular/common@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/common@npm:12.2.6"
   dependencies:
     tslib: ^2.2.0
   peerDependencies:
-    "@angular/core": 12.2.5
+    "@angular/core": 12.2.6
     rxjs: ^6.5.3 || ^7.0.0
-  checksum: d55ede809d6481c1e774ecba0673a2e2a57488775db746d747fa077112d4b6e3dab7aa79d9384f0d135fa1e3612bf758417fdd8d085ef6da5b444da476c7a333
+  checksum: b3518cd7b97bae76661405e80c55ce1813910012e38566e58dc4bedb07fcfae52c603b87b638b695aefee4743eed0c0cb4ed2eb1dc9a82ea3b392e55f7c5effb
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/compiler-cli@npm:12.2.5"
+"@angular/compiler-cli@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/compiler-cli@npm:12.2.6"
   dependencies:
     "@babel/core": ^7.8.6
     "@babel/types": ^7.8.6
@@ -323,93 +323,93 @@ __metadata:
     tslib: ^2.2.0
     yargs: ^17.0.0
   peerDependencies:
-    "@angular/compiler": 12.2.5
+    "@angular/compiler": 12.2.6
     typescript: ">=4.2.3 <4.4"
   bin:
     ivy-ngcc: ngcc/main-ivy-ngcc.js
     ng-xi18n: src/extract_i18n.js
     ngc: src/main.js
     ngcc: ngcc/main-ngcc.js
-  checksum: 089bfd04708778073262a3fa11b646b944063c6a9afa5804a1ce254be9c413f0703ac4720ef025e5ea9e5502937597fe126eb15cc8352621be2d34bd077919da
+  checksum: 360c2c34e396e2b45f27540b355c3fbe63aa6e557fbc1981b39a2a8303b7b1d0dead0857e6835ae8fba82c3f37afb15e41277ed510bcff0ece3a7f0182f485ce
   languageName: node
   linkType: hard
 
-"@angular/compiler@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/compiler@npm:12.2.5"
+"@angular/compiler@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/compiler@npm:12.2.6"
   dependencies:
     tslib: ^2.2.0
-  checksum: e8a123744e08c872b2baf32e3c581ac38637d2d3519b7f8a70b19074570ae86871cc662faad11a9c3022767d7e96ef5433548d7036b64a156af9f934720d1eee
+  checksum: d5bcfdc3aaeab3b01d5322c8852a4317aa180cdb0355f73d8f638821696b09aec51452c805dec2ab7742cefe4838aad583c420b98150adc5b99b26f9939055ee
   languageName: node
   linkType: hard
 
-"@angular/core@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/core@npm:12.2.5"
+"@angular/core@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/core@npm:12.2.6"
   dependencies:
     tslib: ^2.2.0
   peerDependencies:
     rxjs: ^6.5.3 || ^7.0.0
     zone.js: ~0.11.4
-  checksum: 83cecd59e6bd5eeda1b9f4c45c59059fcd2fd6e6596bb5082491626dd22c2b9ba2d998bd732461d2b7078f5131dd6750d057a69ab71ed87d1ea8ba8bd4fe2d0d
+  checksum: 33c2bc8de8bb2f4e70c1e0054fcb2c16d33ba2e582e4ee8b7fe98447af2d69b7c52e1c94a7ea1c00e2097a5c3ab8a1055948065a7e0bd7027326e4504ad8c3e5
   languageName: node
   linkType: hard
 
-"@angular/forms@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/forms@npm:12.2.5"
+"@angular/forms@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/forms@npm:12.2.6"
   dependencies:
     tslib: ^2.2.0
   peerDependencies:
-    "@angular/common": 12.2.5
-    "@angular/core": 12.2.5
-    "@angular/platform-browser": 12.2.5
+    "@angular/common": 12.2.6
+    "@angular/core": 12.2.6
+    "@angular/platform-browser": 12.2.6
     rxjs: ^6.5.3 || ^7.0.0
-  checksum: 97b68bcffaa9061a34090280fee6b2090137df1d289f0ab22ccb11968f0ec8315f443ca9d4b61e309dd293582430d73ca9808a7961f3d58cb6a8d2128294b51d
+  checksum: 8e69d89c5ef0b524371d36de21546539b596bc2b0c7529668487779c8f06b8ef6c8132ef2c27dab670df58a1a491b28066f6b8e31964a33457486287238dc068
   languageName: node
   linkType: hard
 
-"@angular/platform-browser-dynamic@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/platform-browser-dynamic@npm:12.2.5"
+"@angular/platform-browser-dynamic@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/platform-browser-dynamic@npm:12.2.6"
   dependencies:
     tslib: ^2.2.0
   peerDependencies:
-    "@angular/common": 12.2.5
-    "@angular/compiler": 12.2.5
-    "@angular/core": 12.2.5
-    "@angular/platform-browser": 12.2.5
-  checksum: aa4994beb9886d28c244053d5ef935c3217ea3eb38e6b2f02de585c49d98fd00faa945d0951eee8e95156f83e082d9c50396cc7bfc2c1bf851801a73fff13b34
+    "@angular/common": 12.2.6
+    "@angular/compiler": 12.2.6
+    "@angular/core": 12.2.6
+    "@angular/platform-browser": 12.2.6
+  checksum: b52dba53a0ab6a5b455e0263ac413718640841fc1d43a2ca041036541d92becfadfd403c3a4393f714b42f13315474a9bcfce3c24b97d26bc07845d45a566692
   languageName: node
   linkType: hard
 
-"@angular/platform-browser@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/platform-browser@npm:12.2.5"
+"@angular/platform-browser@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/platform-browser@npm:12.2.6"
   dependencies:
     tslib: ^2.2.0
   peerDependencies:
-    "@angular/animations": 12.2.5
-    "@angular/common": 12.2.5
-    "@angular/core": 12.2.5
+    "@angular/animations": 12.2.6
+    "@angular/common": 12.2.6
+    "@angular/core": 12.2.6
   peerDependenciesMeta:
     "@angular/animations":
       optional: true
-  checksum: 9f7cfb713b4cbd83f44c0c01af696975371117a0f3ce6370d53ca39b095b92c5fa174c13072f611e888f4c94b6cbe361d880d40efd6d6a9dd1dc600bf07b0d8f
+  checksum: 05204801eed241dd98ac199f46d8d2e5601dde9cd06260c46a39db0882a7f05ea270fd61bb5d85095f4f36fe405498575ef9177544dc418f50ba6915a573be8a
   languageName: node
   linkType: hard
 
-"@angular/router@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@angular/router@npm:12.2.5"
+"@angular/router@npm:12.2.6":
+  version: 12.2.6
+  resolution: "@angular/router@npm:12.2.6"
   dependencies:
     tslib: ^2.2.0
   peerDependencies:
-    "@angular/common": 12.2.5
-    "@angular/core": 12.2.5
-    "@angular/platform-browser": 12.2.5
+    "@angular/common": 12.2.6
+    "@angular/core": 12.2.6
+    "@angular/platform-browser": 12.2.6
     rxjs: ^6.5.3 || ^7.0.0
-  checksum: 58ac506812c204bff14d85b90ac9f2fc043e5e176be8602bf3a58e6354a617e1eb165043bb7673caa1268dc33050aff7358763214877eea710e7a2e5766e4471
+  checksum: 13b750b2fcb35277c88af124c6435c3fc8b32c63fbef42c48dec00e195db4ddfdbc0ffc69a323327232e32fa4d8b9ab642703fa795dfcc348a0b12475bd2c698
   languageName: node
   linkType: hard
 
@@ -3241,16 +3241,16 @@ __metadata:
     "@angular-eslint/eslint-plugin-template": 12.4.1
     "@angular-eslint/schematics": 12.4.1
     "@angular-eslint/template-parser": 12.4.1
-    "@angular/animations": 12.2.5
+    "@angular/animations": 12.2.6
     "@angular/cli": 12.2.5
-    "@angular/common": 12.2.5
-    "@angular/compiler": 12.2.5
-    "@angular/compiler-cli": 12.2.5
-    "@angular/core": 12.2.5
-    "@angular/forms": 12.2.5
-    "@angular/platform-browser": 12.2.5
-    "@angular/platform-browser-dynamic": 12.2.5
-    "@angular/router": 12.2.5
+    "@angular/common": 12.2.6
+    "@angular/compiler": 12.2.6
+    "@angular/compiler-cli": 12.2.6
+    "@angular/core": 12.2.6
+    "@angular/forms": 12.2.6
+    "@angular/platform-browser": 12.2.6
+    "@angular/platform-browser-dynamic": 12.2.6
+    "@angular/router": 12.2.6
     "@biesbjerg/ngx-translate-extract": 7.0.4
     "@ngx-translate/core": 13.0.0
     "@testing-library/angular": 10.11.0
