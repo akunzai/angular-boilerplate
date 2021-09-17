@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { fromFetch } from 'rxjs/fetch';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import Todo from './todo';
+import { Todo } from './types';
 
 const HEADERS = new Headers({
   'Content-Type': 'application/json',

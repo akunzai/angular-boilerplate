@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import Todo from '../app/todo';
+import { Todo } from '../app/types';
 
 const db: Todo[] = [
   new Todo(1, 'Pay bills', '', true),

@@ -3,18 +3,18 @@ import { RouterTestingModule } from '@angular/router/testing';
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule,
+  TranslateModule
 } from '@ngx-translate/core';
 import {
   fireEvent,
   render,
   screen,
   waitFor,
-  waitForElementToBeRemoved,
+  waitForElementToBeRemoved
 } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
 import { rest, server } from '../../mocks/server';
-import Todo from '../todo';
+import { Todo } from '../types';
 import { TodoListComponent } from './todo-list.component';
 
 beforeEach(async () => {

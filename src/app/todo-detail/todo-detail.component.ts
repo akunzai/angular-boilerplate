@@ -2,8 +2,8 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import Todo from '../todo';
 import TodoService from '../todo.service';
+import { Todo } from '../types';
 
 @Component({
   selector: 'app-todo-detail',
