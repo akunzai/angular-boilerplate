@@ -45,7 +45,7 @@
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/user-event": "13.2.1",
     "@types/jest": "27.0.1",
-    "@types/node": "16.9.1",
+    "@types/node": "16.9.2",
     "@typescript-eslint/eslint-plugin": "4.31.1",
     "@typescript-eslint/parser": "4.31.1",
     "eslint": "7.32.0",
@@ -57,7 +57,8 @@
   },
   "resolutions": {
     "css-what": "^5.0.1",
-    "glob-parent": "^6.0.0"
+    "glob-parent": "^6.0.0",
+    "set-value": "^4.1.0"
   },
   "msw": {
     "workerDirectory": "src"
