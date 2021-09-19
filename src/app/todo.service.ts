@@ -69,11 +69,15 @@ export default class TodoService {
 
   private handleResponse(response: Response) {
     if (response.ok) {
-      return response.headers.get('Content-Type')?.endsWith('json')
+      return /json/.test(response.headers.get('Content-Type') || '')
         ? response.json()
         : response.text();
     }
-    throw response.statusText;
+    // eslint-disable-next-line no-throw-literal
+    throw {
+      status: response.status,
+      error: response.statusText,
+    };
   }
 
   /**
