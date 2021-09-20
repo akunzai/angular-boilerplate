@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, map, Observable, of, switchMap } from 'rxjs';
 import { fromFetch } from 'rxjs/fetch';
-import { catchError, map, switchMap } from 'rxjs/operators';
 import { Todo } from './types';
 
 const HEADERS = new Headers({
@@ -16,7 +15,7 @@ export default class TodoService {
 
   getTodos(): Observable<Todo[]> {
     return fromFetch(this.todosUrl).pipe(
-      switchMap((response) => this.handleResponse(response)),
+      switchMap(this.handleResponse),
       map((data) => data as Todo[]),
       catchError(this.handleError<Todo[]>('getTodos', []))
     );
@@ -25,7 +24,7 @@ export default class TodoService {
   getTodo(id: number): Observable<Todo | undefined> {
     const url = `${this.todosUrl}/${id}`;
     return fromFetch(url).pipe(
-      switchMap((response) => this.handleResponse(response)),
+      switchMap(this.handleResponse),
       map((data) => data as Todo),
       catchError(this.handleError<Todo>(`getTodo id=${id}`))
     );
@@ -37,7 +36,7 @@ export default class TodoService {
       headers: HEADERS,
       body: JSON.stringify(todo),
     }).pipe(
-      switchMap((response) => this.handleResponse(response)),
+      switchMap(this.handleResponse),
       map((data) => data as Todo),
       catchError(this.handleError<Todo>('addTodo'))
     );
@@ -49,7 +48,7 @@ export default class TodoService {
       method: 'DELETE',
       headers: HEADERS,
     }).pipe(
-      switchMap((response) => this.handleResponse(response)),
+      switchMap(this.handleResponse),
       map((data) => data as Todo),
       catchError(this.handleError<Todo>('deleteTask'))
     );
@@ -62,7 +61,7 @@ export default class TodoService {
       headers: HEADERS,
       body: JSON.stringify(todo),
     }).pipe(
-      switchMap((response) => this.handleResponse(response)),
+      switchMap(this.handleResponse),
       catchError(this.handleError<unknown>('updateTodo'))
     );
   }
