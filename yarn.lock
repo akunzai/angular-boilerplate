@@ -3303,7 +3303,7 @@ __metadata:
     jest-preset-angular: 10.0.1
     msw: 0.35.0
     ng-click-outside: 9.0.0
-    rxjs: 7.3.1
+    rxjs: 7.4.0
     ts-node: 10.2.1
     tslib: 2.3.1
     typescript: 4.3.5
@@ -11445,12 +11445,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.3.1":
-  version: 7.3.1
-  resolution: "rxjs@npm:7.3.1"
+"rxjs@npm:7.4.0":
+  version: 7.4.0
+  resolution: "rxjs@npm:7.4.0"
   dependencies:
     tslib: ~2.1.0
-  checksum: a97ab220f3ea125ff02f2e9b08dce721d703ec42375c316e8bad3fe8e38b221669aa1b68130fe764729190eba7410238c63466e28e483e4e500c83cded97d106
+  checksum: 6b33172a760dcad6882fdc836ee8cf1ebe160dd7eaad95c45a12338ffdaa96eb41e48e6c25bbd3d1fdf45075949ff447954bc17a9d01c688558a67967d09c114
   languageName: node
   linkType: hard
 
