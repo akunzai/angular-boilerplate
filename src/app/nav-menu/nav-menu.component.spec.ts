@@ -30,7 +30,7 @@ test('should render with title: Test', () => {
 });
 
 test('support to toggle navigation', () => {
-  const navbar = screen.getByTestId('navbar-collapse');
+  const navbar = screen.getByRole('menu');
   expect(navbar.getAttribute('class')).not.toContain('show');
   fireEvent.click(screen.getByRole('button', { name: /Toggle navigation/i }));
   expect(navbar.getAttribute('class')).toContain('show');
