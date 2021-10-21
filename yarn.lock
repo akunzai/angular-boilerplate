@@ -2652,10 +2652,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.10.3":
-  version: 16.10.3
-  resolution: "@types/node@npm:16.10.3"
-  checksum: 3fd429bce8a4acb497dcc62b536782a5e87ccf7cd91d64a78b263ae5d66cb72bf84be9eeeff6f84ae0567b065a40b267caa66d311f9e094990a5847bbd168a29
+"@types/node@npm:16.11.2":
+  version: 16.11.2
+  resolution: "@types/node@npm:16.11.2"
+  checksum: 1617b61160943121165ff89d72d3f7b4d55265a0129fd2ab6eb0ce81a3340ce9b3bd2ce8ec2d9f0f8b3702b434870596cd327ba472ba6e7d1faa5eedb8208e3a
   languageName: node
   linkType: hard
 
@@ -3245,7 +3245,7 @@ __metadata:
     "@testing-library/jest-dom": 5.14.1
     "@testing-library/user-event": 13.5.0
     "@types/jest": 27.0.2
-    "@types/node": 16.10.3
+    "@types/node": 16.11.2
     "@typescript-eslint/eslint-plugin": 5.1.0
     "@typescript-eslint/parser": 5.1.0
     bootstrap: 5.1.3
