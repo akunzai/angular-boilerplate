@@ -1,5 +1,5 @@
 {
   "extends": ["config:base"],
-  "ignoreDeps": ["typescript"],
+  "ignoreDeps": ["eslint", "typescript"],
   "automerge": true
 }
