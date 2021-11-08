@@ -2177,15 +2177,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ngx-translate/core@npm:13.0.0":
-  version: 13.0.0
-  resolution: "@ngx-translate/core@npm:13.0.0"
+"@ngx-translate/core@npm:14.0.0":
+  version: 14.0.0
+  resolution: "@ngx-translate/core@npm:14.0.0"
   dependencies:
-    tslib: ^2.0.0
+    tslib: ^2.3.0
   peerDependencies:
-    "@angular/core": ">=10.0.0"
-    rxjs: ">=6.5.3"
-  checksum: ef7df7870dddc53d483b5c70093174844a5bd231568e36a18271bcaf71209bbedb66c82005d76088392df2bde1d82136fb7f79afb44975e2f7426cc8824e0288
+    "@angular/core": ">=13.0.0"
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: d1afc35e7b729caf776e78c10badc0853b63252bdf2fa129f1b95a271cd15cf6f22ffecc52922ffbe1c3aca7d8e08351669e8bae18727664aba66b5d405f05e1
   languageName: node
   linkType: hard
 
@@ -3246,7 +3246,7 @@ __metadata:
     "@angular/platform-browser-dynamic": 12.2.13
     "@angular/router": 12.2.13
     "@biesbjerg/ngx-translate-extract": 7.0.4
-    "@ngx-translate/core": 13.0.0
+    "@ngx-translate/core": 14.0.0
     "@testing-library/angular": 10.11.0
     "@testing-library/jest-dom": 5.15.0
     "@testing-library/user-event": 13.5.0
@@ -12933,7 +12933,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.3.1, tslib@npm:^2.0.0, tslib@npm:^2.2.0":
+"tslib@npm:2.3.1, tslib@npm:^2.0.0, tslib@npm:^2.2.0, tslib@npm:^2.3.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
