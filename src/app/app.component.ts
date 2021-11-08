@@ -20,7 +20,7 @@ export class AppComponent {
       translate.use(locale);
     } else {
       const browserLang = translate.getBrowserCultureLang();
-      translate.use(browserLang.match(/zh/) ? 'zh-Hant' : 'en');
+      translate.use(browserLang?.match(/zh/) ? 'zh-Hant' : 'en');
     }
   }
 }
