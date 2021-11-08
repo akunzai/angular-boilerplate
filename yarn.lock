@@ -3541,7 +3541,7 @@ __metadata:
     bootstrap-icons: 1.7.0
     eslint: 7.32.0
     jest: 27.3.1
-    jest-preset-angular: 10.1.0
+    jest-preset-angular: 11.0.0-rc.2
     msw: 0.35.0
     ng-click-outside: 9.0.0
     rxjs: 7.4.0
@@ -7449,10 +7449,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:10.1.0":
-  version: 10.1.0
-  resolution: "jest-preset-angular@npm:10.1.0"
+"jest-preset-angular@npm:11.0.0-rc.2":
+  version: 11.0.0-rc.2
+  resolution: "jest-preset-angular@npm:11.0.0-rc.2"
   dependencies:
+    esbuild: 0.13.12
     jest-environment-jsdom: ^27.0.0
     pretty-format: ^27.0.0
     ts-jest: ^27.0.0
@@ -7460,7 +7461,7 @@ __metadata:
     "@angular/compiler-cli": ">=10.0.0"
     "@angular/core": ">=10.0.0"
     "@angular/platform-browser-dynamic": ">=10.0.0"
-  checksum: 703217f82b9361f87344e7ec784d8b5ed01078d1474119707bb3765f1fce9af32dfe1afc63714cf0ecf17cc7cb63156b28a42b472c3d8b8d86c96cace9bd64dd
+  checksum: 59a0c52caa7d5217f5949f3bd3e330e1d40aaccbdc59508ca44ab172ac40571ee567e40eb3a5d7337b70d3c6684db87a955884959d6a6f8b49a2304edad900db
   languageName: node
   linkType: hard
 
