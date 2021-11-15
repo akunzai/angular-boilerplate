@@ -3541,7 +3541,7 @@ __metadata:
     bootstrap-icons: 1.7.0
     eslint: 7.32.0
     jest: 27.3.1
-    jest-preset-angular: 11.0.0-rc.3
+    jest-preset-angular: 11.0.0-rc.4
     msw: 0.35.0
     ng-click-outside: 9.0.0
     rxjs: 7.4.0
@@ -5352,9 +5352,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-android-arm64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-android-arm64@npm:0.13.13"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "esbuild-darwin-64@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-darwin-64@npm:0.13.12"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-darwin-64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-darwin-64@npm:0.13.13"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -5366,9 +5380,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-darwin-arm64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-darwin-arm64@npm:0.13.13"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "esbuild-freebsd-64@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-freebsd-64@npm:0.13.12"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-freebsd-64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-freebsd-64@npm:0.13.13"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
@@ -5380,9 +5408,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-freebsd-arm64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-freebsd-arm64@npm:0.13.13"
+  conditions: os=freebsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "esbuild-linux-32@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-linux-32@npm:0.13.12"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"esbuild-linux-32@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-linux-32@npm:0.13.13"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
@@ -5394,9 +5436,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-linux-64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-linux-64@npm:0.13.13"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-linux-arm64@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-linux-arm64@npm:0.13.12"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"esbuild-linux-arm64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-linux-arm64@npm:0.13.13"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
@@ -5408,9 +5464,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-linux-arm@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-linux-arm@npm:0.13.13"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
 "esbuild-linux-mips64le@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-linux-mips64le@npm:0.13.12"
+  conditions: os=linux & cpu=mips64el
+  languageName: node
+  linkType: hard
+
+"esbuild-linux-mips64le@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-linux-mips64le@npm:0.13.13"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
@@ -5422,9 +5492,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-linux-ppc64le@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-linux-ppc64le@npm:0.13.13"
+  conditions: os=linux & cpu=ppc64
+  languageName: node
+  linkType: hard
+
 "esbuild-netbsd-64@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-netbsd-64@npm:0.13.12"
+  conditions: os=netbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-netbsd-64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-netbsd-64@npm:0.13.13"
   conditions: os=netbsd & cpu=x64
   languageName: node
   linkType: hard
@@ -5436,9 +5520,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-openbsd-64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-openbsd-64@npm:0.13.13"
+  conditions: os=openbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-sunos-64@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-sunos-64@npm:0.13.12"
+  conditions: os=sunos & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-sunos-64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-sunos-64@npm:0.13.13"
   conditions: os=sunos & cpu=x64
   languageName: node
   linkType: hard
@@ -5459,6 +5557,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-windows-32@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-windows-32@npm:0.13.13"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "esbuild-windows-64@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-windows-64@npm:0.13.12"
@@ -5466,9 +5571,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-windows-64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-windows-64@npm:0.13.13"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "esbuild-windows-arm64@npm:0.13.12":
   version: 0.13.12
   resolution: "esbuild-windows-arm64@npm:0.13.12"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"esbuild-windows-arm64@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild-windows-arm64@npm:0.13.13"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -5532,6 +5651,68 @@ __metadata:
   bin:
     esbuild: bin/esbuild
   checksum: 7ef4ef3e8eec11b832224b8886ccea22f72e89e2d9b59ec45d03bb2a512ca725fdb06e88609884e0721a4b90d1095e3ec898bd6f39a4efa0e2c99770730e0041
+  languageName: node
+  linkType: hard
+
+"esbuild@npm:0.13.13":
+  version: 0.13.13
+  resolution: "esbuild@npm:0.13.13"
+  dependencies:
+    esbuild-android-arm64: 0.13.13
+    esbuild-darwin-64: 0.13.13
+    esbuild-darwin-arm64: 0.13.13
+    esbuild-freebsd-64: 0.13.13
+    esbuild-freebsd-arm64: 0.13.13
+    esbuild-linux-32: 0.13.13
+    esbuild-linux-64: 0.13.13
+    esbuild-linux-arm: 0.13.13
+    esbuild-linux-arm64: 0.13.13
+    esbuild-linux-mips64le: 0.13.13
+    esbuild-linux-ppc64le: 0.13.13
+    esbuild-netbsd-64: 0.13.13
+    esbuild-openbsd-64: 0.13.13
+    esbuild-sunos-64: 0.13.13
+    esbuild-windows-32: 0.13.13
+    esbuild-windows-64: 0.13.13
+    esbuild-windows-arm64: 0.13.13
+  dependenciesMeta:
+    esbuild-android-arm64:
+      optional: true
+    esbuild-darwin-64:
+      optional: true
+    esbuild-darwin-arm64:
+      optional: true
+    esbuild-freebsd-64:
+      optional: true
+    esbuild-freebsd-arm64:
+      optional: true
+    esbuild-linux-32:
+      optional: true
+    esbuild-linux-64:
+      optional: true
+    esbuild-linux-arm:
+      optional: true
+    esbuild-linux-arm64:
+      optional: true
+    esbuild-linux-mips64le:
+      optional: true
+    esbuild-linux-ppc64le:
+      optional: true
+    esbuild-netbsd-64:
+      optional: true
+    esbuild-openbsd-64:
+      optional: true
+    esbuild-sunos-64:
+      optional: true
+    esbuild-windows-32:
+      optional: true
+    esbuild-windows-64:
+      optional: true
+    esbuild-windows-arm64:
+      optional: true
+  bin:
+    esbuild: bin/esbuild
+  checksum: 403ffcf8dbb2c2961e216b4b275e810173da705394958b05da15bbc5b42f3e33a13a661ee39de88caa9af5f4c79a9f883e82b19c3ef387992a7e3a9aedf30870
   languageName: node
   linkType: hard
 
@@ -7449,11 +7630,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:11.0.0-rc.3":
-  version: 11.0.0-rc.3
-  resolution: "jest-preset-angular@npm:11.0.0-rc.3"
+"jest-preset-angular@npm:11.0.0-rc.4":
+  version: 11.0.0-rc.4
+  resolution: "jest-preset-angular@npm:11.0.0-rc.4"
   dependencies:
-    esbuild: 0.13.12
+    esbuild: 0.13.13
     jest-environment-jsdom: ^27.0.0
     pretty-format: ^27.0.0
     ts-jest: ^27.0.0
@@ -7461,7 +7642,7 @@ __metadata:
     "@angular/compiler-cli": ">=10.0.0"
     "@angular/core": ">=10.0.0"
     "@angular/platform-browser-dynamic": ">=10.0.0"
-  checksum: ae4ae416494b17cb23c42aed8d0b020d206223839f44e0b7f3510c2765488e64970d3a70b3f0d4c7e8b0c5637cf2bb56498e38a01f8104190e6d7ad0f178a1eb
+  checksum: 068d58138b891b6d2266f23435e9d849b84962c56896d2203318608e640f318809537ae24128de53029e001876e7f6ebbe806303138d1b615659b30d04df6ce9
   languageName: node
   linkType: hard
 
