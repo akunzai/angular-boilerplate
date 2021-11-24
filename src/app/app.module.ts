@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { ClickOutsideModule } from 'ng-click-outside';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
+import { ClickOutsideDirective } from './click-outside.directive';
 import { CounterComponent } from './counter/counter.component';
 import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -20,7 +20,6 @@ import XhrTodoService from './todo.service.xhr';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    ClickOutsideModule,
     TranslateModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -37,6 +36,7 @@ import XhrTodoService from './todo.service.xhr';
     HomeComponent,
     TodoListComponent,
     TodoDetailComponent,
+    ClickOutsideDirective,
   ],
   providers: [
     {
