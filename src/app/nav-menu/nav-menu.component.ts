@@ -26,7 +26,7 @@ export class NavMenuComponent {
     this.isExpanded = !this.isExpanded;
   }
 
-  clickOutside(): void {
+  onOutsideClick(): void {
     this.isExpanded = false;
   }
 

@@ -6,7 +6,7 @@ import {
   TranslateService
 } from '@ngx-translate/core';
 import { fireEvent, render, screen } from '@testing-library/angular';
-import { ClickOutsideModule } from 'ng-click-outside';
+import { ClickOutsideDirective } from '../click-outside.directive';
 import { NavMenuComponent } from './nav-menu.component';
 
 beforeEach(async () => {
@@ -16,11 +16,11 @@ beforeEach(async () => {
     },
     imports: [
       RouterTestingModule,
-      ClickOutsideModule,
       TranslateModule.forRoot({
         loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
       }),
     ],
+    declarations: [ClickOutsideDirective],
     providers: [TranslateService],
   });
 });

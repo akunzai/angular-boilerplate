@@ -3216,7 +3216,6 @@ __metadata:
     jest: 27.3.1
     jest-preset-angular: 11.0.1
     msw: 0.35.0
-    ng-click-outside: 9.0.0
     rxjs: 7.4.0
     ts-node: 10.4.0
     tslib: 2.3.1
@@ -8142,16 +8141,6 @@ __metadata:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: deac9f8d00eda7b2e5cd1b2549e26e10a0faa70adaa6fdadca701cc55f49ee9018e427f424bac0c790b7c7e2d3068db97f3093f1093975f2acb8f8818b936ed9
-  languageName: node
-  linkType: hard
-
-"ng-click-outside@npm:9.0.0":
-  version: 9.0.0
-  resolution: "ng-click-outside@npm:9.0.0"
-  peerDependencies:
-    "@angular/common": ">=12.0.0"
-    "@angular/core": ">=12.0.0"
-  checksum: 39e9677136e33426cda54421256ea17ca782f8c5259878d2820c1eb504d453b256293a4c496b51d49f71ea66a631d2d4acc2fc393b30f971586379e2fff38f11
   languageName: node
   linkType: hard
 
