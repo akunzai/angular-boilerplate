@@ -2,7 +2,9 @@
 module.exports = {
   preset: "jest-preset-angular",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-  transformIgnorePatterns: ["node_modules/(?!(@angular|@ngx-translate))"],
+  transformIgnorePatterns: [
+    "node_modules/(?!(@angular|@ngx-translate|@testing-library/angular))",
+  ],
   collectCoverageFrom: [
     "src/app/**/*.ts",
     "!src/app/app.module.ts",
