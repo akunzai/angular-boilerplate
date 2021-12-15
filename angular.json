@@ -30,8 +30,16 @@
               "src/assets",
               "src/mockServiceWorker.js"
             ],
-            "allowedCommonJsDependencies": ["debug"],
-            "styles": ["src/styles.scss"],
+            "allowedCommonJsDependencies": [
+              "debug",
+              "@mswjs/cookies",
+              "@mswjs/interceptors",
+              "@mswjs/interceptors/lib/interceptors/XMLHttpRequest",
+              "@mswjs/interceptors/lib/interceptors/fetch"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -95,7 +103,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
