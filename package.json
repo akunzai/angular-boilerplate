@@ -44,8 +44,8 @@
     "@testing-library/user-event": "13.5.0",
     "@types/jest": "27.0.3",
     "@types/node": "16.11.14",
-    "@typescript-eslint/eslint-plugin": "5.7.0",
-    "@typescript-eslint/parser": "5.7.0",
+    "@typescript-eslint/eslint-plugin": "5.8.0",
+    "@typescript-eslint/parser": "5.8.0",
     "eslint": "8.5.0",
     "jest": "27.4.5",
     "jest-preset-angular": "11.0.1",
@@ -54,7 +54,7 @@
     "typescript": "4.5.4"
   },
   "resolutions": {
-    "@typescript-eslint/experimental-utils": "5.7.0",
+    "@typescript-eslint/experimental-utils": "5.8.0",
     "css-what": "^5.0.1",
     "glob-parent": "^6.0.0",
     "set-value": "^4.1.0"
