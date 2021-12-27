@@ -4425,10 +4425,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-what@npm:^5.0.1":
-  version: 5.1.0
-  resolution: "css-what@npm:5.1.0"
-  checksum: 0b75d1bac95c885c168573c85744a6c6843d8c33345f54f717218b37ea6296b0e99bb12105930ea170fd4a921990392a7c790c16c585c1d8960c49e2b7ec39f7
+"css-what@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "css-what@npm:6.0.0"
+  checksum: 44bf1bf9c0a152c53d5c18a0f5280ccbf91365c172f39a195158239d5be2614a48494649013639ed4fd031da5a6004e36a887993166f917cd6b2ae0d02250905
   languageName: node
   linkType: hard
 
