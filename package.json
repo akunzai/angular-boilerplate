@@ -54,7 +54,6 @@
     "typescript": "4.5.4"
   },
   "resolutions": {
-    "@typescript-eslint/experimental-utils": "5.10.0",
     "css-what": "^6.0.0",
     "glob-parent": "^6.0.0",
     "set-value": "^4.1.0"
