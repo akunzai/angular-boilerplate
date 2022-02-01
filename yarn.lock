@@ -3773,7 +3773,7 @@ __metadata:
     eslint: 8.8.0
     jest: 27.4.7
     jest-preset-angular: 11.1.0
-    msw: 0.36.7
+    msw: 0.36.8
     rxjs: 7.5.2
     ts-node: 10.4.0
     tslib: 2.3.1
@@ -8727,9 +8727,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:0.36.7":
-  version: 0.36.7
-  resolution: "msw@npm:0.36.7"
+"msw@npm:0.36.8":
+  version: 0.36.8
+  resolution: "msw@npm:0.36.8"
   dependencies:
     "@mswjs/cookies": ^0.1.7
     "@mswjs/interceptors": ^0.12.7
@@ -8753,7 +8753,7 @@ __metadata:
     yargs: ^17.3.0
   bin:
     msw: cli/index.js
-  checksum: bbeb873f372c63a05b0337712c6858a6ee8ad0784edb9b206976bf720d298123a9779e7ae58ea0936eb813370cfd24c744e4075899188ea2c4584010941880fd
+  checksum: 3a5935692bab92f17b3b15444a590ceceb8e952706372396a25bd1567d60bca71a42c28e6ebba1ae8ebbdccc91a4e0a0061f87ffbf09928952911f8cb7c6731f
   languageName: node
   linkType: hard
 
