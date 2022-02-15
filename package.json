@@ -55,7 +55,7 @@
   },
   "resolutions": {
     "css-what": "^6.0.0",
-    "follow-redirects": "^1.14.7",
+    "follow-redirects": "^1.14.8",
     "glob-parent": "^6.0.0",
     "nanoid": "^3.1.31",
     "set-value": "^4.1.0"
