@@ -4998,10 +4998,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-what@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "css-what@npm:6.0.0"
-  checksum: 44bf1bf9c0a152c53d5c18a0f5280ccbf91365c172f39a195158239d5be2614a48494649013639ed4fd031da5a6004e36a887993166f917cd6b2ae0d02250905
+"css-what@npm:6.0.1":
+  version: 6.0.1
+  resolution: "css-what@npm:6.0.1"
+  checksum: d620866a85d19de5dac4e31e7856c8e80665c1ff23e3e241ccba23a2fd717c9e9cc08aec170447297cf2d0e13d74893320b08e3e8c8b5e783280a2ed50450eb6
   languageName: node
   linkType: hard
 
