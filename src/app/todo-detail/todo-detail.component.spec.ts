@@ -40,6 +40,9 @@ test('without Todo should render nothing', async () => {
 describe('with Todo', () => {
   const location = {
     back: jest.fn(),
+    path: jest.fn(),
+    replaceState: jest.fn(),
+    subscribe: jest.fn(),
   };
   beforeEach(async () => {
     await render(TodoDetailComponent, {
