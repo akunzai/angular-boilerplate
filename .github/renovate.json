@@ -3,7 +3,8 @@
     "config:base"
   ],
   "ignoreDeps": [
-    "msw"
+    "msw",
+    "typescript"
   ],
   "automerge": true
 }
