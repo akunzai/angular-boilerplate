@@ -2563,17 +2563,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mswjs/interceptors@npm:^0.13.3":
-  version: 0.13.3
-  resolution: "@mswjs/interceptors@npm:0.13.3"
+"@mswjs/interceptors@npm:^0.13.5":
+  version: 0.13.6
+  resolution: "@mswjs/interceptors@npm:0.13.6"
   dependencies:
     "@open-draft/until": ^1.0.3
     "@xmldom/xmldom": ^0.7.5
     debug: ^4.3.3
-    headers-polyfill: ^3.0.3
+    headers-polyfill: ^3.0.4
     outvariant: ^1.2.1
     strict-event-emitter: ^0.2.0
-  checksum: 184b967a96ab3e2db9060e932916571d05e72f8594e5d25ac0d651267ffc9f6d3b2ecc158986b4b9d29ac6f1d7bff1c3f3ddb097b1ca42469a5efac07aa6dee9
+  checksum: 14cd1e0263c2fb6e9d5039d1c57b5a9eb98c4e6a071dae05acd94f2d4dc14c39362dbbc5d307f4cc70506adc90abf181cce7316245b1b56e711cb782f9b48702
   languageName: node
   linkType: hard
 
@@ -3885,7 +3885,7 @@ __metadata:
     eslint: 8.10.0
     jest: 27.5.1
     jest-preset-angular: 11.1.1
-    msw: 0.38.1
+    msw: 0.38.2
     rxjs: 7.5.4
     ts-node: 10.6.0
     tslib: 2.3.1
@@ -6851,10 +6851,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"headers-polyfill@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "headers-polyfill@npm:3.0.3"
-  checksum: 55cd115be3d2dad6ca444aecc8fd21b2e36c82d4d76b3ab1f8522404c6339a8fb72faabb280adda845a7f41612e2848f329b09d8d3cada435ae998121481f6bc
+"headers-polyfill@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "headers-polyfill@npm:3.0.4"
+  checksum: cdfe5f40b033e89f31a1ce9018864a54ba3efc7ef05c9ad220851bbf65ac78bfc81f12f669994936c040a4404a885004f5d370acbf954f40147c9e4bb189cc43
   languageName: node
   linkType: hard
 
@@ -8870,12 +8870,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:0.38.1":
-  version: 0.38.1
-  resolution: "msw@npm:0.38.1"
+"msw@npm:0.38.2":
+  version: 0.38.2
+  resolution: "msw@npm:0.38.2"
   dependencies:
     "@mswjs/cookies": ^0.1.7
-    "@mswjs/interceptors": ^0.13.3
+    "@mswjs/interceptors": ^0.13.5
     "@open-draft/until": ^1.0.3
     "@types/cookie": ^0.4.1
     "@types/js-levenshtein": ^1.1.1
@@ -8883,7 +8883,7 @@ __metadata:
     chokidar: ^3.4.2
     cookie: ^0.4.2
     graphql: ^16.3.0
-    headers-polyfill: ^3.0.3
+    headers-polyfill: ^3.0.4
     inquirer: ^8.2.0
     is-node-process: ^1.0.1
     js-levenshtein: ^1.1.6
@@ -8895,7 +8895,7 @@ __metadata:
     yargs: ^17.3.1
   bin:
     msw: cli/index.js
-  checksum: 2e51936a18802a28282342a403e6aa538a2bc4de600d7dabb5ed93494f8e19f5273fa145830718e9680f7a6842f50d5c7e497b4844fd4b94b74803ccf656633a
+  checksum: 9025fab24800f5a926c90b36a8e3c8ddfa3f1bd88a99a09ff013a0d15a56fdee872b7c8d01b3eb984e6214231ca0ed860a1e61ea660b2337241f70f75c429353
   languageName: node
   linkType: hard
 
