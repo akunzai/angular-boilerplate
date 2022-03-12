@@ -40,6 +40,6 @@ test('support to switch languages', () => {
   fireEvent.click(screen.getByRole('button', { name: /Toggle Languages/i }));
   fireEvent.click(screen.getByRole('button', { name: /English/i }));
   expect(localStorage.getItem('locale')).toBe('en');
-  fireEvent.click(screen.getByRole('button', { name: /正體中文/i }));
+  fireEvent.click(screen.getByRole('button', { name: /中文/i }));
   expect(localStorage.getItem('locale')).toBe('zh-Hant');
 });
