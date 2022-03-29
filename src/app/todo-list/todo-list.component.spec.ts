@@ -88,13 +88,13 @@ test('should not add item without any input', async () => {
 });
 
 test('should not add item with blank input', async () => {
-  userEvent.type(screen.getByRole('textbox'), '   ');
+  await userEvent.type(screen.getByRole('textbox'), '   ');
   fireEvent.click(screen.getByRole('button', { name: /Add/i }));
   expect((await screen.findAllByRole('link')).length).toBe(3);
 });
 
 test('should add item and clears the input', async () => {
-  userEvent.type(screen.getByRole('textbox'), 'Test');
+  await userEvent.type(screen.getByRole('textbox'), 'Test');
   fireEvent.click(screen.getByRole('button', { name: /Add/i }));
   await waitFor(() => expect(screen.getByText('Test')).toBeInTheDocument());
   const link = screen.getByRole('link', { name: /Test/i });
