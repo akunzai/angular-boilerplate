@@ -3574,7 +3574,7 @@ __metadata:
     bootstrap-icons: 1.8.1
     eslint: 8.14.0
     jest: 27.5.1
-    jest-preset-angular: 11.1.1
+    jest-preset-angular: 11.1.2
     msw: 0.39.2
     rxjs: 7.5.5
     ts-node: 10.7.0
@@ -7460,9 +7460,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:11.1.1":
-  version: 11.1.1
-  resolution: "jest-preset-angular@npm:11.1.1"
+"jest-preset-angular@npm:11.1.2":
+  version: 11.1.2
+  resolution: "jest-preset-angular@npm:11.1.2"
   dependencies:
     bs-logger: ^0.2.6
     esbuild: 0.14.11
@@ -7478,7 +7478,7 @@ __metadata:
   dependenciesMeta:
     esbuild:
       optional: true
-  checksum: 373446e395bf9228f08d104092d522ed39d4c55c0ccdf2b39419e12ddf4b7a58d0d45314cf0263564177ccf7cfee32af12d18b3b258cc27a075311a592e4d26f
+  checksum: 9609cf849cd11dd72416b65d6128fdb4f50458397c7ea0418a5dbc3b42aabe212fdec8fe135992808d781cd85c21fb46b65c317034d2749b7134067a42a08a8e
   languageName: node
   linkType: hard
 
