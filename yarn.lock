@@ -3701,7 +3701,7 @@ __metadata:
     bootstrap-icons: 1.8.1
     eslint: 8.15.0
     jest: 28.1.0
-    jest-preset-angular: 12.0.0-next.1
+    jest-preset-angular: 12.0.0-next.2
     msw: 0.39.2
     rxjs: 7.5.5
     ts-node: 10.7.0
@@ -7640,25 +7640,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:12.0.0-next.1":
-  version: 12.0.0-next.1
-  resolution: "jest-preset-angular@npm:12.0.0-next.1"
+"jest-preset-angular@npm:12.0.0-next.2":
+  version: 12.0.0-next.2
+  resolution: "jest-preset-angular@npm:12.0.0-next.2"
   dependencies:
     bs-logger: ^0.2.6
     esbuild: ">=0.13.8"
     esbuild-wasm: ">=0.13.8"
     jest-environment-jsdom: ^28.0.0
     pretty-format: ^28.0.0
-    ts-jest: 28.0.0-next.1
+    ts-jest: ^28.0.0
   peerDependencies:
-    "@angular-devkit/build-angular": ">=0.1102.19"
-    "@angular/compiler-cli": ">=11.2.14"
-    "@angular/core": ">=11.2.14"
-    "@angular/platform-browser-dynamic": ">=11.2.14"
+    "@angular-devkit/build-angular": ">=0.1102.19 <14.0.0"
+    "@angular/compiler-cli": ">=11.2.14 <14.0.0"
+    "@angular/core": ">=11.2.14 <14.0.0"
+    "@angular/platform-browser-dynamic": ">=11.2.14 <14.0.0"
+    jest: ^28.0.0
+    typescript: ">=4.3"
   dependenciesMeta:
     esbuild:
       optional: true
-  checksum: fb7275840e1778b2b7fc1cf585197c8b79e443736f3870dd1be87c8770d371d71e7451876494b1185a3639c6827aad32752695f7e590d1143916be60a6873dc4
+  checksum: 8b83d61e9a4419c9085d21edd875a92ba1c958d52b4d585e8cccea938f44f466e0ac9bf1b9b2c1fbccd3b2158c6a9f3e582a4468b4997e1b8e665cee9075286c
   languageName: node
   linkType: hard
 
@@ -11295,9 +11297,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:28.0.0-next.1":
-  version: 28.0.0-next.1
-  resolution: "ts-jest@npm:28.0.0-next.1"
+"ts-jest@npm:^28.0.0":
+  version: 28.0.2
+  resolution: "ts-jest@npm:28.0.2"
   dependencies:
     bs-logger: 0.x
     fast-json-stable-stringify: 2.x
@@ -11324,7 +11326,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: 81e9fe6872ec092ec23c4a40b40f9d2c1df67185a1fd7f26282ab3c3fa4c741a27edb9ddaafb2cebd34ad9a69c76d11ed9c3d430d7072871dfedb4739f3a5dcc
+  checksum: bb244015f947cf9a77c892691a8131116a86f4f1cc7a1ff045cd72f78c16485c07ac582b31117f8d722a0ebb9d51c27468c28e2f8eec8bbae6e2a09ee41066f2
   languageName: node
   linkType: hard
 
