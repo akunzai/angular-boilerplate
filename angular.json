@@ -31,11 +31,14 @@
               "src/mockServiceWorker.js"
             ],
             "allowedCommonJsDependencies": [
-              "debug",
               "@mswjs/cookies",
               "@mswjs/interceptors",
               "@mswjs/interceptors/lib/interceptors/XMLHttpRequest",
-              "@mswjs/interceptors/lib/interceptors/fetch"
+              "@mswjs/interceptors/lib/interceptors/fetch",
+              "@open-draft/until",
+              "debug",
+              "headers-polyfill",
+              "strict-event-emitter"
             ],
             "styles": [
               "src/styles.scss"
