@@ -22,7 +22,7 @@ export class TodoListComponent implements OnInit {
 
   onSubmit($event: Event): void {
     $event.preventDefault();
-    const title = this.title.value.trim();
+    const title = this.title.value?.trim();
     if (!title) {
       return;
     }

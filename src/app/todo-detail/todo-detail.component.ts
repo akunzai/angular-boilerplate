@@ -34,7 +34,7 @@ export class TodoDetailComponent implements OnInit {
         this.loaded = true;
         this.id = todo.id;
         this.form.controls.title.setValue(todo.title);
-        this.form.controls.description.setValue(todo.description);
+        this.form.controls.description.setValue(todo.description as string);
         this.form.controls.done.setValue(todo.done);
       }
     });
@@ -44,9 +44,9 @@ export class TodoDetailComponent implements OnInit {
     $event.preventDefault();
     const updatedTodo = new Todo(
       this.id,
-      this.form.controls.title.value,
-      this.form.controls.description.value,
-      this.form.controls.done.value
+      this.form.controls.title.value as string,
+      this.form.controls.description.value as string,
+      this.form.controls.done.value as boolean
     );
     this.todoService.updateTodo(updatedTodo).subscribe(() => {
       this.location.back();
