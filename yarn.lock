@@ -3752,7 +3752,7 @@ __metadata:
     bootstrap-icons: 1.8.3
     eslint: 8.16.0
     jest: 28.1.0
-    jest-preset-angular: 12.0.1
+    jest-preset-angular: 12.1.0
     msw: 0.42.0
     rxjs: 7.5.5
     ts-node: 10.8.0
@@ -7390,9 +7390,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-preset-angular@npm:12.0.1":
-  version: 12.0.1
-  resolution: "jest-preset-angular@npm:12.0.1"
+"jest-preset-angular@npm:12.1.0":
+  version: 12.1.0
+  resolution: "jest-preset-angular@npm:12.1.0"
   dependencies:
     bs-logger: ^0.2.6
     esbuild: ">=0.13.8"
@@ -7401,16 +7401,16 @@ __metadata:
     pretty-format: ^28.0.0
     ts-jest: ^28.0.0
   peerDependencies:
-    "@angular-devkit/build-angular": ">=0.1102.19 <14.0.0"
-    "@angular/compiler-cli": ">=11.2.14 <14.0.0"
-    "@angular/core": ">=11.2.14 <14.0.0"
-    "@angular/platform-browser-dynamic": ">=11.2.14 <14.0.0"
+    "@angular-devkit/build-angular": ">=0.1102.19 <15.0.0"
+    "@angular/compiler-cli": ">=11.2.14 <15.0.0"
+    "@angular/core": ">=11.2.14 <15.0.0"
+    "@angular/platform-browser-dynamic": ">=11.2.14 <15.0.0"
     jest: ^28.0.0
     typescript: ">=4.3"
   dependenciesMeta:
     esbuild:
       optional: true
-  checksum: 7d48734b85d2ae2d36237b558b682076dd96b48f2010e5c75776482cff54721a4d8ec41eadb5bef77d29ae21dedbda461720f37908a94e9c828de81d5de19fdd
+  checksum: 7c8a1f0c7e31eba46eaf520a45a274493e4c60c0932abcc9d3c02fd9e558d3394ead28a10004346f0e79870cd3d516ab609a086359c221ddd6a3780e41a178fc
   languageName: node
   linkType: hard
 
