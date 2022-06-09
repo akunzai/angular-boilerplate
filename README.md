@@ -18,6 +18,9 @@
 ## Getting Started
 
 ```sh
+# activate the yarn package manager
+corepack enable
+
 # install npm packages
 yarn install
 
