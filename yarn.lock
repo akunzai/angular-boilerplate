@@ -2724,9 +2724,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/angular@npm:12.0.0":
-  version: 12.0.0
-  resolution: "@testing-library/angular@npm:12.0.0"
+"@testing-library/angular@npm:12.0.1":
+  version: 12.0.1
+  resolution: "@testing-library/angular@npm:12.0.1"
   dependencies:
     "@testing-library/dom": ^8.0.0
     tslib: ^2.3.1
@@ -2736,7 +2736,7 @@ __metadata:
     "@angular/platform-browser": ">= 14.0.0"
     "@angular/router": ">= 14.0.0"
     rxjs: ">= 7.4.0"
-  checksum: 54d1a5f88829173a6a4e6b18ef02d232299e4d5b66568a191e4b96d54c9541bd927cc2ec83fab55814550c33c35fd9edd6885acccfd0ab5b4635812e624ceea5
+  checksum: 95c3503a3ef5b7d13431d1afef81d4980b201457360e2d3a322ddfcb9ab66130534d04d33d72e9d8cd4f38fb068f97b0c360eaa98417789a0e5b4245aaa5b5f8
   languageName: node
   linkType: hard
 
@@ -3791,7 +3791,7 @@ __metadata:
     "@angular/router": 14.0.1
     "@biesbjerg/ngx-translate-extract": 7.0.4
     "@ngx-translate/core": 14.0.0
-    "@testing-library/angular": 12.0.0
+    "@testing-library/angular": 12.0.1
     "@testing-library/jest-dom": 5.16.4
     "@testing-library/user-event": 14.2.0
     "@types/debug": 4.1.7
