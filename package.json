@@ -48,7 +48,7 @@
     "@types/node": "18.0.0",
     "@typescript-eslint/eslint-plugin": "5.30.3",
     "@typescript-eslint/parser": "5.30.3",
-    "eslint": "8.18.0",
+    "eslint": "8.19.0",
     "jest": "28.1.2",
     "jest-preset-angular": "12.1.0",
     "msw": "0.42.3",
