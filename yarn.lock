@@ -1984,19 +1984,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/environment@npm:^28.0.1":
-  version: 28.1.1
-  resolution: "@jest/environment@npm:28.1.1"
-  dependencies:
-    "@jest/fake-timers": ^28.1.1
-    "@jest/types": ^28.1.1
-    "@types/node": "*"
-    jest-mock: ^28.1.1
-  checksum: a872adbbcab32680d6dfb48fae1b68284829b0eb5a8cac2b678cade64f9bf905f6c3ee462de3d0d7b0552cab7dec57a396c3bd82436a64492f2377e33f009286
-  languageName: node
-  linkType: hard
-
-"@jest/environment@npm:^28.1.2":
+"@jest/environment@npm:^28.0.1, @jest/environment@npm:^28.1.2":
   version: 28.1.2
   resolution: "@jest/environment@npm:28.1.2"
   dependencies:
@@ -2027,21 +2015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/fake-timers@npm:^28.0.1, @jest/fake-timers@npm:^28.1.1":
-  version: 28.1.1
-  resolution: "@jest/fake-timers@npm:28.1.1"
-  dependencies:
-    "@jest/types": ^28.1.1
-    "@sinonjs/fake-timers": ^9.1.1
-    "@types/node": "*"
-    jest-message-util: ^28.1.1
-    jest-mock: ^28.1.1
-    jest-util: ^28.1.1
-  checksum: bbb28fd244aff6fb45cc4c377902c8285ab99dec03f22a3eda8d55ccce2cde4df7bc8873782d3d108ac5ca567c7d0ec8ac6e5b7ef63cea2e1fdc2d4fb74cfefb
-  languageName: node
-  linkType: hard
-
-"@jest/fake-timers@npm:^28.1.2":
+"@jest/fake-timers@npm:^28.0.1, @jest/fake-timers@npm:^28.1.2":
   version: 28.1.2
   resolution: "@jest/fake-timers@npm:28.1.2"
   dependencies:
@@ -2227,7 +2201,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/trace-mapping@npm:0.3.9, @jridgewell/trace-mapping@npm:^0.3.9":
+"@jridgewell/trace-mapping@npm:0.3.9":
   version: 0.3.9
   resolution: "@jridgewell/trace-mapping@npm:0.3.9"
   dependencies:
@@ -2237,7 +2211,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/trace-mapping@npm:^0.3.12, @jridgewell/trace-mapping@npm:^0.3.13":
+"@jridgewell/trace-mapping@npm:^0.3.12, @jridgewell/trace-mapping@npm:^0.3.13, @jridgewell/trace-mapping@npm:^0.3.9":
   version: 0.3.14
   resolution: "@jridgewell/trace-mapping@npm:0.3.14"
   dependencies:
@@ -2527,7 +2501,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinonjs/fake-timers@npm:^9.1.1, @sinonjs/fake-timers@npm:^9.1.2":
+"@sinonjs/fake-timers@npm:^9.1.2":
   version: 9.1.2
   resolution: "@sinonjs/fake-timers@npm:9.1.2"
   dependencies:
@@ -3005,17 +2979,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*":
-  version: 28.1.3
-  resolution: "@types/jest@npm:28.1.3"
-  dependencies:
-    jest-matcher-utils: ^28.0.0
-    pretty-format: ^28.0.0
-  checksum: 28141f2d5b3bafd063362de9790cb8f219488d9b0ad47524a84bef1142a4f0d9d35be0c56988d9f922205225cc83c986acd4be424bd8653b38dc27ab672455e2
-  languageName: node
-  linkType: hard
-
-"@types/jest@npm:28.1.4":
+"@types/jest@npm:*, @types/jest@npm:28.1.4":
   version: 28.1.4
   resolution: "@types/jest@npm:28.1.4"
   dependencies:
@@ -3071,10 +3035,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.0.0":
-  version: 18.0.0
-  resolution: "@types/node@npm:18.0.0"
-  checksum: aab2b325727a2599f6d25ebe0dedf58c40fb66a51ce4ca9c0226ceb70fcda2d3afccdca29db5942eb48b158ee8585a274a1e3750c718bbd5399d7f41d62dfdcc
+"@types/node@npm:*, @types/node@npm:18.0.1":
+  version: 18.0.1
+  resolution: "@types/node@npm:18.0.1"
+  checksum: be14b251c54cc2b4ca78ac6eadf2fe5e831e487f2e17848f21d576295945b538271dcc674d0bba582b3f8d95b84f6826e99b6ba4710c76f165a8bdd4d4f0618e
   languageName: node
   linkType: hard
 
@@ -3771,7 +3735,7 @@ __metadata:
     "@testing-library/user-event": 14.2.1
     "@types/debug": 4.1.7
     "@types/jest": 28.1.4
-    "@types/node": 18.0.0
+    "@types/node": 18.0.1
     "@typescript-eslint/eslint-plugin": 5.30.5
     "@typescript-eslint/parser": 5.30.5
     bootstrap: 5.1.3
@@ -3779,7 +3743,7 @@ __metadata:
     eslint: 8.19.0
     jest: 28.1.2
     jest-preset-angular: 12.1.0
-    msw: 0.42.3
+    msw: 0.43.0
     rxjs: 7.5.5
     ts-node: 10.8.2
     tslib: 2.4.0
@@ -8355,9 +8319,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:0.42.3":
-  version: 0.42.3
-  resolution: "msw@npm:0.42.3"
+"msw@npm:0.43.0":
+  version: 0.43.0
+  resolution: "msw@npm:0.43.0"
   dependencies:
     "@mswjs/cookies": ^0.2.0
     "@mswjs/interceptors": ^0.16.3
@@ -8386,7 +8350,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 6eda5102dcdfd405d13d75c8557fc8b0ceb06bcd37851d919d5392971dd43d1dd524b7d2a46f2ffa580aadc2b12eac81776cd51e7d085c41d1e4236b57cc921c
+  checksum: 84dbc871f93d9b90d3d4083db962b217594469e3c7fedb76cc093f454a05b516c9e4bb573af806f280ff4cf15062d9792a29880e06ed4615d5ce3da1f6f1f4b4
   languageName: node
   linkType: hard
 
