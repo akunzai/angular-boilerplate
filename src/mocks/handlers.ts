@@ -19,8 +19,8 @@ export const handlers = [
     }
     return res(ctx.json(todo));
   }),
-  rest.post('/api/todos', (req, res, ctx) => {
-    const todo = req.body as Todo;
+  rest.post('/api/todos', async (req, res, ctx) => {
+    const todo = (await req.json()) as Todo;
     if (!todo.id) {
       todo.id = db.length > 0 ? Math.max(...db.map((x) => x.id)) + 1 : 1;
     }
