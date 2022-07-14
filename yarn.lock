@@ -2551,12 +2551,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:14.2.1":
-  version: 14.2.1
-  resolution: "@testing-library/user-event@npm:14.2.1"
+"@testing-library/user-event@npm:14.2.2":
+  version: 14.2.2
+  resolution: "@testing-library/user-event@npm:14.2.2"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 661d61a52a3ec954fe21d799f8203f0eaa7c43ea4f2c1b5916f3bb34a3609a8d7ac3dfaff5247c4511aed7ce122883c297bf59e9ffe086e375f42c98596802b9
+  checksum: ed21e3d7ab09f50cea5eb81c827e2c23ef1d4192bfcfc70815e52ad350cd42357c19c9429c9dfa3407b9a725162e505a63830d3ec7779cd3fc73d2b119f85430
   languageName: node
   linkType: hard
 
@@ -3557,7 +3557,7 @@ __metadata:
     "@ngx-translate/core": 14.0.0
     "@testing-library/angular": 12.1.0
     "@testing-library/jest-dom": 5.16.4
-    "@testing-library/user-event": 14.2.1
+    "@testing-library/user-event": 14.2.2
     "@types/debug": 4.1.7
     "@types/jest": 28.1.5
     "@types/node": 18.0.3
