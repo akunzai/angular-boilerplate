@@ -42,7 +42,7 @@
     "@biesbjerg/ngx-translate-extract": "7.0.4",
     "@testing-library/angular": "12.1.0",
     "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/user-event": "14.2.3",
+    "@testing-library/user-event": "14.2.5",
     "@types/debug": "4.1.7",
     "@types/jest": "28.1.5",
     "@types/node": "18.0.3",
