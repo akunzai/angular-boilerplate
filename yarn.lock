@@ -10911,7 +10911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:5.14.2, terser@npm:^5.7.2":
+"terser@npm:5.14.2":
   version: 5.14.2
   resolution: "terser@npm:5.14.2"
   dependencies:
