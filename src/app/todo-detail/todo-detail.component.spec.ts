@@ -17,7 +17,6 @@ beforeAll(() => {
 test('without Todo should render nothing', async () => {
   await render(TodoDetailComponent, {
     imports: [
-      FormsModule,
       ReactiveFormsModule,
       TranslateModule.forRoot({
         loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
@@ -40,6 +39,7 @@ test('without Todo should render nothing', async () => {
 describe('with Todo', () => {
   const location = {
     back: jest.fn(),
+    isCurrentPathEqualTo: jest.fn(),
     path: jest.fn(),
     replaceState: jest.fn(),
     subscribe: jest.fn(),
