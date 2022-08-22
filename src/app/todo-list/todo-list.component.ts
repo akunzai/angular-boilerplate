@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import TodoService from '../todo.service';
 import { Todo } from '../types';
 
@@ -10,9 +10,12 @@ import { Todo } from '../types';
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
-  title = new FormControl('');
+  title = this.formBuilder.control('', Validators.required);
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.todoService.getTodos().subscribe((todos) => {

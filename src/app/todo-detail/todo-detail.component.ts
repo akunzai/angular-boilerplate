@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import TodoService from '../todo.service';
 import { Todo } from '../types';
@@ -14,16 +14,17 @@ export class TodoDetailComponent implements OnInit {
   id = 0;
   loaded = false;
 
-  form = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
-    done: new FormControl(false),
+  form = this.formBuilder.group({
+    title: ['', Validators.required],
+    description: [''],
+    done: [false],
   });
 
   constructor(
     private route: ActivatedRoute,
     private todoService: TodoService,
-    private location: Location
+    private location: Location,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -33,20 +34,23 @@ export class TodoDetailComponent implements OnInit {
       if (todo !== undefined) {
         this.loaded = true;
         this.id = todo.id;
-        this.form.controls.title.setValue(todo.title);
-        this.form.controls.description.setValue(todo.description as string);
-        this.form.controls.done.setValue(todo.done);
+        this.form.setValue({
+          title: todo.title,
+          description: todo.description ?? '',
+          done: todo.done,
+        });
       }
     });
   }
 
   onSubmit($event: Event): void {
     $event.preventDefault();
+    const value = this.form.value;
     const updatedTodo = new Todo(
       this.id,
-      this.form.controls.title.value as string,
-      this.form.controls.description.value as string,
-      this.form.controls.done.value as boolean
+      value.title ?? '',
+      value.description ?? '',
+      value.done ?? false
     );
     this.todoService.updateTodo(updatedTodo).subscribe(() => {
       this.location.back();
