@@ -409,17 +409,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/router@npm:14.1.3":
-  version: 14.1.3
-  resolution: "@angular/router@npm:14.1.3"
+"@angular/router@npm:14.2.0":
+  version: 14.2.0
+  resolution: "@angular/router@npm:14.2.0"
   dependencies:
     tslib: ^2.3.0
   peerDependencies:
-    "@angular/common": 14.1.3
-    "@angular/core": 14.1.3
-    "@angular/platform-browser": 14.1.3
+    "@angular/common": 14.2.0
+    "@angular/core": 14.2.0
+    "@angular/platform-browser": 14.2.0
     rxjs: ^6.5.3 || ^7.4.0
-  checksum: d7d2aec3f054aa24ee6a1496362fafcb9ffbd2e6191d699abd70ae8336c95ce425562b6447ce5ddd57501357e0b56e0e953813c68c368118e91e53f7021b05b9
+  checksum: 7ef8646b60ca57c53ff0919f62b581e5761e1983cf40a8de16ec5595c754d94fc2cb4f0ec0b5c021f006962c32d8c02516cfd17c5b1bbd5d39db695bcc52a0fc
   languageName: node
   linkType: hard
 
@@ -3689,7 +3689,7 @@ __metadata:
     "@angular/forms": 14.2.0
     "@angular/platform-browser": 14.2.0
     "@angular/platform-browser-dynamic": 14.2.0
-    "@angular/router": 14.1.3
+    "@angular/router": 14.2.0
     "@biesbjerg/ngx-translate-extract": 7.0.4
     "@ngx-translate/core": 14.0.0
     "@testing-library/angular": 12.1.2
