@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import {
@@ -21,6 +22,7 @@ beforeEach(async () => {
   await render(TodoListComponent, {
     imports: [
       FormsModule,
+      HttpClientModule,
       ReactiveFormsModule,
       RouterTestingModule,
       TranslateModule.forRoot({
