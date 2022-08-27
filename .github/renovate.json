@@ -1,10 +1,24 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    "github>visualon/renovate-config:ng"
   ],
-  "ignoreDeps": [
-    "typescript",
-    "msw"
-  ],
-  "automerge": true
+  "automerge": true,
+  "packageRules": [
+    {
+      "description": "Update the worker file for msw",
+      "matchPackageNames": [
+        "msw"
+      ],
+      "postUpgradeTasks": {
+        "commands": [
+          "pwd"
+        ],
+        "fileFilters": [
+          "src/mockServiceWorker.js"
+        ]
+      }
+    }
+  ]
 }
