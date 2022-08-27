@@ -5,6 +5,9 @@
     "github>visualon/renovate-config:ng"
   ],
   "automerge": true,
+  "postUpdateOptions": [
+    "yarnDedupeHighest"
+  ],
   "packageRules": [
     {
       "description": "Update the worker file for msw",
