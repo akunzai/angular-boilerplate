@@ -1,82 +1,47 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of, switchMap } from 'rxjs';
-import { fromFetch } from 'rxjs/fetch';
+import { catchError, Observable, of } from 'rxjs';
 import { Todo } from './types';
-
-const HEADERS = new Headers({
-  'Content-Type': 'application/json',
-});
 
 @Injectable({
   providedIn: 'root',
 })
 export default class TodoService {
-  private todosUrl = '/api/todos';
+  private baseUrl = '/api/todos';
 
-  getTodos(): Observable<Todo[]> {
-    return fromFetch(this.todosUrl).pipe(
-      switchMap(this.handleResponse),
-      map((data) => data as Todo[]),
-      catchError(this.handleError<Todo[]>('getTodos', []))
-    );
+  constructor(private http: HttpClient) {}
+
+  getTodoList(): Observable<Todo[]> {
+    return this.http
+      .get<Todo[]>(this.baseUrl)
+      .pipe(catchError(this.handleError<Todo[]>('getTodoList', [])));
   }
 
   getTodo(id: number): Observable<Todo | undefined> {
-    const url = `${this.todosUrl}/${id}`;
-    return fromFetch(url).pipe(
-      switchMap(this.handleResponse),
-      map((data) => data as Todo),
-      catchError(this.handleError<Todo>(`getTodo id=${id}`))
-    );
+    const url = `${this.baseUrl}/${id}`;
+    return this.http
+      .get<Todo>(url)
+      .pipe(catchError(this.handleError<Todo>(`getTodo id=${id}`)));
   }
 
   addTodo(todo: Todo): Observable<Todo> {
-    return fromFetch(this.todosUrl, {
-      method: 'POST',
-      headers: HEADERS,
-      body: JSON.stringify(todo),
-    }).pipe(
-      switchMap(this.handleResponse),
-      map((data) => data as Todo),
-      catchError(this.handleError<Todo>('addTodo'))
-    );
+    return this.http
+      .post<Todo>(this.baseUrl, todo)
+      .pipe(catchError(this.handleError<Todo>('addTodo')));
   }
 
   deleteTodo(todo: Todo): Observable<Todo> {
-    const url = `${this.todosUrl}/${todo.id}`;
-    return fromFetch(url, {
-      method: 'DELETE',
-      headers: HEADERS,
-    }).pipe(
-      switchMap(this.handleResponse),
-      map((data) => data as Todo),
-      catchError(this.handleError<Todo>('deleteTask'))
-    );
+    const url = `${this.baseUrl}/${todo.id}`;
+    return this.http
+      .delete<Todo>(url)
+      .pipe(catchError(this.handleError<Todo>('deleteTodo')));
   }
 
   updateTodo(todo: Todo): Observable<unknown> {
-    const url = `${this.todosUrl}/${todo.id}`;
-    return fromFetch(url, {
-      method: 'PUT',
-      headers: HEADERS,
-      body: JSON.stringify(todo),
-    }).pipe(
-      switchMap(this.handleResponse),
-      catchError(this.handleError<unknown>('updateTodo'))
-    );
-  }
-
-  private handleResponse(response: Response) {
-    if (response.ok) {
-      return /json/.test(response.headers.get('Content-Type') || '')
-        ? response.json()
-        : response.text();
-    }
-    // eslint-disable-next-line no-throw-literal
-    throw {
-      status: response.status,
-      error: response.statusText,
-    };
+    const url = `${this.baseUrl}/${todo.id}`;
+    return this.http
+      .put(url, todo)
+      .pipe(catchError(this.handleError<unknown>('updateTodo')));
   }
 
   /**

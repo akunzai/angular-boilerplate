@@ -1,10 +1,9 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { ClickOutsideDirective } from './click-outside.directive';
 import { CounterComponent } from './counter/counter.component';
@@ -12,13 +11,13 @@ import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import TodoService from './todo.service';
-import XhrTodoService from './todo.service.xhr';
+import { ApiHttpInterceptor } from './http-interceptors/api-http-interceptor';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     TranslateModule.forRoot(),
     RouterModule.forRoot([
@@ -27,7 +26,6 @@ import XhrTodoService from './todo.service.xhr';
       { path: 'todo-list', component: TodoListComponent },
       { path: 'todo/:id', component: TodoDetailComponent },
     ]),
-    ...(environment.useHttpClient ? [HttpClientModule] : []),
   ],
   declarations: [
     AppComponent,
@@ -38,12 +36,11 @@ import XhrTodoService from './todo.service.xhr';
     TodoDetailComponent,
     ClickOutsideDirective,
   ],
-  providers: [
-    {
-      provide: TodoService,
-      useClass: environment.useHttpClient ? XhrTodoService : TodoService,
-    },
-  ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ApiHttpInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

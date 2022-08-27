@@ -1,16 +1,26 @@
+import { HttpClientModule } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
 import { rest, server } from '../mocks/server';
 import TodoService from './todo.service';
 import { Todo } from './types';
 
-const service = new TodoService();
+let service: TodoService;
 
 beforeAll(() => {
   jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
 });
 
-describe('getTodos', () => {
+beforeEach(() => {
+  TestBed.configureTestingModule({
+    imports: [HttpClientModule],
+    providers: [TodoService],
+  });
+  service = TestBed.inject(TodoService);
+});
+
+describe('getTodoList', () => {
   test('should response as expected', (done) => {
-    service.getTodos().subscribe((values) => {
+    service.getTodoList().subscribe((values) => {
       done();
       expect(values.length).toBeGreaterThan(0);
     });
@@ -22,7 +32,7 @@ describe('getTodos', () => {
         return res(ctx.status(404));
       })
     );
-    service.getTodos().subscribe((values) => {
+    service.getTodoList().subscribe((values) => {
       done();
       expect(values).toStrictEqual([]);
       expect(console.error).toBeCalled();
