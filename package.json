@@ -45,7 +45,7 @@
     "@testing-library/user-event": "14.4.3",
     "@types/debug": "4.1.7",
     "@types/jest": "28.1.8",
-    "@types/node": "18.7.9",
+    "@types/node": "18.7.13",
     "@typescript-eslint/eslint-plugin": "5.35.1",
     "@typescript-eslint/parser": "5.35.1",
     "eslint": "8.23.0",
