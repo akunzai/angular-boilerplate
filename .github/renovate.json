@@ -10,18 +10,11 @@
   ],
   "packageRules": [
     {
-      "description": "Update the worker file for msw",
+      "description": "Require manual update the worker file for msw",
       "matchPackageNames": [
         "msw"
       ],
-      "postUpgradeTasks": {
-        "commands": [
-          "yarn install"
-        ],
-        "fileFilters": [
-          "**/mockServiceWorker.js"
-        ]
-      }
+      "dependencyDashboardApproval": true
     }
   ]
 }
