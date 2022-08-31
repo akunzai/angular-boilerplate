@@ -5,8 +5,8 @@ module.exports = {
   globalSetup: "jest-preset-angular/global-setup",
   collectCoverageFrom: [
     "src/app/**/*.ts",
+    "!src/app/**/*.spec.ts",
     "!src/app/app.module.ts",
-    "!src/app/todo.service.xhr.ts",
     "!src/app/types.ts",
     "!src/environment/*.ts",
     "!src/mocks/*.ts",
