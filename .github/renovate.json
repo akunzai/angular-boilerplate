@@ -2,9 +2,16 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
+    ":preserveSemverRanges",
+    ":widenPeerDependencies",
+    ":semanticCommits",
+    ":automergeMinor",
+    ":automergeLinters",
+    ":automergeTesters",
+    ":automergeTypes",
+    ":automergeRequireAllStatusChecks",
     "github>visualon/renovate-config:ng"
   ],
-  "automerge": true,
   "postUpdateOptions": [
     "yarnDedupeHighest"
   ],
@@ -14,7 +21,7 @@
       "matchPackageNames": [
         "msw"
       ],
-      "dependencyDashboardApproval": true
+      "automerge": false
     }
   ]
 }
