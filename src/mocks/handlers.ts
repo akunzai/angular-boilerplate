@@ -20,7 +20,7 @@ export const handlers = [
     return res(ctx.json(todo));
   }),
   rest.post('/api/todos', async (req, res, ctx) => {
-    const todo = (await req.json()) as Todo;
+    const todo = await req.json<Todo>();
     if (!todo.id) {
       todo.id = db.length > 0 ? Math.max(...db.map((x) => x.id)) + 1 : 1;
     }
@@ -35,13 +35,13 @@ export const handlers = [
     }
     return res(ctx.json(db.splice(index, 1)[0]));
   }),
-  rest.put('/api/todos/:id', (req, res, ctx) => {
+  rest.put('/api/todos/:id', async (req, res, ctx) => {
     const { id } = req.params;
     const index = db.findIndex((x) => x.id === Number(id));
     if (index === -1) {
       return res(ctx.status(404));
     }
-    const todo = req.body as Todo;
+    const todo = await req.json<Todo>();
     db[index] = todo;
     return res(ctx.status(200));
   }),
