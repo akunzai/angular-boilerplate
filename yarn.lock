@@ -2427,19 +2427,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/angular@npm:^12.1.2":
-  version: 12.1.2
-  resolution: "@testing-library/angular@npm:12.1.2"
+"@testing-library/angular@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@testing-library/angular@npm:13.0.0"
   dependencies:
     "@testing-library/dom": ^8.0.0
     tslib: ^2.3.1
   peerDependencies:
-    "@angular/common": ">= 14.0.0"
-    "@angular/core": ">= 14.0.0"
-    "@angular/platform-browser": ">= 14.0.0"
-    "@angular/router": ">= 14.0.0"
-    rxjs: ">= 7.4.0"
-  checksum: 40f63ab494aaa0ec409832f6d83fd7833eb8aa2d6849c80c18f453db4666950db55e164b584736df1408194be61f3740868749aab7fce10a73643f6f97ede358
+    "@angular/common": ">= 14.1.0"
+    "@angular/core": ">= 14.1.0"
+    "@angular/platform-browser": ">= 14.1.0"
+    "@angular/router": ">= 14.1.0"
+  checksum: 7f2db3738fa0a22042245199357ca0e88708f119a49a5312c494798ce1a38b0a83974d579fd0b5e000b5711769892f10b25b472b8eb0fd46bdb6616b6c4c27c4
   languageName: node
   linkType: hard
 
@@ -3415,7 +3414,7 @@ __metadata:
     "@angular/router": ^15.0.1
     "@biesbjerg/ngx-translate-extract": ^7.0.4
     "@ngx-translate/core": ^14.0.0
-    "@testing-library/angular": ^12.1.2
+    "@testing-library/angular": ^13.0.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/user-event": ^14.4.3
     "@types/debug": ^4.1.7

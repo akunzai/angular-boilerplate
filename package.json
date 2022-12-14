@@ -39,7 +39,7 @@
     "@angular/cli": "^15.0.1",
     "@angular/compiler-cli": "^15.0.1",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
-    "@testing-library/angular": "^12.1.2",
+    "@testing-library/angular": "^13.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^14.4.3",
     "@types/debug": "^4.1.7",
