@@ -41,6 +41,7 @@ test('without Todo should render nothing', async () => {
 describe('with Todo', () => {
   const location = {
     back: jest.fn(),
+    getState: jest.fn(),
     isCurrentPathEqualTo: jest.fn(),
     path: jest.fn(),
     replaceState: jest.fn(),
