@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { RouterOutlet } from '@angular/router';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [NavMenuComponent, RouterOutlet],
 })
 export class AppComponent {
   title = document.title;

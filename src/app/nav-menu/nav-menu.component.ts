@@ -1,10 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
+import { ClickOutsideDirective } from '../click-outside.directive';
+import { NgClass } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.scss'],
+  standalone: true,
+  imports: [RouterLink, NgClass, RouterLinkActive, ClickOutsideDirective],
 })
 export class NavMenuComponent {
   @Input() title: string | undefined;
