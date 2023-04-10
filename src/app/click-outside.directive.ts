@@ -11,7 +11,7 @@ import {
 
 // eslint-disable-next-line @angular-eslint/directive-selector
 @Directive({
-  selector: '[clickOutside]',
+  selector: '[appClickOutside]',
   standalone: true,
 })
 export class ClickOutsideDirective implements OnInit, OnDestroy {
