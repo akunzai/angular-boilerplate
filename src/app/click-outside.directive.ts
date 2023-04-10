@@ -6,11 +6,14 @@ import {
   NgZone,
   OnDestroy,
   OnInit,
-  Output
+  Output,
 } from '@angular/core';
 
 // eslint-disable-next-line @angular-eslint/directive-selector
-@Directive({ selector: '[clickOutside]' })
+@Directive({
+  selector: '[clickOutside]',
+  standalone: true,
+})
 export class ClickOutsideDirective implements OnInit, OnDestroy {
   @Input() exclude = '';
   @Output() clickOutside: EventEmitter<Event> = new EventEmitter<Event>();
