@@ -55,7 +55,7 @@ test('should renders as expected', async () => {
 test('should remove item when delete button clicked', async () => {
   server.use(
     rest.delete('/api/todos/3', (req, res, ctx) => {
-      return res(ctx.json(req.body));
+      return res(ctx.status(200));
     }),
     rest.get('/api/todos', (req, res, ctx) => {
       return res(
