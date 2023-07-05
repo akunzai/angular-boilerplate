@@ -55,6 +55,7 @@
     "typescript": "~5.1.6"
   },
   "resolutions": {
+    "optionator": "^0.9.3",
     "semver": "^7.5.3"
   },
   "msw": {
