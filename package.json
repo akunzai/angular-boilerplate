@@ -2,7 +2,7 @@
   "name": "angular-boilerplate",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "yarn@3.6.2",
+  "packageManager": "yarn@3.6.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
