@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { RouterOutlet } from '@angular/router';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import enTranslations from '../locales/en.json';
+import zhHantTranslations from '../locales/zh-Hant.json';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +15,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 export class AppComponent {
   title = document.title;
   constructor(public translate: TranslateService) {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    translate.setTranslation('en', require('../locales/en.json'));
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    translate.setTranslation('zh-Hant', require('../locales/zh-Hant.json'));
+    translate.setTranslation('en', enTranslations);
+    translate.setTranslation('zh-Hant', zhHantTranslations);
     translate.addLangs(['en', 'zh-Hant']);
     translate.setDefaultLang('en');
     const locale = localStorage.getItem('locale');
