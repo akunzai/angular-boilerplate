@@ -1,14 +1,22 @@
 /** @type {import('@jest/types').Config.InitialOptions} */
 module.exports = {
   preset: "jest-preset-angular",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   collectCoverageFrom: [
     "src/app/**/*.ts",
-    "!src/app/**/*.spec.ts",
+    "!src/app/**/*.spec.js",
     "!src/app/app.module.ts",
     "!src/app/types.ts",
     "!src/environment/*.ts",
-    "!src/mocks/*.ts",
-    "!jest.global-mocks.ts",
+    "!src/mocks/*.js",
   ],
+  testEnvironmentOptions: {
+    customExportConditions: [''],
+  },
+  globals: {
+    Request,
+    Response,
+    TextEncoder,
+    TextDecoder
+  },
 };

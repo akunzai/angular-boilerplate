@@ -4,17 +4,18 @@ import { RouterTestingModule } from '@angular/router/testing';
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule
+  TranslateModule,
 } from '@ngx-translate/core';
 import {
   fireEvent,
   render,
   screen,
   waitFor,
-  waitForElementToBeRemoved
+  waitForElementToBeRemoved,
 } from '@testing-library/angular';
+import { http, HttpResponse } from 'msw';
 import userEvent from '@testing-library/user-event';
-import { rest, server } from '../../mocks/server';
+import { server } from '../../mocks/server';
 import { Todo } from '../types';
 import { TodoListComponent } from './todo-list.component';
 
@@ -45,7 +46,7 @@ test('should renders as expected', async () => {
 
   const inputs = screen
     .getAllByRole('checkbox')
-    .map((x) => x as HTMLInputElement);
+    .map((x) => x);
   expect(inputs.length).toBe(3);
   expect(inputs[0].checked).toBeTruthy();
   expect(inputs[1].checked).toBeFalsy();
@@ -54,16 +55,14 @@ test('should renders as expected', async () => {
 
 test('should remove item when delete button clicked', async () => {
   server.use(
-    rest.delete('/api/todos/3', (req, res, ctx) => {
-      return res(ctx.status(200));
+    http.delete('/api/todos/3', () => {
+      return new HttpResponse(null, { status: 200 });
     }),
-    rest.get('/api/todos', (req, res, ctx) => {
-      return res(
-        ctx.json([
-          new Todo(1, 'Pay bills', '', true),
-          new Todo(2, 'Read a book'),
-        ])
-      );
+    http.get('/api/todos', () => {
+      return HttpResponse.json([
+        new Todo(1, 'Pay bills', '', true),
+        new Todo(2, 'Read a book'),
+      ]);
     })
   );
   const buttons = screen.getAllByRole('button', { name: /Close/i });

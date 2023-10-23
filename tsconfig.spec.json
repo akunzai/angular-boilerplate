@@ -3,9 +3,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
+    "module": "CommonJS",
     "types": ["jest", "node", "@testing-library/jest-dom"],
     "esModuleInterop": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    // Angular doesn't support native async/await in testing with target higher than ES2016
+    // https://github.com/angular/components/issues/21632#issuecomment-764975917
+    "target": "ES2016",
   },
   "files": ["src/polyfills.ts"],
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]

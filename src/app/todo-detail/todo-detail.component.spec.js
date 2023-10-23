@@ -79,13 +79,13 @@ describe('with Todo', () => {
   test('should renders as expected', async () => {
     const title = screen.getByRole('textbox', {
       name: /Title/i,
-    }) as HTMLInputElement;
+    });
     expect(title.value).toBe('Pay bills');
     const description = await screen.findByRole('textbox', {
       name: /Description/i,
     });
     expect(description.textContent).toBe('');
-    const done = screen.getByRole('checkbox') as HTMLInputElement;
+    const done = screen.getByRole('checkbox');
     expect(done.checked).toBeTruthy();
   });
 

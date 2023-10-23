@@ -1,10 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { rest, server } from '../mocks/server';
+import { http, HttpResponse } from 'msw';
+import { server } from '../mocks/server';
 import TodoService from './todo.service';
 import { Todo } from './types';
 
-let service: TodoService;
+let service;
 
 beforeAll(() => {
   jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
@@ -28,8 +29,8 @@ describe('getTodoList', () => {
 
   test('should return empty result on errors', (done) => {
     server.use(
-      rest.get('/api/todos', (req, res, ctx) => {
-        return res(ctx.status(404));
+      http.get('/api/todos', () => {
+        return new HttpResponse(null, { status: 404 });
       })
     );
     service.getTodoList().subscribe((values) => {
@@ -61,7 +62,7 @@ describe('getTodo', () => {
 
 describe('addTodo', () => {
   test('should generated id and response as requested with title', (done) => {
-    const expected = { title: 'Foo' } as Todo;
+    const expected = { title: 'Foo' };
     service.addTodo(expected).subscribe((actual) => {
       done();
       expect(actual.id).toBeGreaterThan(0);
@@ -73,11 +74,11 @@ describe('addTodo', () => {
 
   test('should return undefined on errors', (done) => {
     server.use(
-      rest.post('/api/todos', (req, res, ctx) => {
-        return res(ctx.status(400));
+      http.post('/api/todos', () => {
+        return new HttpResponse(null, { status: 400 });
       })
     );
-    const todo = { title: '' } as Todo;
+    const todo = { title: '' };
     service.addTodo(todo).subscribe((value) => {
       done();
       expect(value).toBeUndefined();
@@ -102,8 +103,8 @@ describe('updateTodo', () => {
 
   test('should call console.error on errors', (done) => {
     server.use(
-      rest.put('/api/todos/999', (req, res, ctx) => {
-        return res(ctx.status(404));
+      http.put('/api/todos/999', () => {
+        return new HttpResponse(null, { status: 404 });
       })
     );
     const todo = new Todo(999, 'NotFound');
@@ -118,11 +119,12 @@ describe('updateTodo', () => {
 describe('deleteTodo', () => {
   test('should cannot retrieve it as expected', (done) => {
     server.use(
-      rest.delete('/api/todos/123', (req, res, ctx) => {
-        return res(ctx.json(req.body));
+      http.delete('/api/todos/123', async ({ request }) => {
+        const item = await request.json();
+        return HttpResponse.json(item);
       }),
-      rest.get('/api/todos/123', (req, res, ctx) => {
-        return res(ctx.status(404));
+      http.get('/api/todos/123', () => {
+        return new HttpResponse(null, { status: 404 });
       })
     );
     const todo = new Todo(123, '');
@@ -136,8 +138,8 @@ describe('deleteTodo', () => {
 
   test('should return undefined on errors', (done) => {
     server.use(
-      rest.delete('/api/todos/456', (req, res, ctx) => {
-        return res(ctx.status(500));
+      http.delete('/api/todos/456', () => {
+        return new HttpResponse(null, { status: 500 });
       })
     );
     const todo = new Todo(456, '');
