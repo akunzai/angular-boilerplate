@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import 'jest-preset-angular/setup-jest';
-import './jest.global-mocks';
+import './jest.polyfills';
 import { server } from './src/mocks/server';
 
 beforeAll(() => {
