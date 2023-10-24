@@ -1,28 +1,18 @@
-Object.defineProperty(document, 'doctype', {
-  value: '<!DOCTYPE html>',
-});
-Object.defineProperty(window, 'matchMedia', {
-  writable: true,
-  value: jest.fn().mockImplementation(query => ({
-    matches: false,
-    media: query,
-    onchange: null,
-    addListener: jest.fn(), // deprecated
-    removeListener: jest.fn(), // deprecated
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
-  })),
-});
-/**
- * ISSUE: https://github.com/angular/material2/issues/7101
- * Workaround for JSDOM missing transform property
- */
-Object.defineProperty(document.body.style, 'transform', {
-  value: () => {
-    return {
-      enumerable: true,
-      configurable: true,
-    };
-  },
-});
+import { TextDecoder, TextEncoder } from 'node:util'
+
+Object.defineProperties(globalThis, {
+  TextDecoder: { value: TextDecoder },
+  TextEncoder: { value: TextEncoder },
+})
+
+import { Blob } from 'node:buffer'
+import { fetch, Headers, FormData, Request, Response } from 'undici'
+
+Object.defineProperties(globalThis, {
+  fetch: { value: fetch, writable: true },
+  Blob: { value: Blob },
+  Headers: { value: Headers },
+  FormData: { value: FormData },
+  Request: { value: Request },
+  Response: { value: Response },
+})
