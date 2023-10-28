@@ -4,17 +4,18 @@ import { RouterTestingModule } from '@angular/router/testing';
 import {
   TranslateFakeLoader,
   TranslateLoader,
-  TranslateModule
+  TranslateModule,
 } from '@ngx-translate/core';
 import {
   fireEvent,
   render,
   screen,
   waitFor,
-  waitForElementToBeRemoved
+  waitForElementToBeRemoved,
 } from '@testing-library/angular';
+import { http, HttpResponse } from 'msw';
 import userEvent from '@testing-library/user-event';
-import { rest, server } from '../../mocks/server';
+import { server } from '../../mocks/server';
 import { Todo } from '../types';
 import { TodoListComponent } from './todo-list.component';
 
@@ -30,11 +31,10 @@ beforeEach(async () => {
       }),
     ],
   });
-  await waitFor(() => expect(screen.getAllByRole('link').length).toBe(3));
 });
 
 test('should renders as expected', async () => {
-  const links = screen.getAllByRole('link');
+  const links = await screen.findAllByRole('link');
   expect(links.length).toBe(3);
   expect(links[0].textContent).toContain('Pay bills');
   expect(links[0].getAttribute('href')).toBe('/todo/1');
@@ -45,7 +45,7 @@ test('should renders as expected', async () => {
 
   const inputs = screen
     .getAllByRole('checkbox')
-    .map((x) => x as HTMLInputElement);
+    .map((x) => x);
   expect(inputs.length).toBe(3);
   expect(inputs[0].checked).toBeTruthy();
   expect(inputs[1].checked).toBeFalsy();
@@ -54,19 +54,17 @@ test('should renders as expected', async () => {
 
 test('should remove item when delete button clicked', async () => {
   server.use(
-    rest.delete('/api/todos/3', (req, res, ctx) => {
-      return res(ctx.status(200));
+    http.delete('/api/todos/3', () => {
+      return new HttpResponse(null, { status: 200 });
     }),
-    rest.get('/api/todos', (req, res, ctx) => {
-      return res(
-        ctx.json([
-          new Todo(1, 'Pay bills', '', true),
-          new Todo(2, 'Read a book'),
-        ])
-      );
+    http.get('/api/todos', () => {
+      return HttpResponse.json([
+        new Todo(1, 'Pay bills', '', true),
+        new Todo(2, 'Read a book'),
+      ]);
     })
   );
-  const buttons = screen.getAllByRole('button', { name: /Close/i });
+  const buttons = await screen.findAllByRole('button', { name: /Close/i });
   fireEvent.click(buttons[2]);
   await waitForElementToBeRemoved(
     screen.getByRole('link', { name: /Buy eggs/ })
@@ -75,7 +73,7 @@ test('should remove item when delete button clicked', async () => {
 });
 
 test('should update item when checkbox checked', async () => {
-  const inputs = screen.getAllByRole('checkbox');
+  const inputs = await screen.findAllByRole('checkbox');
   fireEvent.click(inputs[2]);
   await waitFor(() => {
     expect(screen.getAllByRole('link')[2].getAttribute('class')).toContain(
@@ -85,18 +83,18 @@ test('should update item when checkbox checked', async () => {
 });
 
 test('should not add item without any input', async () => {
-  fireEvent.click(screen.getByRole('button', { name: /Add/i }));
+  fireEvent.click(await screen.findByRole('button', { name: /Add/i }));
   expect((await screen.findAllByRole('link')).length).toBe(3);
 });
 
 test('should not add item with blank input', async () => {
-  await userEvent.type(screen.getByRole('textbox'), '   ');
+  await userEvent.type(await screen.findByRole('textbox'), '   ');
   fireEvent.click(screen.getByRole('button', { name: /Add/i }));
   expect((await screen.findAllByRole('link')).length).toBe(3);
 });
 
 test('should add item and clears the input', async () => {
-  await userEvent.type(screen.getByRole('textbox'), 'Test');
+  await userEvent.type(await screen.findByRole('textbox'), 'Test');
   fireEvent.click(screen.getByRole('button', { name: /Add/i }));
   await waitFor(() => expect(screen.getByText('Test')).toBeInTheDocument());
   const link = screen.getByRole('link', { name: /Test/i });
