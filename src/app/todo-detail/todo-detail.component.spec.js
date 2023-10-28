@@ -71,13 +71,10 @@ describe('with Todo', () => {
         { provide: Location, useFactory: () => location },
       ],
     });
-    await waitFor(() => {
-      expect(screen.getByDisplayValue('Pay bills')).toBeInTheDocument();
-    });
   });
 
   test('should renders as expected', async () => {
-    const title = screen.getByRole('textbox', {
+    const title = await screen.findByRole('textbox', {
       name: /Title/i,
     });
     expect(title.value).toBe('Pay bills');

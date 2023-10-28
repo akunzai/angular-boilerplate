@@ -23,19 +23,19 @@ beforeEach(async () => {
   });
 });
 
-test('should render with title: Test', () => {
-  expect(screen.getByText('Test')).toBeInTheDocument();
+test('should render with title: Test', async () => {
+  expect(await screen.findByText('Test')).toBeInTheDocument();
 });
 
-test('support to toggle navigation', () => {
-  const navbar = screen.getByRole('menu');
+test('support to toggle navigation', async () => {
+  const navbar = await screen.findByRole('menu');
   expect(navbar.getAttribute('class')).not.toContain('show');
   fireEvent.click(screen.getByRole('button', { name: /Toggle navigation/i }));
   expect(navbar.getAttribute('class')).toContain('show');
 });
 
-test('support to switch languages', () => {
-  fireEvent.click(screen.getByRole('button', { name: /Toggle Languages/i }));
+test('support to switch languages', async () => {
+  fireEvent.click(await screen.findByRole('button', { name: /Toggle Languages/i }));
   fireEvent.click(screen.getByRole('button', { name: /English/i }));
   expect(localStorage.getItem('locale')).toBe('en');
   fireEvent.click(screen.getByRole('button', { name: /中文/i }));
