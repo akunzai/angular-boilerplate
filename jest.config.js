@@ -10,13 +10,8 @@ module.exports = {
     "!src/environment/*.ts",
     "!src/mocks/*.js",
   ],
+  testEnvironment: "./jest.environment.js",
   testEnvironmentOptions: {
     customExportConditions: [''],
-  },
-  globals: {
-    Request,
-    Response,
-    TextEncoder,
-    TextDecoder
-  },
+  }
 };

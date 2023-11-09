@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { http, HttpResponse } from 'msw';
-import { server } from '../mocks/server';
+import { server } from '../mocks/node';
 import TodoService from './todo.service';
 import { Todo } from './types';
 
@@ -36,7 +36,7 @@ describe('getTodoList', () => {
     service.getTodoList().subscribe((values) => {
       done();
       expect(values).toStrictEqual([]);
-      expect(console.error).toBeCalled();
+      expect(console.error).toHaveBeenCalled();
     });
   });
 });
@@ -55,7 +55,7 @@ describe('getTodo', () => {
     service.getTodo(123).subscribe((value) => {
       done();
       expect(value).toBeUndefined();
-      expect(console.error).toBeCalled();
+      expect(console.error).toHaveBeenCalled();
     });
   });
 });
@@ -82,7 +82,7 @@ describe('addTodo', () => {
     service.addTodo(todo).subscribe((value) => {
       done();
       expect(value).toBeUndefined();
-      expect(console.error).toBeCalled();
+      expect(console.error).toHaveBeenCalled();
     });
   });
 });
@@ -111,7 +111,7 @@ describe('updateTodo', () => {
     service.updateTodo(todo).subscribe((value) => {
       done();
       expect(value).toBeUndefined();
-      expect(console.error).toBeCalled();
+      expect(console.error).toHaveBeenCalled();
     });
   });
 });
@@ -146,7 +146,7 @@ describe('deleteTodo', () => {
     service.deleteTodo(todo).subscribe((res) => {
       done();
       expect(res).toBeUndefined();
-      expect(console.error).toBeCalled();
+      expect(console.error).toHaveBeenCalled();
     });
   });
 });
