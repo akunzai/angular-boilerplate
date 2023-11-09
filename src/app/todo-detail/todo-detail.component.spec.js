@@ -88,7 +88,7 @@ describe('with Todo', () => {
 
   test('should goes back when close button clicked', async () => {
     fireEvent.click(await screen.findByRole('button', { name: /Close/i }));
-    expect(location.back).toBeCalled();
+    expect(location.back).toHaveBeenCalled();
   });
 
   test('should update values and goes back when form submitted', async () => {
@@ -98,6 +98,6 @@ describe('with Todo', () => {
     await userEvent.clear(input);
     await userEvent.type(input, 'Test');
     fireEvent.click(screen.getByRole('button', { name: /Save/i }));
-    expect(location.back).toBeCalled();
+    expect(location.back).toHaveBeenCalled();
   });
 });
