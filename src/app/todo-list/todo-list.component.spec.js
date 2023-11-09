@@ -15,7 +15,7 @@ import {
 } from '@testing-library/angular';
 import { http, HttpResponse } from 'msw';
 import userEvent from '@testing-library/user-event';
-import { server } from '../../mocks/server';
+import { server } from '../../mocks/node';
 import { Todo } from '../types';
 import { TodoListComponent } from './todo-list.component';
 

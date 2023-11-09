@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { http, HttpResponse } from 'msw';
-import { server } from '../mocks/server';
+import { server } from '../mocks/node';
 import TodoService from './todo.service';
 import { Todo } from './types';
 
