@@ -3001,18 +3001,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/angular@npm:^14.5.0":
-  version: 14.5.0
-  resolution: "@testing-library/angular@npm:14.5.0"
+"@testing-library/angular@npm:^15.0.0":
+  version: 15.0.0
+  resolution: "@testing-library/angular@npm:15.0.0"
   dependencies:
     "@testing-library/dom": "npm:^9.0.0"
     tslib: "npm:^2.3.1"
   peerDependencies:
-    "@angular/common": ">= 15.1.0 || >= 16.0.0 || >= 17.0.0"
-    "@angular/core": ">= 15.1.0 || >= 16.0.0 || >= 17.0.0"
-    "@angular/platform-browser": ">= 15.1.0 || >= 16.0.0 || >= 17.0.0"
-    "@angular/router": ">= 15.1.0 || >= 16.0.0 || >= 17.0.0"
-  checksum: a75af034e246c6bde5b740e0d3f0c267b958849ff3aaee27585bef1407b1dbe7de592771c4f2d3fc0ea12e75e98ffda2400d6c0f81d606e97da72c1eeb64aa38
+    "@angular/common": ">= 17.0.0"
+    "@angular/core": ">= 17.0.0"
+    "@angular/platform-browser": ">= 17.0.0"
+    "@angular/router": ">= 17.0.0"
+  checksum: b4fa7c1b7a0dc59eab5ea24e046d6cc282b0ec3bb4912f1fd4568f0b25f2b8eb11fd88e280bf58484eb77ef0f7c79601da964198a8b083ee4e43914493b81f62
   languageName: node
   linkType: hard
 
@@ -4101,7 +4101,7 @@ __metadata:
     "@angular/router": "npm:^17.0.4"
     "@biesbjerg/ngx-translate-extract": "npm:^7.0.4"
     "@ngx-translate/core": "npm:^15.0.0"
-    "@testing-library/angular": "npm:^14.5.0"
+    "@testing-library/angular": "npm:^15.0.0"
     "@testing-library/jest-dom": "npm:^6.1.4"
     "@testing-library/user-event": "npm:^14.5.1"
     "@types/debug": "npm:^4.1.12"
