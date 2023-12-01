@@ -442,19 +442,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser@npm:^17.0.4":
-  version: 17.0.4
-  resolution: "@angular/platform-browser@npm:17.0.4"
+"@angular/platform-browser@npm:^17.0.5":
+  version: 17.0.5
+  resolution: "@angular/platform-browser@npm:17.0.5"
   dependencies:
     tslib: "npm:^2.3.0"
   peerDependencies:
-    "@angular/animations": 17.0.4
-    "@angular/common": 17.0.4
-    "@angular/core": 17.0.4
+    "@angular/animations": 17.0.5
+    "@angular/common": 17.0.5
+    "@angular/core": 17.0.5
   peerDependenciesMeta:
     "@angular/animations":
       optional: true
-  checksum: f171c72c3ce3e0bc88429f4bed60aea4efbf8aa5ed380e3245d0d53e2bcb4e9a1e1a9a681c2cd88fd0502c67d3e99bdc6a971d700c067e922f708e8e0b2c1947
+  checksum: 060dad32e89ca73e9faa0eafd1403ed5b1d1f60bccaa52802c3e9786e88bb63e9447da5aabdb93fcd82d8e0adebb1d22357513524703af7bf52b589a7b0171cf
   languageName: node
   linkType: hard
 
@@ -4134,7 +4134,7 @@ __metadata:
     "@angular/compiler-cli": "npm:^17.0.4"
     "@angular/core": "npm:^17.0.4"
     "@angular/forms": "npm:^17.0.4"
-    "@angular/platform-browser": "npm:^17.0.4"
+    "@angular/platform-browser": "npm:^17.0.5"
     "@angular/platform-browser-dynamic": "npm:^17.0.5"
     "@angular/router": "npm:^17.0.4"
     "@biesbjerg/ngx-translate-extract": "npm:^7.0.4"
