@@ -14,7 +14,7 @@
     "i18n:extract": "ngx-translate-extract -i ./src -o ./src/locales/{en,zh-Hant}.json --null-as-default-value --sort --clean"
   },
   "dependencies": {
-    "@angular/animations": "^17.0.4",
+    "@angular/animations": "^17.0.5",
     "@angular/common": "^17.0.4",
     "@angular/compiler": "^17.0.4",
     "@angular/core": "^17.0.4",
