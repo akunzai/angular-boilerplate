@@ -399,17 +399,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser-dynamic@npm:^17.0.4":
-  version: 17.0.4
-  resolution: "@angular/platform-browser-dynamic@npm:17.0.4"
+"@angular/platform-browser-dynamic@npm:^17.0.5":
+  version: 17.0.5
+  resolution: "@angular/platform-browser-dynamic@npm:17.0.5"
   dependencies:
     tslib: "npm:^2.3.0"
   peerDependencies:
-    "@angular/common": 17.0.4
-    "@angular/compiler": 17.0.4
-    "@angular/core": 17.0.4
-    "@angular/platform-browser": 17.0.4
-  checksum: 8738e10825d1e8087483b3bbbb9bf7c69a7fb861bd783e5ca3670cf394f5c4a666643537319d9c004c586930a8cfeb9b23d3479e24c2f420aad3d51c0ee0df0b
+    "@angular/common": 17.0.5
+    "@angular/compiler": 17.0.5
+    "@angular/core": 17.0.5
+    "@angular/platform-browser": 17.0.5
+  checksum: f565d58f043dae1e91f339617098ea56f4108b8a75fac9929dcdd168542190664bbe27d1d1bff59eccbb25396c9a315b9cf9854017c5f3a0d4f137ed6d6437ea
   languageName: node
   linkType: hard
 
@@ -4097,7 +4097,7 @@ __metadata:
     "@angular/core": "npm:^17.0.4"
     "@angular/forms": "npm:^17.0.4"
     "@angular/platform-browser": "npm:^17.0.4"
-    "@angular/platform-browser-dynamic": "npm:^17.0.4"
+    "@angular/platform-browser-dynamic": "npm:^17.0.5"
     "@angular/router": "npm:^17.0.4"
     "@biesbjerg/ngx-translate-extract": "npm:^7.0.4"
     "@ngx-translate/core": "npm:^15.0.0"
