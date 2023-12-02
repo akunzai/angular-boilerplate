@@ -458,17 +458,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/router@npm:^17.0.4":
-  version: 17.0.4
-  resolution: "@angular/router@npm:17.0.4"
+"@angular/router@npm:^17.0.5":
+  version: 17.0.5
+  resolution: "@angular/router@npm:17.0.5"
   dependencies:
     tslib: "npm:^2.3.0"
   peerDependencies:
-    "@angular/common": 17.0.4
-    "@angular/core": 17.0.4
-    "@angular/platform-browser": 17.0.4
+    "@angular/common": 17.0.5
+    "@angular/core": 17.0.5
+    "@angular/platform-browser": 17.0.5
     rxjs: ^6.5.3 || ^7.4.0
-  checksum: 5901ce4fc336991d506c94dbabbc4cc48c58b7f85204cac83597c261a38c62ca6a7de88f96f357b575dab300362757b6f17781359e2257b4c55d5394a506c9bc
+  checksum: ed5f8dda6539b511b0131d8822071fb07265fd56b1e78cb299afd5e1adf19cf25ffe915b52b3db7b4565afce7ce3c87dbc5dc971185aba4b20e9b162f091dbc0
   languageName: node
   linkType: hard
 
@@ -4136,7 +4136,7 @@ __metadata:
     "@angular/forms": "npm:^17.0.5"
     "@angular/platform-browser": "npm:^17.0.5"
     "@angular/platform-browser-dynamic": "npm:^17.0.5"
-    "@angular/router": "npm:^17.0.4"
+    "@angular/router": "npm:^17.0.5"
     "@biesbjerg/ngx-translate-extract": "npm:^7.0.4"
     "@ngx-translate/core": "npm:^15.0.0"
     "@testing-library/angular": "npm:^15.0.0"
