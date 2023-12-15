@@ -2,7 +2,7 @@
   "name": "angular-boilerplate",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "pnpm@8.12.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -55,9 +55,10 @@
     "typescript": "~5.2.2",
     "undici": "^5.27.2"
   },
-  "resolutions": {
-    "axios": "^1.6.2",
-    "jest-environment-jsdom": "^29.7.0"
+  "pnpm": {
+    "overrides": {
+      "axios": "^1.6.2"
+    }
   },
   "msw": {
     "workerDirectory": "src"

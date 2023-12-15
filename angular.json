@@ -112,7 +112,7 @@
     "schematicCollections": [
       "@angular-eslint/schematics"
     ],
-    "packageManager": "yarn",
+    "packageManager": "pnpm",
     "analytics": false
   }
 }
