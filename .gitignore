@@ -43,12 +43,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
