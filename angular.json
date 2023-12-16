@@ -88,10 +88,10 @@
           "options": {},
           "configurations": {
             "development": {
-              "browserTarget": "angular-boilerplate:build:development"
+              "buildTarget": "angular-boilerplate:build:development"
             },
             "production": {
-              "browserTarget": "angular-boilerplate:build:production"
+              "buildTarget": "angular-boilerplate:build:production"
             }
           },
           "defaultConfiguration": "development"
