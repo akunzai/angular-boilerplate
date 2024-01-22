@@ -7,7 +7,7 @@
 [codecov]: https://codecov.io/gh/akunzai/angular-boilerplate
 [codecov-badge]: https://codecov.io/gh/akunzai/angular-boilerplate/branch/main/graph/badge.svg?token=YXI83KW11M
 
-[Angular](http://angular.io/) boilerplate to kick-start new project with SCSS + Bootstrap
+[Angular](http://angular.io/) boilerplate to kick-start new project with CSS + Bootstrap
 
 ## Requirement
 

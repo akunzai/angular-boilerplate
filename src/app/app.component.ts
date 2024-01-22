@@ -8,7 +8,7 @@ import zhHantTranslations from '../locales/zh-Hant.json';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.css'],
   standalone: true,
   imports: [NavMenuComponent, RouterOutlet],
 })

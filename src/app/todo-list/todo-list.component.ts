@@ -14,7 +14,7 @@ import { NgFor, NgClass } from '@angular/common';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss'],
+  styleUrls: ['./todo-list.component.css'],
   standalone: true,
   imports: [
     FormsModule,
