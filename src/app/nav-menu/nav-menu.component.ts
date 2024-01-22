@@ -7,7 +7,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.scss'],
+  styleUrls: ['./nav-menu.component.css'],
   standalone: true,
   imports: [RouterLink, NgClass, RouterLinkActive, ClickOutsideDirective],
 })

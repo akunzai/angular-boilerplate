@@ -14,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-todo-detail',
   templateUrl: './todo-detail.component.html',
-  styleUrls: ['./todo-detail.component.scss'],
+  styleUrls: ['./todo-detail.component.css'],
   standalone: true,
   imports: [NgIf, FormsModule, ReactiveFormsModule, TranslateModule],
 })

@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
     selector: 'app-counter',
     templateUrl: './counter.component.html',
-    styleUrls: ['./counter.component.scss'],
+    styleUrls: ['./counter.component.css'],
     standalone: true,
     imports: [TranslateModule]
 })
