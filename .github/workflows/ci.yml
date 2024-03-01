@@ -27,7 +27,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Get pnpm store directory
         shell: bash
