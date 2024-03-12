@@ -1,9 +1,9 @@
 # My Angular Boilerplate
 
-[![Build Status][ci-badge]][ci] [![Code Coverage][codecov-badge]][codecov]
+[![Build Status][build-badge]][build] [![Code Coverage][codecov-badge]][codecov]
 
-[ci]: https://github.com/akunzai/angular-boilerplate/actions?query=workflow%3ACI
-[ci-badge]: https://github.com/akunzai/angular-boilerplate/workflows/CI/badge.svg
+[build]: https://github.com/akunzai/angular-boilerplate/actions/workflows/build.yml
+[build-badge]: https://github.com/akunzai/angular-boilerplate/actions/workflows/build.yml/badge.svg
 [codecov]: https://codecov.io/gh/akunzai/angular-boilerplate
 [codecov-badge]: https://codecov.io/gh/akunzai/angular-boilerplate/branch/main/graph/badge.svg?token=YXI83KW11M
 
