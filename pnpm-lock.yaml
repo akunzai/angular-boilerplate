@@ -67,8 +67,8 @@ devDependencies:
     specifier: ^17.3.0
     version: 17.3.0(eslint@8.57.0)(typescript@5.3.3)
   '@angular-eslint/eslint-plugin':
-    specifier: ^17.2.1
-    version: 17.2.1(eslint@8.57.0)(typescript@5.3.3)
+    specifier: ^17.3.0
+    version: 17.3.0(eslint@8.57.0)(typescript@5.3.3)
   '@angular-eslint/eslint-plugin-template':
     specifier: ^17.2.1
     version: 17.2.1(eslint@8.57.0)(typescript@5.3.3)
@@ -422,6 +422,20 @@ packages:
       - supports-color
     dev: true
 
+  /@angular-eslint/eslint-plugin@17.3.0(eslint@8.57.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-81cQbOEPoQupFX8WmpqZn+y8VA7JdVRGBtt+uJNKBXcJknTpPWdLBZRFlgVakmC24iEZ0Fint/N3NBBQI3mz2A==}
+    peerDependencies:
+      eslint: ^7.20.0 || ^8.0.0
+      typescript: '*'
+    dependencies:
+      '@angular-eslint/utils': 17.3.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/utils': 7.2.0(eslint@8.57.0)(typescript@5.3.3)
+      eslint: 8.57.0
+      typescript: 5.3.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@angular-eslint/schematics@17.2.1(@angular/cli@17.3.0)(eslint@8.57.0)(typescript@5.3.3):
     resolution: {integrity: sha512-7ldtIePI4ZTp/TBpeOZkzfv30HSAn//4TgtFuqvojudI8n8batV5FqQ0VNm1e0zitl75t8Zwtr0KYT4I6vh59g==}
     peerDependencies:
@@ -464,6 +478,20 @@ packages:
     dependencies:
       '@angular-eslint/bundled-angular-compiler': 17.2.1
       '@typescript-eslint/utils': 6.19.0(eslint@8.57.0)(typescript@5.3.3)
+      eslint: 8.57.0
+      typescript: 5.3.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@angular-eslint/utils@17.3.0(eslint@8.57.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-PJT9pxWqpvI9OXO+7L5SIVhvMW+RFjeafC7PYjtvSbNFpz+kF644BiAcfMJ0YqBnkrw3JXt+RAX25CT4mXIoXw==}
+    peerDependencies:
+      eslint: ^7.20.0 || ^8.0.0
+      typescript: '*'
+    dependencies:
+      '@angular-eslint/bundled-angular-compiler': 17.3.0
+      '@typescript-eslint/utils': 7.2.0(eslint@8.57.0)(typescript@5.3.3)
       eslint: 8.57.0
       typescript: 5.3.3
     transitivePeerDependencies:
