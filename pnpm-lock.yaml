@@ -64,8 +64,8 @@ devDependencies:
     specifier: ^17.2.2
     version: 17.2.2(@angular/compiler-cli@17.2.1)(@angular/localize@17.2.1)(@types/node@20.11.24)(jest@29.7.0)(typescript@5.3.3)
   '@angular-eslint/builder':
-    specifier: ^17.2.1
-    version: 17.2.1(eslint@8.57.0)(typescript@5.3.3)
+    specifier: ^17.3.0
+    version: 17.3.0(eslint@8.57.0)(typescript@5.3.3)
   '@angular-eslint/eslint-plugin':
     specifier: ^17.2.1
     version: 17.2.1(eslint@8.57.0)(typescript@5.3.3)
@@ -366,8 +366,8 @@ packages:
       - chokidar
     dev: true
 
-  /@angular-eslint/builder@17.2.1(eslint@8.57.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-O30eaR0wCPiP+zKWvXj2JM8hVq30Wok2rp7zJMFm3PurjF9nWIIyexXkE5fa538DYZYxu8N3gQRqhpv5jvTXCg==}
+  /@angular-eslint/builder@17.3.0(eslint@8.57.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-JXSZE7+KA3UGU6jwc0v9lwOIMptosrvLIOXGlXqrhHWEXfkfu3ENPq1Lm3K8jLndQ57XueEhC+Nab/AuUiWA/Q==}
     peerDependencies:
       eslint: ^7.20.0 || ^8.0.0
       typescript: '*'
