@@ -133,8 +133,8 @@ devDependencies:
     specifier: ~5.3.3
     version: 5.3.3
   undici:
-    specifier: ^6.6.2
-    version: 6.6.2
+    specifier: ^6.9.0
+    version: 6.9.0
 
 packages:
 
@@ -9633,6 +9633,11 @@ packages:
     engines: {node: '>=18.0'}
     dependencies:
       '@fastify/busboy': 2.1.0
+    dev: true
+
+  /undici@6.9.0:
+    resolution: {integrity: sha512-XPWfXzJedevUziHwun70EKNvGnxv4CnfraFZ4f/JV01+fcvMYzHE26r/j8AY/9c/70nkN4B1zX7E2Oyuqwz4+Q==}
+    engines: {node: '>=18.0'}
     dev: true
 
   /unicode-canonical-property-names-ecmascript@2.0.0:
