@@ -73,8 +73,8 @@ devDependencies:
     specifier: ^17.2.1
     version: 17.2.1(eslint@8.57.0)(typescript@5.3.3)
   '@angular-eslint/schematics':
-    specifier: ^17.2.1
-    version: 17.2.1(@angular/cli@17.3.0)(eslint@8.57.0)(typescript@5.3.3)
+    specifier: ^17.3.0
+    version: 17.3.0(@angular/cli@17.3.0)(eslint@8.57.0)(typescript@5.3.3)
   '@angular-eslint/template-parser':
     specifier: ^17.3.0
     version: 17.3.0(eslint@8.57.0)(typescript@5.3.3)
@@ -408,14 +408,18 @@ packages:
       - supports-color
     dev: true
 
-  /@angular-eslint/eslint-plugin@17.2.1(eslint@8.57.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-9yA81BHpsaCUKRBtHGN3ieAy8HpIoffzPQMu34lYqZFT4yGHGhYmhQjNSQGBRbV2LD9dVv2U35rMHNmUcozXpw==}
+  /@angular-eslint/eslint-plugin-template@17.3.0(eslint@8.57.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-9l/aRfpE9MCRVDWRb+rSB9Zei0paep1vqV6M/87VUnzBnzqeMRnVuPvQowilh2zweVSGKBF25Vp4HkwOL6ExDQ==}
     peerDependencies:
       eslint: ^7.20.0 || ^8.0.0
       typescript: '*'
     dependencies:
-      '@angular-eslint/utils': 17.2.1(eslint@8.57.0)(typescript@5.3.3)
-      '@typescript-eslint/utils': 6.19.0(eslint@8.57.0)(typescript@5.3.3)
+      '@angular-eslint/bundled-angular-compiler': 17.3.0
+      '@angular-eslint/utils': 17.3.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/type-utils': 7.2.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/utils': 7.2.0(eslint@8.57.0)(typescript@5.3.3)
+      aria-query: 5.3.0
+      axobject-query: 4.0.0
       eslint: 8.57.0
       typescript: 5.3.3
     transitivePeerDependencies:
@@ -436,19 +440,19 @@ packages:
       - supports-color
     dev: true
 
-  /@angular-eslint/schematics@17.2.1(@angular/cli@17.3.0)(eslint@8.57.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-7ldtIePI4ZTp/TBpeOZkzfv30HSAn//4TgtFuqvojudI8n8batV5FqQ0VNm1e0zitl75t8Zwtr0KYT4I6vh59g==}
+  /@angular-eslint/schematics@17.3.0(@angular/cli@17.3.0)(eslint@8.57.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-5yssd5EOomxlKt9vN/OXXCTCuI3Pmfj16pkjBDoW0wzC8/M2l5zlXIEfoKumHYv2wtF553LhaMXVYVU35e0lTw==}
     peerDependencies:
       '@angular/cli': '>= 17.0.0 < 18.0.0'
     dependencies:
-      '@angular-eslint/eslint-plugin': 17.2.1(eslint@8.57.0)(typescript@5.3.3)
-      '@angular-eslint/eslint-plugin-template': 17.2.1(eslint@8.57.0)(typescript@5.3.3)
+      '@angular-eslint/eslint-plugin': 17.3.0(eslint@8.57.0)(typescript@5.3.3)
+      '@angular-eslint/eslint-plugin-template': 17.3.0(eslint@8.57.0)(typescript@5.3.3)
       '@angular/cli': 17.3.0
       '@nx/devkit': 17.2.8(nx@17.2.8)
-      ignore: 5.3.0
+      ignore: 5.3.1
       nx: 17.2.8
       strip-json-comments: 3.1.1
-      tmp: 0.2.1
+      tmp: 0.2.3
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -2911,10 +2915,10 @@ packages:
       '@nrwl/devkit': 17.2.8(nx@17.2.8)
       ejs: 3.1.9
       enquirer: 2.3.6
-      ignore: 5.3.0
+      ignore: 5.3.1
       nx: 17.2.8
       semver: 7.5.3
-      tmp: 0.2.1
+      tmp: 0.2.3
       tslib: 2.6.2
     dev: true
 
@@ -5994,7 +5998,7 @@ packages:
       array-union: 2.1.0
       dir-glob: 3.0.1
       fast-glob: 3.3.2
-      ignore: 5.3.0
+      ignore: 5.3.1
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
@@ -6265,6 +6269,11 @@ packages:
 
   /ignore@5.3.0:
     resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
+    engines: {node: '>= 4'}
+    dev: true
+
+  /ignore@5.3.1:
+    resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
     dev: true
 
@@ -8018,7 +8027,7 @@ packages:
       flat: 5.0.2
       fs-extra: 11.2.0
       glob: 7.1.4
-      ignore: 5.3.0
+      ignore: 5.3.1
       jest-diff: 29.7.0
       js-yaml: 4.1.0
       jsonc-parser: 3.2.0
@@ -8031,7 +8040,7 @@ packages:
       string-width: 4.2.3
       strong-log-transformer: 2.1.0
       tar-stream: 2.2.0
-      tmp: 0.2.1
+      tmp: 0.2.3
       tsconfig-paths: 4.2.0
       tslib: 2.6.2
       yargs: 17.7.2
@@ -9509,11 +9518,9 @@ packages:
       os-tmpdir: 1.0.2
     dev: true
 
-  /tmp@0.2.1:
-    resolution: {integrity: sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ==}
-    engines: {node: '>=8.17.0'}
-    dependencies:
-      rimraf: 3.0.2
+  /tmp@0.2.3:
+    resolution: {integrity: sha512-nZD7m9iCPC5g0pYmcaxogYKggSfLsdxl8of3Q/oIbqCqLLIO9IAF0GWjX1z9NZRHPiXv8Wex4yDCaZsgEw0Y8w==}
+    engines: {node: '>=14.14'}
     dev: true
 
   /tmpl@1.0.5:
