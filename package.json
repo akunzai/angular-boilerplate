@@ -2,7 +2,7 @@
   "name": "angular-boilerplate",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,14 +14,14 @@
     "i18n:extract": "ngx-translate-extract -i ./src -o ./src/locales/{en,zh-Hant}.json --null-as-default-value --sort --clean"
   },
   "dependencies": {
-    "@angular/animations": "^17.2.1",
-    "@angular/common": "^17.2.1",
-    "@angular/compiler": "^17.2.1",
-    "@angular/core": "^17.2.1",
-    "@angular/forms": "^17.2.1",
-    "@angular/platform-browser": "^17.2.1",
-    "@angular/platform-browser-dynamic": "^17.2.1",
-    "@angular/router": "^17.2.1",
+    "@angular/animations": "^17.3.1",
+    "@angular/common": "^17.3.1",
+    "@angular/compiler": "^17.3.1",
+    "@angular/core": "^17.3.1",
+    "@angular/forms": "^17.3.1",
+    "@angular/platform-browser": "^17.3.1",
+    "@angular/platform-browser-dynamic": "^17.3.1",
+    "@angular/router": "^17.3.1",
     "@ng-bootstrap/ng-bootstrap": "16.0.0",
     "@ngx-translate/core": "^15.0.0",
     "@popperjs/core": "^2.11.8",
@@ -39,8 +39,8 @@
     "@angular-eslint/schematics": "^17.3.0",
     "@angular-eslint/template-parser": "^17.3.0",
     "@angular/cli": "^17.3.1",
-    "@angular/compiler-cli": "^17.2.1",
-    "@angular/localize": "^17.2.1",
+    "@angular/compiler-cli": "^17.3.1",
+    "@angular/localize": "^17.3.1",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
     "@testing-library/angular": "^15.2.0",
     "@testing-library/jest-dom": "^6.4.2",
@@ -55,14 +55,15 @@
     "jest-preset-angular": "^14.0.3",
     "msw": "^2.2.10",
     "ts-node": "^10.9.2",
-    "typescript": "~5.3.3",
+    "typescript": "~5.4.3",
     "undici": "^6.10.1"
   },
   "pnpm": {
     "overrides": {
-      "axios": "^1.6.7",
-      "socks": "^2.7.3",
-      "vite@>=5.0.0 <=5.0.11": ">=5.0.12"
+      "axios": "^1.6.8",
+      "socks": "^2.8.1",
+      "vite@>=5.0.0 <=5.0.11": ">=5.0.12",
+      "webpack-dev-middleware": "^6.1.2"
     }
   },
   "msw": {
