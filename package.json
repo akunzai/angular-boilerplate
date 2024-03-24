@@ -56,7 +56,7 @@
     "msw": "^2.2.10",
     "ts-node": "^10.9.2",
     "typescript": "~5.3.3",
-    "undici": "^6.9.0"
+    "undici": "^6.10.1"
   },
   "pnpm": {
     "overrides": {
