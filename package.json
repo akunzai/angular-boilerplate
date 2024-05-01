@@ -2,7 +2,7 @@
   "name": "angular-boilerplate",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@9.0.6",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,14 +14,14 @@
     "i18n:extract": "ngx-translate-extract -i ./src -o ./src/locales/{en,zh-Hant}.json --null-as-default-value --sort --clean"
   },
   "dependencies": {
-    "@angular/animations": "^17.3.4",
-    "@angular/common": "^17.3.4",
-    "@angular/compiler": "^17.3.4",
-    "@angular/core": "^17.3.4",
-    "@angular/forms": "^17.3.4",
-    "@angular/platform-browser": "^17.3.4",
-    "@angular/platform-browser-dynamic": "^17.3.4",
-    "@angular/router": "^17.3.4",
+    "@angular/animations": "^17.3.7",
+    "@angular/common": "^17.3.7",
+    "@angular/compiler": "^17.3.7",
+    "@angular/core": "^17.3.7",
+    "@angular/forms": "^17.3.7",
+    "@angular/platform-browser": "^17.3.7",
+    "@angular/platform-browser-dynamic": "^17.3.7",
+    "@angular/router": "^17.3.7",
     "@ng-bootstrap/ng-bootstrap": "16.0.0",
     "@ngx-translate/core": "^15.0.0",
     "@popperjs/core": "^2.11.8",
@@ -29,41 +29,41 @@
     "bootstrap-icons": "^1.11.3",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2",
-    "zone.js": "^0.14.4"
+    "zone.js": "^0.14.5"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.3.4",
+    "@angular-devkit/build-angular": "^17.3.6",
     "@angular-eslint/builder": "^17.3.0",
     "@angular-eslint/eslint-plugin": "^17.3.0",
     "@angular-eslint/eslint-plugin-template": "^17.3.0",
     "@angular-eslint/schematics": "^17.3.0",
     "@angular-eslint/template-parser": "^17.3.0",
-    "@angular/cli": "^17.3.4",
-    "@angular/compiler-cli": "^17.3.4",
-    "@angular/localize": "^17.3.4",
+    "@angular/cli": "^17.3.6",
+    "@angular/compiler-cli": "^17.3.7",
+    "@angular/localize": "^17.3.7",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
-    "@testing-library/angular": "^15.2.0",
+    "@testing-library/angular": "^16.0.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/user-event": "^14.5.2",
     "@types/debug": "^4.1.12",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.12.7",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
+    "@types/node": "^20.12.8",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
     "eslint": "^8.57.0",
     "jest": "~29.7.0",
     "jest-preset-angular": "^14.0.3",
-    "msw": "^2.2.13",
+    "msw": "^2.2.14",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.5",
-    "undici": "^6.13.0"
+    "undici": "^6.15.0"
   },
   "pnpm": {
     "overrides": {
       "axios": "^1.6.8",
-      "socks": "^2.8.1",
-      "vite@>=5.0.0 <=5.0.11": ">=5.0.12",
-      "webpack-dev-middleware": "^6.1.2"
+      "socks": "^2.8.3",
+      "vite@>=5.0.0 <=5.0.11": ">=5.2.10",
+      "webpack-dev-middleware": "^6.1.3"
     }
   },
   "msw": {
