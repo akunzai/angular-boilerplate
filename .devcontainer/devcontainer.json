@@ -1,0 +1,40 @@
+// https://aka.ms/devcontainer.json
+{
+	"name": "Node.js",
+	// https://github.com/devcontainers/images/tree/main/src/javascript-node
+	"image": "mcr.microsoft.com/devcontainers/javascript-node",
+	"workspaceFolder": "/workspace",
+	// https://code.visualstudio.com/remote/advancedcontainers/improve-performance
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"mounts": [
+		"source=${localWorkspaceFolderBasename}-node_modules,target=/workspace/node_modules,type=volume",
+		"source=${localWorkspaceFolderBasename}-pnpm_store,target=/workspace/.pnpm-store,type=volume"
+	],
+	// https://containers.dev/features
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {}
+	},
+	"postCreateCommand": "sudo chown -R node:node .pnpm-store node_modules; . ${NVM_DIR}/nvm.sh && nvm install --lts; corepack enable",
+	"forwardPorts": [
+		4200
+	],
+	"portsAttributes": {
+		"4200": {
+			"label": "Angular Dev Server"
+		}
+	},
+	"otherPortsAttributes": {
+		"onAutoForward": "ignore"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+        "Angular.ng-template",
+				"dbaeumer.vscode-eslint",
+				"mhutchie.git-graph",
+				"pflannery.vscode-versionlens",
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	}
+}

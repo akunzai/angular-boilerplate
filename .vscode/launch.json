@@ -21,7 +21,7 @@
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "runtimeVersion": "18",
+      "runtimeVersion": "20",
       "windows": {
         "program": "${workspaceFolder}/node_modules/jest/bin/jest"
       }

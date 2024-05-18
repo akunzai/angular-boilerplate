@@ -1,3 +1,5 @@
 {
-  "recommendations": ["angular.ng-template"]
+  "recommendations": [
+    "eamodio.gitlens"
+  ]
 }
