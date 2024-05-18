@@ -10,6 +10,7 @@
 
 # dependencies
 /node_modules
+/.pnpm-store
 
 # profiling files
 chrome-profiler-events*.json
@@ -28,6 +29,7 @@ speed-measure-plugin*.json
 .vscode/*
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/settings.json
 .history/*
 
 # misc

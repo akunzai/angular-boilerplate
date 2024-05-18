@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "**/.angular": true,
+    "**/.pnpm-store": true,
+    "**/node_modules": true
+  }
+}
