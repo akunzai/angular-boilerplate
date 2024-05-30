@@ -9,7 +9,6 @@ import {
   Output,
 } from '@angular/core';
 
-// eslint-disable-next-line @angular-eslint/directive-selector
 @Directive({
   selector: '[appClickOutside]',
   standalone: true,
