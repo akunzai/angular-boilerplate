@@ -1,6 +1,6 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import {
   TranslateFakeLoader,
   TranslateLoader,
@@ -16,20 +16,18 @@ import {
 import { http, HttpResponse } from 'msw';
 import userEvent from '@testing-library/user-event';
 import { server } from '../../mocks/node';
-import { Todo } from '../types';
 import { TodoListComponent } from './todo-list.component';
 
 beforeEach(async () => {
   await render(TodoListComponent, {
     imports: [
       FormsModule,
-      HttpClientModule,
       ReactiveFormsModule,
-      RouterTestingModule,
       TranslateModule.forRoot({
         loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
       }),
     ],
+    providers: [provideRouter([]), provideHttpClient(withInterceptorsFromDi())],
   });
 });
 

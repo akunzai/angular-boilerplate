@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
@@ -18,13 +18,13 @@ beforeAll(() => {
 test('without Todo should render nothing', async () => {
   await render(TodoDetailComponent, {
     imports: [
-      HttpClientModule,
       ReactiveFormsModule,
       TranslateModule.forRoot({
         loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
       }),
     ],
     providers: [
+      provideHttpClient(withInterceptorsFromDi()),
       {
         provide: ActivatedRoute,
         useValue: {
@@ -51,13 +51,13 @@ describe('with Todo', () => {
     await render(TodoDetailComponent, {
       imports: [
         FormsModule,
-        HttpClientModule,
         ReactiveFormsModule,
         TranslateModule.forRoot({
           loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
         }),
       ],
       providers: [
+        provideHttpClient(withInterceptorsFromDi()),
         {
           provide: ActivatedRoute,
           useValue: {
