@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { http, HttpResponse } from 'msw';
 import { server } from '../mocks/node';
@@ -13,8 +13,8 @@ beforeAll(() => {
 
 beforeEach(() => {
   TestBed.configureTestingModule({
-    imports: [HttpClientModule],
-    providers: [TodoService],
+    imports: [],
+    providers: [TodoService, provideHttpClient(withInterceptorsFromDi())],
   });
   service = TestBed.inject(TodoService);
 });
