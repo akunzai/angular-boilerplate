@@ -1,4 +1,4 @@
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import {
   TranslateFakeLoader,
   TranslateLoader,
@@ -14,12 +14,11 @@ beforeEach(async () => {
       title: 'Test',
     },
     imports: [
-      RouterTestingModule,
       TranslateModule.forRoot({
         loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
       }),
     ],
-    providers: [TranslateService],
+    providers: [TranslateService, provideRouter([])],
   });
 });
 

@@ -1,4 +1,4 @@
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import {
   TranslateFakeLoader,
   TranslateLoader,
@@ -11,11 +11,11 @@ it('renders without crashing', async () => {
   document.title = 'Angular Boilerplate';
   await render(AppComponent, {
     imports: [
-      RouterTestingModule,
       TranslateModule.forRoot({
         loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
       }),
     ],
+    providers: [provideRouter([])],
   });
   expect(await screen.findByText('Angular Boilerplate')).toBeInTheDocument();
 });
