@@ -63,8 +63,8 @@ importers:
         version: 0.14.6
     devDependencies:
       '@angular-eslint/builder':
-        specifier: ^18.0.0
-        version: 18.0.0(eslint@9.4.0)(typescript@5.4.5)
+        specifier: ^18.0.1
+        version: 18.0.1(eslint@9.4.0)(typescript@5.4.5)
       '@angular-eslint/eslint-plugin':
         specifier: ^18.0.0
         version: 18.0.0(eslint@9.4.0)(typescript@5.4.5)
@@ -218,6 +218,12 @@ packages:
 
   '@angular-eslint/builder@18.0.0':
     resolution: {integrity: sha512-OJql8ojTK4YQlYjg6F5vIGNA0SHkSPzUiIgUsLBh0IwzxYcJ/lqlQFG3KZOPUPwTuDW8MnCesGZnjE9o2jf1Ew==}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
+      typescript: '*'
+
+  '@angular-eslint/builder@18.0.1':
+    resolution: {integrity: sha512-b/VUeTQznAmGdwP4OyPWyegqSRWub7E8/WXBqojrSFyLkFhpTiHpk/3/5G3LsgTb0zBfyAsqkA0yaadsHu9pjA==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
       typescript: '*'
@@ -5706,6 +5712,17 @@ snapshots:
       - chokidar
 
   '@angular-eslint/builder@18.0.0(eslint@9.4.0)(typescript@5.4.5)':
+    dependencies:
+      '@nx/devkit': 19.1.1(nx@19.1.1)
+      eslint: 9.4.0
+      nx: 19.1.1
+      typescript: 5.4.5
+    transitivePeerDependencies:
+      - '@swc-node/register'
+      - '@swc/core'
+      - debug
+
+  '@angular-eslint/builder@18.0.1(eslint@9.4.0)(typescript@5.4.5)':
     dependencies:
       '@nx/devkit': 19.1.1(nx@19.1.1)
       eslint: 9.4.0
