@@ -66,8 +66,8 @@ importers:
         specifier: ^18.0.1
         version: 18.0.1(eslint@9.4.0)(typescript@5.4.5)
       '@angular-eslint/eslint-plugin':
-        specifier: ^18.0.0
-        version: 18.0.0(eslint@9.4.0)(typescript@5.4.5)
+        specifier: ^18.0.1
+        version: 18.0.1(@typescript-eslint/utils@8.0.0-alpha.20(eslint@9.4.0)(typescript@5.4.5))(eslint@9.4.0)(typescript@5.4.5)
       '@angular-eslint/eslint-plugin-template':
         specifier: ^18.0.0
         version: 18.0.0(eslint@9.4.0)(typescript@5.4.5)
