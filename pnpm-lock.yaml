@@ -135,8 +135,8 @@ importers:
         specifier: ^7.11.0
         version: 7.11.0(eslint@9.4.0)(typescript@5.4.5)
       undici:
-        specifier: ^6.18.2
-        version: 6.18.2
+        specifier: ^6.19.2
+        version: 6.19.2
 
 packages:
 
@@ -5290,8 +5290,8 @@ packages:
     resolution: {integrity: sha512-nT8jjv/fE9Et1ilR6QoW8ingRTY2Pp4l2RUrdzV5Yz35RJDrtPc1DXvuNqcpsJSGIRHFdt3YKKktTzJA6r0fTA==}
     engines: {node: '>=18.17'}
 
-  undici@6.18.2:
-    resolution: {integrity: sha512-o/MQLTwRm9IVhOqhZ0NQ9oXax1ygPjw6Vs+Vq/4QRjbOAC3B1GCHy7TYxxbExKlb7bzDRzt9vBWU6BDz0RFfYg==}
+  undici@6.19.2:
+    resolution: {integrity: sha512-JfjKqIauur3Q6biAtHJ564e3bWa8VvT+7cSiOJHFbX4Erv6CLGDpg8z+Fmg/1OI/47RA+GI2QZaF48SSaLvyBA==}
     engines: {node: '>=18.17'}
 
   unicode-canonical-property-names-ecmascript@2.0.0:
@@ -11618,7 +11618,7 @@ snapshots:
 
   undici@6.18.0: {}
 
-  undici@6.18.2: {}
+  undici@6.19.2: {}
 
   unicode-canonical-property-names-ecmascript@2.0.0: {}
 
