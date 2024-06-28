@@ -54,7 +54,7 @@
     "msw": "^2.3.1",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.5",
-    "typescript-eslint": "^7.11.0",
+    "typescript-eslint": "^7.14.1",
     "undici": "^6.19.2"
   },
   "pnpm": {
