@@ -2,7 +2,7 @@
   "name": "angular-boilerplate",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@9.7.1",
+  "packageManager": "pnpm@9.9.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
