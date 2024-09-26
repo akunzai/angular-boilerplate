@@ -63,8 +63,8 @@ importers:
         version: 0.14.10
     devDependencies:
       '@angular-eslint/builder':
-        specifier: ^18.3.0
-        version: 18.3.0(eslint@9.9.1(jiti@1.21.0))(typescript@5.4.5)
+        specifier: ^18.3.1
+        version: 18.3.1(eslint@9.9.1(jiti@1.21.0))(typescript@5.4.5)
       '@angular-eslint/eslint-plugin':
         specifier: ^18.2.0
         version: 18.2.0(@typescript-eslint/utils@8.2.0(eslint@9.9.1(jiti@1.21.0))(typescript@5.4.5))(eslint@9.9.1(jiti@1.21.0))(typescript@5.4.5)
@@ -228,12 +228,6 @@ packages:
   '@angular-devkit/schematics@18.2.2':
     resolution: {integrity: sha512-PU6+3nX+gQ3gofR7BGwXuvNUNeeV2raURaZjlPfGpBqjyTBxukMV71QsTTWptAZT4WibCWkTFp6X1gvsOGbjMg==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
-
-  '@angular-eslint/builder@18.3.0':
-    resolution: {integrity: sha512-httEQyqyBw3+0CRtAa7muFxHrauRfkEfk/jmrh5fn2Eiu+I53hAqFPgrwVi1V6AP/kj2zbAiWhd5xM3pMJdoRQ==}
-    peerDependencies:
-      eslint: ^8.57.0 || ^9.0.0
-      typescript: '*'
 
   '@angular-eslint/builder@18.3.1':
     resolution: {integrity: sha512-cPc7Ye9zDs5M4i+feL6vob+mh7yX5vxvOS5KQIhneUrp5e9D+IGuNFMmBLlOPpmklSc9XJBtuvI5Zjuh4z1ETw==}
@@ -6350,11 +6344,6 @@ snapshots:
       rxjs: 7.8.1
     transitivePeerDependencies:
       - chokidar
-
-  '@angular-eslint/builder@18.3.0(eslint@9.9.1(jiti@1.21.0))(typescript@5.4.5)':
-    dependencies:
-      eslint: 9.9.1(jiti@1.21.0)
-      typescript: 5.4.5
 
   '@angular-eslint/builder@18.3.1(eslint@9.9.1(jiti@1.21.0))(typescript@5.4.5)':
     dependencies:
