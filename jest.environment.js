@@ -7,5 +7,7 @@ export default class CustomTestEnvironment extends Environment {
         this.global.TextDecoder = TextDecoder;
         this.global.Response = Response;
         this.global.Request = Request;
+        this.global.ReadableStream = ReadableStream;
+        this.global.TransformStream = TransformStream;
     }
 };
