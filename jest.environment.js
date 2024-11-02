@@ -9,5 +9,6 @@ export default class CustomTestEnvironment extends Environment {
         this.global.Request = Request;
         this.global.ReadableStream = ReadableStream;
         this.global.TransformStream = TransformStream;
+        this.global.BroadcastChannel = BroadcastChannel;
     }
 };
