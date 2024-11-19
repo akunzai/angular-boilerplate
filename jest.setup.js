@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom';
-import 'jest-preset-angular/setup-jest';
+import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
 import { server } from './src/mocks/node';
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
+
+setupZoneTestEnv();
