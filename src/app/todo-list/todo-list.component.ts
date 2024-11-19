@@ -12,18 +12,17 @@ import { RouterLink } from '@angular/router';
 import { NgFor, NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-todo-list',
-  templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css'],
-  standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    NgFor,
-    RouterLink,
-    NgClass,
-    TranslateModule,
-  ],
+    selector: 'app-todo-list',
+    templateUrl: './todo-list.component.html',
+    styleUrls: ['./todo-list.component.css'],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        NgFor,
+        RouterLink,
+        NgClass,
+        TranslateModule,
+    ]
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];

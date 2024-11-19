@@ -6,11 +6,10 @@ import enTranslations from '../locales/en.json';
 import zhHantTranslations from '../locales/zh-Hant.json';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  standalone: true,
-  imports: [NavMenuComponent, RouterOutlet],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    imports: [NavMenuComponent, RouterOutlet]
 })
 export class AppComponent {
   title = document.title;
