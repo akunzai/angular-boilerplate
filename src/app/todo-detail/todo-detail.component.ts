@@ -12,11 +12,10 @@ import { Todo } from '../types';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-todo-detail',
-  templateUrl: './todo-detail.component.html',
-  styleUrls: ['./todo-detail.component.css'],
-  standalone: true,
-  imports: [NgIf, FormsModule, ReactiveFormsModule, TranslateModule],
+    selector: 'app-todo-detail',
+    templateUrl: './todo-detail.component.html',
+    styleUrls: ['./todo-detail.component.css'],
+    imports: [NgIf, FormsModule, ReactiveFormsModule, TranslateModule]
 })
 export class TodoDetailComponent implements OnInit {
   id = 0;
