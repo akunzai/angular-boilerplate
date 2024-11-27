@@ -1,6 +1,7 @@
-/** @type {import('@jest/types').Config.InitialOptions} */
-module.exports = {
-  preset: "jest-preset-angular",
+import presets from 'jest-preset-angular/presets';
+
+export default {
+  ...presets.createCjsPreset(),
   setupFilesAfterEnv: ["<rootDir>/setup-jest.js"],
   collectCoverageFrom: [
     "src/app/**/*.ts",
@@ -14,4 +15,4 @@ module.exports = {
   testEnvironmentOptions: {
     customExportConditions: [''],
   }
-};
+}
