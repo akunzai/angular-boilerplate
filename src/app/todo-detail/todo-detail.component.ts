@@ -53,12 +53,12 @@ export class TodoDetailComponent implements OnInit {
   onSubmit($event: Event): void {
     $event.preventDefault();
     const value = this.form.value;
-    const updatedTodo = new Todo(
-      this.id,
-      value.title ?? '',
-      value.description ?? '',
-      value.done ?? false
-    );
+    const updatedTodo: Todo = {
+      id: this.id,
+      title: value.title ?? '',
+      description: value.description ?? '',
+      done: value.done ?? false
+    };
     this.todoService.updateTodo(updatedTodo).subscribe(() => {
       this.location.back();
     });

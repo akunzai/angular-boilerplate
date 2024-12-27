@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { http, HttpResponse } from 'msw';
 import { server } from '../mocks/node';
 import TodoService from './todo.service';
-import { Todo } from './types';
 
 let service;
 
@@ -89,7 +88,7 @@ describe('addTodo', () => {
 
 describe('updateTodo', () => {
   test('should can retrieve it as expected', (done) => {
-    const todo = new Todo(3, 'Modified', 'Test', true);
+    const todo = { id: 3, title: 'Modified', description: 'Description', done: true };
     service.updateTodo(todo).subscribe(() => {
       service.getTodo(todo.id).subscribe((value) => {
         done();
@@ -107,7 +106,7 @@ describe('updateTodo', () => {
         return new HttpResponse(null, { status: 404 });
       })
     );
-    const todo = new Todo(999, 'NotFound');
+    const todo = { id: 999, title: 'NotFound' };
     service.updateTodo(todo).subscribe((value) => {
       done();
       expect(value).toBeUndefined();
@@ -127,7 +126,7 @@ describe('deleteTodo', () => {
         return new HttpResponse(null, { status: 404 });
       })
     );
-    const todo = new Todo(123, '');
+    const todo = { id: 123, title: '' };
     service.deleteTodo(todo).subscribe(() => {
       service.getTodo(todo.id).subscribe((value) => {
         done();
@@ -142,7 +141,7 @@ describe('deleteTodo', () => {
         return new HttpResponse(null, { status: 500 });
       })
     );
-    const todo = new Todo(456, '');
+    const todo = { id: 456, title: '' };
     service.deleteTodo(todo).subscribe((res) => {
       done();
       expect(res).toBeUndefined();

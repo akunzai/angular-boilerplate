@@ -1,12 +1,45 @@
 {
-	"Counter": "計數器",
-	"Current count": "目前計數",
-	"Description": "描述",
-	"Done": "完成",
-	"Increment": "增加",
-	"Save": "儲存",
-	"Title": "標題",
-	"Todo List": "待辦事項",
-	"Welcome!": "歡迎!",
-	"What need to be done?": "有什麼需要完成的事嗎?"
+  "NAV": {
+    "HOME": "首頁",
+    "COUNTER": "計數器",
+    "TODO": "待辦事項",
+    "TOGGLE_MENU": "切換導航選單",
+    "LANGUAGE_SELECTOR": "選擇語言"
+  },
+  "LANGUAGES": {
+    "ENGLISH": "English",
+    "CHINESE": "中文(繁體)"
+  },
+  "COMMON": {
+    "LOADING": "載入中...",
+    "ADD": "新增",
+    "DISMISS": "關閉"
+  },
+  "VALIDATION": {
+    "REQUIRED": "此欄位為必填"
+  },
+  "TODO": {
+    "NO_ITEMS": "尚無待辦事項，在上方新增一個吧！",
+    "MARK_COMPLETE": "標記為已完成",
+    "MARK_INCOMPLETE": "標記為未完成",
+    "VIEW_DETAILS": "查看詳細",
+    "DELETE": "刪除"
+  },
+  "Counter": "計數器",
+  "Current count": "目前計數",
+  "Description": "描述",
+  "Done": "完成",
+  "Increment": "增加",
+  "COUNTER": {
+    "CONTROLS": "計數器控制",
+    "INCREMENT_ARIA": "計數加一",
+    "RESET_ARIA": "重設計數為零",
+    "RESET": "重設",
+    "KEYBOARD_HINT": "使用空白鍵或 Enter 鍵來增加計數"
+  },
+  "Save": "儲存",
+  "Title": "標題",
+  "Todo List": "待辦事項",
+  "Welcome!": "歡迎!",
+  "What need to be done?": "有什麼需要完成的事嗎?"
 }

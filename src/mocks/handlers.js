@@ -1,10 +1,30 @@
 import { http, HttpResponse } from 'msw';
-import { Todo } from '../app/types';
 
 const db = [
-  new Todo(1, 'Pay bills', '', true),
-  new Todo(2, 'Read a book'),
-  new Todo(3, 'Buy eggs'),
+  {
+    id: 1,
+    title: 'Pay bills',
+    description: '',
+    done: true,
+    createdAt: '2024-12-28T03:28:47+08:00',
+    updatedAt: '2024-12-28T03:28:47+08:00'
+  },
+  {
+    id: 2,
+    title: 'Read a book',
+    description: '',
+    done: false,
+    createdAt: '2024-12-28T03:28:47+08:00',
+    updatedAt: '2024-12-28T03:28:47+08:00'
+  },
+  {
+    id: 3,
+    title: 'Buy eggs',
+    description: '',
+    done: false,
+    createdAt: '2024-12-28T03:28:47+08:00',
+    updatedAt: '2024-12-28T03:28:47+08:00'
+  }
 ];
 
 export const handlers = [
