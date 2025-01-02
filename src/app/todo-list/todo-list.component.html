@@ -1,54 +1,91 @@
 <div class="row justify-content-md-center">
   <div class="col-6">
     <h1>{{ "Todo List" | translate }}</h1>
-    <form (ngSubmit)="onSubmit($event)" ngNativeValidate>
+
+    <!-- Error Alert -->
+    <div *ngIf="errorMessage()" class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ errorMessage() }}
+      <button type="button" class="btn-close" (click)="error.set(null)" [attr.aria-label]="'COMMON.DISMISS' | translate"></button>
+    </div>
+
+    <!-- Add Todo Form -->
+    <form (ngSubmit)="onSubmit($event)" [class.was-validated]="titleControl.touched">
       <div class="input-group">
         <input
           type="text"
           class="form-control"
+          [class.is-invalid]="titleControl.invalid && titleControl.touched"
           name="title"
-          placeholder="{{ 'What need to be done?' | translate }}"
-          [formControl]="title"
+          [placeholder]="'What need to be done?' | translate"
+          [formControl]="titleControl"
+          [attr.aria-label]="'What need to be done?' | translate"
           required
         />
         <button
           class="btn btn-outline-secondary"
           type="submit"
-          aria-label="Add"
+          [attr.aria-label]="'COMMON.ADD' | translate"
+          [disabled]="titleControl.invalid || isLoading()"
         >
-          <i class="bi bi-plus"></i>
+          <i *ngIf="!isLoading()" class="bi bi-plus" aria-hidden="true"></i>
+          <div *ngIf="isLoading()" class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">{{ 'COMMON.LOADING' | translate }}</span>
+          </div>
         </button>
+      </div>
+      <div *ngIf="titleControl.invalid && titleControl.touched" class="invalid-feedback d-block">
+        {{ 'VALIDATION.REQUIRED' | translate }}
       </div>
     </form>
 
-    <div class="todo list-group">
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading()" class="text-center my-3">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">{{ 'COMMON.LOADING' | translate }}</span>
+      </div>
+    </div>
+
+    <!-- Todo List -->
+    <div class="todo list-group mt-3" role="list" *ngIf="!isLoading() && todoList().length > 0">
       <div
-        *ngFor="let todo of todos"
+        *ngFor="let todo of todoList(); trackBy: trackByTodoId"
         class="list-group-item list-group-item-action"
+        role="listitem"
       >
-        <div class="d-flex w-100 justify-content-between">
+        <div class="d-flex w-100 justify-content-between align-items-center">
           <div class="form-check">
             <input
               class="form-check-input"
               type="checkbox"
+              [id]="'todo-' + todo.id"
               [(ngModel)]="todo.done"
               (change)="onChange(todo)"
+              [attr.aria-label]="(todo.done ? 'TODO.MARK_INCOMPLETE' : 'TODO.MARK_COMPLETE') | translate"
             />
+            <label class="form-check-label visually-hidden" [for]="'todo-' + todo.id">
+              {{ todo.title }}
+            </label>
           </div>
           <a
-            routerLink="/todo/{{ todo.id }}"
+            [routerLink]="['/todo', todo.id]"
             [ngClass]="{ 'text-decoration-line-through': todo.done }"
+            [attr.aria-label]="'TODO.VIEW_DETAILS' | translate"
           >
             {{ todo.title }}
           </a>
           <button
             type="button"
             class="btn-close"
-            aria-label="Close"
+            [attr.aria-label]="'TODO.DELETE' | translate"
             (click)="onRemove(todo)"
           ></button>
         </div>
       </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading() && todoList().length === 0" class="text-center my-3">
+      <p class="text-muted">{{ 'TODO.NO_ITEMS' | translate }}</p>
     </div>
   </div>
 </div>

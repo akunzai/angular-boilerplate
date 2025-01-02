@@ -1,9 +1,33 @@
-<h1>{{ "Counter" | translate }}</h1>
+<div class="counter-container">
+  <h1>{{ "Counter" | translate }}</h1>
 
-<p aria-live="polite">
-  {{ "Current count" | translate }}: <strong>{{ currentCount }}</strong>
-</p>
+  <p aria-live="polite" class="mt-3">
+    {{ "Current count" | translate }}: <strong>{{ currentCount() }}</strong>
+  </p>
 
-<button class="btn btn-primary" (click)="incrementCounter()">
-  {{ "Increment" | translate }}
-</button>
+  <div class="btn-group" [attr.aria-label]="'COUNTER.CONTROLS' | translate">
+    <button
+      class="btn btn-primary"
+      (click)="incrementCounter()"
+      [attr.aria-label]="'COUNTER.INCREMENT_ARIA' | translate"
+    >
+      <i class="bi bi-plus-lg" aria-hidden="true"></i>
+      {{ "Increment" | translate }}
+    </button>
+
+    <button
+      class="btn btn-secondary ms-2"
+      (click)="resetCounter()"
+      [attr.aria-label]="'COUNTER.RESET_ARIA' | translate"
+    >
+      <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+      {{ "COUNTER.RESET" | translate }}
+    </button>
+  </div>
+
+  <div class="mt-3">
+    <small class="text-muted">
+      {{ "COUNTER.KEYBOARD_HINT" | translate }}
+    </small>
+  </div>
+</div>

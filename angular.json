@@ -59,9 +59,9 @@
                 "scripts": true,
                 "styles": {
                   "minify": true,
-                  "inlineCritical": false
+                  "inlineCritical": true
                 },
-                "fonts": false
+                "fonts": true
               },
               "outputHashing": "all",
               "sourceMap": false,

@@ -23,7 +23,7 @@ test('should render counter with 0', async () => {
 });
 
 test('should increment the counter on click', async () => {
-  fireEvent.click(screen.getByRole('button'));
+  fireEvent.click(screen.getByRole('button', { name: /Increment/i }));
   expect(screen.getByText(/Current count:/).textContent).toContain(
     'Current count: 1'
   );

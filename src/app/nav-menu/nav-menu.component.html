@@ -1,43 +1,57 @@
-<header>
+<header role="banner">
   <nav
-    class="
-      navbar navbar-expand-sm navbar-toggleable-sm navbar-light
-      bg-white
-      border-bottom
-      box-shadow
-      mb-3
-    "
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+    role="navigation"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">{{ title }}</a>
+      <a class="navbar-brand" [routerLink]="['/']" [attr.aria-label]="title">{{ title }}</a>
       <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target=".navbar-collapse"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="!isCollapsed"
+        [attr.aria-label]="'NAV.TOGGLE_MENU' | translate"
+        [attr.aria-expanded]="!collapsed"
         (click)="toggleCollapsed()"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        role="menu"
-        [ngClass]="{ show: !isCollapsed }"
+        [attr.aria-expanded]="!collapsed"
+        [ngClass]="{ show: !collapsed }"
       >
         <ul class="navbar-nav flex-grow">
-          <li
-            class="nav-item"
-          >
-            <a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/counter']" [routerLinkActive]="['active']" >Counter</a
+            <a
+              class="nav-link"
+              [routerLink]="['/']"
+              [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [attr.aria-label]="'NAV.HOME' | translate"
             >
+              {{ 'NAV.HOME' | translate }}
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/todo-list']" [routerLinkActive]="['active']">Todo</a>
+            <a
+              class="nav-link"
+              [routerLink]="['/counter']"
+              [routerLinkActive]="['active']"
+              [attr.aria-label]="'NAV.COUNTER' | translate"
+            >
+              {{ 'NAV.COUNTER' | translate }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/todo-list']"
+              [routerLinkActive]="['active']"
+              [attr.aria-label]="'NAV.TODO' | translate"
+            >
+              {{ 'NAV.TODO' | translate }}
+            </a>
           </li>
           <li class="nav-item dropdown">
             <button
@@ -45,15 +59,15 @@
               id="i18nDropdown"
               data-bs-toggle="dropdown"
               data-bs-auto-close="true"
-              aria-label="Toggle Languages"
-              [attr.aria-expanded]="isExpanded"
+              [attr.aria-label]="'NAV.LANGUAGE_SELECTOR' | translate"
+              [attr.aria-expanded]="expanded"
               (click)="toggleExpanded()"
             >
-              <i class="bi bi-globe"></i>
+              <i class="bi bi-globe" aria-hidden="true"></i>
             </button>
             <ul appClickOutside
               class="dropdown-menu"
-              [ngClass]="{ show: isExpanded }"
+              [ngClass]="{ show: expanded }"
               aria-labelledby="i18nDropdown"
               (clickOutside)="onOutsideClick()"
               [exclude]="'button.dropdown-toggle'"
@@ -61,19 +75,21 @@
               <li>
                 <button
                   class="dropdown-item"
-                  [ngClass]="{ active: isCurrentLanguage('^en') }"
+                  [ngClass]="{ active: (currentLang$ | async) === 'en' }"
                   (click)="switchLanguage('en')"
+                  [attr.aria-label]="'LANGUAGES.ENGLISH' | translate"
                 >
-                  English
+                  {{ 'LANGUAGES.ENGLISH' | translate }}
                 </button>
               </li>
               <li>
                 <button
                   class="dropdown-item"
-                  [ngClass]="{ active: isCurrentLanguage('^zh') }"
+                  [ngClass]="{ active: (currentLang$ | async) === 'zh-Hant' }"
                   (click)="switchLanguage('zh-Hant')"
+                  [attr.aria-label]="'LANGUAGES.CHINESE' | translate"
                 >
-                  中文(繁體)
+                  {{ 'LANGUAGES.CHINESE' | translate }}
                 </button>
               </li>
             </ul>
