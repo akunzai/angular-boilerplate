@@ -1,12 +1,45 @@
 {
-	"Counter": null,
-	"Current count": null,
-	"Description": null,
-	"Done": null,
-	"Increment": null,
-	"Save": null,
-	"Title": null,
-	"Todo List": null,
-	"Welcome!": null,
-	"What need to be done?": null
+  "NAV": {
+    "HOME": "Home",
+    "COUNTER": "Counter",
+    "TODO": "Todo",
+    "TOGGLE_MENU": "Toggle navigation menu",
+    "LANGUAGE_SELECTOR": "Select language"
+  },
+  "LANGUAGES": {
+    "ENGLISH": "English",
+    "CHINESE": "中文(繁體)"
+  },
+  "COMMON": {
+    "LOADING": "Loading...",
+    "ADD": "Add",
+    "DISMISS": "Dismiss"
+  },
+  "VALIDATION": {
+    "REQUIRED": "This field is required"
+  },
+  "TODO": {
+    "NO_ITEMS": "No todos yet. Add one above!",
+    "MARK_COMPLETE": "Mark as complete",
+    "MARK_INCOMPLETE": "Mark as incomplete",
+    "VIEW_DETAILS": "View details",
+    "DELETE": "Delete"
+  },
+  "Counter": "Counter",
+  "Current count": "Current count",
+  "Description": "Description",
+  "Done": "Done",
+  "Increment": "Increment",
+  "COUNTER": {
+    "CONTROLS": "Counter controls",
+    "INCREMENT_ARIA": "Increment counter by one",
+    "RESET_ARIA": "Reset counter to zero",
+    "RESET": "Reset",
+    "KEYBOARD_HINT": "Use the spacebar or enter key to increment the counter"
+  },
+  "Save": "Save",
+  "Title": "Title",
+  "Todo List": "Todo List",
+  "Welcome!": "Welcome!",
+  "What need to be done?": "What needs to be done?"
 }
