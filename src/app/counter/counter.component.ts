@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-counter',
-    templateUrl: './counter.component.html',
-    styleUrls: ['./counter.component.css'],
-    imports: [TranslateModule]
+  selector: 'app-counter',
+  templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.css'],
+  imports: [
+    TranslateModule
+  ],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CounterComponent {
-  public currentCount = 0;
+  private readonly count = signal(0);
+  currentCount = computed(() => this.count());
 
-  public incrementCounter() : void {
-    this.currentCount++;
+  incrementCounter(): void {
+    this.count.update(value => value + 1);
   }
 }

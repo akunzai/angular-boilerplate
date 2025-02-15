@@ -16,7 +16,7 @@
         data-toggle="collapse"
         data-target=".navbar-collapse"
         aria-label="Toggle navigation"
-        [attr.aria-expanded]="!isCollapsed"
+        [attr.aria-expanded]="!isCollapsed()"
         (click)="toggleCollapsed()"
       >
         <span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
         role="menu"
-        [ngClass]="{ show: !isCollapsed }"
+        [ngClass]="{ show: !isCollapsed() }"
       >
         <ul class="navbar-nav flex-grow">
           <li
@@ -46,14 +46,14 @@
               data-bs-toggle="dropdown"
               data-bs-auto-close="true"
               aria-label="Toggle Languages"
-              [attr.aria-expanded]="isExpanded"
+              [attr.aria-expanded]="isExpanded()"
               (click)="toggleExpanded()"
             >
               <i class="bi bi-globe"></i>
             </button>
             <ul appClickOutside
               class="dropdown-menu"
-              [ngClass]="{ show: isExpanded }"
+              [ngClass]="{ show: isExpanded() }"
               aria-labelledby="i18nDropdown"
               (clickOutside)="onOutsideClick()"
               [exclude]="'button.dropdown-toggle'"
