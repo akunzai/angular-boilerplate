@@ -1,21 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, Input, signal } from '@angular/core';
 import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
 import { ClickOutsideDirective } from '../click-outside.directive';
 import { NgClass } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-    selector: 'app-nav-menu',
-    templateUrl: './nav-menu.component.html',
-    styleUrls: ['./nav-menu.component.css'],
-    imports: [RouterLink, NgClass, RouterLinkActive, ClickOutsideDirective]
+  selector: 'app-nav-menu',
+  templateUrl: './nav-menu.component.html',
+  styleUrls: ['./nav-menu.component.css'],
+  imports: [RouterLink, NgClass, RouterLinkActive, ClickOutsideDirective],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavMenuComponent {
   @Input() title: string | undefined;
 
-  isCollapsed = true;
-  isExpanded = false;
-
+  private readonly collapsed = signal(true);
+  private readonly expanded = signal(false);
+  isCollapsed = computed(() => this.collapsed());
+  isExpanded = computed(() => this.expanded());
   constructor(private translate: TranslateService) {
     translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
       localStorage.setItem('locale', event.lang);
@@ -23,15 +26,15 @@ export class NavMenuComponent {
   }
 
   toggleCollapsed(): void {
-    this.isCollapsed = !this.isCollapsed;
+    this.collapsed.update(value => !value);
   }
 
   toggleExpanded(): void {
-    this.isExpanded = !this.isExpanded;
+    this.expanded.update(value => !value);
   }
 
   onOutsideClick(): void {
-    this.isExpanded = false;
+    this.expanded.set(false);
   }
 
   isCurrentLanguage(pattern: string): boolean {
@@ -40,6 +43,6 @@ export class NavMenuComponent {
 
   switchLanguage = (lang: string): void => {
     this.translate.use(lang);
-    this.isExpanded = false;
+    this.expanded.set(false);
   };
 }

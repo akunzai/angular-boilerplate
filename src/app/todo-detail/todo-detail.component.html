@@ -1,6 +1,6 @@
 <div *ngIf="!loaded">Loading...</div>
 <form
-  *ngIf="loaded"
+  *ngIf="isLoaded()"
   [formGroup]="form"
   (ngSubmit)="onSubmit($event)"
   ngNativeValidate

@@ -1,5 +1,5 @@
 import { Location, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, OnInit, signal } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -12,14 +12,17 @@ import { Todo } from '../types';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-todo-detail',
-    templateUrl: './todo-detail.component.html',
-    styleUrls: ['./todo-detail.component.css'],
-    imports: [NgIf, FormsModule, ReactiveFormsModule, TranslateModule]
+  selector: 'app-todo-detail',
+  templateUrl: './todo-detail.component.html',
+  styleUrls: ['./todo-detail.component.css'],
+  imports: [NgIf, FormsModule, ReactiveFormsModule, TranslateModule],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoDetailComponent implements OnInit {
   id = 0;
-  loaded = false;
+  loaded = signal<boolean>(false);
+  isLoaded = computed(() => this.loaded());
 
   form = this.formBuilder.group({
     title: ['', Validators.required],
@@ -32,14 +35,14 @@ export class TodoDetailComponent implements OnInit {
     private todoService: TodoService,
     private location: Location,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id === undefined) return;
     this.todoService.getTodo(id).subscribe((todo) => {
       if (todo !== undefined) {
-        this.loaded = true;
+        this.loaded.set(true);
         this.id = todo.id;
         this.form.setValue({
           title: todo.title,

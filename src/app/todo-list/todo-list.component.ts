@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -12,30 +12,32 @@ import { RouterLink } from '@angular/router';
 import { NgFor, NgClass } from '@angular/common';
 
 @Component({
-    selector: 'app-todo-list',
-    templateUrl: './todo-list.component.html',
-    styleUrls: ['./todo-list.component.css'],
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        NgFor,
-        RouterLink,
-        NgClass,
-        TranslateModule,
-    ]
+  selector: 'app-todo-list',
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.css'],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    NgFor,
+    RouterLink,
+    NgClass,
+    TranslateModule,
+  ],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListComponent implements OnInit {
-  todos: Todo[] = [];
+  todos = signal<Todo[]>([]);
   title = this.formBuilder.control('', Validators.required);
 
   constructor(
     private todoService: TodoService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.todoService.getTodoList().subscribe((todos) => {
-      this.todos = todos;
+      this.todos.set(todos);
     });
   }
 
@@ -48,14 +50,14 @@ export class TodoListComponent implements OnInit {
     this.todoService
       .addTodo({ title: title, done: false } as Todo)
       .subscribe((todo) => {
-        this.todos.push(todo);
+        this.todos.update(todos => [...todos, todo]);
         this.title.setValue('');
       });
   }
 
   onRemove(todo: Todo): void {
     this.todoService.deleteTodo(todo).subscribe(() => {
-      this.todos = this.todos.filter((x) => x !== todo);
+      this.todos.update(todos => todos.filter((x) => x !== todo));
     });
   }
 
