@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@angular/build": "^19.1.7",
-    "@angular/cli": "^19.2.0",
+    "@angular/cli": "^19.2.5",
     "@angular/compiler-cli": "^19.1.6",
     "@angular/localize": "^19.1.6",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
