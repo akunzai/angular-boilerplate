@@ -1,4 +1,4 @@
-import { Location, NgIf } from '@angular/common';
+import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, OnInit, signal } from '@angular/core';
 import {
   FormBuilder,
@@ -15,7 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-todo-detail',
   templateUrl: './todo-detail.component.html',
   styleUrls: ['./todo-detail.component.css'],
-  imports: [NgIf, FormsModule, ReactiveFormsModule, TranslateModule],
+  imports: [FormsModule, ReactiveFormsModule, TranslateModule],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
