@@ -1,46 +1,49 @@
-<div *ngIf="!loaded">Loading...</div>
-<form
-  *ngIf="isLoaded()"
-  [formGroup]="form"
-  (ngSubmit)="onSubmit($event)"
-  ngNativeValidate
->
-  <button
-    type="button"
-    class="btn-close float-end"
-    aria-label="Close"
-    (click)="onClose()"
-  ></button>
-  <div class="mb-3">
-    <label class="form-label" for="title">{{ "Title" | translate }}</label>
-    <input
-      class="form-control"
-      aria-label="Title"
-      formControlName="title"
-      placeholder="{{ 'Title' | translate }}"
-      required
-    />
-  </div>
-  <div class="mb-3">
-    <label class="form-label" for="description">{{
-      "Description" | translate
-    }}</label>
-    <textarea
-      class="form-control"
-      aria-label="Description"
-      formControlName="description"
-      placeholder="{{ 'Description' | translate }}"
-    ></textarea>
-  </div>
-  <div class="mb-3">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" formControlName="done" />
-      <label class="form-check-label" for="done">{{
-        "Done" | translate
-      }}</label>
+@if (!loaded) {
+  <div>Loading...</div>
+}
+@if (isLoaded()) {
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit($event)"
+    ngNativeValidate
+    >
+    <button
+      type="button"
+      class="btn-close float-end"
+      aria-label="Close"
+      (click)="onClose()"
+    ></button>
+    <div class="mb-3">
+      <label class="form-label" for="title">{{ "Title" | translate }}</label>
+      <input
+        class="form-control"
+        aria-label="Title"
+        formControlName="title"
+        placeholder="{{ 'Title' | translate }}"
+        required
+        />
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary" aria-label="Save">
-    {{ "Save" | translate }}
-  </button>
-</form>
+    <div class="mb-3">
+      <label class="form-label" for="description">{{
+        "Description" | translate
+      }}</label>
+      <textarea
+        class="form-control"
+        aria-label="Description"
+        formControlName="description"
+        placeholder="{{ 'Description' | translate }}"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="done" />
+        <label class="form-check-label" for="done">{{
+          "Done" | translate
+        }}</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" aria-label="Save">
+      {{ "Save" | translate }}
+    </button>
+  </form>
+}

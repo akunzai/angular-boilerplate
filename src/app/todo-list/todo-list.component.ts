@@ -9,7 +9,7 @@ import TodoService from '../todo.service';
 import { Todo } from '../types';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
-import { NgFor, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-todo-list',
@@ -18,11 +18,10 @@ import { NgFor, NgClass } from '@angular/common';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    NgFor,
     RouterLink,
     NgClass,
-    TranslateModule,
-  ],
+    TranslateModule
+],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
