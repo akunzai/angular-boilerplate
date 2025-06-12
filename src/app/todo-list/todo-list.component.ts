@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal, inject } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -26,13 +26,11 @@ import { NgClass } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListComponent implements OnInit {
+  private todoService = inject(TodoService);
+  private formBuilder = inject(FormBuilder);
+
   todos = signal<Todo[]>([]);
   title = this.formBuilder.control('', Validators.required);
-
-  constructor(
-    private todoService: TodoService,
-    private formBuilder: FormBuilder
-  ) { }
 
   ngOnInit(): void {
     this.todoService.getTodoList().subscribe((todos) => {

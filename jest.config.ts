@@ -1,4 +1,4 @@
-import presets from 'jest-preset-angular/presets';
+import presets from 'jest-preset-angular/presets/index.js';
 
 export default {
   ...presets.createCjsPreset(),
