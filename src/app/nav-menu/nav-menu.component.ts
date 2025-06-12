@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, Input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, Input, signal, inject } from '@angular/core';
 import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
 import { ClickOutsideDirective } from '../click-outside.directive';
 import { NgClass } from '@angular/common';
@@ -13,13 +13,17 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavMenuComponent {
+  private translate = inject(TranslateService);
+
   @Input() title: string | undefined;
 
   private readonly collapsed = signal(true);
   private readonly expanded = signal(false);
   isCollapsed = computed(() => this.collapsed());
   isExpanded = computed(() => this.expanded());
-  constructor(private translate: TranslateService) {
+  constructor() {
+    const translate = this.translate;
+
     translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
       localStorage.setItem('locale', event.lang);
     });

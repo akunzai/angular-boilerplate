@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { RouterOutlet } from '@angular/router';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -12,8 +12,12 @@ import zhHantTranslations from '../locales/zh-Hant.json';
     imports: [NavMenuComponent, RouterOutlet]
 })
 export class AppComponent {
+  translate = inject(TranslateService);
+
   title = document.title;
-  constructor(public translate: TranslateService) {
+  constructor() {
+    const translate = this.translate;
+
     translate.setTranslation('en', enTranslations);
     translate.setTranslation('zh-Hant', zhHantTranslations);
     translate.addLangs(['en', 'zh-Hant']);

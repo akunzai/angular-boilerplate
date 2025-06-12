@@ -1,26 +1,20 @@
-import {
-  Directive,
-  ElementRef,
-  EventEmitter,
-  Input,
-  NgZone,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, NgZone, OnDestroy, OnInit, Output, inject } from '@angular/core';
 
 @Directive({
   selector: '[appClickOutside]',
   standalone: true,
 })
 export class ClickOutsideDirective implements OnInit, OnDestroy {
+  private elementRef = inject(ElementRef);
+  private zone = inject(NgZone);
+
   @Input() exclude = '';
   @Output() clickOutside: EventEmitter<Event> = new EventEmitter<Event>();
 
   private excludeElements: HTMLElement[] = [];
   private events: string[] = ['click'];
 
-  constructor(private elementRef: ElementRef, private zone: NgZone) {
+  constructor() {
     this.eventListener = this.eventListener.bind(this);
   }
 

@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, OnInit, signal, inject } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -20,6 +20,11 @@ import { TranslateModule } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoDetailComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private todoService = inject(TodoService);
+  private location = inject(Location);
+  private formBuilder = inject(FormBuilder);
+
   id = 0;
   loaded = signal<boolean>(false);
   isLoaded = computed(() => this.loaded());
@@ -29,13 +34,6 @@ export class TodoDetailComponent implements OnInit {
     description: [''],
     done: [false],
   });
-
-  constructor(
-    private route: ActivatedRoute,
-    private todoService: TodoService,
-    private location: Location,
-    private formBuilder: FormBuilder
-  ) { }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));

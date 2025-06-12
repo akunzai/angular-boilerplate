@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { Todo } from './types';
 
@@ -7,9 +7,9 @@ import { Todo } from './types';
   providedIn: 'root',
 })
 export default class TodoService {
-  private baseUrl = '/api/todos';
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+  private baseUrl = '/api/todos';
 
   getTodoList(): Observable<Todo[]> {
     return this.http
