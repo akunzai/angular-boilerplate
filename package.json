@@ -42,7 +42,7 @@
     "@types/debug": "^4.1.12",
     "@types/jest": "^29.5.14",
     "@types/node": "^24.0.1",
-    "angular-eslint": "^20.0.0",
+    "angular-eslint": "^20.1.1",
     "eslint": "^9.28.0",
     "jest": "~30.0.0",
     "jest-fixed-jsdom": "^0.0.9",
