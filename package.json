@@ -14,14 +14,14 @@
     "i18n:extract": "ngx-translate-extract -i ./src -o ./src/locales/{en,zh-Hant}.json --null-as-default-value --sort --clean"
   },
   "dependencies": {
-    "@angular/animations": "^20.1.2",
-    "@angular/common": "^20.1.2",
-    "@angular/compiler": "^20.1.2",
-    "@angular/core": "^20.1.2",
-    "@angular/forms": "^20.1.2",
-    "@angular/platform-browser": "^20.1.2",
-    "@angular/platform-browser-dynamic": "^20.1.2",
-    "@angular/router": "^20.1.2",
+    "@angular/animations": "^20.1.4",
+    "@angular/common": "^20.1.4",
+    "@angular/compiler": "^20.1.4",
+    "@angular/core": "^20.1.4",
+    "@angular/forms": "^20.1.4",
+    "@angular/platform-browser": "^20.1.4",
+    "@angular/platform-browser-dynamic": "^20.1.4",
+    "@angular/router": "^20.1.4",
     "@ngx-translate/core": "^16.0.4",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.7",
@@ -31,10 +31,10 @@
     "zone.js": "^0.15.1"
   },
   "devDependencies": {
-    "@angular/build": "^20.1.1",
-    "@angular/cli": "^20.1.1",
-    "@angular/compiler-cli": "^20.1.2",
-    "@angular/localize": "^20.1.2",
+    "@angular/build": "^20.1.4",
+    "@angular/cli": "^20.1.4",
+    "@angular/compiler-cli": "^20.1.4",
+    "@angular/localize": "^20.1.4",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
     "@testing-library/angular": "^17.4.0",
     "@testing-library/jest-dom": "^6.6.4",
@@ -44,13 +44,13 @@
     "@types/node": "^24.0.10",
     "angular-eslint": "^20.1.1",
     "eslint": "^9.32.0",
-    "jest": "~30.0.3",
+    "jest": "~30.0.5",
     "jest-fixed-jsdom": "^0.0.9",
     "jest-preset-angular": "15.0.0",
-    "msw": "^2.10.2",
+    "msw": "^2.10.4",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.1"
+    "typescript-eslint": "^8.38.0"
   },
   "msw": {
     "workerDirectory": [
@@ -63,7 +63,8 @@
       "esbuild",
       "lmdb",
       "msgpackr-extract",
-      "msw"
+      "msw",
+      "unrs-resolver"
     ]
   }
 }
