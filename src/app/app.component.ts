@@ -21,7 +21,7 @@ export class AppComponent {
     translate.setTranslation('en', enTranslations);
     translate.setTranslation('zh-Hant', zhHantTranslations);
     translate.addLangs(['en', 'zh-Hant']);
-    translate.setDefaultLang('en');
+    translate.setFallbackLang('en');
     const locale = localStorage.getItem('locale');
     if (locale !== null) {
       translate.use(locale);

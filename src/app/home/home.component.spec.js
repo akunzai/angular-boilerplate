@@ -1,7 +1,8 @@
 import {
   TranslateFakeLoader,
-  TranslateLoader,
-  TranslateModule
+  TranslateModule,
+  provideTranslateService,
+  provideTranslateLoader
 } from '@ngx-translate/core';
 import { render, screen } from '@testing-library/angular';
 import { HomeComponent } from './home.component';
@@ -10,7 +11,11 @@ it('should render with title: Welcome!', async () => {
   await render(HomeComponent, {
     imports: [
       TranslateModule.forRoot({
-        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        providers: [
+          provideTranslateService({
+            loader: provideTranslateLoader(TranslateFakeLoader)
+          })
+        ]
       }),
     ],
   });

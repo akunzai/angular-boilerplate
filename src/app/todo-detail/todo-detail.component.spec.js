@@ -4,8 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
   TranslateFakeLoader,
-  TranslateLoader,
   TranslateModule,
+  provideTranslateService,
+  provideTranslateLoader,
 } from '@ngx-translate/core';
 import { fireEvent, render, screen, waitFor } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
@@ -20,7 +21,11 @@ test('without Todo should render nothing', async () => {
     imports: [
       ReactiveFormsModule,
       TranslateModule.forRoot({
-        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        providers: [
+          provideTranslateService({
+            loader: provideTranslateLoader(TranslateFakeLoader)
+          })
+        ]
       }),
     ],
     providers: [
@@ -53,7 +58,11 @@ describe('with Todo', () => {
         FormsModule,
         ReactiveFormsModule,
         TranslateModule.forRoot({
-          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+          providers: [
+            provideTranslateService({
+              loader: provideTranslateLoader(TranslateFakeLoader)
+            })
+          ]
         }),
       ],
       providers: [

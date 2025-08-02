@@ -1,7 +1,8 @@
 import {
   TranslateFakeLoader,
-  TranslateLoader,
-  TranslateModule
+  TranslateModule,
+  provideTranslateService,
+  provideTranslateLoader
 } from '@ngx-translate/core';
 import { fireEvent, render, screen } from '@testing-library/angular';
 import { CounterComponent } from './counter.component';
@@ -10,7 +11,11 @@ beforeEach(async () => {
   await render(CounterComponent, {
     imports: [
       TranslateModule.forRoot({
-        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        providers: [
+          provideTranslateService({
+            loader: provideTranslateLoader(TranslateFakeLoader)
+          })
+        ]
       }),
     ],
   });

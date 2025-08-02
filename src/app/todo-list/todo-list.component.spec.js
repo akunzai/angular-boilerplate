@@ -3,8 +3,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideRouter } from '@angular/router';
 import {
   TranslateFakeLoader,
-  TranslateLoader,
   TranslateModule,
+  provideTranslateService,
+  provideTranslateLoader,
 } from '@ngx-translate/core';
 import {
   fireEvent,
@@ -24,7 +25,11 @@ beforeEach(async () => {
       FormsModule,
       ReactiveFormsModule,
       TranslateModule.forRoot({
-        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        providers: [
+          provideTranslateService({
+            loader: provideTranslateLoader(TranslateFakeLoader)
+          })
+        ]
       }),
     ],
     providers: [provideRouter([]), provideHttpClient(withInterceptorsFromDi())],

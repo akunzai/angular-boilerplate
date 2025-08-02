@@ -42,7 +42,7 @@ export class NavMenuComponent {
   }
 
   isCurrentLanguage(pattern: string): boolean {
-    return new RegExp(pattern).test(this.translate.currentLang);
+    return new RegExp(pattern).test(this.translate.getCurrentLang());
   }
 
   switchLanguage = (lang: string): void => {
