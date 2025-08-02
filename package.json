@@ -44,7 +44,7 @@
     "@types/node": "^24.0.10",
     "angular-eslint": "^20.1.1",
     "eslint": "^9.32.0",
-    "jest": "~30.0.3",
+    "jest": "~30.0.5",
     "jest-fixed-jsdom": "^0.0.9",
     "jest-preset-angular": "15.0.0",
     "msw": "^2.10.2",
