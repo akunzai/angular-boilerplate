@@ -1,9 +1,10 @@
 import { provideRouter } from '@angular/router';
 import {
   TranslateFakeLoader,
-  TranslateLoader,
   TranslateModule,
-  TranslateService
+  TranslateService,
+  provideTranslateService,
+  provideTranslateLoader
 } from '@ngx-translate/core';
 import { fireEvent, render, screen } from '@testing-library/angular';
 import { NavMenuComponent } from './nav-menu.component';
@@ -15,7 +16,11 @@ beforeEach(async () => {
     },
     imports: [
       TranslateModule.forRoot({
-        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        providers: [
+          provideTranslateService({
+            loader: provideTranslateLoader(TranslateFakeLoader)
+          })
+        ]
       }),
     ],
     providers: [TranslateService, provideRouter([])],

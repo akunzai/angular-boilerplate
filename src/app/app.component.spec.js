@@ -1,8 +1,9 @@
 import { provideRouter } from '@angular/router';
 import {
   TranslateFakeLoader,
-  TranslateLoader,
   TranslateModule,
+  provideTranslateService,
+  provideTranslateLoader,
 } from '@ngx-translate/core';
 import { render, screen } from '@testing-library/angular';
 import { AppComponent } from './app.component';
@@ -12,7 +13,11 @@ it('renders without crashing', async () => {
   await render(AppComponent, {
     imports: [
       TranslateModule.forRoot({
-        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        providers: [
+          provideTranslateService({
+            loader: provideTranslateLoader(TranslateFakeLoader)
+          })
+        ]
       }),
     ],
     providers: [provideRouter([])],
