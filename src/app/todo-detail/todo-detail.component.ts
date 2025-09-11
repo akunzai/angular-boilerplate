@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, OnInit, signal, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal, inject } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -27,7 +27,6 @@ export class TodoDetailComponent implements OnInit {
 
   id = 0;
   loaded = signal<boolean>(false);
-  isLoaded = computed(() => this.loaded());
 
   form = this.formBuilder.group({
     title: ['', Validators.required],
