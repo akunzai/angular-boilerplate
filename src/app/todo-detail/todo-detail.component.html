@@ -1,7 +1,7 @@
-@if (!loaded) {
+@if (!loaded()) {
   <div>Loading...</div>
 }
-@if (isLoaded()) {
+@if (loaded()) {
   <form
     [formGroup]="form"
     (ngSubmit)="onSubmit($event)"

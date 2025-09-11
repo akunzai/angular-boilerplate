@@ -27,7 +27,6 @@ export class TodoDetailComponent implements OnInit {
 
   id = 0;
   loaded = signal<boolean>(false);
-  isLoaded = computed(() => this.loaded());
 
   form = this.formBuilder.group({
     title: ['', Validators.required],
