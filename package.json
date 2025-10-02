@@ -50,7 +50,7 @@
     "jest-preset-angular": "15.0.0",
     "msw": "^2.11.2",
     "ts-node": "^10.9.2",
-    "typescript": "~5.9.2",
+    "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0"
   },
   "msw": {
