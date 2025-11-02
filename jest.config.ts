@@ -14,5 +14,8 @@ export default {
   testEnvironment: "./jest.environment.js",
   testEnvironmentOptions: {
     customExportConditions: [''],
-  }
+  },
+  moduleNameMapper: {
+    '^until-async$': '<rootDir>/jest/__mocks__/until-async.cjs',
+  },
 }
