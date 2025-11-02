@@ -42,7 +42,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/debug": "^4.1.12",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.3.3",
+    "@types/node": "^24.9.2",
     "angular-eslint": "^20.2.0",
     "eslint": "^9.35.0",
     "jest": "~30.2.0",
