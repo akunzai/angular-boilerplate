@@ -1,3 +1,4 @@
+import 'web-streams-polyfill/polyfill';
 import '@testing-library/jest-dom';
 import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
 import { server } from './src/mocks/node';

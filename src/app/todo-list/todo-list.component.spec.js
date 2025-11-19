@@ -2,11 +2,12 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideRouter } from '@angular/router';
 import {
-  TranslateFakeLoader,
+  TranslateLoader,
   TranslateModule,
   provideTranslateService,
   provideTranslateLoader,
 } from '@ngx-translate/core';
+import { Observable, of } from 'rxjs';
 import {
   fireEvent,
   render,
@@ -19,17 +20,22 @@ import userEvent from '@testing-library/user-event';
 import { server } from '../../mocks/node';
 import { TodoListComponent } from './todo-list.component';
 
+class FakeLoader implements TranslateLoader {
+  getTranslation(lang: string): Observable<any> {
+    return of({});
+  }
+}
+
 beforeEach(async () => {
   await render(TodoListComponent, {
     imports: [
       FormsModule,
       ReactiveFormsModule,
       TranslateModule.forRoot({
-        providers: [
-          provideTranslateService({
-            loader: provideTranslateLoader(TranslateFakeLoader)
-          })
-        ]
+        loader: {
+          provide: TranslateLoader,
+          useClass: FakeLoader
+        }
       }),
     ],
     providers: [provideRouter([]), provideHttpClient(withInterceptorsFromDi())],
@@ -48,7 +54,7 @@ test('should renders as expected', async () => {
 
   const inputs = screen
     .getAllByRole('checkbox')
-    .map((x) => x);
+    .map((x) => x as HTMLInputElement);
   expect(inputs.length).toBe(3);
   expect(inputs[0].checked).toBeTruthy();
   expect(inputs[1].checked).toBeFalsy();

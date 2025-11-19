@@ -5,7 +5,7 @@ import { server } from '../mocks/node';
 import TodoService from './todo.service';
 import { Todo } from './types';
 
-let service;
+let service: TodoService;
 
 beforeAll(() => {
   jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
@@ -62,7 +62,7 @@ describe('getTodo', () => {
 
 describe('addTodo', () => {
   test('should generated id and response as requested with title', (done) => {
-    const expected = { title: 'Foo' };
+    const expected = new Todo(0, 'Foo');
     service.addTodo(expected).subscribe((actual) => {
       done();
       expect(actual.id).toBeGreaterThan(0);
@@ -78,7 +78,7 @@ describe('addTodo', () => {
         return new HttpResponse(null, { status: 400 });
       })
     );
-    const todo = { title: '' };
+    const todo = new Todo(0, '');
     service.addTodo(todo).subscribe((value) => {
       done();
       expect(value).toBeUndefined();

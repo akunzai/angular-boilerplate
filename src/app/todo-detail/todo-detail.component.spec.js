@@ -3,14 +3,21 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
-  TranslateFakeLoader,
+  TranslateLoader,
   TranslateModule,
   provideTranslateService,
   provideTranslateLoader,
 } from '@ngx-translate/core';
+import { Observable, of } from 'rxjs';
 import { fireEvent, render, screen, waitFor } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
 import { TodoDetailComponent } from './todo-detail.component';
+
+class FakeLoader implements TranslateLoader {
+  getTranslation(lang: string): Observable<any> {
+    return of({});
+  }
+}
 
 beforeAll(() => {
   jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
@@ -21,11 +28,10 @@ test('without Todo should render nothing', async () => {
     imports: [
       ReactiveFormsModule,
       TranslateModule.forRoot({
-        providers: [
-          provideTranslateService({
-            loader: provideTranslateLoader(TranslateFakeLoader)
-          })
-        ]
+        loader: {
+          provide: TranslateLoader,
+          useClass: FakeLoader
+        }
       }),
     ],
     providers: [
@@ -58,11 +64,10 @@ describe('with Todo', () => {
         FormsModule,
         ReactiveFormsModule,
         TranslateModule.forRoot({
-          providers: [
-            provideTranslateService({
-              loader: provideTranslateLoader(TranslateFakeLoader)
-            })
-          ]
+          loader: {
+            provide: TranslateLoader,
+            useClass: FakeLoader
+          }
         }),
       ],
       providers: [
@@ -85,13 +90,13 @@ describe('with Todo', () => {
   test('should renders as expected', async () => {
     const title = await screen.findByRole('textbox', {
       name: /Title/i,
-    });
+    }) as HTMLInputElement;
     expect(title.value).toBe('Pay bills');
     const description = await screen.findByRole('textbox', {
       name: /Description/i,
     });
     expect(description.textContent).toBe('');
-    const done = screen.getByRole('checkbox');
+    const done = screen.getByRole('checkbox') as HTMLInputElement;
     expect(done.checked).toBeTruthy();
   });
 
