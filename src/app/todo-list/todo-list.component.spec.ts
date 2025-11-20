@@ -1,12 +1,7 @@
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideRouter } from '@angular/router';
-import {
-  TranslateFakeLoader,
-  TranslateModule,
-  provideTranslateService,
-  provideTranslateLoader,
-} from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   fireEvent,
   render,
@@ -16,7 +11,7 @@ import {
 } from '@testing-library/angular';
 import { http, HttpResponse } from 'msw';
 import userEvent from '@testing-library/user-event';
-import { server } from '../../mocks/node';
+import { provideTranslateTesting } from '../testing/translate';
 import { TodoListComponent } from './todo-list.component';
 
 beforeEach(async () => {
@@ -24,15 +19,13 @@ beforeEach(async () => {
     imports: [
       FormsModule,
       ReactiveFormsModule,
-      TranslateModule.forRoot({
-        providers: [
-          provideTranslateService({
-            loader: provideTranslateLoader(TranslateFakeLoader)
-          })
-        ]
-      }),
+      TranslateModule.forRoot(),
     ],
-    providers: [provideRouter([]), provideHttpClient(withInterceptorsFromDi())],
+    providers: [
+      provideRouter([]),
+      provideHttpClient(withInterceptorsFromDi()),
+      ...provideTranslateTesting(),
+    ],
   });
 });
 
@@ -48,7 +41,7 @@ test('should renders as expected', async () => {
 
   const inputs = screen
     .getAllByRole('checkbox')
-    .map((x) => x);
+    .map((x) => x as HTMLInputElement);
   expect(inputs.length).toBe(3);
   expect(inputs[0].checked).toBeTruthy();
   expect(inputs[1].checked).toBeFalsy();

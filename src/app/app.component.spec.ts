@@ -1,26 +1,19 @@
 import { provideRouter } from '@angular/router';
-import {
-  TranslateFakeLoader,
-  TranslateModule,
-  provideTranslateService,
-  provideTranslateLoader,
-} from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { render, screen } from '@testing-library/angular';
+import { provideTranslateTesting } from './testing/translate';
 import { AppComponent } from './app.component';
 
 it('renders without crashing', async () => {
   document.title = 'Angular Boilerplate';
   await render(AppComponent, {
     imports: [
-      TranslateModule.forRoot({
-        providers: [
-          provideTranslateService({
-            loader: provideTranslateLoader(TranslateFakeLoader)
-          })
-        ]
-      }),
+      TranslateModule.forRoot(),
     ],
-    providers: [provideRouter([])],
+    providers: [
+      provideRouter([]),
+      ...provideTranslateTesting(),
+    ],
   });
   expect(await screen.findByText('Angular Boilerplate')).toBeInTheDocument();
 });

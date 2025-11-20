@@ -1,12 +1,7 @@
 import { provideRouter } from '@angular/router';
-import {
-  TranslateFakeLoader,
-  TranslateModule,
-  TranslateService,
-  provideTranslateService,
-  provideTranslateLoader
-} from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { fireEvent, render, screen } from '@testing-library/angular';
+import { provideTranslateTesting } from '../testing/translate';
 import { NavMenuComponent } from './nav-menu.component';
 
 beforeEach(async () => {
@@ -15,15 +10,13 @@ beforeEach(async () => {
       title: 'Test',
     },
     imports: [
-      TranslateModule.forRoot({
-        providers: [
-          provideTranslateService({
-            loader: provideTranslateLoader(TranslateFakeLoader)
-          })
-        ]
-      }),
+      TranslateModule.forRoot(),
     ],
-    providers: [TranslateService, provideRouter([])],
+    providers: [
+      TranslateService,
+      provideRouter([]),
+      ...provideTranslateTesting(),
+    ],
   });
 });
 
