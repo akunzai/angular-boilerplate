@@ -22,8 +22,7 @@
             },
             "index": "src/index.html",
             "polyfills": [
-              "@angular/localize/init",
-              "src/polyfills.ts"
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -95,6 +94,14 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "buildTarget": "angular-boilerplate:build:development",
+            "tsConfig": "tsconfig.spec.json",
+            "runnerConfig": "vitest.config.ts"
+          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",

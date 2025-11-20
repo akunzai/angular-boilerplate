@@ -1,7 +1,7 @@
 /// <reference types="@angular/localize" />
 
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { enableProdMode, importProvidersFrom, provideZonelessChangeDetection } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
@@ -41,5 +41,6 @@ bootstrapApplication(AppComponent, {
       { path: 'todo-list', component: TodoListComponent },
       { path: 'todo/:id', component: TodoDetailComponent },
     ]),
+    provideZonelessChangeDetection(),
   ],
 }).catch((err) => console.error(err));

@@ -1,13 +1,7 @@
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideRouter } from '@angular/router';
-import {
-  TranslateLoader,
-  TranslateModule,
-  provideTranslateService,
-  provideTranslateLoader,
-} from '@ngx-translate/core';
-import { Observable, of } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   fireEvent,
   render,
@@ -17,28 +11,21 @@ import {
 } from '@testing-library/angular';
 import { http, HttpResponse } from 'msw';
 import userEvent from '@testing-library/user-event';
-import { server } from '../../mocks/node';
+import { provideTranslateTesting } from '../testing/translate';
 import { TodoListComponent } from './todo-list.component';
-
-class FakeLoader implements TranslateLoader {
-  getTranslation(lang: string): Observable<any> {
-    return of({});
-  }
-}
 
 beforeEach(async () => {
   await render(TodoListComponent, {
     imports: [
       FormsModule,
       ReactiveFormsModule,
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useClass: FakeLoader
-        }
-      }),
+      TranslateModule.forRoot(),
     ],
-    providers: [provideRouter([]), provideHttpClient(withInterceptorsFromDi())],
+    providers: [
+      provideRouter([]),
+      provideHttpClient(withInterceptorsFromDi()),
+      ...provideTranslateTesting(),
+    ],
   });
 });
 

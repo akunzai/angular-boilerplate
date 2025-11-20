@@ -1,23 +1,14 @@
-import {
-  TranslateFakeLoader,
-  TranslateModule,
-  provideTranslateService,
-  provideTranslateLoader
-} from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { fireEvent, render, screen } from '@testing-library/angular';
+import { provideTranslateTesting } from '../testing/translate';
 import { CounterComponent } from './counter.component';
 
 beforeEach(async () => {
   await render(CounterComponent, {
     imports: [
-      TranslateModule.forRoot({
-        providers: [
-          provideTranslateService({
-            loader: provideTranslateLoader(TranslateFakeLoader)
-          })
-        ]
-      }),
+      TranslateModule.forRoot(),
     ],
+    providers: [...provideTranslateTesting()],
   });
 });
 

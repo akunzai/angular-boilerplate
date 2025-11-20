@@ -2,37 +2,21 @@ import { Location } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import {
-  TranslateLoader,
-  TranslateModule,
-  provideTranslateService,
-  provideTranslateLoader,
-} from '@ngx-translate/core';
-import { Observable, of } from 'rxjs';
-import { fireEvent, render, screen, waitFor } from '@testing-library/angular';
+import { TranslateModule } from '@ngx-translate/core';
+import { fireEvent, render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
+import { provideTranslateTesting } from '../testing/translate';
 import { TodoDetailComponent } from './todo-detail.component';
 
-class FakeLoader implements TranslateLoader {
-  getTranslation(lang: string): Observable<any> {
-    return of({});
-  }
-}
-
 beforeAll(() => {
-  jest.spyOn(global.console, 'error').mockImplementation(() => undefined);
+  vi.spyOn(global.console, 'error').mockImplementation(() => undefined);
 });
 
 test('without Todo should render nothing', async () => {
   await render(TodoDetailComponent, {
     imports: [
       ReactiveFormsModule,
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useClass: FakeLoader
-        }
-      }),
+      TranslateModule.forRoot(),
     ],
     providers: [
       provideHttpClient(withInterceptorsFromDi()),
@@ -40,10 +24,11 @@ test('without Todo should render nothing', async () => {
         provide: ActivatedRoute,
         useValue: {
           snapshot: {
-            paramMap: { get: jest.fn().mockReturnValue(0) },
+            paramMap: { get: vi.fn().mockReturnValue(0) },
           },
         },
       },
+      ...provideTranslateTesting(),
     ],
   });
   expect(screen.queryAllByRole('textbox')).toStrictEqual([]);
@@ -51,24 +36,19 @@ test('without Todo should render nothing', async () => {
 
 describe('with Todo', () => {
   const location = {
-    back: jest.fn(),
-    getState: jest.fn(),
-    isCurrentPathEqualTo: jest.fn(),
-    path: jest.fn(),
-    replaceState: jest.fn(),
-    subscribe: jest.fn(),
+    back: vi.fn(),
+    getState: vi.fn(),
+    isCurrentPathEqualTo: vi.fn(),
+    path: vi.fn(),
+    replaceState: vi.fn(),
+    subscribe: vi.fn(),
   };
   beforeEach(async () => {
     await render(TodoDetailComponent, {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        TranslateModule.forRoot({
-          loader: {
-            provide: TranslateLoader,
-            useClass: FakeLoader
-          }
-        }),
+        TranslateModule.forRoot(),
       ],
       providers: [
         provideHttpClient(withInterceptorsFromDi()),
@@ -77,12 +57,13 @@ describe('with Todo', () => {
           useValue: {
             snapshot: {
               paramMap: {
-                get: jest.fn().mockReturnValue(1),
+                get: vi.fn().mockReturnValue(1),
               },
             },
           },
         },
         { provide: Location, useFactory: () => location },
+        ...provideTranslateTesting(),
       ],
     });
   });
