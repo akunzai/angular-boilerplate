@@ -41,6 +41,6 @@ pnpm i18n:extract
 
 - [Angular ESLint](https://github.com/angular-eslint/angular-eslint)
 - [Angular i18n Library - ngx-translate](https://github.com/ngx-translate/core)
-- [Angular Testing Library](https://testing-library.com/docs/angular-testing-library/intro/), [Best practices](https://dev.to/matheusmichels/writing-efficient-tests-with-angular-og5)
+- [Angular Testing Library](https://testing-library.com/docs/angular-testing-library/intro/)
 - [Mock Service Worker](https://mswjs.io/docs/)
 - [Vitest](https://vitest.dev/)
