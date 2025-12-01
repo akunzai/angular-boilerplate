@@ -37,7 +37,7 @@
     "@angular/localize": "^21.0.0",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
     "@testing-library/angular": "^18.1.1",
-    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/jest-dom": "6.9.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/debug": "^4.1.12",
     "@types/node": "^24.10.1",
