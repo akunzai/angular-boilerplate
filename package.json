@@ -57,6 +57,9 @@
     ]
   },
   "pnpm": {
+    "overrides": {
+      "hono": ">=4.11.7"
+    },
     "onlyBuiltDependencies": [
       "@parcel/watcher",
       "esbuild",
