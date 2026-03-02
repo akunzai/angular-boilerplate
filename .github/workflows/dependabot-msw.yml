@@ -5,6 +5,7 @@ on:
     paths:
       - "package.json"
       - "pnpm-lock.yaml"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -12,26 +13,21 @@ permissions:
 
 jobs:
   update-msw:
-    # Only run on Dependabot PRs that update msw
-    if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.head_ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: ${{ github.head_ref || github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Check if msw was updated
         id: check-msw
         run: |
-          if git diff HEAD~1 --name-only | grep -q "pnpm-lock.yaml"; then
-            if git diff HEAD~1 -- pnpm-lock.yaml | grep -q '"msw"'; then
-              echo "msw_updated=true" >> $GITHUB_OUTPUT
-            else
-              echo "msw_updated=false" >> $GITHUB_OUTPUT
-            fi
+          git fetch origin main --depth=1
+          if git diff origin/main...HEAD -- pnpm-lock.yaml | grep -q "msw:"; then
+            echo "msw_updated=true" >> $GITHUB_OUTPUT
           else
             echo "msw_updated=false" >> $GITHUB_OUTPUT
           fi
@@ -40,35 +36,23 @@ jobs:
         if: steps.check-msw.outputs.msw_updated == 'true'
         uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "24"
 
       - name: Set up pnpm
         if: steps.check-msw.outputs.msw_updated == 'true'
         uses: pnpm/action-setup@v4
 
-      - name: Install dependencies
-        if: steps.check-msw.outputs.msw_updated == 'true'
-        run: pnpm install
-
       - name: Update mockServiceWorker.js
         if: steps.check-msw.outputs.msw_updated == 'true'
-        run: pnpm dlx msw init src --save=false
-
-      - name: Check for changes
-        if: steps.check-msw.outputs.msw_updated == 'true'
-        id: check-changes
         run: |
+          pnpm dlx msw init src --save=false
+          
           if git diff --quiet src/mockServiceWorker.js; then
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes in mockServiceWorker.js"
           else
-            echo "has_changes=true" >> $GITHUB_OUTPUT
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git add src/mockServiceWorker.js
+            git commit -m "chore: update mockServiceWorker.js for msw upgrade"
+            git push
           fi
-
-      - name: Commit and push changes
-        if: steps.check-msw.outputs.msw_updated == 'true' && steps.check-changes.outputs.has_changes == 'true'
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add src/mockServiceWorker.js
-          git commit -m "chore: update mockServiceWorker.js for msw upgrade"
-          git push
