@@ -48,7 +48,7 @@
     "jsdom": "^29.0.1",
     "msw": "^2.12.14",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.57.2",
+    "typescript-eslint": "^8.58.0",
     "vitest": "^4.1.1",
     "web-streams-polyfill": "^4.2.0"
   },
