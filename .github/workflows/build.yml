@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ matrix.node }}
           package-manager-cache: false
       - name: Set up pnpm
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
       - name: Get pnpm store directory
         shell: bash
         run: |

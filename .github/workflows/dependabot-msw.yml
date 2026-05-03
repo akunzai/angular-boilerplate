@@ -40,7 +40,7 @@ jobs:
 
       - name: Set up pnpm
         if: steps.check-msw.outputs.msw_updated == 'true'
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
 
       - name: Update mockServiceWorker.js
         if: steps.check-msw.outputs.msw_updated == 'true'
