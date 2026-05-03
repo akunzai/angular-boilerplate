@@ -62,7 +62,7 @@ importers:
     devDependencies:
       '@angular/build':
         specifier: ^21.2.6
-        version: 21.2.6(@angular/compiler-cli@21.2.7(@angular/compiler@21.2.7)(typescript@5.9.3))(@angular/compiler@21.2.7)(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/localize@21.2.7(@angular/compiler-cli@21.2.7(@angular/compiler@21.2.7)(typescript@5.9.3))(@angular/compiler@21.2.7))(@angular/platform-browser@21.2.7(@angular/animations@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@types/node@25.5.0)(chokidar@5.0.0)(jiti@1.21.6)(less@4.2.0)(postcss@8.5.6)(terser@5.36.0)(tslib@2.8.1)(typescript@5.9.3)(vitest@4.1.2(@types/node@25.5.0)(jsdom@29.0.1)(msw@2.14.2(@types/node@25.5.0)(typescript@5.9.3))(vite@8.0.7(@types/node@25.5.0)(esbuild@0.27.3)(jiti@1.21.6)(less@4.2.0)(sass@1.97.3)(terser@5.36.0)))
+        version: 21.2.6(@angular/compiler-cli@21.2.7(@angular/compiler@21.2.7)(typescript@5.9.3))(@angular/compiler@21.2.7)(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/localize@21.2.7(@angular/compiler-cli@21.2.7(@angular/compiler@21.2.7)(typescript@5.9.3))(@angular/compiler@21.2.7))(@angular/platform-browser@21.2.7(@angular/animations@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@types/node@25.5.0)(chokidar@5.0.0)(jiti@1.21.6)(less@4.2.0)(postcss@8.5.13)(terser@5.36.0)(tslib@2.8.1)(typescript@5.9.3)(vitest@4.1.2(@types/node@25.5.0)(jsdom@29.0.1)(msw@2.14.2(@types/node@25.5.0)(typescript@5.9.3))(vite@8.0.7(@types/node@25.5.0)(esbuild@0.27.3)(jiti@1.21.6)(less@4.2.0)(sass@1.97.3)(terser@5.36.0)))
       '@angular/cli':
         specifier: ^21.2.6
         version: 21.2.6(@types/node@25.5.0)(chokidar@5.0.0)
@@ -3131,12 +3131,8 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
 
-  postcss@8.5.6:
-    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
-    engines: {node: ^10 || ^12 || >=14}
-
-  postcss@8.5.9:
-    resolution: {integrity: sha512-7a70Nsot+EMX9fFU3064K/kdHWZqGVY+BADLyXc8Dfv+mTLLVl6JzJpPaCZ2kQL9gIJvKXSLMHhqdRRjwQeFtw==}
+  postcss@8.5.13:
+    resolution: {integrity: sha512-qif0+jGGZoLWdHey3UFHHWP0H7Gbmsk8T5VEqyYFbWqPr1XqvLGBbk/sl8V5exGmcYJklJOhOQq1pV9IcsiFag==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -4019,7 +4015,7 @@ snapshots:
       '@angular/core': 21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)
       tslib: 2.8.1
 
-  '@angular/build@21.2.6(@angular/compiler-cli@21.2.7(@angular/compiler@21.2.7)(typescript@5.9.3))(@angular/compiler@21.2.7)(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/localize@21.2.7(@angular/compiler-cli@21.2.7(@angular/compiler@21.2.7)(typescript@5.9.3))(@angular/compiler@21.2.7))(@angular/platform-browser@21.2.7(@angular/animations@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@types/node@25.5.0)(chokidar@5.0.0)(jiti@1.21.6)(less@4.2.0)(postcss@8.5.6)(terser@5.36.0)(tslib@2.8.1)(typescript@5.9.3)(vitest@4.1.2(@types/node@25.5.0)(jsdom@29.0.1)(msw@2.14.2(@types/node@25.5.0)(typescript@5.9.3))(vite@8.0.7(@types/node@25.5.0)(esbuild@0.27.3)(jiti@1.21.6)(less@4.2.0)(sass@1.97.3)(terser@5.36.0)))':
+  '@angular/build@21.2.6(@angular/compiler-cli@21.2.7(@angular/compiler@21.2.7)(typescript@5.9.3))(@angular/compiler@21.2.7)(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/localize@21.2.7(@angular/compiler-cli@21.2.7(@angular/compiler@21.2.7)(typescript@5.9.3))(@angular/compiler@21.2.7))(@angular/platform-browser@21.2.7(@angular/animations@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@types/node@25.5.0)(chokidar@5.0.0)(jiti@1.21.6)(less@4.2.0)(postcss@8.5.13)(terser@5.36.0)(tslib@2.8.1)(typescript@5.9.3)(vitest@4.1.2(@types/node@25.5.0)(jsdom@29.0.1)(msw@2.14.2(@types/node@25.5.0)(typescript@5.9.3))(vite@8.0.7(@types/node@25.5.0)(esbuild@0.27.3)(jiti@1.21.6)(less@4.2.0)(sass@1.97.3)(terser@5.36.0)))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2102.6(chokidar@5.0.0)
@@ -4058,7 +4054,7 @@ snapshots:
       '@angular/platform-browser': 21.2.7(@angular/animations@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))
       less: 4.2.0
       lmdb: 3.5.1
-      postcss: 8.5.6
+      postcss: 8.5.13
       vitest: 4.1.2(@types/node@25.5.0)(jsdom@29.0.1)(msw@2.14.2(@types/node@25.5.0)(typescript@5.9.3))(vite@8.0.7(@types/node@25.5.0)(esbuild@0.27.3)(jiti@1.21.6)(less@4.2.0)(sass@1.97.3)(terser@5.36.0))
     transitivePeerDependencies:
       - '@types/node'
@@ -5590,9 +5586,9 @@ snapshots:
       domhandler: 5.0.3
       htmlparser2: 10.0.0
       picocolors: 1.1.1
-      postcss: 8.5.6
+      postcss: 8.5.13
       postcss-media-query-parser: 0.2.3
-      postcss-safe-parser: 7.0.1(postcss@8.5.6)
+      postcss-safe-parser: 7.0.1(postcss@8.5.13)
 
   bidi-js@1.0.3:
     dependencies:
@@ -6894,17 +6890,11 @@ snapshots:
 
   postcss-media-query-parser@0.2.3: {}
 
-  postcss-safe-parser@7.0.1(postcss@8.5.6):
+  postcss-safe-parser@7.0.1(postcss@8.5.13):
     dependencies:
-      postcss: 8.5.6
+      postcss: 8.5.13
 
-  postcss@8.5.6:
-    dependencies:
-      nanoid: 3.3.11
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
-
-  postcss@8.5.9:
+  postcss@8.5.13:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -7402,7 +7392,7 @@ snapshots:
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
-      postcss: 8.5.9
+      postcss: 8.5.13
       rolldown: 1.0.0-rc.13
       tinyglobby: 0.2.15
     optionalDependencies:
